@@ -1,0 +1,111 @@
+.block {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.block h4 {
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 20px;
+}
+
+.block .input-group {
+    margin-bottom: 15px;
+}
+
+.block .input-group label {
+    width: 65%;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.block .input-group input {
+    width: 15%;
+    display: inline-block;
+}
+
+.result-block {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.result-block h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ced4da;
+    position: relative;
+}
+
+.result-row:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    cursor: pointer;
+    position: relative;
+    width: 30%;
+}
+
+.result-label .tooltip-text {
+    visibility: hidden;
+    background-color: #6c757d;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.result-label:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.result-value {
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #495057;
+}
+
+.dropdown {
+    margin: 0 auto;
+    text-align: center;
+}
