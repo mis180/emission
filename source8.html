@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Источник загрязнения N 0001, Технологическая печь П-1 (резервное топливо - мазут)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tooltip-text {
+            display: none;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .result-label:hover .tooltip-text {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Источник загрязнения N 0001, Технологическая печь П-1 (резервное топливо - мазут)</h2>
+
+        <div class="tab-content mt-4">
+            <div id="source8Results">
+
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <!-- SO2 Results -->
+                        <div class="result-block">
+                            <h5>Примесь: Сера диоксид (SO<sub>2</sub>)</h5>
+                            <div class="result-row">
+                                <div class="result-label">Kоличество выбросов, кг/час:
+                                    <span class="result-value" id="so2_hour_source8"></span>
+                                    <div class="tooltip-text">M = B · (2 · SR · BB + 1.88 · H<sub>2</sub>S · (1 - BB)) · 0.01</div>
+                                </div>
+                                <div class="result-label">Валовый выброс, т/год:
+                                    <span class="result-value" id="so2_year_source8"></span>
+                                    <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                                </div>
+                                <div class="result-label">Максимальный из разовых выброс, г/с:
+                                    <span class="result-value" id="so2_peak_source8"></span>
+                                    <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CO Results -->
+                        <div class="result-block">
+                            <h5>Примесь: Углерод оксид (CO)</h5>
+                            <div class="result-row">
+                                <div class="result-label">Kоличество выбросов, кг/час:
+                                    <span class="result-value" id="co_hour_source8"></span>
+                                    <div class="tooltip-text">M = 1.5 · B · 10<sup>-3</sup></div>
+                                </div>
+                                <div class="result-label">Валовый выброс, т/год:
+                                    <span class="result-value" id="co_year_source8"></span>
+                                    <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                                </div>
+                                <div class="result-label">Максимальный из разовых выброс, г/с:
+                                    <span class="result-value" id="co_peak_source8"></span>
+                                    <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CH4 Results -->
+                        <div class="result-block">
+                            <h5>Примесь: Метан (CH<sub>4</sub>)</h5>
+                            <div class="result-row">
+                                <div class="result-label">Kоличество выбросов, кг/час:
+                                    <span class="result-value" id="ch4_hour_source8"></span>
+                                    <div class="tooltip-text">M = 1.5 · B · 10<sup>-3</sup></div>
+                                </div>
+                                <div class="result-label">Валовый выброс, т/год:
+                                    <span class="result-value" id="ch4_year_source8"></span>
+                                    <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                                </div>
+                                <div class="result-label">Максимальный из разовых выброс, г/с:
+                                    <span class="result-value" id="ch4_peak_source8"></span>
+                                    <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NOx Results -->
+                        <div class="result-block">
+                            <h5>Примесь: Окислы азота (NO<sub>x</sub>)</h5>
+                            <div class="result-row">
+                                <div class="result-label">Kоличество выбросов, кг/час:
+                                    <span class="result-value" id="nox_hour_source8"></span>
+                                    <div class="tooltip-text">M = VR · CNOx</div>
+                                </div>
+                                <div class="result-label">Валовый выброс, т/год:
+                                    <span class="result-value" id="nox_year_source8"></span>
+                                    <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                                </div>
+                                <div class="result-label">Максимальный из разовых выброс, г/с:
+                                    <span class="result-value" id="nox_peak_source8"></span>
+                                    <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NO2 Results -->
+                        <div class="result-block">
+                            <h5>Примесь: Азота диоксид (NO<sub>2</sub>)</h5>
+                            <div class="result-row">
+                                <div class="result-label">Валовый выброс, т/год:
+                                    <span class="result-value" id="no2_year_source8"></span>
+                                    <div class="tooltip-text">M<sub>год</sub> = KNO<sub>2</sub> · M<sub>год NOx</sub></div>
+                                </div>
+                                <div class="result-label">Максимальный из разовых выброс, г/с:
+                                    <span class="result-value" id="no2_peak_source8"></span>
+                                    <div class="tooltip-text">G<sub>пик</sub> = KNO<sub>2</sub> · G<sub>пик NOx</sub></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NO Results -->
+                        <div class="result-block">
+                            <h5>Примесь: Азот оксид (NO)</h5>
+                            <div class="result-row">
+                                <div class="result-label">Валовый выброс, т/год:
+                                    <span class="result-value" id="no_year_source8"></span>
+                                    <div class="tooltip-text">M<sub>год</sub> = KNO · M<sub>год NOx</sub></div>
+                                </div>
+                                <div class="result-label">Максимальный из разовых выброс, г/с:
+                                    <span class="result-value" id="no_peak_source8"></span>
+                                    <div class="tooltip-text">G<sub>пик</sub> = KNO · G<sub>пик NOx</sub></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Soot (Mazut Ash) Results -->
+                        <div class="result-block">
+                            <h5>Примесь: Мазутная зола (Soot)</h5>
+                            <div class="result-row">
+                                <div class="result-label">Kоличество выбросов, кг/час:
+                                    <span class="result-value" id="soot_hour_source8"></span>
+                                    <div class="tooltip-text">M = B · BB · AR · 0.01</div>
+                                </div>
+                                <div class="result-label">Валовый выброс, т/год:
+                                    <span class="result-value" id="soot_year_source8"></span>
+                                    <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                                </div>
+                                <div class="result-label">Максимальный из разовых выброс, г/с:
+                                    <span class="result-value" id="soot_peak_source8"></span>
+                                    <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-4" onclick="calculateEmissionsForSource8()">Рассчитать</button>
+    </div>
+
+    <script src="js/source8.js"></script>
+</body>
+</html>

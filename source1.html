@@ -1,0 +1,213 @@
+<div class="container">
+    <h2>Печь прокалки нефтяного кокса С-3421, печь дожига</h2>
+    
+    <ul class="nav nav-tabs" id="inputTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">Общие данные</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="fuel-tab" data-bs-toggle="tab" data-bs-target="#fuel" type="button" role="tab" aria-controls="fuel" aria-selected="false">Топливо</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="oxid-tab" data-bs-toggle="tab" data-bs-target="#oxid" type="button" role="tab" aria-controls="oxid" aria-selected="false">Окислители</button>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-4" id="inputTabsContent">
+        <div class="tab-pane fade show active block" id="general" role="tabpanel" aria-labelledby="general-tab">
+            <h4>Общие данные</h4>
+            <form id="emissionForm">
+                <div class="input-group mb-3">
+                    <label for="N">Общее количество топок, шт. (N)</label>
+                    <input type="number" class="form-control" id="N" value="1">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="N1">Количество одновременно работающих топок, шт. (N1)</label>
+                    <input type="number" class="form-control" id="N1" value="1">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="T">Время работы одной топки, час/год (T)</label>
+                    <input type="number" class="form-control" id="T" value="8760">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="GK">Теплопроизводительность одной топки, Гкал/час (GK)</label>
+                    <input type="number" class="form-control" id="GK" value="47">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="NN">Число форсунок на одну топку, шт. (NN)</label>
+                    <input type="number" class="form-control" id="NN" value="18">
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-pane fade block" id="fuel" role="tabpanel" aria-labelledby="fuel-tab">
+            <h4>Топливо</h4>
+            <form id="emissionFormFuel">
+                <div class="input-group mb-3">
+                    <label for="B">Максимальный расход топлива одной топкой, кг/час (B)</label>
+                    <input type="number" class="form-control" id="B" value="114.16">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="BB">Массовая доля жидкого топлива, в долях единицы (BB)</label>
+                    <input type="number" step="0.01" class="form-control" id="BB" value="0.11">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="SR">Содержание серы в топливе, % (SR)</label>
+                    <input type="number" step="0.01" class="form-control" id="SR" value="0">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="H2S">Содержание сероводорода в топливе, % по массе (H2S)</label>
+                    <input type="number" step="0.01" class="form-control" id="H2S" value="0.004">
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-pane fade block" id="oxid" role="tabpanel" aria-labelledby="oxid-tab">
+            <h4>Окислители</h4>
+            <form id="emissionFormOxid">
+                <div class="input-group mb-3">
+                    <label for="E">Энергетический эквивалент топлива (E)</label>
+                    <input type="number" step="0.01" class="form-control" id="E" value="1.62">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="A">Коэффициент избытка воздуха в уходящих дымовых газах (A)</label>
+                    <input type="number" step="0.01" class="form-control" id="A" value="1">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="V">Отношение Vсг/Vг при заданном коэфф. избытка воздуха (V)</label>
+                    <input type="number" step="0.01" class="form-control" id="V" value="0.81">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="KNO2">Коэффициент трансформации для NO2 (KNO2)</label>
+                    <input type="number" step="0.01" class="form-control" id="KNO2" value="0.8">
+                </div>
+                <div class="input-group mb-3">
+                    <label for="KNO">Коэффициент трансформации для NO (KNO)</label>
+                    <input type="number" step="0.01" class="form-control" id="KNO" value="0.13">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary mt-4" onclick="calculateEmissionsForSource1()">Рассчитать</button>
+
+    <div id="source1Results" class="mt-4">
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <!-- SO2 Results -->
+                <div class="result-block">
+                    <h5>Примесь: Сера диоксид (SO<sub>2</sub>)</h5>
+                    <div class="result-row">
+                        <div class="result-label">Kоличество выбросов, кг/час:
+                            <span class="result-value" id="so2_hour"></span>
+                            <div class="tooltip-text">M = B · (2 · SR · BB + 1.88 · H<sub>2</sub>S · (1 - BB)) · 0.01</div>
+                        </div>
+                        <div class="result-label">Валовый выброс, т/год:
+                            <span class="result-value" id="so2_year"></span>
+                            <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                        </div>
+                        <div class="result-label">Максимальный из разовых выброс, г/с:
+                            <span class="result-value" id="so2_peak"></span>
+                            <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CO Results -->
+                <div class="result-block">
+                    <h5>Примесь: Углерод оксид (CO)</h5>
+                    <div class="result-row">
+                        <div class="result-label">Kоличество выбросов, кг/час:
+                            <span class="result-value" id="co_hour"></span>
+                            <div class="tooltip-text">M = 1.5 · B · 10<sup>-3</sup></div>
+                        </div>
+                        <div class="result-label">Валовый выброс, т/год:
+                            <span class="result-value" id="co_year"></span>
+                            <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                        </div>
+                        <div class="result-label">Максимальный из разовых выброс, г/с:
+                            <span class="result-value" id="co_peak"></span>
+                            <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CH4 Results -->
+                <div class="result-block">
+                    <h5>Примесь: Метан (CH<sub>4</sub>)</h5>
+                    <div class="result-row">
+                        <div class="result-label">Kоличество выбросов, кг/час:
+                            <span class="result-value" id="ch4_hour"></span>
+                            <div class="tooltip-text">M = 1.5 · B · 10<sup>-3</sup></div>
+                        </div>
+                        <div class="result-label">Валовый выброс, т/год:
+                            <span class="result-value" id="ch4_year"></span>
+                            <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                        </div>
+                        <div class="result-label">Максимальный из разовых выброс, г/с:
+                            <span class="result-value" id="ch4_peak"></span>
+                            <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOx Results -->
+                <div class="result-block">
+                    <h5>Примесь: Окислы азота (NO<sub>x</sub>)</h5>
+                    <div class="result-row">
+                        <div class="result-label">Kоличество выбросов, кг/час:
+                            <span class="result-value" id="nox_hour"></span>
+                            <div class="tooltip-text">M = VR · CNOx</div>
+                        </div>
+                        <div class="result-label">Валовый выброс, т/год:
+                            <span class="result-value" id="nox_year"></span>
+                            <div class="tooltip-text">M<sub>год</sub> = N · M · T · 10<sup>-3</sup></div>
+                        </div>
+                        <div class="result-label">Максимальный из разовых выброс, г/с:
+                            <span class="result-value" id="nox_peak"></span>
+                            <div class="tooltip-text">G<sub>пик</sub> = N<sub>1</sub> · M / 3.6</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NO2 Results -->
+                <div class="result-block">
+                    <h5>Примесь: Азота диоксид (NO<sub>2</sub>)</h5>
+                    <div class="result-row">
+                        <div class="result-label">Валовый выброс, т/год:
+                            <span class="result-value" id="no2_year"></span>
+                            <div class="tooltip-text">M<sub>год</sub> = KNO<sub>2</sub> · M<sub>год NOx</sub></div>
+                        </div>
+                        <div class="result-label">Максимальный из разовых выброс, г/с:
+                            <span class="result-value" id="no2_peak"></span>
+                            <div class="tooltip-text">G<sub>пик</sub> = KNO<sub>2</sub> · G<sub>пик NOx</sub></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NO Results -->
+                <div class="result-block">
+                    <h5>Примесь: Азот оксид (NO)</h5>
+                    <div class="result-row">
+                        <div class="result-label">Валовый выброс, т/год:
+                            <span class="result-value" id="no_year"></span>
+                            <div class="tooltip-text">M<sub>год</sub> = KNO · M<sub>год NOx</sub></div>
+                        </div>
+                        <div class="result-label">Максимальный из разовых выброс, г/с:
+                            <span class="result-value" id="no_peak"></span>
+                            <div class="tooltip-text">G<sub>пик</sub> = KNO · G<sub>пик NOx</sub></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
