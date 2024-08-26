@@ -1,19 +1,18 @@
 function calculateEmissionsForSource8() {
-    const N = 1;
-    const N1 = 1;
-    const T = 24;
-    const B = 1150;
-    const BB = 0.11;
-    const SR = 0.62;
-    const H2S = 0;
-    const E = 1.37;
-    const NN = 18;
-    const GK = 47;
-    const A = 1.3;
-    const V = 0.88;
+    const N = parseFloat(document.getElementById('N').value);
+    const N1 = parseFloat(document.getElementById('N1').value);
+    const T = parseFloat(document.getElementById('T').value);
+    const B = parseFloat(document.getElementById('B').value);
+    const BB = parseFloat(document.getElementById('BB').value);
+    const SR = parseFloat(document.getElementById('SR').value);
+    const H2S = parseFloat(document.getElementById('H2S').value);
+    const E = parseFloat(document.getElementById('E').value);
+    const GK = parseFloat(document.getElementById('GK').value);
+    const NN = parseFloat(document.getElementById('NN').value);
+    const A = parseFloat(document.getElementById('A').value);
+    const V = parseFloat(document.getElementById('V').value);
     const KNO2 = 0.8;
     const KNO = 0.13;
-    const AR = 0.037;
 
     // Sulfur Dioxide (SO2) Emissions
     const M_SO2 = B * (2 * SR * BB + 1.88 * H2S * (1 - BB)) * 0.01;
@@ -33,7 +32,7 @@ function calculateEmissionsForSource8() {
     // Nitrogen Oxides (NOx) Emissions
     const QP = GK * 4.1868 * 103 / NN; // MJ/hour
     const QF = 29.4 * E * B / NN; // MJ/hour
-    const CNOX = 0.8 * 1.073 * (180 + 60 * BB) * QF / QP * Math.sqrt(A) * V * 1e-6; // kg/m3
+    const CNOX = 1.073 * (180 + 60 * BB) * QF / QP * Math.sqrt(A) * V * 1e-6; // kg/m3
     const VR = 7.84 * A * B * E; // m3/hour
     const M_NOX = VR * CNOX; // kg/hour
     const M_NOX_year = N * M_NOX * T * 1e-3; // tons/year
@@ -47,35 +46,38 @@ function calculateEmissionsForSource8() {
     const M_NO_year = KNO * M_NOX_year; // tons/year
     const G_NO_peak = KNO * G_NOX_peak; // g/s
 
-    // Soot (Mazut Ash) Emissions
+    // Soot (Carbon) Emissions
+    const AR = 0.037;
     const M_Soot = B * BB * AR * 0.01;
     const M_Soot_year = N * M_Soot * T * 1e-3; // tons/year
     const G_Soot_peak = N1 * M_Soot / 3.6; // g/s
 
     // Display the results
-    document.getElementById('so2_hour_source8').textContent = M_SO2.toFixed(4);
-    document.getElementById('so2_year_source8').textContent = M_SO2_year.toFixed(4);
-    document.getElementById('so2_peak_source8').textContent = G_SO2_peak.toFixed(4);
+    document.getElementById('so2_hour').textContent = M_SO2.toFixed(4);
+    document.getElementById('so2_year').textContent = M_SO2_year.toFixed(4);
+    document.getElementById('so2_peak').textContent = G_SO2_peak.toFixed(4);
 
-    document.getElementById('co_hour_source8').textContent = M_CO.toFixed(4);
-    document.getElementById('co_year_source8').textContent = M_CO_year.toFixed(4);
-    document.getElementById('co_peak_source8').textContent = G_CO_peak.toFixed(4);
+    document.getElementById('co_hour').textContent = M_CO.toFixed(4);
+    document.getElementById('co_year').textContent = M_CO_year.toFixed(4);
+    document.getElementById('co_peak').textContent = G_CO_peak.toFixed(4);
 
-    document.getElementById('ch4_hour_source8').textContent = M_CH4.toFixed(4);
-    document.getElementById('ch4_year_source8').textContent = M_CH4_year.toFixed(4);
-    document.getElementById('ch4_peak_source8').textContent = G_CH4_peak.toFixed(4);
+    document.getElementById('ch4_hour').textContent = M_CH4.toFixed(4);
+    document.getElementById('ch4_year').textContent = M_CH4_year.toFixed(4);
+    document.getElementById('ch4_peak').textContent = G_CH4_peak.toFixed(4);
 
-    document.getElementById('nox_hour_source8').textContent = M_NOX.toFixed(4);
-    document.getElementById('nox_year_source8').textContent = M_NOX_year.toFixed(4);
-    document.getElementById('nox_peak_source8').textContent = G_NOX_peak.toFixed(4);
+    document.getElementById('nox_hour').textContent = M_NOX.toFixed(4);
+    document.getElementById('nox_year').textContent = M_NOX_year.toFixed(4);
+    document.getElementById('nox_peak').textContent = G_NOX_peak.toFixed(4);
 
-    document.getElementById('no2_year_source8').textContent = M_NO2_year.toFixed(4);
-    document.getElementById('no2_peak_source8').textContent = G_NO2_peak.toFixed(4);
+    document.getElementById('no2_year').textContent = M_NO2_year.toFixed(4);
+    document.getElementById('no2_peak').textContent = G_NO2_peak.toFixed(4);
 
-    document.getElementById('no_year_source8').textContent = M_NO_year.toFixed(4);
-    document.getElementById('no_peak_source8').textContent = G_NO_peak.toFixed(4);
+    document.getElementById('no_year').textContent = M_NO_year.toFixed(4);
+    document.getElementById('no_peak').textContent = G_NO_peak.toFixed(4);
 
-    document.getElementById('soot_hour_source8').textContent = M_Soot.toFixed(4);
-    document.getElementById('soot_year_source8').textContent = M_Soot_year.toFixed(4);
-    document.getElementById('soot_peak_source8').textContent = G_Soot_peak.toFixed(4);
+    document.getElementById('soot_hour').textContent = M_Soot.toFixed(4);
+    document.getElementById('soot_year').textContent = M_Soot_year.toFixed(4);
+    document.getElementById('soot_peak').textContent = G_Soot_peak.toFixed(4);
+    // Enable the Export to Excel button
+    enableExportButton();
 }

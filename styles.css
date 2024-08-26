@@ -109,3 +109,22 @@
     margin: 0 auto;
     text-align: center;
 }
+
+.emitter-heading {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.emitter-source {
+    font-weight: bold;
+}
+
+.emission-source {
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+.emission-source em {
+    font-style: italic;
+    color: #555;
+}

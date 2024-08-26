@@ -6,6 +6,17 @@
     <title>Emission Calculations</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+
+    <script src="js/common.js"></script>
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,30 +27,65 @@
             <label for="sourceSelect" class="form-label">Выберите источник загрязнения:</label>
             <select class="form-select" id="sourceSelect" onchange="loadSource()">
                 <option value="">-- Выберите источник --</option>
-                <option value="source1.html">Печь прокалки нефтяного кокса С-3421, печь дожига</option>
-                <option value="source2.html">N 001,Технологическая печь П-1, Труба дымовая, Tопливо: печное топливо</option>
-                <option value="source3.html">N 002,Технологическая печь П-1, Tопливо: топливный газ</option>
-                <option value="source4.html">N 003,Технологическая печь П-1, Tопливо: мазут</option>
-                <option value="source5.html">N 004,Технологическая печь П-1, Tопливо: природный газ</option>
+                <!-- <option value="source1.html">Источник загрязнения: N 0010, Труба дымовая; Источник выделения: N 001, Печь прокалки нефтяного кокса С-3421 (топливный газ)</option> -->
 
-                <option value="source6.html">N 005,Технологическая печь П-2, Труба дымовая, Tопливо: печное топливо</option>
-                <option value="source7.html">N 006,Технологическая печь П-2, Tопливо: топливный газ</option>
-                <option value="source4.html">N 007,Технологическая печь П-1, Tопливо: мазут</option>
+                <option value="source2.html" data-js="js/source2.js">Источник загрязнения: N 0001, Труба дымовая; Источник выделения: N 001, Технологическая печь П-1 <em>(печное топливо)</em></option>
+                <option value="source3.html" data-js="js/source3.js">Источник загрязнения: N 0001, Труба дымовая; Источник выделения: N 002, Технологическая печь П-1 <em>(топливный газ)</em></option>
+                <option value="source4.html" data-js="js/source4.js">Источник загрязнения: N 0001, Труба дымовая; Источник выделения: N 003, Технологическая печь П-1 <em>(резервное топливо - мазут)</em></option>
+                <option value="source5.html" data-js="js/source5.js">Источник загрязнения: N 0001, Труба дымовая; Источник выделения: N 004, Технологическая печь П-1 <em>(природный газ)</em></option>
+                <option value="source6.html" data-js="js/source6.js">Источник загрязнения: N 0001, Труба дымовая; Источник выделения: N 005, Технологическая печь П-2 <em>(печное топливо)</em></option>
+                <option value="source7.html" data-js="js/source7.js">Источник загрязнения: N 0001, Труба дымовая; Источник выделения: N 006, Технологическая печь П-2 <em>(топливный газ)</em></option>
+                <option value="source8.html" data-js="js/source8.js">Источник загрязнения: N 0001, Труба дымовая; Источник выделения: N 007, Технологическая печь П-1 <em>(резервное топливо - мазут)</em></option>
+                <option value="source9.html" data-js="js/source9.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 001, Насосное оборудование <em>(деэмульгатор)</em></option>
+                <option value="source10.html" data-js="js/source10.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 002, Насосное оборудование <em>(деэмульгатор)</em></option>
+                <option value="source11.html" data-js="js/source11.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 003, Насосное оборудование <em>(деэмульгатор)</em></option>
+                <option value="source12.html" data-js="js/source12.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 004-006, Насосное оборудование <em>(ДТ)</em></option>
+                <option value="source13.html" data-js="js/source13.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 007-008, Насосное оборудование <em>(нефть)</em></option>
+                <option value="source14.html" data-js="js/source14.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 009-010, Насосное оборудование <em>(нефть)</em></option>
+                <option value="source15.html" data-js="js/source15.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 011, Насосное оборудование <em>(нефть)</em></option>
+                <option value="source16.html" data-js="js/source16.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 012, Насосное оборудование <em>(нефть)</em></option>
+                <option value="source17.html" data-js="js/source17.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 013, Насосное оборудование <em>(нефть)</em></option>
+                <option value="source18.html" data-js="js/source18.js">Источник загрязнения: N 6004, Hеорганизованный источник; Источник выделения: N 014, Насосное оборудование <em>(нефть)</em></option>
+                
+
+
                 <!-- Add more sources as needed -->
             </select>
         </div>
 
         <!-- Container to dynamically load inputs and results -->
         <div id="dynamicContent" class="mt-4"></div>
-    </div>
 
+    
+    </div>
+   
+    <div class="container mt-5"></div>
+        <button id="exportButton" type="button" class="btn btn-success mt-4" disabled>Export to Excel</button>
+    </div>
     <script src="js/sources.js"></script>
     <script src="js/source1.js"></script>
+    <script src="js/source2.js"></script>
     <script src="js/source3.js"></script>
     <script src="js/source4.js"></script>
     <script src="js/source5.js"></script>
     <script src="js/source6.js"></script>
     <script src="js/source7.js"></script>
     <script src="js/source8.js"></script>
+    <script src="js/source9.js"></script>
+    <script src="js/source10.js"></script>
+    <script src="js/source11.js"></script>
+    <script src="js/source12.js"></script>
+    <script src="js/source13.js"></script>
+    <script src="js/source14.js"></script>
+    <script src="js/source15.js"></script>
+    <script src="js/source16.js"></script>
+    <script src="js/source17.js"></script>
+    <script src="js/source18.js"></script>
+    <script src="js/source19.js"></script> 
+
+
+
+    <script src="js/loadSource.js"></script>
+
 </body>
 </html>

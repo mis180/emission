@@ -69,5 +69,10 @@ function calculateEmissionsForSource1() {
     
         document.getElementById('no_year').textContent = M_NO_year.toFixed(4);
         document.getElementById('no_peak').textContent = G_NO_peak.toFixed(4);
+
+
+
+        // Enable the Export to Excel button
+        enableExportButton();
     }
     

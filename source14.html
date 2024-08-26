@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Source 14 Emissions Calculation</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="emitter-heading">
+            <span class="emitter-source">Источник загрязнения: N 6004, неорганизованный источник</span><br>
+            <span class="emission-source">Источник выделения: N 009-010, Насосное оборудование (нефть)</span>
+        </h2>
+
+        <ul class="nav nav-tabs" id="inputTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">Общие данные</button>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-4" id="inputTabsContent">
+            <!-- General Data -->
+            <div class="tab-pane fade show active block" id="general" role="tabpanel" aria-labelledby="general-tab">
+                <h4>Общие данные</h4>
+                <form id="emissionForm">
+                    <div class="input-group mb-3">
+                        <label for="Q" class="input-label">Удельный выброс, кг/час (Q):</label>
+                        <input type="number" step="0.01" class="form-control input-field" id="Q" value="0.01">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="N1" class="input-label">Общее количество аппаратуры или средств перекачки, шт. (N1):</label>
+                        <input type="number" class="form-control input-field" id="N1" value="2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="NN1" class="input-label">Одновременно работающее количество аппаратуры или средств перекачки, шт. (NN1):</label>
+                        <input type="number" class="form-control input-field" id="NN1" value="1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="T" class="input-label">Время работы одной единицы оборудования, час/год (T):</label>
+                        <input type="number" class="form-control input-field" id="T" value="4320">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mt-4 calculate-btn" onclick="calculateEmissionsForSource14()">Рассчитать</button>
+
+        <div id="source14Results" class="mt-4">
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <!-- Hydrocarbons C1-C5 Results -->
+                    <div class="result-block" id="hcC1C5Results">
+                        <h5 class="result-header">Примесь: Смесь углеводородов предельных С1-С5</h5>
+                        <h6 class="result-subheader">Код: 0415</h6>
+                        <div class="result-row">
+                            <div class="result-label sub-result">Валовый выброс, т/год:
+                                <span class="result-value" id="hcC1C5_year"></span>
+                                <div class="tooltip-text formula" id="hcC1C5_year_formula">M<sub>год</sub> = CI · M / 100</div>
+                            </div>
+                            <div class="result-label sub-result">Максимальный из разовых выброс, г/с:
+                                <span class="result-value" id="hcC1C5_peak"></span>
+                                <div class="tooltip-text formula" id="hcC1C5_peak_formula">G<sub>пик</sub> = CI · G / 100</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hydrocarbons C6-C10 Results -->
+                    <div class="result-block" id="hcC6C10Results">
+                        <h5 class="result-header">Примесь: Смесь углеводородов предельных С6-С10</h5>
+                        <h6 class="result-subheader">Код: 0416</h6>
+                        <div class="result-row">
+                            <div class="result-label sub-result">Валовый выброс, т/год:
+                                <span class="result-value" id="hcC6C10_year"></span>
+                                <div class="tooltip-text formula" id="hcC6C10_year_formula">M<sub>год</sub> = CI · M / 100</div>
+                            </div>
+                            <div class="result-label sub-result">Максимальный из разовых выброс, г/с:
+                                <span class="result-value" id="hcC6C10_peak"></span>
+                                <div class="tooltip-text formula" id="hcC6C10_peak_formula">G<sub>пик</sub> = CI · G / 100</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benzene Results -->
+                    <div class="result-block" id="benzeneResults">
+                        <h5 class="result-header">Примесь: Бензол</h5>
+                        <h6 class="result-subheader">Код: 0602</h6>
+                        <div class="result-row">
+                            <div class="result-label sub-result">Валовый выброс, т/год:
+                                <span class="result-value" id="benzene_year"></span>
+                                <div class="tooltip-text formula" id="benzene_year_formula">M<sub>год</sub> = CI · M / 100</div>
+                            </div>
+                            <div class="result-label sub-result">Максимальный из разовых выброс, г/с:
+                                <span class="result-value" id="benzene_peak"></span>
+                                <div class="tooltip-text formula" id="benzene_peak_formula">G<sub>пик</sub> = CI · G / 100</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toluene Results -->
+                    <div class="result-block" id="tolueneResults">
+                        <h5 class="result-header">Примесь: Метилбензол (Толуол)</h5>
+                        <h6 class="result-subheader">Код: 0621</h6>
+                        <div class="result-row">
+                            <div class="result-label sub-result">Валовый выброс, т/год:
+                                <span class="result-value" id="toluene_year"></span>
+                                <div class="tooltip-text formula" id="toluene_year_formula">M<sub>год</sub> = CI · M / 100</div>
+                            </div>
+                            <div class="result-label sub-result">Максимальный из разовых выброс, г/с:
+                                <span class="result-value" id="toluene_peak"></span>
+                                <div class="tooltip-text formula" id="toluene_peak_formula">G<sub>пик</sub> = CI · G / 100</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Xylene Results -->
+                    <div class="result-block" id="xyleneResults">
+                        <h5 class="result-header">Примесь: Диметилбензол (смесь о-, м-, п- изомеров)</h5>
+                        <h6 class="result-subheader">Код: 0616</h6>
+                        <div class="result-row">
+                            <div class="result-label sub-result">Валовый выброс, т/год:
+                                <span class="result-value" id="xylene_year"></span>
+                                <div class="tooltip-text formula" id="xylene_year_formula">M<sub>год</sub> = CI · M / 100</div>
+                            </div>
+                            <div class="result-label sub-result">Максимальный из разовых выброс, г/с:
+                                <span class="result-value" id="xylene_peak"></span>
+                                <div class="tooltip-text formula" id="xylene_peak_formula">G<sub>пик</sub> = CI · G / 100</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- H2S Results -->
+                    <div class="result-block" id="h2sResults">
+                        <h5 class="result-header">Примесь: Сероводород (Дигидросульфид)</h5>
+                        <h6 class="result-subheader">Код: 0333</h6>
+                        <div class="result-row">
+                            <div class="result-label sub-result">Валовый выброс, т/год:
+                                <span class="result-value" id="h2s_year"></span>
+                                <div class="tooltip-text formula" id="h2s_year_formula">M<sub>год</sub> = CI · M / 100</div>
+                            </div>
+                            <div class="result-label sub-result">Максимальный из разовых выброс, г/с:
+                                <span class="result-value" id="h2s_peak"></span>
+                                <div class="tooltip-text formula" id="h2s_peak_formula">G<sub>пик</sub> = CI · G / 100</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/source14.js"></script>
+</body>
+
+</html>

@@ -1,11 +1,11 @@
 function calculateEmissionsForSource6() {
-    const N = 1;
-    const N1 = 1;
-    const T = 8760;
-    const B = 350;
-    const BB = 0.11;
-    const SR = 0.5;
-    const H2S = 0;
+    const N = parseFloat(document.getElementById('N').value);
+    const N1 = parseFloat(document.getElementById('N1').value);
+    const T = parseFloat(document.getElementById('T').value);
+    const B = parseFloat(document.getElementById('B').value);
+    const BB = parseFloat(document.getElementById('BB').value);
+    const SR = parseFloat(document.getElementById('SR').value);
+    const H2S = parseFloat(document.getElementById('H2S').value);
     const E = 1.37;
     const NN = 18;
     const GK = 47;
@@ -32,8 +32,9 @@ function calculateEmissionsForSource6() {
     // Nitrogen Oxides (NOx) Emissions
     const QP = GK * 4.1868 * 103 / NN; // MJ/hour
     const QF = 29.4 * E * B / NN; // MJ/hour
-    const CNOX = 0.8 * 1.073 * (180 + 60 * BB) * QF / QP * Math.sqrt(A) * V * 1e-6; // kg/m3
+    const CNOX = 1.073 * (180 + 60 * BB) * QF / QP * Math.sqrt(A) * V * 1e-6; // kg/m3
     const VR = 7.84 * A * B * E; // m3/hour
+    const VO = VR / 3600; // m3/s
     const M_NOX = VR * CNOX; // kg/hour
     const M_NOX_year = N * M_NOX * T * 1e-3; // tons/year
     const G_NOX_peak = N1 * M_NOX / 3.6; // g/s
@@ -48,34 +49,37 @@ function calculateEmissionsForSource6() {
 
     // Carbon (Soot) Emissions
     const AR = 0.009;
-    const M_Soot = B * BB * AR * 0.01;
-    const M_Soot_year = N * M_Soot * T * 1e-3; // tons/year
-    const G_Soot_peak = N1 * M_Soot / 3.6; // g/s
+    const M_Carbon = B * BB * AR * 0.01;
+    const M_Carbon_year = N * M_Carbon * T * 1e-3; // tons/year
+    const G_Carbon_peak = N1 * M_Carbon / 3.6; // g/s
 
     // Display the results
-    document.getElementById('so2_hour_source6').textContent = M_SO2.toFixed(4);
-    document.getElementById('so2_year_source6').textContent = M_SO2_year.toFixed(4);
-    document.getElementById('so2_peak_source6').textContent = G_SO2_peak.toFixed(4);
+    document.getElementById('so2_hour').textContent = M_SO2.toFixed(4);
+    document.getElementById('so2_year').textContent = M_SO2_year.toFixed(4);
+    document.getElementById('so2_peak').textContent = G_SO2_peak.toFixed(4);
 
-    document.getElementById('co_hour_source6').textContent = M_CO.toFixed(4);
-    document.getElementById('co_year_source6').textContent = M_CO_year.toFixed(4);
-    document.getElementById('co_peak_source6').textContent = G_CO_peak.toFixed(4);
+    document.getElementById('co_hour').textContent = M_CO.toFixed(4);
+    document.getElementById('co_year').textContent = M_CO_year.toFixed(4);
+    document.getElementById('co_peak').textContent = G_CO_peak.toFixed(4);
 
-    document.getElementById('ch4_hour_source6').textContent = M_CH4.toFixed(4);
-    document.getElementById('ch4_year_source6').textContent = M_CH4_year.toFixed(4);
-    document.getElementById('ch4_peak_source6').textContent = G_CH4_peak.toFixed(4);
+    document.getElementById('ch4_hour').textContent = M_CH4.toFixed(4);
+    document.getElementById('ch4_year').textContent = M_CH4_year.toFixed(4);
+    document.getElementById('ch4_peak').textContent = G_CH4_peak.toFixed(4);
 
-    document.getElementById('nox_hour_source6').textContent = M_NOX.toFixed(4);
-    document.getElementById('nox_year_source6').textContent = M_NOX_year.toFixed(4);
-    document.getElementById('nox_peak_source6').textContent = G_NOX_peak.toFixed(4);
+    document.getElementById('nox_hour').textContent = M_NOX.toFixed(4);
+    document.getElementById('nox_year').textContent = M_NOX_year.toFixed(4);
+    document.getElementById('nox_peak').textContent = G_NOX_peak.toFixed(4);
 
-    document.getElementById('no2_year_source6').textContent = M_NO2_year.toFixed(4);
-    document.getElementById('no2_peak_source6').textContent = G_NO2_peak.toFixed(4);
+    document.getElementById('no2_year').textContent = M_NO2_year.toFixed(4);
+    document.getElementById('no2_peak').textContent = G_NO2_peak.toFixed(4);
 
-    document.getElementById('no_year_source6').textContent = M_NO_year.toFixed(4);
-    document.getElementById('no_peak_source6').textContent = G_NO_peak.toFixed(4);
+    document.getElementById('no_year').textContent = M_NO_year.toFixed(4);
+    document.getElementById('no_peak').textContent = G_NO_peak.toFixed(4);
 
-    document.getElementById('soot_hour_source6').textContent = M_Soot.toFixed(4);
-    document.getElementById('soot_year_source6').textContent = M_Soot_year.toFixed(4);
-    document.getElementById('soot_peak_source6').textContent = G_Soot_peak.toFixed(4);
+    document.getElementById('carbon_hour').textContent = M_Carbon.toFixed(4);
+    document.getElementById('carbon_year').textContent = M_Carbon_year.toFixed(4);
+    document.getElementById('carbon_peak').textContent = G_Carbon_peak.toFixed(4);
+
+    // Enable the Export to Excel button
+    enableExportButton();
 }
