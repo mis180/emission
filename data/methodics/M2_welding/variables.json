@@ -1,0 +1,63 @@
+{
+  "variables": [
+    {
+      "id": "electrode_type",
+      "token": "electrode_type",
+      "label": "Марка электрода",
+      "options": [
+        {
+          "value": "АНО-4",
+          "label": "АНО-4"
+        },
+        {
+          "value": "МР-3",
+          "label": "МР-3"
+        },
+        {
+          "value": "УОНИ-13/45",
+          "label": "УОНИ-13/45"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "B_year",
+      "token": "B_year",
+      "label": "Годовой расход сварочных материалов",
+      "unit": "кг/год",
+      "datatype": "numeric",
+      "latex": "B_{year}"
+    },
+    {
+      "id": "B_hour",
+      "token": "B_hour",
+      "label": "Максимальный часовой расход",
+      "unit": "кг/час",
+      "datatype": "numeric",
+      "latex": "B_{hour}"
+    },
+    {
+      "id": "eta",
+      "token": "eta",
+      "label": "Эффективность очистки (η)",
+      "unit": "доли",
+      "datatype": "numeric",
+      "latex": "\\eta",
+      "default": 0,
+      "help_text": "0 = без очистки, 0.9 = 90% очистки"
+    },
+    {
+      "id": "K_mx",
+      "token": "K_mx",
+      "label": "Удельный выброс сварочного аэрозоля (K_мх)",
+      "unit": "г/кг",
+      "datatype": "numeric",
+      "latex": "K_{mx}",
+      "auto_lookup": {
+        "table": "Table_1",
+        "key": "electrode_type",
+        "output": "K_mx"
+      }
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCalc — Платформа расчета выбросов</title>
+    <meta name="description" content="Платформа для расчета выбросов загрязняющих веществ в атмосферу согласно методикам РК.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                <span>EcoCalc</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <ul class="stepper" id="stepper">
+                <li class="step active" data-step="1">1. Методика</li>
+                <li class="step" data-step="2">2. Тип расчёта</li>
+                <li class="step" data-step="3">3. Параметры</li>
+                <li class="step" data-step="4">4. Состав</li>
+                <li class="step" data-step="5">5. Проверка</li>
+                <li class="step" data-step="6">6. Результаты</li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="methodic-badge" id="methodic-badge"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="topbar">
+                <h2>Расчёт выбросов</h2>
+            </header>
+
+            <div class="step-content">
+                <!-- Step 1: Methodic Selection -->
+                <div class="step-pane active" id="pane-1">
+                    <h3>Выберите методику</h3>
+                    <p class="subtitle">Какую методику расчёта загрязняющих веществ использовать?</p>
+                    <div class="scenario-grid" id="methodic-grid">
+                        <div class="loading-spinner">Загрузка методик...</div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Source Type + Calc Method -->
+                <div class="step-pane" id="pane-2">
+                    <h3>Тип расчёта</h3>
+                    <p class="subtitle">Выберите категорию источника выбросов.</p>
+                    <div id="source-type-grid" class="scenario-grid"></div>
+                    <div id="calc-method-section" style="display: none;">
+                        <h4 class="section-label" id="calc-method-label">Метод расчёта</h4>
+                        <div id="calc-method-grid" class="scenario-grid"></div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Parameters -->
+                <div class="step-pane" id="pane-3">
+                    <h3>Входные параметры</h3>
+                    <p class="subtitle">Введите значения переменных для выбранной формулы.</p>
+                    
+                    <div id="formula-info" class="formula-info-bar"></div>
+
+                    <!-- Category 1: Explicit User Input -->
+                    <div class="input-category-section">
+                        <h4 class="section-label">1. Пользовательский ввод</h4>
+                        <div class="parameter-grid" id="user-input-grid"></div>
+                    </div>
+
+                    <!-- Category 2: Lookup values / Derived -->
+                    <div class="input-category-section mt-4" id="lookup-section" style="display: none;">
+                        <h4 class="section-label">2. Значения из справочников (автоматически)</h4>
+                        <div class="parameter-grid" id="lookup-input-grid"></div>
+                    </div>
+
+                    <!-- Provenance Panel: shows all active lookup sources -->
+                    <div class="provenance-panel mt-4" id="lookup-provenance-panel" style="display: none;">
+                        <div class="provenance-header" id="provenance-toggle" onclick="toggleProvenance()">
+                            <span class="provenance-icon">📋</span>
+                            <span>Источники коэффициентов</span>
+                            <span class="provenance-count" id="provenance-count">0</span>
+                            <span class="provenance-chevron" id="provenance-chevron">▼</span>
+                        </div>
+                        <div class="provenance-body" id="provenance-body">
+                            <table class="provenance-table" id="provenance-table">
+                                <thead>
+                                    <tr>
+                                        <th>Коэффициент</th>
+                                        <th>Таблица</th>
+                                        <th>Ключ</th>
+                                        <th>Метод</th>
+                                        <th>Значение</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="provenance-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Composition -->
+                <div class="step-pane" id="pane-4">
+                    <h3>Состав загрязняющих веществ</h3>
+                    <p class="subtitle">Скорректируйте процентное содержание компонентов.</p>
+                    <div class="composition-list" id="composition-list"></div>
+                </div>
+
+                <!-- Step 5: Review -->
+                <div class="step-pane" id="pane-5">
+                    <h3>Проверка данных</h3>
+                    <p class="subtitle">Убедитесь, что все введенные данные верны, перед расчётом.</p>
+                    <div class="review-table-container">
+                        <table class="results-table" id="review-table">
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Step 6: Results -->
+                <div class="step-pane" id="pane-6">
+                    <h3>Результаты расчёта</h3>
+                    <p class="subtitle">Итоговые выбросы по формулам выбранной методики.</p>
+
+                    <div class="results-card">
+                        <h4>Сводка</h4>
+                        <table class="results-table" id="summary-table">
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="results-card mt-4">
+                        <h4>Разбивка по загрязняющим веществам</h4>
+                        <table class="results-table split-table" id="split-table">
+                            <thead>
+                                <tr>
+                                    <th>Загрязняющее вещество</th>
+                                    <th>%</th>
+                                    <th>Годовые (т/год)</th>
+                                    <th>Макс. (г/с)</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="results-card mt-4" id="equations-used-card">
+                        <h4>Использованные формулы</h4>
+                        <div id="equations-used-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Controls -->
+            <footer class="bottom-controls">
+                <button class="btn btn-secondary" id="btn-prev" disabled>Назад</button>
+                <button class="btn btn-primary" id="btn-next">Далее</button>
+            </footer>
+        </main>
+
+        <!-- Project Cart Sidebar -->
+        <aside class="project-sidebar">
+            <div class="help-panel" id="help-panel" style="display:none; background: #eef2f6; padding: 16px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #38BDF8;">
+                <h4 style="margin-bottom: 8px; color: #0284c7;">💡 Подсказка</h4>
+                <div id="help-content" style="font-size: 0.9rem; color: #334155;"></div>
+            </div>
+
+            <div class="project-header">
+                <h3>Проект</h3>
+                <input type="text" id="project-name" value="Новый проект" class="project-name-input">
+            </div>
+            <div class="cart-section global-params">
+                <h4>Координаты (по умолчанию)</h4>
+                <div class="cart-grid">
+                    <label>Шир. (Lat):</label> <input type="number" id="proj-lat" placeholder="43.2" step="any" class="cart-input">
+                    <label>Долг. (Lng):</label> <input type="number" id="proj-lng" placeholder="76.9" step="any" class="cart-input">
+                </div>
+                <button id="btn-show-map" class="btn btn-secondary btn-block mt-2" style="font-size:0.8rem; padding: 6px;">🗺️ Открыть карту</button>
+            </div>
+            
+            <div id="map-modal" style="display:none; position:fixed; top:10%; left:10%; right:10%; bottom:10%; background:white; z-index:9999; box-shadow:0 0 50px rgba(0,0,0,0.5); border-radius:12px; padding:20px; flex-direction:column;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <h3 style="margin:0;">Карта источников</h3>
+                    <button class="btn btn-secondary" onclick="document.getElementById('map-modal').style.display='none'">Закрыть</button>
+                </div>
+                <div id="map-container" style="flex:1; width:100%; border-radius:8px; border:1px solid #ccc;"></div>
+            </div>
+
+            <div class="cart-section">
+                <h4 style="display:flex; justify-content:space-between;">Метеоданные <button id="btn-fetch-weather" class="btn btn-secondary" style="font-size:0.7rem; padding: 4px 8px;">☁️ OpenMeteo</button></h4>
+            </div>
+
+            <div class="cart-section" style="margin-top: 12px;">
+                <h4>Источники (<span id="cart-count">0</span>)</h4>
+                <ul id="cart-list" class="cart-list"></ul>
+            </div>
+            <div class="cart-totals">
+                <div>Σ M: <span id="cart-total-m" class="tot-val">0.000000</span> г/с</div>
+                <div>Σ G: <span id="cart-total-g" class="tot-val">0.000000</span> т/год</div>
+            </div>
+            <div class="cart-actions">
+                <button id="btn-add-to-cart" class="btn btn-success btn-block" disabled>+ Добавить источник</button>
+                <button id="btn-generate-report" class="btn btn-secondary btn-block mt-2" disabled>📄 Скачать PDF Отчет</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="lib/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="engine/evaluator.js"></script>
+    <script src="engine/lookup.js"></script>
+    <script src="engine/wizard.js"></script>
+    <script src="engine/composition.js"></script>
+    <script src="engine/project-store.js"></script>
+    <script src="engine/map-module.js"></script>
+    <script src="engine/weather-module.js"></script>
+    <script src="engine/reportGenerator.js"></script>
+    <script src="engine/graph-resolver.js"></script>
+    <script src="app.js"></script>
+    <div id="toast-container" style="position:fixed; top:20px; right:20px; z-index:10000; pointer-events:none; display:flex; flex-direction:column; gap:10px;"></div>
+</body>
+</html>

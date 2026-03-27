@@ -1,0 +1,24 @@
+{
+  "active_equations": [
+    {
+      "formula_code": "6.2",
+      "lhs_token": "M",
+      "rhs": "Q_spec / 3.6",
+      "latex": "M = \\frac{Q_{spec}}{3.6}",
+      "formula_name": "Максимальный выброс",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "equation_order": 1
+    },
+    {
+      "formula_code": "6.2",
+      "lhs_token": "G",
+      "rhs": "(Q_spec * T) / 1000",
+      "latex": "G = \\frac{Q_{spec} \\cdot T}{1000}",
+      "formula_name": "Годовой выброс",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "equation_order": 2
+    }
+  ]
+}

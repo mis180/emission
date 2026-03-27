@@ -1,0 +1,93 @@
+{
+  "tables": [
+    {
+      "id": "Table_6_1",
+      "title": "Удельное выделение ЗВ (Q_spec)",
+      "input_keys": [
+        "equip_type",
+        "fluid_type"
+      ],
+      "output_keys": [
+        "Q_spec"
+      ],
+      "lookup_type": "multi_key_exact",
+      "data": [
+        {
+          "equip_type": "heat_ex",
+          "fluid_type": "gas_benz",
+          "Q_spec": 0.2
+        },
+        {
+          "equip_type": "heat_ex",
+          "fluid_type": "kero_diesel",
+          "Q_spec": 0.1
+        },
+        {
+          "equip_type": "heat_ex",
+          "fluid_type": "oil_mazut",
+          "Q_spec": 0.05
+        },
+        {
+          "equip_type": "pump_single_end",
+          "fluid_type": "gas_benz",
+          "Q_spec": 0.08
+        },
+        {
+          "equip_type": "pump_single_end",
+          "fluid_type": "kero_diesel",
+          "Q_spec": 0.04
+        },
+        {
+          "equip_type": "pump_single_end",
+          "fluid_type": "oil_mazut",
+          "Q_spec": 0.02
+        },
+        {
+          "equip_type": "pump_single_gland",
+          "fluid_type": "gas_benz",
+          "Q_spec": 0.14
+        },
+        {
+          "equip_type": "pump_single_gland",
+          "fluid_type": "kero_diesel",
+          "Q_spec": 0.07
+        },
+        {
+          "equip_type": "pump_single_gland",
+          "fluid_type": "oil_mazut",
+          "Q_spec": 0.03
+        },
+        {
+          "equip_type": "pump_double_end",
+          "fluid_type": "gas_benz",
+          "Q_spec": 0.14
+        },
+        {
+          "equip_type": "pump_double_end",
+          "fluid_type": "kero_diesel",
+          "Q_spec": 0.07
+        },
+        {
+          "equip_type": "pump_double_end",
+          "fluid_type": "oil_mazut",
+          "Q_spec": 0.03
+        },
+        {
+          "equip_type": "pump_double_gland",
+          "fluid_type": "gas_benz",
+          "Q_spec": 0.26
+        },
+        {
+          "equip_type": "pump_double_gland",
+          "fluid_type": "kero_diesel",
+          "Q_spec": 0.13
+        },
+        {
+          "equip_type": "pump_double_gland",
+          "fluid_type": "oil_mazut",
+          "Q_spec": 0.05
+        }
+      ]
+    }
+  ]
+}

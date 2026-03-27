@@ -1,0 +1,29 @@
+{
+  "tables": [
+    {
+      "id": "Table_1",
+      "title": "Удельный выброс сварочного аэрозоля",
+      "input_keys": [
+        "electrode_type"
+      ],
+      "output_keys": [
+        "K_mx"
+      ],
+      "lookup_type": "exact",
+      "data": [
+        {
+          "electrode_type": "АНО-4",
+          "K_mx": 17.8
+        },
+        {
+          "electrode_type": "МР-3",
+          "K_mx": 11.5
+        },
+        {
+          "electrode_type": "УОНИ-13/45",
+          "K_mx": 16.31
+        }
+      ]
+    }
+  ]
+}

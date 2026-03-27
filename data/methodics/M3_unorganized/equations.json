@@ -1,0 +1,48 @@
+{
+  "active_equations": [
+    {
+      "formula_code": "1",
+      "equation_order": 1,
+      "confidence": "TRUSTED",
+      "status": "active",
+      "lhs_token": "M_trans",
+      "rhs": "(k_1 * k_2 * k_3 * k_4 * k_5 * k_7 * B_drop * G_prod * 1000000) / 3600",
+      "latex": "M_{trans} = \\frac{k_1 \\cdot k_2 \\cdot k_3 \\cdot k_4 \\cdot k_5 \\cdot k_7 \\cdot B_{drop} \\cdot G_{prod} \\cdot 10^6}{3600}",
+      "formula_name": "Выброс при перевалке (г/с)",
+      "notes": ["Компонент А формулы 1. G_prod в т/ч → г/с."]
+    },
+    {
+      "formula_code": "1",
+      "equation_order": 2,
+      "confidence": "TRUSTED",
+      "status": "active",
+      "lhs_token": "M_storage",
+      "rhs": "k_3 * k_4 * k_5 * k_6 * k_7 * q * F_surface",
+      "latex": "M_{storage} = k_3 \\cdot k_4 \\cdot k_5 \\cdot k_6 \\cdot k_7 \\cdot q \\cdot F_{surface}",
+      "formula_name": "Выброс при статическом хранении (г/с)",
+      "notes": ["Компонент В формулы 1. q в г/м2*с."]
+    },
+    {
+      "formula_code": "1",
+      "equation_order": 3,
+      "confidence": "TRUSTED",
+      "status": "active",
+      "lhs_token": "M_total",
+      "rhs": "M_trans + M_storage",
+      "latex": "M_{total} = M_{trans} + M_{storage}",
+      "formula_name": "Общий максимальный разовый выброс (г/с)",
+      "notes": ["Формула 1. Сумма перевалки и хранения."]
+    },
+    {
+      "formula_code": "1",
+      "equation_order": 4,
+      "confidence": "TRUSTED",
+      "status": "active",
+      "lhs_token": "G_annual",
+      "rhs": "(M_total * 3600 * T) / 1000000",
+      "latex": "G_{annual} = \\frac{M_{total} \\cdot 3600 \\cdot T}{10^6}",
+      "formula_name": "Валовый выброс в атмосферу (т/год)",
+      "notes": ["Расчет валового выброса за год."]
+    }
+  ]
+}

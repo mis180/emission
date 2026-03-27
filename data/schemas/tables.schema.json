@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EMISSION Platform Tables Schema",
+  "type": "object",
+  "properties": {
+    "tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "lookup_type", "input_keys", "output_keys", "data"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "source": {
+            "anyOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "properties": {
+                  "document": { "type": "string" },
+                  "section": { "type": "string" },
+                  "table": { "type": "string" }
+                }
+              }
+            ]
+          },
+          "lookup_type": { 
+            "type": "string", 
+            "enum": ["exact", "multi_key_exact", "interpolate", "interpolate_with_filter", "range_match"] 
+          },
+          "input_keys": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "output_keys": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "filter_key": { "type": "string" },
+          "interpolate_key": { "type": "string" },
+          "data": {
+            "type": "array",
+            "items": { "type": "object" }
+          }
+        }
+      }
+    }
+  },
+  "required": ["tables"]
+}

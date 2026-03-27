@@ -1,0 +1,328 @@
+{
+  "flow": {
+    "tank_industrial": {
+      "oil_gasoline_R38": {
+        "formula_code": "4.2",
+        "variables": [
+          "productGroupKt",
+          "tankGroup",
+          "tankType",
+          "tankMode",
+          "tankVolume",
+          "t_nk",
+          "t_max",
+          "t_min",
+          "P38",
+          "m",
+          "Vmax",
+          "B",
+          "rho",
+          "Vp",
+          "Np",
+          "Kob",
+          "Kt_max",
+          "Kt_min",
+          "Kr_max",
+          "Kr_avg",
+          "Kv"
+        ]
+      },
+      "pure_substances_antoine": {
+        "formula_code": "4.3",
+        "variables": [
+          "substance",
+          "A_antoine",
+          "B_antoine",
+          "tankGroup",
+          "tankType",
+          "tankMode",
+          "tankVolume",
+          "t_max",
+          "t_min",
+          "Pt_max",
+          "Pt_min",
+          "m",
+          "Vmax",
+          "B",
+          "rho",
+          "Vp",
+          "Np",
+          "Kob",
+          "Kr_max",
+          "Kr_avg",
+          "Kv"
+        ]
+      },
+      "other_products_C20": {
+        "formula_code": "4.6",
+        "variables": [
+          "productGroupKt",
+          "tankGroup",
+          "tankType",
+          "tankMode",
+          "tankVolume",
+          "t_max",
+          "t_min",
+          "C20",
+          "Vmax",
+          "B",
+          "rho",
+          "Vp",
+          "Np",
+          "Kob",
+          "Kt_max",
+          "Kt_min",
+          "Kr_max",
+          "Kr_avg"
+        ]
+      },
+      "known_mixture": {
+        "formula_code": "4.4",
+        "variables": [
+          "substance",
+          "X_i",
+          "sum_X_over_m",
+          "A_antoine",
+          "B_antoine",
+          "tankGroup",
+          "tankType",
+          "tankMode",
+          "tankVolume",
+          "t_max",
+          "t_min",
+          "Pt_max",
+          "Pt_min",
+          "m",
+          "Vmax",
+          "B",
+          "rho",
+          "Vp",
+          "Np",
+          "Kob",
+          "Kr_max",
+          "Kr_avg",
+          "Kv"
+        ]
+      }
+    },
+    "tank_depot": {
+      "_default": {
+        "formula_code": "5.2",
+        "variables": [
+          "substance",
+          "tankGroup",
+          "tankType",
+          "tankMode",
+          "tankVolume",
+          "Vmax",
+          "Boz",
+          "Bvl",
+          "Np",
+          "Uoz",
+          "Uvl",
+          "Gxp",
+          "Knp",
+          "Kr_max",
+          "Kr_avg"
+        ]
+      }
+    },
+    "unorg_equipment": {
+      "_default": {
+        "formula_code": "6.2",
+        "variables": [
+          "equipType",
+          "productBoilGroup",
+          "equipCount",
+          "equipHours",
+          "Q_spec"
+        ]
+      }
+    },
+    "fuel_station_liquid": {
+      "_default": {
+        "formula_code": "7.1",
+        "variables": [
+          "substance",
+          "Vmax",
+          "Boz",
+          "Bvl",
+          "Uoz",
+          "Uvl",
+          "C1"
+        ]
+      }
+    }
+  },
+  "questions": [
+    {
+      "variable_id": "sourceType",
+      "type": "select",
+      "label": "Модуль расчёта",
+      "id": "q_sourceType"
+    },
+    {
+      "variable_id": "substance",
+      "type": "select",
+      "label": "Наименование продукта/вещества",
+      "id": "q_substance",
+      "options_from_table": "Table-12"
+    },
+    {
+      "variable_id": "P38",
+      "type": "number",
+      "label": "Давление насыщенных паров при 38 °C",
+      "unit": "mmHg",
+      "id": "q_P38"
+    },
+    {
+      "variable_id": "m",
+      "type": "number",
+      "label": "Молекулярная масса паров",
+      "unit": "g/mol",
+      "id": "q_m"
+    },
+    {
+      "variable_id": "B",
+      "type": "number",
+      "label": "Годовой объём/масса перекачки",
+      "unit": "t/yr",
+      "id": "q_B"
+    },
+    {
+      "variable_id": "Boz",
+      "type": "number",
+      "label": "Объём перекачки (осенне-зимний)",
+      "unit": "т/год",
+      "id": "q_Boz"
+    },
+    {
+      "variable_id": "Bvl",
+      "type": "number",
+      "label": "Объём перекачки (весенне-летний)",
+      "unit": "т/год",
+      "id": "q_Bvl"
+    },
+    {
+      "variable_id": "rho",
+      "type": "number",
+      "label": "Плотность продукта",
+      "unit": "kg/m³",
+      "id": "q_rho"
+    },
+    {
+      "variable_id": "Vp",
+      "type": "number",
+      "label": "Объём резервуара (геометрический)",
+      "unit": "m³",
+      "id": "q_Vp"
+    },
+    {
+      "variable_id": "Np",
+      "label": "Количество резервуаров",
+      "type": "number",
+      "default": 1,
+      "id": "q_Np"
+    },
+    {
+      "variable_id": "C20",
+      "type": "number",
+      "label": "Концентрация паров при 20 °C",
+      "unit": "g/m³",
+      "id": "q_C20"
+    },
+    {
+      "variable_id": "Vmax",
+      "type": "number",
+      "label": "Макс. расход насоса",
+      "unit": "m³/h",
+      "id": "q_Vmax"
+    },
+    {
+      "variable_id": "t_max",
+      "type": "number",
+      "label": "Макс. температура жидкости (°C)",
+      "id": "q_t_max"
+    },
+    {
+      "variable_id": "t_min",
+      "type": "number",
+      "label": "Мин. температура жидкости (°C)",
+      "id": "q_t_min"
+    },
+    {
+      "variable_id": "productGroupKt",
+      "type": "select",
+      "label": "Группа продукта (Табл. 7/Kt)",
+      "id": "q_productGroupKt"
+    },
+    {
+      "variable_id": "tankGroup",
+      "type": "select",
+      "label": "Группа резервуара (по разности Т)",
+      "id": "q_tankGroup"
+    },
+    {
+      "variable_id": "tankType",
+      "type": "select",
+      "label": "Тип резервуара",
+      "id": "q_tankType"
+    },
+    {
+      "variable_id": "tankMode",
+      "type": "select",
+      "label": "Режим эксплуатации / ССВ",
+      "id": "q_tankMode"
+    },
+    {
+      "variable_id": "tankVolume",
+      "type": "select",
+      "label": "Объем резервуара (Группа)",
+      "id": "q_tankVolume"
+    },
+    {
+      "variable_id": "Knp",
+      "type": "number",
+      "label": "Поправочный коэфф. продукта (Knp)",
+      "disabled": true,
+      "id": "q_Knp"
+    },
+    {
+      "variable_id": "Gxp",
+      "type": "number",
+      "label": "Уд. потери при хранении (Gxp)",
+      "disabled": true,
+      "id": "q_Gxp"
+    },
+    {
+      "variable_id": "Uoz",
+      "type": "number",
+      "label": "Уд. выброс (зимний)",
+      "disabled": true,
+      "id": "q_Uoz"
+    },
+    {
+      "variable_id": "Uvl",
+      "type": "number",
+      "label": "Уд. выброс (летний)",
+      "disabled": true,
+      "id": "q_Uvl"
+    },
+    {
+      "variable_id": "X_i",
+      "type": "number",
+      "label": "Массовая доля компонента i",
+      "unit": "доли (0-1)",
+      "id": "q_X_i",
+      "required": true
+    },
+    {
+      "variable_id": "sum_X_over_m",
+      "type": "number",
+      "label": "Коэффициент смеси (Σ(Xj/mj))",
+      "help_text": "Сумма отношений массовых долей к молярным массам для всех компонентов",
+      "id": "q_sum_X_over_m",
+      "required": true
+    }
+  ]
+}

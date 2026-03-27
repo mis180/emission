@@ -1,0 +1,26 @@
+# --- System/IDE ---
+.gemini/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Node/Build ---
+node_modules/
+dist/
+build/
+*.log
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# --- Project Specific ---
+temp/
+debug/
+.github/workflows/ # Optional: If you want to keep the workflow private (but better to commit it)

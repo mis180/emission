@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EMISSION Platform Variables Schema",
+  "type": "object",
+  "properties": {
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "datatype"],
+        "properties": {
+          "id": { "type": "string" },
+          "token": { "type": "string" },
+          "label": { "type": "string" },
+          "datatype": { 
+            "type": "string",
+            "enum": ["numeric", "string", "boolean"]
+          },
+          "unit": { "type": "string" },
+          "default": {},
+          "is_calc": { "type": "boolean" },
+          "enum_options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["value", "label"],
+              "properties": {
+                "value": { "type": "string" },
+                "label": { "type": "string" }
+              }
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["value", "label"],
+              "properties": {
+                "value": { "type": "string" },
+                "label": { "type": "string" }
+              }
+            }
+          },
+          "auto_lookup": {
+            "type": "object",
+            "required": ["table", "key", "output"],
+            "properties": {
+              "table": {
+                "anyOf": [
+                  { "type": "string" },
+                  { "type": "array", "items": { "type": "string" } }
+                ]
+              },
+              "key": {},
+              "output": { "type": "string" },
+              "interpolate_key": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["variables"]
+}

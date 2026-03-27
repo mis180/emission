@@ -1,0 +1,66 @@
+{
+  "methodics": [
+    {
+      "id": "M1_storage",
+      "name": "Расчёт выбросов от резервуаров и хранилищ нефтепродуктов",
+      "name_en": "Oil/Gas Storage & Transfer Emissions",
+      "version": "РНД 211.2.02.09-2004",
+      "country": "KZ",
+      "source_document": "РНД 211.2.02.09-2004 - резервуары.pdf",
+      "formula_codes": [
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.6",
+        "5.2",
+        "6.2",
+        "6.5",
+        "6.6",
+        "7.1",
+        "7.2"
+      ],
+      "status": "active",
+      "path": "data/methodics/M1_storage"
+    },
+    {
+      "id": "M2_welding",
+      "name": "Расчет выбросов при сварочных работах",
+      "name_en": "Welding Operations",
+      "version": "РНД 211.2.02.03-2004",
+      "country": "KZ",
+      "source_document": "МЕТОДИКА расчета выбросов загрязняющих веществ в атмосферу при сварочных работах.pdf",
+      "formula_codes": [
+        "5.1"
+      ],
+      "status": "active",
+      "path": "data/methodics/M2_welding"
+    },
+    {
+      "id": "M3_unorganized",
+      "name": "Расчет нормативов выбросов от неорганизованных источников (Приказ 221-Ө)",
+      "name_en": "Unorganized Emissions (Order 221-Ө)",
+      "version": "2014",
+      "country": "KZ",
+      "source_document": "Приказ 221-Ө от 12.06.2014 - Приложение 8",
+      "formula_codes": [
+        "1"
+      ],
+      "status": "active",
+      "path": "data/methodics/M3_unorganized"
+    },
+    {
+      "id": "M4_fuel_stations",
+      "name": "Расчет выбросов от предприятий, осуществляющих хранение и реализацию нефтепродуктов",
+      "name_en": "Fuel Stations and Depots",
+      "version": "Приказ ООС РК 2011 № 196-ө",
+      "country": "KZ",
+      "source_document": "Методические указания расчета выбросов от предприятий, осуществляющих хранение и реализацию нефтепродуктов (нефтебазы, АЗС) и других жидкостей и газов.txt",
+      "formula_codes": [
+        "6.2"
+      ],
+      "status": "active",
+      "path": "data/methodics/M4_fuel_stations"
+    }
+  ]
+}

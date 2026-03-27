@@ -1,0 +1,174 @@
+{
+  "active_equations": [
+    {
+      "formula_code": "4.1",
+      "equation_order": 1,
+      "lhs_token": "n",
+      "rhs": "B/(rho*Vp*Np)",
+      "latex": "n = \\frac{B}{\\rho \\cdot V_p \\cdot N_p}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.2",
+      "formula_name": "Выбросы паров нефтей и бензинов",
+      "equation_order": 1,
+      "lhs_token": "M",
+      "rhs": "0.163*P38*m*Kt_max*Kr_max*Kv*Vmax*1e-4",
+      "latex": "M = 0.163 \\cdot P_{38} \\cdot m \\cdot Kt_{max} \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-4}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.2",
+      "formula_name": "Выбросы паров нефтей и бензинов",
+      "equation_order": 2,
+      "lhs_token": "G",
+      "rhs": "0.294*P38*m*(Kt_max*Kv + Kt_min)*Kr_avg*Kob*B*1e-7/rho",
+      "latex": "G = 0.294 \\cdot P_{38} \\cdot m \\cdot (Kt_{max} \\cdot K_v + Kt_{min}) \\cdot Kr_{avg} \\cdot K_{ob} \\cdot \\frac{B \\cdot 10^{-7}}{\\rho}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.3",
+      "formula_name": "Выбросы паров индивидуальных веществ",
+      "equation_order": 1,
+      "lhs_token": "Pt_max",
+      "rhs": "10^(A_antoine - (B_antoine / (273 + t_max)))",
+      "latex": "P_{t_{max}} = 10^{A_{antoine} - \\frac{B_{antoine}}{273 + t_{max}}}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.3",
+      "formula_name": "Выбросы паров индивидуальных веществ",
+      "equation_order": 2,
+      "lhs_token": "Pt_min",
+      "rhs": "10^(A_antoine - (B_antoine / (273 + t_min)))",
+      "latex": "P_{t_{min}} = 10^{A_{antoine} - \\frac{B_{antoine}}{273 + t_{min}}}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.3",
+      "formula_name": "Выбросы паров индивидуальных веществ",
+      "equation_order": 3,
+      "lhs_token": "M",
+      "rhs": "0.445*Pt_max*m*Kr_max*Kv*Vmax*1e-2/(273 + t_max)",
+      "latex": "M = \\frac{0.445 \\cdot P_{t_{max}} \\cdot m \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-2}}{273 + t_{max}}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.3",
+      "formula_name": "Выбросы паров индивидуальных веществ",
+      "equation_order": 4,
+      "lhs_token": "G",
+      "rhs": "0.160*(Pt_max*Kv+Pt_min)*m*Kr_avg*Kob*B*1e-4/(rho*(546 + t_min))",
+      "latex": "G = \\frac{0.160 \\cdot (P_{t_{max}} \\cdot K_v + P_{t_{min}}) \\cdot m \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B \\cdot 10^{-4}}{\\rho \\cdot (546 + t_{min})}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.4",
+      "formula_name": "Выбросы паров многокомпонентных смесей",
+      "equation_order": 1,
+      "lhs_token": "M_i",
+      "rhs": "0.445 * Pt_max * X_i * Kr_max * Kv * Vmax * 1e-2 / (sum_X_over_m * (273 + t_max))",
+      "latex": "M_i = \\frac{0.445 \\cdot P_{t_{max}} \\cdot X_i \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-2}}{(\\sum \\frac{X}{m}) \\cdot (273 + t_{max})}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.4",
+      "formula_name": "Выбросы паров многокомпонентных смесей",
+      "equation_order": 2,
+      "lhs_token": "G_i",
+      "rhs": "0.160 * (Pt_max * Kv + Pt_min) * X_i * Kr_avg * Kob * B * 1e-4 / (rho * sum_X_over_m * (546 + t_min + t_max))",
+      "latex": "G_i = \\frac{0.160 \\cdot (P_{t_{max}} \\cdot K_v + P_{t_{min}}) \\cdot X_i \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B \\cdot 10^{-4}}{\\rho \\cdot (\\sum \\frac{X}{m}) \\cdot (546 + t_{min} + t_{max})}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.6",
+      "formula_name": "Выбросы паров нефтепродуктов (кроме бензинов)",
+      "equation_order": 1,
+      "lhs_token": "M",
+      "rhs": "C20 * Kt_max * Kr_max * Vmax / 3600",
+      "latex": "M = \\frac{C_{20} \\cdot Kt_{max} \\cdot Kr_{max} \\cdot V_{max}}{3600}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.6",
+      "formula_name": "Выбросы паров нефтепродуктов (кроме бензинов)",
+      "equation_order": 2,
+      "lhs_token": "G",
+      "rhs": "C20 * (Kt_max + Kt_min) * Kr_avg * Kob * B / (2e6 * rho)",
+      "latex": "G = \\frac{C_{20} \\cdot (Kt_{max} + Kt_{min}) \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B}{2 \\cdot 10^6 \\cdot \\rho}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "5.2",
+      "formula_name": "Выбросы на нефтебазах и складах ГСМ",
+      "equation_order": 1,
+      "lhs_token": "M",
+      "rhs": "C1 * Kr_max * Vmax / 3600",
+      "latex": "M = \\frac{C_1 \\cdot Kr_{max} \\cdot V_{max}}{3600}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "5.2",
+      "formula_name": "Выбросы на нефтебазах и складах ГСМ",
+      "equation_order": 2,
+      "lhs_token": "G",
+      "rhs": "(Uoz * Boz + Uvl * Bvl) * Kr_avg * 1e-6 + Gxp * Knp * Np",
+      "latex": "G = (U_{оз} \\cdot B_{оз} + U_{вл} \\cdot B_{вл}) \\cdot Kr_{avg} \\cdot 10^{-6} + G_{хр} \\cdot K_{нп} \\cdot N_p",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "6.2",
+      "formula_name": "Неорганизованные выбросы (оборудование)",
+      "equation_order": 1,
+      "lhs_token": "M_equip",
+      "rhs": "Q_spec*equipCount/3.6",
+      "latex": "M_{equip} = \\frac{Q_{spec} \\cdot equipCount}{3.6}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "6.2",
+      "formula_name": "Неорганизованные выбросы (оборудование)",
+      "equation_order": 2,
+      "lhs_token": "G_equip",
+      "rhs": "Q_spec*equipCount*equipHours*1e-3",
+      "latex": "G_{equip} = Q_{spec} \\cdot equipCount \\cdot equipHours \\cdot 10^{-3}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "7.1",
+      "formula_name": "Выбросы от АЗС",
+      "equation_order": 1,
+      "lhs_token": "M",
+      "rhs": "C1 * Vmax / 3600",
+      "latex": "M = \\frac{C_1 \\cdot V_{max}}{3600}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "7.1",
+      "formula_name": "Выбросы от АЗС",
+      "equation_order": 2,
+      "lhs_token": "G",
+      "rhs": "((Uoz + 420)*Boz + (Uvl + 515)*Bvl)*1e-6",
+      "latex": "G = ((U_{оз} + 420) \\cdot B_{оз} + (U_{вл} + 515) \\cdot B_{вл}) \\cdot 10^{-6}",
+      "note": "Коэффициенты 420 и 515 учитывают выбросы при заправке баков (Приложение 15)",
+      "confidence": "TRUSTED",
+      "status": "active"
+    }
+  ]
+}

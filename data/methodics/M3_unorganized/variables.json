@@ -1,0 +1,321 @@
+{
+  "variables": [
+    {
+      "id": "G_prod",
+      "token": "G_prod",
+      "label": "Производительность узла пересыпки",
+      "unit": "т/ч",
+      "datatype": "numeric",
+      "latex": "G_{prod}",
+      "input_method": "raw",
+      "data_source": "user"
+    },
+    {
+      "id": "T",
+      "token": "T",
+      "label": "Время работы в год",
+      "unit": "ч",
+      "datatype": "numeric",
+      "latex": "T",
+      "input_method": "raw",
+      "data_source": "user"
+    },
+    {
+      "id": "material_type",
+      "token": "material_type",
+      "label": "Тип пересыпаемого материала",
+      "options": [
+        {
+          "value": "mineral_wool",
+          "label": "Минеральная вата"
+        },
+        {
+          "value": "ceramics",
+          "label": "Керамит (керамзит)"
+        },
+        {
+          "value": "brick_scrap",
+          "label": "Кирпич, бой"
+        },
+        {
+          "value": "cement",
+          "label": "Цемент"
+        },
+        {
+          "value": "clinker",
+          "label": "Клинкер"
+        },
+        {
+          "value": "limestone",
+          "label": "Известняк"
+        },
+        {
+          "value": "sand",
+          "label": "Песок"
+        },
+        {
+          "value": "coal",
+          "label": "Уголь"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "k_1",
+      "token": "k_1",
+      "label": "Доля пылевой фракции (k₁)",
+      "unit": "доля",
+      "datatype": "numeric",
+      "latex": "k_1",
+      "auto_lookup": {
+        "table": "material_factors",
+        "key": "material_type",
+        "output": "k_1"
+      }
+    },
+    {
+      "id": "k_2",
+      "token": "k_2",
+      "label": "Доля летучей пыли (k₂)",
+      "unit": "доля",
+      "datatype": "numeric",
+      "latex": "k_2",
+      "auto_lookup": {
+        "table": "material_factors",
+        "key": "material_type",
+        "output": "k_2"
+      }
+    },
+    {
+      "id": "wind_class",
+      "token": "wind_class",
+      "label": "Класс скорости ветра (для k₃)",
+      "options": [
+        {
+          "value": "calm",
+          "label": "Штиль (0–2 м/с)"
+        },
+        {
+          "value": "moderate",
+          "label": "Умеренный (2–5 м/с)"
+        },
+        {
+          "value": "strong",
+          "label": "Сильный (> 5 м/с)"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "k_3",
+      "token": "k_3",
+      "label": "Коэффициент скорости ветра (k₃)",
+      "datatype": "numeric",
+      "latex": "k_3",
+      "auto_lookup": {
+        "table": "wind_coefficient",
+        "key": "wind_class",
+        "output": "k_3"
+      }
+    },
+    {
+      "id": "enclosure_class",
+      "token": "enclosure_class",
+      "label": "Степень укрытия узла (для k₄)",
+      "options": [
+        {
+          "value": "open",
+          "label": "Открытый (без укрытия)"
+        },
+        {
+          "value": "partial",
+          "label": "Частично укрытый (3 стены/крыша)"
+        },
+        {
+          "value": "closed",
+          "label": "Полностью укрытый (галерея)"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "k_4",
+      "token": "k_4",
+      "label": "Коэффициент укрытия (k₄)",
+      "datatype": "numeric",
+      "latex": "k_4",
+      "auto_lookup": {
+        "table": "enclosure_coefficient",
+        "key": "enclosure_class",
+        "output": "k_4"
+      }
+    },
+    {
+      "id": "moisture_class",
+      "token": "moisture_class",
+      "label": "Влажность материала (для k₅)",
+      "options": [
+        {
+          "value": "dry",
+          "label": "Сухой (< 1% влаги)"
+        },
+        {
+          "value": "moist",
+          "label": "Влажный (1–5% влаги)"
+        },
+        {
+          "value": "wet",
+          "label": "Мокрый (> 5% / полив)"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "k_5",
+      "token": "k_5",
+      "label": "Коэффициент влажности (k₅)",
+      "datatype": "numeric",
+      "latex": "k_5",
+      "auto_lookup": {
+        "table": "moisture_coefficient",
+        "key": "moisture_class",
+        "output": "k_5"
+      }
+    },
+    {
+      "id": "size_class",
+      "token": "size_class",
+      "label": "Крупность материала (для k₇)",
+      "options": [
+        {
+          "value": "fine",
+          "label": "Мелкий (< 0.05 мм, пылевидный)"
+        },
+        {
+          "value": "medium",
+          "label": "Средний (0.05–1 мм)"
+        },
+        {
+          "value": "coarse",
+          "label": "Крупный (> 1 мм)"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "k_7",
+      "token": "k_7",
+      "label": "Коэффициент крупности (k₇)",
+      "datatype": "numeric",
+      "latex": "k_7",
+      "auto_lookup": {
+        "table": "size_coefficient",
+        "key": "size_class",
+        "output": "k_7"
+      }
+    },
+    {
+      "id": "drop_height_range",
+      "token": "drop_height_range",
+      "label": "Высота пересыпки (для B')",
+      "options": [
+        {
+          "value": "0_0.5",
+          "label": "0 – 0.5 м"
+        },
+        {
+          "value": "0.5_1",
+          "label": "0.5 – 1 м"
+        },
+        {
+          "value": "1_2",
+          "label": "1 – 2 м"
+        },
+        {
+          "value": "2_4",
+          "label": "2 – 4 м"
+        },
+        {
+          "value": "4_plus",
+          "label": "> 4 м"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "B_drop",
+      "token": "B_drop",
+      "label": "Коэффициент высоты пересыпки (B')",
+      "datatype": "numeric",
+      "latex": "B_{drop}",
+      "auto_lookup": {
+        "table": "drop_height_coefficient",
+        "key": "drop_height_range",
+        "output": "B_drop"
+      }
+    },
+    {
+      "id": "k_6",
+      "token": "k_6",
+      "label": "Коэффициент профиля поверхности (k₆)",
+      "unit": "доля",
+      "datatype": "numeric",
+      "latex": "k_6",
+      "input_method": "raw",
+      "data_source": "user",
+      "help_text": "Обычно 1.3 - 1.6. По умолчанию 1.45.",
+      "default": 1.45
+    },
+    {
+      "id": "F_surface",
+      "token": "F_surface",
+      "label": "Поверхность пыления в плане",
+      "unit": "м2",
+      "datatype": "numeric",
+      "latex": "F_{surface}",
+      "input_method": "raw",
+      "data_source": "user"
+    },
+    {
+      "id": "storage_material_group",
+      "token": "storage_material_group",
+      "label": "Группа материала на складе",
+      "options": [
+        {
+          "value": "slag_clinker",
+          "label": "Клинкер, шлак"
+        },
+        {
+          "value": "stone_sand",
+          "label": "Щебенка, песок, кварц"
+        },
+        {
+          "value": "cement_lime",
+          "label": "Мергель, известняк, цемент"
+        },
+        {
+          "value": "dry_clay",
+          "label": "Сухие глинистые материалы"
+        },
+        {
+          "value": "coal_gypsum",
+          "label": "Уголь, гипс, мел"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "q",
+      "token": "q",
+      "label": "Удельное выделение с поверхности (q)",
+      "unit": "г/м2*с",
+      "datatype": "numeric",
+      "latex": "q",
+      "auto_lookup": {
+        "table": "surface_emission_q",
+        "key": "storage_material_group",
+        "output": "q"
+      }
+    }
+  ]
+}

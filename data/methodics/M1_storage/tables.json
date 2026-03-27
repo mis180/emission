@@ -1,0 +1,2182 @@
+{
+  "tables": [
+    {
+      "id": "table_6_1",
+      "title": "Emission factors from heat-exchange equipment and transfer systems",
+      "source": {
+        "document": "РНД 211.2.02.09-2004.pdf",
+        "section": "6.2",
+        "table": "6.1"
+      },
+      "lookup_type": "multi_key_exact",
+      "input_keys": [
+        "equipment",
+        "product_group"
+      ],
+      "output_keys": [
+        "Q_spec"
+      ],
+      "data": [
+        {
+          "equipment": "hx_shell_tube_tube",
+          "product_group": "light",
+          "Q_spec": 0.2
+        },
+        {
+          "equipment": "hx_shell_tube_tube",
+          "product_group": "middle",
+          "Q_spec": 0.1
+        },
+        {
+          "equipment": "hx_shell_tube_tube",
+          "product_group": "heavy",
+          "Q_spec": 0.05
+        },
+        {
+          "equipment": "hx_shell_tube_shell",
+          "product_group": "light",
+          "Q_spec": 0.2
+        },
+        {
+          "equipment": "hx_shell_tube_shell",
+          "product_group": "middle",
+          "Q_spec": 0.1
+        },
+        {
+          "equipment": "hx_shell_tube_shell",
+          "product_group": "heavy",
+          "Q_spec": 0.05
+        },
+        {
+          "equipment": "hx_cooler",
+          "product_group": "light",
+          "Q_spec": 0.2
+        },
+        {
+          "equipment": "hx_cooler",
+          "product_group": "middle",
+          "Q_spec": 0.1
+        },
+        {
+          "equipment": "hx_cooler",
+          "product_group": "heavy",
+          "Q_spec": 0.05
+        },
+        {
+          "equipment": "hx_reboiler",
+          "product_group": "light",
+          "Q_spec": 0.2
+        },
+        {
+          "equipment": "hx_reboiler",
+          "product_group": "middle",
+          "Q_spec": 0.1
+        },
+        {
+          "equipment": "hx_reboiler",
+          "product_group": "heavy",
+          "Q_spec": 0.05
+        },
+        {
+          "equipment": "immersion_cooler",
+          "product_group": "light",
+          "Q_spec": 1.0
+        },
+        {
+          "equipment": "immersion_cooler",
+          "product_group": "middle",
+          "Q_spec": 0.5
+        },
+        {
+          "equipment": "immersion_cooler",
+          "product_group": "heavy",
+          "Q_spec": 0.01
+        },
+        {
+          "equipment": "air_cooler",
+          "product_group": "light",
+          "Q_spec": 0.1
+        },
+        {
+          "equipment": "air_cooler",
+          "product_group": "middle",
+          "Q_spec": 0.07
+        },
+        {
+          "equipment": "air_cooler",
+          "product_group": "heavy",
+          "Q_spec": 0.04
+        },
+        {
+          "equipment": "pump_single_mech",
+          "product_group": "light",
+          "Q_spec": 0.08
+        },
+        {
+          "equipment": "pump_single_mech",
+          "product_group": "middle",
+          "Q_spec": 0.04
+        },
+        {
+          "equipment": "pump_single_mech",
+          "product_group": "heavy",
+          "Q_spec": 0.02
+        },
+        {
+          "equipment": "pump_single_packed",
+          "product_group": "light",
+          "Q_spec": 0.14
+        },
+        {
+          "equipment": "pump_single_packed",
+          "product_group": "middle",
+          "Q_spec": 0.07
+        },
+        {
+          "equipment": "pump_single_packed",
+          "product_group": "heavy",
+          "Q_spec": 0.03
+        },
+        {
+          "equipment": "pump_double_mech",
+          "product_group": "light",
+          "Q_spec": 0.14
+        },
+        {
+          "equipment": "pump_double_mech",
+          "product_group": "middle",
+          "Q_spec": 0.07
+        },
+        {
+          "equipment": "pump_double_mech",
+          "product_group": "heavy",
+          "Q_spec": 0.03
+        },
+        {
+          "equipment": "pump_double_packed",
+          "product_group": "light",
+          "Q_spec": 0.26
+        },
+        {
+          "equipment": "pump_double_packed",
+          "product_group": "middle",
+          "Q_spec": 0.13
+        },
+        {
+          "equipment": "pump_double_packed",
+          "product_group": "heavy",
+          "Q_spec": 0.05
+        },
+        {
+          "equipment": "pump_double_sealless",
+          "product_group": "light",
+          "Q_spec": 0.02
+        },
+        {
+          "equipment": "pump_double_sealless",
+          "product_group": "middle",
+          "Q_spec": 0.01
+        },
+        {
+          "equipment": "pump_double_sealless",
+          "product_group": "heavy",
+          "Q_spec": 0.01
+        },
+        {
+          "equipment": "compressor_centrifugal",
+          "product_group": "light",
+          "Q_spec": 0.12
+        },
+        {
+          "equipment": "compressor_reciprocating",
+          "product_group": "light",
+          "Q_spec": 0.75
+        }
+      ]
+    },
+    {
+      "id": "table_6_2",
+      "title": "Leakage through stationary seals",
+      "source": {
+        "document": "РНД 211.2.02.09-2004.pdf",
+        "section": "6.3",
+        "table": "6.2"
+      },
+      "lookup_type": "multi_key_exact",
+      "input_keys": [
+        "category",
+        "stream_type"
+      ],
+      "output_keys": [
+        "leak_rate_kg_per_hour",
+        "failed_seal_share"
+      ],
+      "data": [
+        {
+          "category": "Control valves",
+          "stream_type": "Gas medium",
+          "leak_rate_kg_per_hour": 0.020988,
+          "failed_seal_share": 0.293
+        },
+        {
+          "category": "Control valves",
+          "stream_type": "Light hydrocarbons / two-phase media",
+          "leak_rate_kg_per_hour": 0.012996,
+          "failed_seal_share": 0.365
+        },
+        {
+          "category": "Control valves",
+          "stream_type": "Heavy hydrocarbons",
+          "leak_rate_kg_per_hour": 0.006588,
+          "failed_seal_share": 0.07
+        },
+        {
+          "category": "Control valves",
+          "stream_type": "Hydrogen",
+          "leak_rate_kg_per_hour": 0.008784,
+          "failed_seal_share": 0.3
+        },
+        {
+          "category": "Safety valves",
+          "stream_type": "Vapor-gas streams",
+          "leak_rate_kg_per_hour": 0.136008,
+          "failed_seal_share": 0.46
+        },
+        {
+          "category": "Safety valves",
+          "stream_type": "Light liquid hydrocarbons",
+          "leak_rate_kg_per_hour": 0.08802,
+          "failed_seal_share": 0.25
+        },
+        {
+          "category": "Safety valves",
+          "stream_type": "Heavy hydrocarbons",
+          "leak_rate_kg_per_hour": 0.111024,
+          "failed_seal_share": 0.35
+        },
+        {
+          "category": "Flanged joints",
+          "stream_type": "Vapor-gas streams",
+          "leak_rate_kg_per_hour": 0.00072,
+          "failed_seal_share": 0.03
+        },
+        {
+          "category": "Flanged joints",
+          "stream_type": "Light liquid hydrocarbons",
+          "leak_rate_kg_per_hour": 0.000396,
+          "failed_seal_share": 0.05
+        },
+        {
+          "category": "Flanged joints",
+          "stream_type": "Heavy hydrocarbons",
+          "leak_rate_kg_per_hour": 0.000288,
+          "failed_seal_share": 0.02
+        }
+      ]
+    },
+    {
+      "id": "table_6_3",
+      "title": "q_avg by temperature at wind speed 0.5 m/s",
+      "source": {
+        "document": "РНД 211.2.02.09-2004.pdf",
+        "section": "6.5",
+        "table": "6.3"
+      },
+      "lookup_type": "interpolate",
+      "interpolate_key": "temperature_c",
+      "interpolation": {
+        "key": "temperature_c",
+        "method": "linear",
+        "out_of_range": "clamp"
+      },
+      "output_keys": [
+        "open_oil_trap_q_avg",
+        "settling_pond_q_avg"
+      ],
+      "data": [
+        {
+          "temperature_c": 0,
+          "open_oil_trap_q_avg": 1.294,
+          "settling_pond_q_avg": 0.053
+        },
+        {
+          "temperature_c": 10,
+          "open_oil_trap_q_avg": 3.158,
+          "settling_pond_q_avg": 0.236
+        },
+        {
+          "temperature_c": 20,
+          "open_oil_trap_q_avg": 7.267,
+          "settling_pond_q_avg": 0.84
+        },
+        {
+          "temperature_c": 30,
+          "open_oil_trap_q_avg": 15.603,
+          "settling_pond_q_avg": 2.519
+        },
+        {
+          "temperature_c": 40,
+          "open_oil_trap_q_avg": 31.79,
+          "settling_pond_q_avg": 6.576
+        }
+      ],
+      "input_keys": [
+        "temperature_c"
+      ]
+    },
+    {
+      "id": "table_6_4",
+      "title": "Cover coefficient z by surface coverage percent",
+      "source": {
+        "document": "РНД 211.2.02.09-2004.pdf",
+        "section": "6.5",
+        "table": "6.4"
+      },
+      "lookup_type": "interpolate",
+      "interpolate_key": "coverage_percent",
+      "interpolation": {
+        "key": "coverage_percent",
+        "method": "linear",
+        "out_of_range": "clamp"
+      },
+      "output_keys": [
+        "z"
+      ],
+      "data": [
+        {
+          "coverage_percent": 0,
+          "z": 1.0
+        },
+        {
+          "coverage_percent": 10,
+          "z": 0.96
+        },
+        {
+          "coverage_percent": 15,
+          "z": 0.94
+        },
+        {
+          "coverage_percent": 20,
+          "z": 0.91
+        },
+        {
+          "coverage_percent": 25,
+          "z": 0.88
+        },
+        {
+          "coverage_percent": 30,
+          "z": 0.85
+        },
+        {
+          "coverage_percent": 35,
+          "z": 0.82
+        },
+        {
+          "coverage_percent": 40,
+          "z": 0.79
+        },
+        {
+          "coverage_percent": 45,
+          "z": 0.76
+        },
+        {
+          "coverage_percent": 50,
+          "z": 0.72
+        },
+        {
+          "coverage_percent": 55,
+          "z": 0.68
+        },
+        {
+          "coverage_percent": 60,
+          "z": 0.63
+        },
+        {
+          "coverage_percent": 65,
+          "z": 0.57
+        },
+        {
+          "coverage_percent": 70,
+          "z": 0.5
+        },
+        {
+          "coverage_percent": 75,
+          "z": 0.42
+        },
+        {
+          "coverage_percent": 80,
+          "z": 0.36
+        },
+        {
+          "coverage_percent": 85,
+          "z": 0.28
+        },
+        {
+          "coverage_percent": 90,
+          "z": 0.21
+        },
+        {
+          "coverage_percent": 95,
+          "z": 0.15
+        },
+        {
+          "coverage_percent": 100,
+          "z": 0.1
+        }
+      ],
+      "input_keys": [
+        "coverage_percent"
+      ]
+    },
+    {
+      "id": "table_6_5",
+      "title": "Natural loss standards for mazut in open earthen pits",
+      "source": {
+        "document": "РНД 211.2.02.09-2004.pdf",
+        "section": "6.6",
+        "table": "6.5"
+      },
+      "lookup_type": "exact",
+      "input_keys": [
+        "facility"
+      ],
+      "output_keys": [
+        "autumn_winter_norm",
+        "spring_summer_norm"
+      ],
+      "data": [
+        {
+          "facility": "Earthen pit",
+          "autumn_winter_norm": 2.16,
+          "spring_summer_norm": 2.88
+        }
+      ]
+    },
+    {
+      "id": "Table-1",
+      "title": "Гигиенические нормативы (ОБУВ, ПДК)",
+      "lookup_type": "exact",
+      "input_keys": [
+        "substance"
+      ],
+      "output_keys": [
+        "OBUV",
+        "PDK_mr",
+        "PDK_ss"
+      ],
+      "data": [
+        {
+          "substance": "Амилен",
+          "OBUV": null,
+          "PDK_mr": 1.5,
+          "PDK_ss": 1.5
+        },
+        {
+          "substance": "Аммиак",
+          "OBUV": null,
+          "PDK_mr": 0.2,
+          "PDK_ss": 0.04
+        },
+        {
+          "substance": "Ацетон",
+          "OBUV": null,
+          "PDK_mr": 0.35,
+          "PDK_ss": 0.35
+        },
+        {
+          "substance": "Бензин",
+          "OBUV": null,
+          "PDK_mr": 1.5,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Бензол",
+          "OBUV": null,
+          "PDK_mr": 1.5,
+          "PDK_ss": 0.1
+        },
+        {
+          "substance": "Бутан",
+          "OBUV": null,
+          "PDK_mr": 200.0,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Бутилен",
+          "OBUV": null,
+          "PDK_mr": 3.0,
+          "PDK_ss": 3.0
+        },
+        {
+          "substance": "Гексан",
+          "OBUV": 50.0,
+          "PDK_mr": 60.0,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Гидроперекись изопропилбензола",
+          "OBUV": null,
+          "PDK_mr": 0.007,
+          "PDK_ss": 0.007
+        },
+        {
+          "substance": "Изопропилбензол",
+          "OBUV": null,
+          "PDK_mr": 0.014,
+          "PDK_ss": 0.014
+        },
+        {
+          "substance": "Керосин",
+          "OBUV": 1.2,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Ксилолы",
+          "OBUV": null,
+          "PDK_mr": 0.2,
+          "PDK_ss": 0.2
+        },
+        {
+          "substance": "Масло минеральное нефтяное",
+          "OBUV": 0.05,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Метан",
+          "OBUV": null,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Метилтилкетон",
+          "OBUV": 0.1,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Пентан",
+          "OBUV": null,
+          "PDK_mr": 100.0,
+          "PDK_ss": 25.0
+        },
+        {
+          "substance": "Пропилен",
+          "OBUV": null,
+          "PDK_mr": 3.0,
+          "PDK_ss": 3.0
+        },
+        {
+          "substance": "Серная кислота",
+          "OBUV": null,
+          "PDK_mr": 0.3,
+          "PDK_ss": 0.1
+        },
+        {
+          "substance": "Сернистый ангидрид",
+          "OBUV": null,
+          "PDK_mr": 0.5,
+          "PDK_ss": 0.05
+        },
+        {
+          "substance": "Сероводород",
+          "OBUV": null,
+          "PDK_mr": 0.008,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Скипидар",
+          "OBUV": null,
+          "PDK_mr": 2.0,
+          "PDK_ss": 1.0
+        },
+        {
+          "substance": "Сольвент нафты",
+          "OBUV": 0.2,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Спирт изобутиловый",
+          "OBUV": null,
+          "PDK_mr": 0.1,
+          "PDK_ss": 0.1
+        },
+        {
+          "substance": "Спирт метиловый",
+          "OBUV": null,
+          "PDK_mr": 1.0,
+          "PDK_ss": 0.5
+        },
+        {
+          "substance": "Спирт этиловый",
+          "OBUV": null,
+          "PDK_mr": 5.0,
+          "PDK_ss": 5.0
+        },
+        {
+          "substance": "Толуол",
+          "OBUV": null,
+          "PDK_mr": 0.6,
+          "PDK_ss": 0.6
+        },
+        {
+          "substance": "Уайт-спирит",
+          "OBUV": 1.0,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Углеводороды предельные C1-C5",
+          "OBUV": 50.0,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Углеводороды предельные C12-C19",
+          "OBUV": null,
+          "PDK_mr": 1.0,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Углеводороды предельные C6-C10",
+          "OBUV": 30.0,
+          "PDK_mr": null,
+          "PDK_ss": null
+        },
+        {
+          "substance": "Уксусная кислота",
+          "OBUV": null,
+          "PDK_mr": 0.2,
+          "PDK_ss": 0.06
+        },
+        {
+          "substance": "Фенол",
+          "OBUV": null,
+          "PDK_mr": 0.01,
+          "PDK_ss": 0.0003
+        },
+        {
+          "substance": "Формальдегид",
+          "OBUV": null,
+          "PDK_mr": 0.035,
+          "PDK_ss": 0.003
+        },
+        {
+          "substance": "Фурфурол",
+          "OBUV": null,
+          "PDK_mr": 0.3,
+          "PDK_ss": 0.05
+        },
+        {
+          "substance": "Хлор",
+          "OBUV": null,
+          "PDK_mr": 0.1,
+          "PDK_ss": 0.03
+        },
+        {
+          "substance": "Хлористый водород",
+          "OBUV": null,
+          "PDK_mr": 0.2,
+          "PDK_ss": 0.2
+        },
+        {
+          "substance": "Этилбензол",
+          "OBUV": null,
+          "PDK_mr": 0.02,
+          "PDK_ss": 0.02
+        },
+        {
+          "substance": "Этилен",
+          "OBUV": null,
+          "PDK_mr": 3.0,
+          "PDK_ss": 3.0
+        },
+        {
+          "substance": "Этиленгликоль",
+          "OBUV": 1.0,
+          "PDK_mr": null,
+          "PDK_ss": null
+        }
+      ]
+    },
+    {
+      "id": "Table-10",
+      "title": "Коэффициент Kob (оборачиваемость)",
+      "lookup_type": "range_match",
+      "input_keys": [
+        "n"
+      ],
+      "output_keys": [
+        "Kob"
+      ],
+      "data": [
+        {
+          "n": 29.0,
+          "Kob": 2.5
+        },
+        {
+          "n": 30.0,
+          "Kob": 2.25
+        },
+        {
+          "n": 39.0,
+          "Kob": 2.25
+        },
+        {
+          "n": 40.0,
+          "Kob": 2.0
+        },
+        {
+          "n": 59.0,
+          "Kob": 2.0
+        },
+        {
+          "n": 60.0,
+          "Kob": 1.75
+        },
+        {
+          "n": 79.0,
+          "Kob": 1.75
+        },
+        {
+          "n": 80.0,
+          "Kob": 1.5
+        },
+        {
+          "n": 99.0,
+          "Kob": 1.5
+        },
+        {
+          "n": 100.0,
+          "Kob": 1.35
+        }
+      ]
+    },
+    {
+      "id": "Table-12",
+      "title": "Удельные выделения от АЗС",
+      "lookup_type": "exact",
+      "input_keys": [
+        "substance"
+      ],
+      "output_keys": [
+        "C1",
+        "Knp",
+        "Uoz",
+        "Uvl"
+      ],
+      "data": [
+        {
+          "substance": "benzene",
+          "label": "Бензол",
+          "C1": 367.2,
+          "Knp": 0.45,
+          "Uoz": 140.0,
+          "Uvl": 310.0
+        },
+        {
+          "substance": "diesel",
+          "label": "Дизельное топливо",
+          "C1": 3.14,
+          "Knp": 0.0029,
+          "Uoz": 1.9,
+          "Uvl": 2.6
+        },
+        {
+          "substance": "ethylbenzene",
+          "label": "Этилбензол",
+          "C1": 46.8,
+          "Knp": 0.067,
+          "Uoz": 13.0,
+          "Uvl": 35.0
+        },
+        {
+          "substance": "fraction_br",
+          "label": "Бензины (фракции)",
+          "C1": 344.0,
+          "Knp": 0.35,
+          "Uoz": 360.0,
+          "Uvl": 250.0
+        },
+        {
+          "substance": "gasoline_auto",
+          "label": "Бензин автомобильный",
+          "C1": 972.0,
+          "Knp": 1.0,
+          "Uoz": 780.0,
+          "Uvl": 1100.0
+        },
+        {
+          "substance": "gasoline_avia",
+          "label": "Бензин авиационный",
+          "C1": 720.0,
+          "Knp": 0.67,
+          "Uoz": 480.0,
+          "Uvl": 820.0
+        },
+        {
+          "substance": "kerosene_t2",
+          "label": "Керосин Т-2",
+          "C1": 306.0,
+          "Knp": 0.29,
+          "Uoz": 200.0,
+          "Uvl": 340.0
+        },
+        {
+          "substance": "mazut",
+          "label": "Мазут",
+          "C1": 5.4,
+          "Knp": 0.0043,
+          "Uoz": 4.0,
+          "Uvl": 6.53
+        },
+        {
+          "substance": "nefras",
+          "label": "Нефрас",
+          "C1": 720.0,
+          "Knp": 0.66,
+          "Uoz": 460.0,
+          "Uvl": 780.0
+        },
+        {
+          "substance": "toluene",
+          "label": "Толуол",
+          "C1": 126.0,
+          "Knp": 0.17,
+          "Uoz": 42.0,
+          "Uvl": 100.0
+        },
+        {
+          "substance": "white_spirit",
+          "label": "Уайт-спирит",
+          "C1": 36.0,
+          "Knp": 0.033,
+          "Uoz": 22.0,
+          "Uvl": 37.0
+        },
+        {
+          "substance": "xylene",
+          "label": "Ксилолы",
+          "C1": 39.6,
+          "Knp": 0.059,
+          "Uoz": 11.0,
+          "Uvl": 30.0
+        }
+      ]
+    },
+    {
+      "id": "Table-7",
+      "title": "Коэффициент Kt (влияние температуры)",
+      "lookup_type": "interpolate_with_filter",
+      "filter_key": "substance",
+      "interpolate_key": "t",
+      "interpolation": {
+        "key": "t",
+        "method": "linear",
+        "out_of_range": "clamp"
+      },
+      "input_keys": [
+        "substance",
+        "t"
+      ],
+      "output_keys": [
+        "Kt"
+      ],
+      "data": [
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -30.0,
+          "Kt": 0.135
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -29.0,
+          "Kt": 0.14
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -28.0,
+          "Kt": 0.15
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -27.0,
+          "Kt": 0.153
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -26.0,
+          "Kt": 0.165
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -24.0,
+          "Kt": 0.175
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -23.0,
+          "Kt": 0.183
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -22.0,
+          "Kt": 0.19
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -17.0,
+          "Kt": 0.24
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -16.0,
+          "Kt": 0.255
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -15.0,
+          "Kt": 0.26
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -11.0,
+          "Kt": 0.3
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -10.0,
+          "Kt": 0.32
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -7.0,
+          "Kt": 0.365
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -6.0,
+          "Kt": 0.39
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -5.0,
+          "Kt": 0.4
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -4.0,
+          "Kt": 0.42
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": -2.0,
+          "Kt": 0.45
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 0.0,
+          "Kt": 0.49
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 1.0,
+          "Kt": 0.52
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 2.0,
+          "Kt": 0.53
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 5.0,
+          "Kt": 0.59
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 6.0,
+          "Kt": 0.62
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 8.0,
+          "Kt": 0.66
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 10.0,
+          "Kt": 0.72
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 11.0,
+          "Kt": 0.74
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 13.0,
+          "Kt": 0.8
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 14.0,
+          "Kt": 0.82
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 15.0,
+          "Kt": 0.85
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 16.0,
+          "Kt": 0.87
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 17.0,
+          "Kt": 0.9
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 18.0,
+          "Kt": 0.94
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 21.0,
+          "Kt": 1.03
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 22.0,
+          "Kt": 1.08
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 23.0,
+          "Kt": 1.1
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 25.0,
+          "Kt": 1.2
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 26.0,
+          "Kt": 1.23
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 27.0,
+          "Kt": 1.25
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 30.0,
+          "Kt": 1.4
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 31.0,
+          "Kt": 1.43
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 32.0,
+          "Kt": 1.48
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 33.0,
+          "Kt": 1.5
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 39.0,
+          "Kt": 1.8
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 40.0,
+          "Kt": 1.88
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 41.0,
+          "Kt": 1.93
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 42.0,
+          "Kt": 1.97
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 43.0,
+          "Kt": 2.02
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 44.0,
+          "Kt": 2.09
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 45.0,
+          "Kt": 2.15
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 47.0,
+          "Kt": 2.25
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 48.0,
+          "Kt": 2.35
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 49.0,
+          "Kt": 2.4
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 50.0,
+          "Kt": 2.5
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 51.0,
+          "Kt": 2.58
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 52.0,
+          "Kt": 2.6
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 53.0,
+          "Kt": 2.7
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 54.0,
+          "Kt": 2.78
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 55.0,
+          "Kt": 2.88
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 56.0,
+          "Kt": 2.9
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 57.0,
+          "Kt": 3.0
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 58.0,
+          "Kt": 3.08
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 59.0,
+          "Kt": 3.15
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 60.0,
+          "Kt": 3.2
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 63.0,
+          "Kt": 3.5
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 65.0,
+          "Kt": 3.6
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 79.0,
+          "Kt": 5.0
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 80.0,
+          "Kt": 5.08
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 81.0,
+          "Kt": 5.1
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 82.0,
+          "Kt": 5.15
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 83.0,
+          "Kt": 5.51
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 84.0,
+          "Kt": 5.58
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 85.0,
+          "Kt": 5.6
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 86.0,
+          "Kt": 5.8
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 92.0,
+          "Kt": 6.4
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 93.0,
+          "Kt": 6.6
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 95.0,
+          "Kt": 6.8
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 96.0,
+          "Kt": 7.0
+        },
+        {
+          "substance": "Нефтепродукты (кроме бензина)",
+          "t": 100.0,
+          "Kt": 7.4
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -30.0,
+          "Kt": 0.09
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -28.0,
+          "Kt": 0.096
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -27.0,
+          "Kt": 0.1
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -18.0,
+          "Kt": 0.145
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -17.0,
+          "Kt": 0.153
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -16.0,
+          "Kt": 0.16
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -15.0,
+          "Kt": 0.165
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -14.0,
+          "Kt": 0.173
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -13.0,
+          "Kt": 0.18
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -12.0,
+          "Kt": 0.185
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -11.0,
+          "Kt": 0.193
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -10.0,
+          "Kt": 0.2
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -9.0,
+          "Kt": 0.21
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -8.0,
+          "Kt": 0.215
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -6.0,
+          "Kt": 0.235
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": -5.0,
+          "Kt": 0.24
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 2.0,
+          "Kt": 0.31
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 3.0,
+          "Kt": 0.33
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 6.0,
+          "Kt": 0.36
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 8.0,
+          "Kt": 0.39
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 9.0,
+          "Kt": 0.4
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 10.0,
+          "Kt": 0.42
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 11.0,
+          "Kt": 0.43
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 13.0,
+          "Kt": 0.46
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 14.0,
+          "Kt": 0.47
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 15.0,
+          "Kt": 0.49
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 16.0,
+          "Kt": 0.5
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 19.0,
+          "Kt": 0.56
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 21.0,
+          "Kt": 0.58
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 26.0,
+          "Kt": 0.68
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 27.0,
+          "Kt": 0.69
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 29.0,
+          "Kt": 0.73
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 30.0,
+          "Kt": 0.74
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 34.0,
+          "Kt": 0.82
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 35.0,
+          "Kt": 0.83
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 37.0,
+          "Kt": 0.87
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 38.0,
+          "Kt": 0.88
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 39.0,
+          "Kt": 0.9
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 40.0,
+          "Kt": 0.91
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 41.0,
+          "Kt": 0.93
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 42.0,
+          "Kt": 0.94
+        },
+        {
+          "substance": "Нефти и бензины, Бензин автомобильный, Нефть сырая",
+          "t": 50.0,
+          "Kt": 1.1
+        }
+      ]
+    },
+    {
+      "id": "Table-8",
+      "title": "Коэффициент Kp (условия эксплуатации)",
+      "lookup_type": "multi_key_exact",
+      "input_keys": [
+        "group",
+        "type",
+        "mode",
+        "volume"
+      ],
+      "output_keys": [
+        "Kp",
+        "Kp_avg"
+      ],
+      "data": [
+        {
+          "group": "А",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 0.9,
+          "Kp_avg": 0.63
+        },
+        {
+          "group": "А",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.87,
+          "Kp_avg": 0.61
+        },
+        {
+          "group": "А",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.83,
+          "Kp_avg": 0.58
+        },
+        {
+          "group": "А",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.8,
+          "Kp_avg": 0.56
+        },
+        {
+          "group": "А",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 0.8,
+          "Kp_avg": 0.56
+        },
+        {
+          "group": "А",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.77,
+          "Kp_avg": 0.54
+        },
+        {
+          "group": "А",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.73,
+          "Kp_avg": 0.51
+        },
+        {
+          "group": "А",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.7,
+          "Kp_avg": 0.5
+        },
+        {
+          "group": "А",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 1.0,
+          "Kp_avg": 0.7
+        },
+        {
+          "group": "А",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.97,
+          "Kp_avg": 0.68
+        },
+        {
+          "group": "А",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.93,
+          "Kp_avg": 0.65
+        },
+        {
+          "group": "А",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.9,
+          "Kp_avg": 0.63
+        },
+        {
+          "group": "Б",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 0.95,
+          "Kp_avg": 0.67
+        },
+        {
+          "group": "Б",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.92,
+          "Kp_avg": 0.64
+        },
+        {
+          "group": "Б",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.88,
+          "Kp_avg": 0.62
+        },
+        {
+          "group": "Б",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.85,
+          "Kp_avg": 0.6
+        },
+        {
+          "group": "Б",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 0.85,
+          "Kp_avg": 0.6
+        },
+        {
+          "group": "Б",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.82,
+          "Kp_avg": 0.57
+        },
+        {
+          "group": "Б",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.78,
+          "Kp_avg": 0.55
+        },
+        {
+          "group": "Б",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.75,
+          "Kp_avg": 0.53
+        },
+        {
+          "group": "Б",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 1.0,
+          "Kp_avg": 0.7
+        },
+        {
+          "group": "Б",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.98,
+          "Kp_avg": 0.69
+        },
+        {
+          "group": "Б",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.96,
+          "Kp_avg": 0.67
+        },
+        {
+          "group": "Б",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.95,
+          "Kp_avg": 0.67
+        },
+        {
+          "group": "В",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 1.0,
+          "Kp_avg": 0.7
+        },
+        {
+          "group": "В",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.97,
+          "Kp_avg": 0.68
+        },
+        {
+          "group": "В",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.93,
+          "Kp_avg": 0.65
+        },
+        {
+          "group": "В",
+          "type": "Наземный вертикальный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.9,
+          "Kp_avg": 0.63
+        },
+        {
+          "group": "В",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 0.9,
+          "Kp_avg": 0.63
+        },
+        {
+          "group": "В",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 0.87,
+          "Kp_avg": 0.61
+        },
+        {
+          "group": "В",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 0.83,
+          "Kp_avg": 0.58
+        },
+        {
+          "group": "В",
+          "type": "Заглубленный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 0.8,
+          "Kp_avg": 0.56
+        },
+        {
+          "group": "В",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "<100",
+          "Kp": 1.0,
+          "Kp_avg": 0.7
+        },
+        {
+          "group": "В",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "100-700",
+          "Kp": 1.0,
+          "Kp_avg": 0.7
+        },
+        {
+          "group": "В",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": "700-2000",
+          "Kp": 1.0,
+          "Kp_avg": 0.7
+        },
+        {
+          "group": "В",
+          "type": "Наземный горизонтальный",
+          "mode": "мерник",
+          "volume": ">=2000",
+          "Kp": 1.0,
+          "Kp_avg": 0.7
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "понтон",
+          "volume": "<100",
+          "Kp": 0.2,
+          "Kp_avg": 0.14
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "понтон",
+          "volume": "100-700",
+          "Kp": 0.19,
+          "Kp_avg": 0.13
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "понтон",
+          "volume": "700-2000",
+          "Kp": 0.17,
+          "Kp_avg": 0.12
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "понтон",
+          "volume": ">=2000",
+          "Kp": 0.16,
+          "Kp_avg": 0.11
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "плавающая крыша",
+          "volume": "<100",
+          "Kp": 0.13,
+          "Kp_avg": 0.094
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "плавающая крыша",
+          "volume": "100-700",
+          "Kp": 0.13,
+          "Kp_avg": 0.087
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "плавающая крыша",
+          "volume": "700-2000",
+          "Kp": 0.12,
+          "Kp_avg": 0.08
+        },
+        {
+          "group": "А,Б,В",
+          "type": "Наземный вертикальный",
+          "mode": "плавающая крыша",
+          "volume": ">=2000",
+          "Kp": 0.11,
+          "Kp_avg": 0.074
+        },
+        {
+          "group": "А,Б,В",
+          "mode": "буферная емкость",
+          "Kp": 0.1,
+          "Kp_avg": 0.1
+        }
+      ]
+    },
+    {
+      "id": "Table-9",
+      "title": "Коэффициент Kv (влияние давления)",
+      "lookup_type": "interpolate",
+      "input_keys": [
+        "Pt_mmHg"
+      ],
+      "interpolate_key": "Pt_mmHg",
+      "interpolation": {
+        "key": "Pt_mmHg",
+        "method": "linear",
+        "out_of_range": "clamp"
+      },
+      "output_keys": [
+        "Kv"
+      ],
+      "data": [
+        {
+          "Pt_mmHg": 540.0,
+          "Kv": 1.0
+        },
+        {
+          "Pt_mmHg": 550.0,
+          "Kv": 1.03
+        },
+        {
+          "Pt_mmHg": 590.0,
+          "Kv": 1.19
+        },
+        {
+          "Pt_mmHg": 600.0,
+          "Kv": 1.24
+        },
+        {
+          "Pt_mmHg": 610.0,
+          "Kv": 1.28
+        },
+        {
+          "Pt_mmHg": 630.0,
+          "Kv": 1.38
+        },
+        {
+          "Pt_mmHg": 640.0,
+          "Kv": 1.44
+        },
+        {
+          "Pt_mmHg": 650.0,
+          "Kv": 1.49
+        },
+        {
+          "Pt_mmHg": 670.0,
+          "Kv": 1.61
+        },
+        {
+          "Pt_mmHg": 680.0,
+          "Kv": 1.68
+        },
+        {
+          "Pt_mmHg": 690.0,
+          "Kv": 1.74
+        },
+        {
+          "Pt_mmHg": 700.0,
+          "Kv": 1.81
+        },
+        {
+          "Pt_mmHg": 730.0,
+          "Kv": 2.05
+        },
+        {
+          "Pt_mmHg": 750.0,
+          "Kv": 2.23
+        },
+        {
+          "Pt_mmHg": 759.0,
+          "Kv": 2.32
+        }
+      ]
+    },
+    {
+      "id": "Table-3",
+      "title": "Параметры уравнения Антуана",
+      "source": "Приложение 3",
+      "lookup_type": "exact",
+      "input_keys": [
+        "substance"
+      ],
+      "output_keys": [
+        "A",
+        "B",
+        "C",
+        "m"
+      ],
+      "data": [
+        {
+          "substance": "Бутан",
+          "A": 6.83029,
+          "B": 945.9,
+          "C": 240.0,
+          "m": 58.12
+        },
+        {
+          "substance": "Пентан",
+          "A": 6.87372,
+          "B": 1075.82,
+          "C": 233.36,
+          "m": 72.15
+        },
+        {
+          "substance": "Гексан",
+          "A": 6.87776,
+          "B": 1171.53,
+          "C": 224.37,
+          "m": 86.18
+        },
+        {
+          "substance": "Гептан",
+          "A": 6.90027,
+          "B": 1266.87,
+          "C": 216.76,
+          "m": 100.21
+        },
+        {
+          "substance": "Изооктан",
+          "A": 6.8117,
+          "B": 1259.2,
+          "C": 221.0,
+          "m": 114.23
+        },
+        {
+          "substance": "Цетан",
+          "A": 7.33309,
+          "B": 2036.4,
+          "C": 172.5,
+          "m": 226.45
+        },
+        {
+          "substance": "Бензол",
+          "A": 6.9121,
+          "B": 1224.64,
+          "C": 221.2,
+          "m": 78.11
+        },
+        {
+          "substance": "Толуол",
+          "A": 6.95334,
+          "B": 1343.94,
+          "C": 219.38,
+          "m": 92.14
+        },
+        {
+          "substance": "о-Ксилол",
+          "A": 6.99891,
+          "B": 1474.68,
+          "C": 213.69,
+          "m": 106.16
+        },
+        {
+          "substance": "м-Ксилол",
+          "A": 7.00908,
+          "B": 1462.27,
+          "C": 215.11,
+          "m": 106.16
+        },
+        {
+          "substance": "п-Ксилол",
+          "A": 6.99052,
+          "B": 1453.43,
+          "C": 215.31,
+          "m": 106.16
+        },
+        {
+          "substance": "Этилбензол",
+          "A": 6.95719,
+          "B": 1424.26,
+          "C": 213.21,
+          "m": 106.17
+        },
+        {
+          "substance": "Изопропилбензол",
+          "A": 6.93666,
+          "B": 1460.79,
+          "C": 207.78,
+          "m": 120.19
+        },
+        {
+          "substance": "Спирт метиловый",
+          "A": 8.12,
+          "B": 1592.86,
+          "C": 233.4,
+          "m": 32.04
+        },
+        {
+          "substance": "Ацетон",
+          "A": 7.2506,
+          "B": 1281.7,
+          "C": 237.0,
+          "m": 58.08
+        },
+        {
+          "substance": "Фенол",
+          "A": 7.86819,
+          "B": 2011.4,
+          "C": 222.0,
+          "m": 94.11
+        }
+      ]
+    },
+    {
+      "id": "Table-4",
+      "title": "Константа Генри (K_H) для растворов в воде",
+      "source": "Приложение 4",
+      "lookup_type": "interpolate_with_filter",
+      "filter_key": "substance",
+      "interpolate_key": "t",
+      "interpolation": {
+        "key": "t",
+        "method": "linear",
+        "out_of_range": "clamp"
+      },
+      "input_keys": [
+        "substance",
+        "t"
+      ],
+      "output_keys": [
+        "K_H"
+      ],
+      "data": [
+        {
+          "substance": "Сероводород",
+          "t": 0.0,
+          "K_H": 1.85
+        },
+        {
+          "substance": "Сероводород",
+          "t": 25.0,
+          "K_H": 2.15
+        },
+        {
+          "substance": "Сероводород",
+          "t": 30.0,
+          "K_H": 2.2
+        },
+        {
+          "substance": "Сероводород",
+          "t": 40.0,
+          "K_H": 2.27
+        },
+        {
+          "substance": "Сероводород",
+          "t": 60.0,
+          "K_H": 2.24
+        }
+      ]
+    },
+    {
+      "id": "Table-5",
+      "title": "Молекулярная масса паров нефтей и бензинов",
+      "source": "Приложение 5",
+      "lookup_type": "interpolate",
+      "input_keys": [
+        "t_nk"
+      ],
+      "interpolate_key": "t_nk",
+      "interpolation": {
+        "key": "t_nk",
+        "method": "linear",
+        "out_of_range": "clamp"
+      },
+      "output_keys": [
+        "m"
+      ],
+      "data": [
+        {
+          "t_nk": 30.0,
+          "m": 63.0
+        },
+        {
+          "t_nk": 60.0,
+          "m": 81.0
+        }
+      ]
+    },
+    {
+      "id": "Table-13",
+      "title": "Удельные потери при хранении Gxp (Приложение 13)",
+      "lookup_type": "multi_key_exact",
+      "input_keys": [
+        "tank_volume_m3",
+        "tank_mode",
+        "tank_type"
+      ],
+      "output_keys": [
+        "Gxp"
+      ],
+      "data": [
+        {
+          "tank_volume_m3": "100-700",
+          "tank_mode": "мерник",
+          "tank_type": "Наземный вертикальный",
+          "Gxp": 0.22
+        },
+        {
+          "tank_volume_m3": "700-2000",
+          "tank_mode": "мерник",
+          "tank_type": "Наземный вертикальный",
+          "Gxp": 1.49
+        },
+        {
+          "tank_volume_m3": ">=2000",
+          "tank_mode": "мерник",
+          "tank_type": "Наземный вертикальный",
+          "Gxp": 5.8
+        }
+      ]
+    }
+  ]
+}

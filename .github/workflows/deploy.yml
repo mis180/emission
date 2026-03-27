@@ -1,0 +1,38 @@
+name: Obfuscate and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Obfuscator
+        run: npm install -g javascript-obfuscator
+
+      - name: Prepare Build Folder
+        run: |
+          mkdir build
+          cp -r index.html style.css app.js data lib engine build/
+
+      - name: Obfuscate JavaScript
+        run: |
+          javascript-obfuscator ./build/app.js --output ./build/app.js --string-array true --rotate-string-array true --shuffle-string-array true --string-array-threshold 0.75 --compact true --control-flow-flattening true --control-flow-flattening-threshold 0.5
+          # Obfuscate engine files
+          find ./build/engine/ -name "*.js" -exec javascript-obfuscator {} --output {} --string-array true --rotate-string-array true --shuffle-string-array true --string-array-threshold 0.75 --compact true --control-flow-flattening true --control-flow-flattening-threshold 0.5 \;
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # Deploy the obfuscated build folder
+          branch: gh-pages # The output branch for the web link

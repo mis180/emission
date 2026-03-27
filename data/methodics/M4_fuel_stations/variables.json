@@ -1,0 +1,76 @@
+{
+  "variables": [
+    {
+      "id": "equip_type",
+      "token": "equip_type",
+      "label": "Тип оборудования",
+      "options": [
+        {
+          "value": "heat_ex",
+          "label": "Теплообменник"
+        },
+        {
+          "value": "pump_single_end",
+          "label": "Насос одинарный (торцевое уплотнение)"
+        },
+        {
+          "value": "pump_single_gland",
+          "label": "Насос одинарный (сальниковое уплотнение)"
+        },
+        {
+          "value": "pump_double_end",
+          "label": "Насос двойной (торцевое уплотнение)"
+        },
+        {
+          "value": "pump_double_gland",
+          "label": "Насос двойной (сальниковое уплотнение)"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "fluid_type",
+      "token": "fluid_type",
+      "label": "Вид нефтепродукта",
+      "options": [
+        {
+          "value": "gas_benz",
+          "label": "Газ / Бензин"
+        },
+        {
+          "value": "kero_diesel",
+          "label": "Керосин / Дизель"
+        },
+        {
+          "value": "oil_mazut",
+          "label": "Масло / Мазут"
+        }
+      ],
+      "datatype": "string"
+    },
+    {
+      "id": "Q_spec",
+      "token": "Q_spec",
+      "label": "Удельное выделение ЗВ (Q_spec)",
+      "unit": "кг/ч",
+      "datatype": "numeric",
+      "latex": "Q_{spec}",
+      "auto_lookup": {
+        "table": "Table_6_1",
+        "key": {
+          "equip_type": "equip_type",
+          "fluid_type": "fluid_type"
+        },
+        "output": "Q_spec"
+      }
+    },
+    {
+      "id": "T",
+      "token": "T",
+      "label": "Годовой фонд времени работы",
+      "unit": "ч/год",
+      "datatype": "numeric",
+      "latex": "T"
+    }
+  ]
+}

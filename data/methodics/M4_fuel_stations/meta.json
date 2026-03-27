@@ -1,0 +1,16 @@
+{
+  "id": "M4_fuel_stations",
+  "name": "Расчет выбросов от предприятий, осуществляющих хранение и реализацию нефтепродуктов",
+  "name_en": "Fuel Stations and Depots",
+  "version": "Приказ ООС РК 2011 № 196-ө",
+  "country": "KZ",
+  "category": "fuel_depots",
+  "source_types": [
+    {
+      "value": "pumps",
+      "label": "Теплообменники и средства перекачки",
+      "formula_codes": ["6.2"]
+    }
+  ],
+  "calc_methods": {}
+}

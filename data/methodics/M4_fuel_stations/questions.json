@@ -1,0 +1,59 @@
+{
+  "flow": {
+    "pumps": {
+      "_default": {
+        "formula_code": "6.2",
+        "variables": [
+          "equip_type",
+          "fluid_type",
+          "Q_spec",
+          "T"
+        ]
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "q_equip_type",
+      "variable_id": "equip_type",
+      "type": "select",
+      "label": "Тип оборудования",
+      "required": true,
+      "options": [
+        {"value": "heat_ex",           "label": "Кожухотрубный теплообменник"},
+        {"value": "pump_single_end",   "label": "Насос центробежный с 1 торцевым уплотнением"},
+        {"value": "pump_single_gland", "label": "Насос центробежный с 1 сальниковым уплотнением"},
+        {"value": "pump_double_end",   "label": "Насос центробежный с 2 торцевыми уплотнениями"},
+        {"value": "pump_double_gland", "label": "Насос центробежный с 2 сальниковыми уплотнениями"}
+      ]
+    },
+    {
+      "id": "q_fluid_type",
+      "variable_id": "fluid_type",
+      "type": "select",
+      "label": "Вид нефтепродукта",
+      "required": true,
+      "options": [
+        {"value": "gas_benz",    "label": "Газ / Бензин (t < 120°C)"},
+        {"value": "kero_diesel", "label": "Керосин / Дизель (t = 120–300°C)"},
+        {"value": "oil_mazut",   "label": "Масло / Мазут (t > 300°C)"}
+      ]
+    },
+    {
+      "id": "q_Q_spec",
+      "variable_id": "Q_spec",
+      "type": "number",
+      "label": "Удельное выделение ЗВ (Таблица 6.1)",
+      "unit": "кг/ч",
+      "disabled": true
+    },
+    {
+      "id": "q_T",
+      "variable_id": "T",
+      "type": "number",
+      "label": "Годовой фонд времени работы",
+      "unit": "ч/год",
+      "required": true
+    }
+  ]
+}
