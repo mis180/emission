@@ -84,16 +84,23 @@
       "datatype": "numeric",
       "latex": "m",
       "auto_lookup": {
-        "table": [
-          "Table-5",
-          "Table-3"
-        ],
-        "key": {
-          "t_nk": "t_nk",
-          "substance": "substance"
-        },
+        "table": "Table_5",
+        "key": "t_nk",
         "output": "m",
         "interpolate_key": "t_nk"
+      }
+    },
+    {
+      "id": "m_pure",
+      "token": "m_pure",
+      "label": "Молекулярная масса паров (чистые вещества)",
+      "unit": "g/mol",
+      "datatype": "numeric",
+      "latex": "m",
+      "auto_lookup": {
+        "table": "Table_3",
+        "key": "substance",
+        "output": "m"
       }
     },
     {
@@ -152,7 +159,7 @@
       "datatype": "numeric",
       "latex": "K_{ob}",
       "auto_lookup": {
-        "table": "Table-10",
+        "table": "Table_10",
         "key": "n",
         "output": "Kob",
         "interpolate_key": "n"
@@ -187,10 +194,29 @@
     {
       "id": "Vmax",
       "token": "Vmax",
-      "label": "Максимальный расход насоса",
+      "label": "Макс. расход ТРК (заправка авто)",
       "unit": "m³/h",
       "datatype": "numeric",
-      "latex": "V_{max}"
+      "latex": "V_{max}",
+      "hint": "Максимальный расход топлива через ТРК (с учетом пропускной способности ТРК)"
+    },
+    {
+      "id": "V_sl",
+      "token": "V_{sl}",
+      "label": "Объем слитого нефтепродукта (из автоцистерны)",
+      "unit": "m³",
+      "datatype": "numeric",
+      "latex": "V_{sl}",
+      "hint": "Объем слитого нефтепродукта (м3) из автоцистерны в резервуар АЗС"
+    },
+    {
+      "id": "t_unload",
+      "token": "t_{unload}",
+      "label": "Время слива из автоцистерны",
+      "unit": "с",
+      "datatype": "numeric",
+      "latex": "t",
+      "hint": "Среднее время слива заданного объема (Vсл) нефтепродукта из автоцистерны в резервуар, с"
     },
     {
       "id": "equipType",
@@ -278,7 +304,7 @@
       "label": "Удельный выброс (кг/ч)",
       "datatype": "numeric",
       "auto_lookup": {
-        "table": "table_6_1",
+        "table": "Table_6_1",
         "key": {
           "equipment": "equipType",
           "product_group": "productBoilGroup"
@@ -405,6 +431,7 @@
       "label": "Макс. температура жидкости (°C)",
       "datatype": "numeric",
       "latex": "t_{max}",
+      "global_mapping": "t_max",
       "default": 20
     },
     {
@@ -413,6 +440,7 @@
       "label": "Мин. температура жидкости (°C)",
       "datatype": "numeric",
       "latex": "t_{min}",
+      "global_mapping": "t_min",
       "default": -10
     },
     {
@@ -453,7 +481,14 @@
           "value": "В",
           "label": "Группа В (t превышает воздух более 30С)"
         }
-      ]
+      ],
+      "auto_lookup": {
+        "table": "Table_tankGroup",
+        "key": {
+          "delta_t": "delta_t"
+        },
+        "output": "group"
+      }
     },
     {
       "id": "tankType",
@@ -529,7 +564,7 @@
       "label": "Константа Антуана A",
       "datatype": "numeric",
       "auto_lookup": {
-        "table": "Table-3",
+        "table": "Table_3",
         "key": {
           "substance": "substance"
         },
@@ -542,7 +577,7 @@
       "label": "Константа Антуана B",
       "datatype": "numeric",
       "auto_lookup": {
-        "table": "Table-3",
+        "table": "Table_3",
         "key": {
           "substance": "substance"
         },
@@ -552,8 +587,55 @@
     {
       "id": "substance",
       "token": "substance",
-      "label": "Наименование вещества",
-      "datatype": "string"
+      "label": "Вид нефтепродукта",
+      "datatype": "string",
+      "default": "gasoline_auto",
+      "options": [
+        {
+          "value": "gasoline_auto",
+          "label": "Бензин автомобильный"
+        },
+        {
+          "value": "gasoline_avia",
+          "label": "Бензин авиационный"
+        },
+        {
+          "value": "diesel",
+          "label": "Дизельное топливо"
+        },
+        {
+          "value": "kerosene_t2",
+          "label": "Керосин Т-2 / техн."
+        },
+        {
+          "value": "mazut",
+          "label": "Мазут"
+        },
+        {
+          "value": "nefras",
+          "label": "Нефрас"
+        },
+        {
+          "value": "white_spirit",
+          "label": "Уайт-спирит"
+        },
+        {
+          "value": "benzene",
+          "label": "Бензол"
+        },
+        {
+          "value": "toluene",
+          "label": "Толуол"
+        },
+        {
+          "value": "xylene",
+          "label": "Ксилолы"
+        },
+        {
+          "value": "ethylbenzene",
+          "label": "Этилбензол"
+        }
+      ]
     },
     {
       "id": "X_i",
@@ -574,7 +656,7 @@
       "datatype": "numeric",
       "latex": "Kt_{max}",
       "auto_lookup": {
-        "table": "Table-7",
+        "table": "Table_7",
         "key": {
           "t": "t_max",
           "substance": "productGroupKt"
@@ -590,7 +672,7 @@
       "datatype": "numeric",
       "latex": "Kt_{min}",
       "auto_lookup": {
-        "table": "Table-7",
+        "table": "Table_7",
         "key": {
           "t": "t_min",
           "substance": "productGroupKt"
@@ -606,7 +688,7 @@
       "datatype": "numeric",
       "latex": "Kr_{avg}",
       "auto_lookup": {
-        "table": "Table-8",
+        "table": "Table_8",
         "key": {
           "group": "tankGroup",
           "type": "tankType",
@@ -623,7 +705,7 @@
       "datatype": "numeric",
       "latex": "K_v",
       "auto_lookup": {
-        "table": "Table-9",
+        "table": "Table_9",
         "key": {
           "Pt_mmHg": [
             "P38",
@@ -632,7 +714,8 @@
         },
         "output": "Kv",
         "interpolate_key": "Pt_mmHg"
-      }
+      },
+      "hint": "Для давлений ниже 540 мм рт.ст. принимается Kv = 1.0 (по нижней границе таблицы)"
     },
     {
       "id": "Kr_max",
@@ -641,7 +724,7 @@
       "datatype": "numeric",
       "latex": "Kr_{max}",
       "auto_lookup": {
-        "table": "Table-8",
+        "table": "Table_8",
         "key": {
           "group": "tankGroup",
           "type": "tankType",
@@ -658,7 +741,7 @@
       "datatype": "numeric",
       "latex": "K_{нп}",
       "auto_lookup": {
-        "table": "Table-12",
+        "table": "Table_12",
         "key": "substance",
         "output": "Knp"
       }
@@ -671,11 +754,12 @@
       "datatype": "numeric",
       "latex": "G_{хр}",
       "auto_lookup": {
-        "table": "Table-13",
+        "table": "Table_13",
         "key": {
           "tank_volume_m3": "tankVolume",
           "tank_mode": "tankMode",
-          "tank_type": "tankType"
+          "tank_type": "tankType",
+          "climate_zone": "climate_zone"
         },
         "output": "Gxp"
       }
@@ -688,7 +772,7 @@
       "datatype": "numeric",
       "latex": "U_{оз}",
       "auto_lookup": {
-        "table": "Table-12",
+        "table": "Table_12",
         "key": "substance",
         "output": "Uoz"
       }
@@ -701,9 +785,22 @@
       "datatype": "numeric",
       "latex": "U_{вл}",
       "auto_lookup": {
-        "table": "Table-12",
+        "table": "Table_12",
         "key": "substance",
         "output": "Uvl"
+      }
+    },
+    {
+      "id": "J",
+      "token": "J",
+      "label": "Удельные выбросы при проливах",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "J",
+      "auto_lookup": {
+        "table": "Table_12",
+        "key": "substance",
+        "output": "J"
       }
     },
     {
@@ -714,7 +811,7 @@
       "datatype": "numeric",
       "latex": "C_1",
       "auto_lookup": {
-        "table": "Table-12",
+        "table": "Table_12",
         "key": "substance",
         "output": "C1"
       }
@@ -734,6 +831,224 @@
       "unit": "т/год",
       "datatype": "numeric",
       "latex": "B_{вл}"
+    },
+    {
+      "id": "climate_zone",
+      "token": "zone",
+      "label": "Климатическая зона",
+      "datatype": "string",
+      "global_mapping": "climate_zone",
+      "options": [
+        {
+          "value": "middle",
+          "label": "Средняя климатическая зона"
+        },
+        {
+          "value": "south",
+          "label": "Южная климатическая зона"
+        }
+      ]
+    },
+    {
+      "id": "C_tank_max",
+      "token": "C_{tank_max}",
+      "label": "Концентрация паров (макс) из бака",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_15",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "C_tank_max"
+      }
+    },
+    {
+      "id": "C_tank_oz",
+      "token": "C_{tank_oz}",
+      "label": "Концентрация паров (оз) из бака",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_15",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "C_tank_oz"
+      }
+    },
+    {
+      "id": "C_tank_vl",
+      "token": "C_{tank_vl}",
+      "label": "Концентрация паров (вл) из бака",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_15",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "C_tank_vl"
+      }
+    },
+    {
+      "id": "t_air",
+      "token": "t_air",
+      "label": "Температура окружающего воздуха (°C)",
+      "datatype": "numeric",
+      "default": 20
+    },
+    {
+      "id": "delta_t",
+      "token": "delta_t",
+      "label": "Разность температур продукта и воздуха",
+      "datatype": "numeric",
+      "is_calc": true
+    },
+    {
+      "id": "category",
+      "token": "category",
+      "label": "Категория оборудования",
+      "datatype": "string"
+    },
+    {
+      "id": "stream_type",
+      "token": "stream_type",
+      "label": "Тип потока (Газ/Легкая жидкость/Тяжелая)",
+      "datatype": "string"
+    },
+    {
+      "id": "leak_rate_kg_per_hour",
+      "token": "Q_spec",
+      "label": "Удельное выделение от ед. оборудования",
+      "unit": "кг/ч",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_6_2",
+        "key": {
+          "category": "category",
+          "stream_type": "stream_type"
+        },
+        "output": "leak_rate_kg_per_hour"
+      }
+    },
+    {
+      "id": "failed_seal_share",
+      "token": "N_failed",
+      "label": "Доля негерметичных уплотнений",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_6_2",
+        "key": {
+          "category": "category",
+          "stream_type": "stream_type"
+        },
+        "output": "failed_seal_share"
+      }
+    },
+    {
+      "id": "temperature_c",
+      "token": "temperature_c",
+      "label": "Температура (°C)",
+      "datatype": "numeric"
+    },
+    {
+      "id": "open_oil_trap_q_avg",
+      "token": "q_avg",
+      "label": "Удельное выделение (открытые нефтеловушки)",
+      "unit": "г/ч*м2",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_6_3",
+        "key": {
+          "temperature_c": "temperature_c"
+        },
+        "output": "open_oil_trap_q_avg",
+        "interpolate_key": "temperature_c"
+      }
+    },
+    {
+      "id": "settling_pond_q_avg",
+      "token": "q_avg_pond",
+      "label": "Удельное выделение (пруды-отстойники)",
+      "unit": "г/ч*м2",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_6_3",
+        "key": {
+          "temperature_c": "temperature_c"
+        },
+        "output": "settling_pond_q_avg",
+        "interpolate_key": "temperature_c"
+      }
+    },
+    {
+      "id": "coverage_percent",
+      "token": "coverage_percent",
+      "label": "Степень укрытия (%)",
+      "datatype": "numeric"
+    },
+    {
+      "id": "z",
+      "token": "z",
+      "label": "Поправочный коэфф. на укрытие",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_6_4",
+        "key": "coverage_percent",
+        "output": "z"
+      }
+    },
+    {
+      "id": "facility",
+      "token": "facility",
+      "label": "Тип шламонакопителя",
+      "datatype": "string"
+    },
+    {
+      "id": "autumn_winter_norm",
+      "token": "q_aw",
+      "label": "Норматив (осенне-зимний)",
+      "unit": "г/с*м2",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_6_5",
+        "key": "facility",
+        "output": "autumn_winter_norm"
+      }
+    },
+    {
+      "id": "spring_summer_norm",
+      "token": "q_ss",
+      "label": "Норматив (весенне-летний)",
+      "unit": "г/с*м2",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_6_5",
+        "key": "facility",
+        "output": "spring_summer_norm"
+      }
+    },
+    {
+      "id": "t",
+      "token": "t",
+      "label": "Температура раствора (°C)",
+      "datatype": "numeric"
+    },
+    {
+      "id": "K_H",
+      "token": "K_H",
+      "label": "Константа Генри (K_H)",
+      "datatype": "numeric",
+      "auto_lookup": {
+        "table": "Table_4",
+        "key": {
+          "substance": "substance",
+          "t": "t"
+        },
+        "output": "K_H",
+        "interpolate_key": "t"
+      }
     }
   ]
 }

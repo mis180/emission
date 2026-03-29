@@ -1,0 +1,2 @@
+order,table_id,filename,title,lookup_type,input_keys,output_keys,interpolate_key,source,row_count
+1,Table_6_1,01_table_6_1.csv,Удельное выделение ЗВ (Q_spec),multi_key_exact,"[""equip_type"", ""fluid_type""]","[""Q_spec""]",,,15

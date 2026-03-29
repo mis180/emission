@@ -1,0 +1,16 @@
+equip_type,fluid_type,Q_spec
+heat_ex,gas_benz,0.2
+heat_ex,kero_diesel,0.1
+heat_ex,oil_mazut,0.05
+pump_single_end,gas_benz,0.08
+pump_single_end,kero_diesel,0.04
+pump_single_end,oil_mazut,0.02
+pump_single_gland,gas_benz,0.14
+pump_single_gland,kero_diesel,0.07
+pump_single_gland,oil_mazut,0.03
+pump_double_end,gas_benz,0.14
+pump_double_end,kero_diesel,0.07
+pump_double_end,oil_mazut,0.03
+pump_double_gland,gas_benz,0.26
+pump_double_gland,kero_diesel,0.13
+pump_double_gland,oil_mazut,0.05

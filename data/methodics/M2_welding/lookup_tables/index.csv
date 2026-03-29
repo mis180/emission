@@ -1,0 +1,2 @@
+order,table_id,filename,title,lookup_type,input_keys,output_keys,interpolate_key,source,row_count
+1,Table_1,01_table_1.csv,Удельный выброс сварочного аэрозоля,exact,"[""electrode_type""]","[""K_mx""]",,,3

@@ -178,7 +178,12 @@
                 <h3>Проект</h3>
                 <input type="text" id="project-name" value="Новый проект" class="project-name-input">
             </div>
+            
             <div class="cart-section global-params">
+                <h4>Регион (Климат)</h4>
+                <select id="proj-region" class="cart-input" style="width: 100%; margin-bottom: 8px;">
+                    <option value="">-- Выберите регион --</option>
+                </select>
                 <h4>Координаты (по умолчанию)</h4>
                 <div class="cart-grid">
                     <label>Шир. (Lat):</label> <input type="number" id="proj-lat" placeholder="43.2" step="any" class="cart-input">
@@ -195,8 +200,12 @@
                 <div id="map-container" style="flex:1; width:100%; border-radius:8px; border:1px solid #ccc;"></div>
             </div>
 
+            <!-- Region Details Card (Dynamic) -->
+            <div id="region-details-card" class="region-info-card" style="display:none; margin-top:20px;"></div>
+
             <div class="cart-section">
                 <h4 style="display:flex; justify-content:space-between;">Метеоданные <button id="btn-fetch-weather" class="btn btn-secondary" style="font-size:0.7rem; padding: 4px 8px;">☁️ OpenMeteo</button></h4>
+                <div id="meteo-results" style="font-size:0.8rem; margin-top:8px; display:none; padding:8px; border-radius:6px; background:#f8fafc; border:1px solid #e2e8f0;"></div>
             </div>
 
             <div class="cart-section" style="margin-top: 12px;">
@@ -227,6 +236,17 @@
     <script src="engine/reportGenerator.js"></script>
     <script src="engine/graph-resolver.js"></script>
     <script src="app.js"></script>
+    <!-- Handbook Table Modal -->
+    <div id="handbook-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9000; background:rgba(15, 23, 42, 0.75); backdrop-filter:blur(8px); align-items:center; justify-content:center;">
+        <div class="handbook-content" style="background:white; width:90%; max-width:1000px; max-height:85vh; border-radius:16px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5); display:flex; flex-direction:column; overflow:hidden;">
+            <div class="modal-header" style="padding:20px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center;">
+                <h3 id="handbook-title" style="margin:0; font-size:1.25rem; color:#1e293b;">Справочная таблица</h3>
+                <button class="btn btn-secondary" onclick="document.getElementById('handbook-modal').style.display='none'">Закрыть</button>
+            </div>
+            <div id="handbook-table-container" style="flex:1; overflow:auto; padding:20px;"></div>
+        </div>
+    </div>
+
     <div id="toast-container" style="position:fixed; top:20px; right:20px; z-index:10000; pointer-events:none; display:flex; flex-direction:column; gap:10px;"></div>
 </body>
 </html>

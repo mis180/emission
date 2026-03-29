@@ -26,36 +26,172 @@
       "label": "Тип пересыпаемого материала",
       "options": [
         {
-          "value": "mineral_wool",
-          "label": "Минеральная вата"
-        },
-        {
-          "value": "ceramics",
-          "label": "Керамит (керамзит)"
-        },
-        {
-          "value": "brick_scrap",
-          "label": "Кирпич, бой"
-        },
-        {
-          "value": "cement",
-          "label": "Цемент"
+          "value": "mat_0",
+          "label": "Огарки"
         },
         {
           "value": "clinker",
           "label": "Клинкер"
         },
         {
+          "value": "cement",
+          "label": "Цемент"
+        },
+        {
           "value": "limestone",
           "label": "Известняк"
+        },
+        {
+          "value": "mat_4",
+          "label": "Мергель"
+        },
+        {
+          "value": "mat_5",
+          "label": "Известь комовая"
+        },
+        {
+          "value": "mat_6",
+          "label": "Известь молотая"
+        },
+        {
+          "value": "mat_7",
+          "label": "Гранит"
+        },
+        {
+          "value": "mat_8",
+          "label": "Мрамор"
+        },
+        {
+          "value": "mat_9",
+          "label": "Мел"
+        },
+        {
+          "value": "mat_10",
+          "label": "Гипс комовой"
+        },
+        {
+          "value": "mat_11",
+          "label": "Гипс колотый"
+        },
+        {
+          "value": "mat_12",
+          "label": "Доломит"
+        },
+        {
+          "value": "mat_13",
+          "label": "Опока"
+        },
+        {
+          "value": "mat_14",
+          "label": "Пегматит"
+        },
+        {
+          "value": "mat_15",
+          "label": "Гнейс"
+        },
+        {
+          "value": "mat_16",
+          "label": "Каолин"
+        },
+        {
+          "value": "mat_17",
+          "label": "Нефелин"
+        },
+        {
+          "value": "mat_18",
+          "label": "Глина"
         },
         {
           "value": "sand",
           "label": "Песок"
         },
         {
+          "value": "mat_20",
+          "label": "Песчаник"
+        },
+        {
+          "value": "mat_21",
+          "label": "Слюда"
+        },
+        {
+          "value": "mat_22",
+          "label": "Полевой шпат"
+        },
+        {
+          "value": "mat_23",
+          "label": "Шлак"
+        },
+        {
+          "value": "mat_24",
+          "label": "Диорит"
+        },
+        {
+          "value": "mat_25",
+          "label": "Порфироиды"
+        },
+        {
+          "value": "mat_26",
+          "label": "Графит"
+        },
+        {
           "value": "coal",
           "label": "Уголь"
+        },
+        {
+          "value": "mat_28",
+          "label": "Зола"
+        },
+        {
+          "value": "mat_29",
+          "label": "Диатомит"
+        },
+        {
+          "value": "mat_30",
+          "label": "Перлит"
+        },
+        {
+          "value": "ceramics",
+          "label": "Керамит"
+        },
+        {
+          "value": "mat_32",
+          "label": "Вермикулит"
+        },
+        {
+          "value": "mat_33",
+          "label": "Аглопорит"
+        },
+        {
+          "value": "mat_34",
+          "label": "Туф"
+        },
+        {
+          "value": "mat_35",
+          "label": "Пемза"
+        },
+        {
+          "value": "mat_36",
+          "label": "Сульфат"
+        },
+        {
+          "value": "mat_37",
+          "label": "Шамот"
+        },
+        {
+          "value": "mat_38",
+          "label": "Смесь песка и извести"
+        },
+        {
+          "value": "brick_scrap",
+          "label": "Кирпич, бой"
+        },
+        {
+          "value": "mineral_wool",
+          "label": "Минеральная вата"
+        },
+        {
+          "value": "mat_41",
+          "label": "Щебенка"
         }
       ],
       "datatype": "string"
@@ -87,24 +223,14 @@
       }
     },
     {
-      "id": "wind_class",
-      "token": "wind_class",
-      "label": "Класс скорости ветра (для k₃)",
-      "options": [
-        {
-          "value": "calm",
-          "label": "Штиль (0–2 м/с)"
-        },
-        {
-          "value": "moderate",
-          "label": "Умеренный (2–5 м/с)"
-        },
-        {
-          "value": "strong",
-          "label": "Сильный (> 5 м/с)"
-        }
-      ],
-      "datatype": "string"
+      "id": "wind_speed",
+      "token": "wind_speed",
+      "label": "Скорость ветра (для k₃)",
+      "global_mapping": "wind_class",
+      "datatype": "numeric",
+      "input_method": "raw",
+      "data_source": "user",
+      "unit": "м/с"
     },
     {
       "id": "k_3",
@@ -114,7 +240,7 @@
       "latex": "k_3",
       "auto_lookup": {
         "table": "wind_coefficient",
-        "key": "wind_class",
+        "key": "wind_speed",
         "output": "k_3"
       }
     },
@@ -151,24 +277,13 @@
       }
     },
     {
-      "id": "moisture_class",
-      "token": "moisture_class",
+      "id": "moisture_percent",
+      "token": "moisture_percent",
       "label": "Влажность материала (для k₅)",
-      "options": [
-        {
-          "value": "dry",
-          "label": "Сухой (< 1% влаги)"
-        },
-        {
-          "value": "moist",
-          "label": "Влажный (1–5% влаги)"
-        },
-        {
-          "value": "wet",
-          "label": "Мокрый (> 5% / полив)"
-        }
-      ],
-      "datatype": "string"
+      "datatype": "numeric",
+      "input_method": "raw",
+      "data_source": "user",
+      "unit": "%"
     },
     {
       "id": "k_5",
@@ -178,29 +293,18 @@
       "latex": "k_5",
       "auto_lookup": {
         "table": "moisture_coefficient",
-        "key": "moisture_class",
+        "key": "moisture_percent",
         "output": "k_5"
       }
     },
     {
-      "id": "size_class",
-      "token": "size_class",
+      "id": "piece_size_mm",
+      "token": "piece_size_mm",
       "label": "Крупность материала (для k₇)",
-      "options": [
-        {
-          "value": "fine",
-          "label": "Мелкий (< 0.05 мм, пылевидный)"
-        },
-        {
-          "value": "medium",
-          "label": "Средний (0.05–1 мм)"
-        },
-        {
-          "value": "coarse",
-          "label": "Крупный (> 1 мм)"
-        }
-      ],
-      "datatype": "string"
+      "datatype": "numeric",
+      "input_method": "raw",
+      "data_source": "user",
+      "unit": "мм"
     },
     {
       "id": "k_7",
@@ -210,37 +314,18 @@
       "latex": "k_7",
       "auto_lookup": {
         "table": "size_coefficient",
-        "key": "size_class",
+        "key": "piece_size_mm",
         "output": "k_7"
       }
     },
     {
-      "id": "drop_height_range",
-      "token": "drop_height_range",
+      "id": "drop_height_m",
+      "token": "drop_height_m",
       "label": "Высота пересыпки (для B')",
-      "options": [
-        {
-          "value": "0_0.5",
-          "label": "0 – 0.5 м"
-        },
-        {
-          "value": "0.5_1",
-          "label": "0.5 – 1 м"
-        },
-        {
-          "value": "1_2",
-          "label": "1 – 2 м"
-        },
-        {
-          "value": "2_4",
-          "label": "2 – 4 м"
-        },
-        {
-          "value": "4_plus",
-          "label": "> 4 м"
-        }
-      ],
-      "datatype": "string"
+      "datatype": "numeric",
+      "input_method": "raw",
+      "data_source": "user",
+      "unit": "м"
     },
     {
       "id": "B_drop",
@@ -250,7 +335,7 @@
       "latex": "B_{drop}",
       "auto_lookup": {
         "table": "drop_height_coefficient",
-        "key": "drop_height_range",
+        "key": "drop_height_m",
         "output": "B_drop"
       }
     },
@@ -300,6 +385,10 @@
         {
           "value": "coal_gypsum",
           "label": "Уголь, гипс, мел"
+        },
+        {
+          "value": "asbestos_tailings",
+          "label": "Хвосты асбестовых фабрик, песчаник, известь"
         }
       ],
       "datatype": "string"

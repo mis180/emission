@@ -22,14 +22,18 @@ jobs:
 
       - name: Prepare Build Folder
         run: |
-          mkdir build
-          cp -r index.html style.css app.js data lib engine build/
+          mkdir -p build
+          cp index.html style.css app.js build/
+          [ -d data ] && cp -r data build/
+          [ -d lib ] && cp -r lib build/
+          [ -d engine ] && cp -r engine build/
 
       - name: Obfuscate JavaScript
         run: |
-          javascript-obfuscator ./build/app.js --output ./build/app.js --string-array true --rotate-string-array true --shuffle-string-array true --string-array-threshold 0.75 --compact true --control-flow-flattening true --control-flow-flattening-threshold 0.5
-          # Obfuscate engine files
-          find ./build/engine/ -name "*.js" -exec javascript-obfuscator {} --output {} --string-array true --rotate-string-array true --shuffle-string-array true --string-array-threshold 0.75 --compact true --control-flow-flattening true --control-flow-flattening-threshold 0.5 \;
+          npx javascript-obfuscator ./build/app.js --output ./build/app.js --string-array true --rotate-string-array true --shuffle-string-array true --string-array-threshold 0.75 --compact true --control-flow-flattening true --control-flow-flattening-threshold 0.5
+          if [ -d "./build/engine" ]; then
+            find ./build/engine/ -name "*.js" -exec npx javascript-obfuscator {} --output {} --string-array true --rotate-string-array true --shuffle-string-array true --string-array-threshold 0.75 --compact true --control-flow-flattening true --control-flow-flattening-threshold 0.5 \;
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

@@ -1,0 +1,17 @@
+substance,climate_zone,C_tank_max,C_tank_oz,C_tank_vl
+gasoline_auto,middle,580.0,420.0,515.0
+gasoline_auto,south,701.8,520.0,623.1
+fraction_br,middle,580.0,420.0,515.0
+fraction_br,south,701.8,520.0,623.1
+gasoline_avia,middle,580.0,420.0,515.0
+gasoline_avia,south,701.8,520.0,623.1
+nefras,middle,580.0,420.0,515.0
+nefras,south,701.8,520.0,623.1
+benzene,middle,580.0,420.0,515.0
+benzene,south,701.8,520.0,623.1
+diesel,middle,1.86,1.6,2.2
+diesel,south,2.25,1.98,2.66
+kerosene_t2,middle,1.86,1.6,2.2
+kerosene_t2,south,2.25,1.98,2.66
+mazut,middle,0.2,0.2,0.2
+mazut,south,0.24,0.25,0.24

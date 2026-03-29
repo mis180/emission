@@ -12,18 +12,380 @@
       "lookup_type": "exact",
       "data": [
         {
+          "electrode_type": "АНВ-40",
+          "K_mx": 15.4
+        },
+        {
+          "electrode_type": "АНЖР-2",
+          "K_mx": 16.1
+        },
+        {
+          "electrode_type": "АНО-1",
+          "K_mx": 9.6
+        },
+        {
+          "electrode_type": "АНО-3",
+          "K_mx": 17.0
+        },
+        {
           "electrode_type": "АНО-4",
           "K_mx": 17.8
+        },
+        {
+          "electrode_type": "АНО-4ж",
+          "K_mx": 11.0
+        },
+        {
+          "electrode_type": "АНО-5",
+          "K_mx": 14.4
+        },
+        {
+          "electrode_type": "АНО-6",
+          "K_mx": 16.7
+        },
+        {
+          "electrode_type": "АНО-7",
+          "K_mx": 12.21
+        },
+        {
+          "electrode_type": "АНО-9",
+          "K_mx": 16.9
+        },
+        {
+          "electrode_type": "АНО-11",
+          "K_mx": 18.6
+        },
+        {
+          "electrode_type": "АНО-13",
+          "K_mx": 17.1
+        },
+        {
+          "electrode_type": "АНО-14",
+          "K_mx": 11.2
+        },
+        {
+          "electrode_type": "АНО-15",
+          "K_mx": 19.5
+        },
+        {
+          "electrode_type": "АНО-17",
+          "K_mx": 11.3
+        },
+        {
+          "electrode_type": "АНО-18",
+          "K_mx": 13.0
+        },
+        {
+          "electrode_type": "АНО-19",
+          "K_mx": 12.8
+        },
+        {
+          "electrode_type": "АНО-20",
+          "K_mx": 10.0
+        },
+        {
+          "electrode_type": "АНО-24",
+          "K_mx": 11.5
+        },
+        {
+          "electrode_type": "АНО-27",
+          "K_mx": 17.8
+        },
+        {
+          "electrode_type": "АНО-Т",
+          "K_mx": 18.0
+        },
+        {
+          "electrode_type": "АНО-Х",
+          "K_mx": 15.3
+        },
+        {
+          "electrode_type": "БСЦ-4",
+          "K_mx": 20.2
+        },
+        {
+          "electrode_type": "БСЦ-4а",
+          "K_mx": 24.3
+        },
+        {
+          "electrode_type": "ВИ-10-6",
+          "K_mx": 15.6
+        },
+        {
+          "electrode_type": "ВИ-ИМ-1",
+          "K_mx": 5.8
+        },
+        {
+          "electrode_type": "ВП-4",
+          "K_mx": 14.1
+        },
+        {
+          "electrode_type": "ВСН-6",
+          "K_mx": 17.9
+        },
+        {
+          "electrode_type": "ДС-12",
+          "K_mx": 25.6
+        },
+        {
+          "electrode_type": "ЖД-3",
+          "K_mx": 9.8
+        },
+        {
+          "electrode_type": "ИК-13",
+          "K_mx": 4.2
+        },
+        {
+          "electrode_type": "ИМЕГ-10",
+          "K_mx": 6.9
+        },
+        {
+          "electrode_type": "К-5",
+          "K_mx": 13.0
+        },
+        {
+          "electrode_type": "К-5А",
+          "K_mx": 24.1
+        },
+        {
+          "electrode_type": "КНЗ-32",
+          "K_mx": 11.4
+        },
+        {
+          "electrode_type": "МЗЗ-04",
+          "K_mx": 34.0
+        },
+        {
+          "electrode_type": "МЗЗ-Ш",
+          "K_mx": 41.1
+        },
+        {
+          "electrode_type": "МР-1",
+          "K_mx": 10.8
         },
         {
           "electrode_type": "МР-3",
           "K_mx": 11.5
         },
         {
+          "electrode_type": "МР-4",
+          "K_mx": 11.0
+        },
+        {
+          "electrode_type": "НБ-38",
+          "K_mx": 16.3
+        },
+        {
+          "electrode_type": "НБ-40",
+          "K_mx": 10.5
+        },
+        {
+          "electrode_type": "НЖ-13",
+          "K_mx": 4.2
+        },
+        {
+          "electrode_type": "НИ-ИМ-1",
+          "K_mx": 5.8
+        },
+        {
+          "electrode_type": "НИАТ-1",
+          "K_mx": 4.7
+        },
+        {
+          "electrode_type": "НИАТ-3Н",
+          "K_mx": 10.1
+        },
+        {
+          "electrode_type": "ОЗЛ-5",
+          "K_mx": 3.9
+        },
+        {
+          "electrode_type": "ОЗЛ-6",
+          "K_mx": 6.9
+        },
+        {
+          "electrode_type": "ОЗЛ-7",
+          "K_mx": 7.6
+        },
+        {
+          "electrode_type": "ОЗЛ-9А",
+          "K_mx": 5.0
+        },
+        {
+          "electrode_type": "ОЗЛ-14",
+          "K_mx": 8.4
+        },
+        {
+          "electrode_type": "ОЗЛ-17У",
+          "K_mx": 10.0
+        },
+        {
+          "electrode_type": "ОЗЛ-20",
+          "K_mx": 5.0
+        },
+        {
+          "electrode_type": "ОЗЛ-22",
+          "K_mx": 20.0
+        },
+        {
+          "electrode_type": "ОЗС-3",
+          "K_mx": 15.3
+        },
+        {
+          "electrode_type": "ОЗС-4",
+          "K_mx": 10.9
+        },
+        {
+          "electrode_type": "ОЗС-6",
+          "K_mx": 14.0
+        },
+        {
+          "electrode_type": "ОЗС-12",
+          "K_mx": 12.0
+        },
+        {
+          "electrode_type": "ОМА-2",
+          "K_mx": 9.2
+        },
+        {
+          "electrode_type": "ОММ-5",
+          "K_mx": 30.0
+        },
+        {
+          "electrode_type": "РБУ-4",
+          "K_mx": 6.9
+        },
+        {
+          "electrode_type": "РДЗБ-2",
+          "K_mx": 17.4
+        },
+        {
+          "electrode_type": "СК-2-50",
+          "K_mx": 12.0
+        },
+        {
+          "electrode_type": "СМ-5",
+          "K_mx": 10.3
+        },
+        {
+          "electrode_type": "СМА-2",
+          "K_mx": 9.2
+        },
+        {
+          "electrode_type": "УКС-42",
+          "K_mx": 14.5
+        },
+        {
           "electrode_type": "УОНИ-13/45",
           "K_mx": 16.31
+        },
+        {
+          "electrode_type": "ЦЛ-17",
+          "K_mx": 10.0
+        },
+        {
+          "electrode_type": "ЦЛ-26М",
+          "K_mx": 9.1
+        },
+        {
+          "electrode_type": "ЦМ-6",
+          "K_mx": 48.7
+        },
+        {
+          "electrode_type": "ЦМ-7",
+          "K_mx": 37.0
+        },
+        {
+          "electrode_type": "ЦМ-8",
+          "K_mx": 25.0
+        },
+        {
+          "electrode_type": "ЦМ-9",
+          "K_mx": 19.0
+        },
+        {
+          "electrode_type": "ЦМ-УПУ",
+          "K_mx": 18.5
+        },
+        {
+          "electrode_type": "ЦН-6Л",
+          "K_mx": 13.0
+        },
+        {
+          "electrode_type": "ЦТ-15",
+          "K_mx": 8.0
+        },
+        {
+          "electrode_type": "ЦТ-28",
+          "K_mx": 13.9
+        },
+        {
+          "electrode_type": "ЦТ-36",
+          "K_mx": 7.6
+        },
+        {
+          "electrode_type": "ЧМКТ-10",
+          "K_mx": 7.02
+        },
+        {
+          "electrode_type": "Э 48-М/18",
+          "K_mx": 13.2
+        },
+        {
+          "electrode_type": "ЭА-395/8",
+          "K_mx": 18.5
+        },
+        {
+          "electrode_type": "ЭА-395/9",
+          "K_mx": 16.0
+        },
+        {
+          "electrode_type": "ЭА-400у",
+          "K_mx": 11.0
+        },
+        {
+          "electrode_type": "ЭА-48А/2",
+          "K_mx": 17.8
+        },
+        {
+          "electrode_type": "ЭА-48/22",
+          "K_mx": 10.6
+        },
+        {
+          "electrode_type": "ЭА-606/11",
+          "K_mx": 10.7
+        },
+        {
+          "electrode_type": "ЭА-686/11",
+          "K_mx": 13.0
+        },
+        {
+          "electrode_type": "ЭА-903/12",
+          "K_mx": 25.0
+        },
+        {
+          "electrode_type": "ЭА-981/15",
+          "K_mx": 10.3
+        },
+        {
+          "electrode_type": "ЭРС-3",
+          "K_mx": 12.8
+        },
+        {
+          "electrode_type": "ЯФ-1",
+          "K_mx": 21.6
+        },
+        {
+          "electrode_type": "ЯФ-606",
+          "K_mx": 18.6
         }
-      ]
+
+      ],
+      "source": {
+        "document": "МЕТОДИКА расчета выбросов загрязняющих веществ в атмосферу при сварочных работах.pdf",
+        "section": "5.1",
+        "table": "Таблица 1"
+      }
     }
   ]
 }

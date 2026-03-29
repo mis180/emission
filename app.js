@@ -15,7 +15,7 @@ let state = {
     // Methodic selection
     methodicId: null,
     methodicPath: null,
-    methodicData: null,       // { meta, equations, variables, questions, tables }
+    methodicData: null,
 
     // Wizard choices
     sourceType: null,
@@ -28,6 +28,9 @@ let state = {
 
     // Results
     results: null,
+
+    // Available methodics
+    methodics: []
 };
 
 // --- DOM ELEMENTS --- //
@@ -44,6 +47,7 @@ async function init() {
     // Load registry and render methodic cards
     try {
         const methodics = await Wizard.loadRegistry();
+        state.methodics = methodics;
         renderMethodicCards(methodics);
     } catch (e) {
         console.error('Failed to load registry:', e);
@@ -65,6 +69,9 @@ async function init() {
     const lngInput = document.getElementById('proj-lng');
     if (lngInput && loadedState.lng) lngInput.value = loadedState.lng;
     
+    // Load regions and populate dropdown
+    await loadRegionsAndPopulateDropddown(loadedState.regionId);
+    
     renderCart();
 
     // Global Error Handling for Async Errors
@@ -72,6 +79,114 @@ async function init() {
         console.error('Unhandled promise rejection:', event.reason);
         showToast('Произошла системная ошибка: ' + (event.reason.message || event.reason), 'danger');
     });
+}
+
+let globalRegionsData = [];
+
+async function loadRegionsAndPopulateDropddown(savedRegionId) {
+    try {
+        const cacheBuster = `?v=${Date.now()}`;
+        const res = await fetch('data/regions.json' + cacheBuster);
+        const data = await res.json();
+        globalRegionsData = data.regions || [];
+        
+        const select = document.getElementById('proj-region');
+        if (select) {
+            select.innerHTML = '<option value="">-- Выберите регион --</option>';
+            globalRegionsData.forEach(r => {
+                const opt = document.createElement('option');
+                opt.value = r.id;
+                opt.textContent = r.name;
+                if (savedRegionId === r.id) {
+                    opt.selected = true;
+                    // Initial render for sidebar
+                    renderRegionDetails(r);
+                }
+                select.appendChild(opt);
+            });
+            
+            select.addEventListener('change', (e) => {
+                const regionId = e.target.value;
+                const regionObj = globalRegionsData.find(r => r.id === regionId);
+                ProjectStore.setRegion(regionId, regionObj || {});
+                
+                // Auto-fill coordinates if region has them
+                if (regionObj && regionObj.lat && regionObj.lng) {
+                    const latInput = document.getElementById('proj-lat');
+                    const lngInput = document.getElementById('proj-lng');
+                    if (latInput) latInput.value = regionObj.lat;
+                    if (lngInput) lngInput.value = regionObj.lng;
+                    ProjectStore.setCoordinates(regionObj.lat, regionObj.lng);
+                }
+                
+                // Need to re-render if we are inside a methodic parameters tab
+                if (currentStep === 1 && state.methodics && state.methodics.length > 0) {
+                    renderMethodicCards(state.methodics);
+                }
+                
+                // Render region info in sidebar
+                renderRegionDetails(regionObj || {});
+                
+                if (currentStep === 3) {
+                    renderParameters();
+                }
+            });
+        }
+    } catch (e) {
+        console.error('Failed to load regions.json', e);
+    }
+}
+
+/**
+ * Render Region details in side panel
+ */
+function renderRegionDetails(region) {
+    const card = document.getElementById('region-details-card');
+    if (!card) return;
+
+    if (!region || !region.id) {
+        card.style.display = 'none';
+        return;
+    }
+
+    const windLabels = {
+        'weak': 'Слабый',
+        'calm': 'Слабый',
+        'moderate': 'Умеренный',
+        'strong': 'Сильный'
+    };
+
+    const zoneLabels = {
+        'middle': 'Средняя',
+        'south': 'Южная',
+        'north': 'Северная'
+    };
+
+    const windIcon = region.wind_class === 'strong' ? '💨' : (region.wind_class === 'calm' ? '🍃' : '🌬️');
+
+    card.innerHTML = `
+        <div class="project-header" style="margin-bottom: 12px; border-bottom: 2px solid var(--primary);">
+            <h3 style="color: var(--primary); font-size: 0.95rem; text-transform: uppercase;">🌍 ${region.name_en || region.name}</h3>
+        </div>
+        <div style="font-size: 0.85rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px;">
+            <div><small style="color: var(--text-muted);">🌡 T.max</small><br><strong>${region.t_max} °C</strong></div>
+            <div><small style="color: var(--text-muted);">❄ T.min</small><br><strong>${region.t_min} °C</strong></div>
+            ${region.t_avg_year != null ? `<div><small style="color: var(--text-muted);">📊 T.сред</small><br><strong>${region.t_avg_year} °C</strong></div>` : ''}
+            <div><small style="color: var(--text-muted);">🗺 Климат</small><br><strong>${zoneLabels[region.climate_zone] || region.climate_zone}</strong></div>
+            <div><small style="color: var(--text-muted);">${windIcon} Ветер</small><br><strong>${windLabels[region.wind_class] || region.wind_class}${region.wind_speed_avg_m_s ? ' (' + region.wind_speed_avg_m_s + ' м/с)' : ''}</strong></div>
+            ${region.humidity_avg_pct != null ? `<div><small style="color: var(--text-muted);">💧 Влажность</small><br><strong>${region.humidity_avg_pct}%</strong></div>` : ''}
+            ${region.elevation_m != null ? `<div><small style="color: var(--text-muted);">⛰ Высота</small><br><strong>${region.elevation_m} м</strong></div>` : ''}
+            ${region.pressure_hPa != null ? `<div><small style="color: var(--text-muted);">📏 Давление</small><br><strong>${region.pressure_hPa} гПа</strong></div>` : ''}
+        </div>
+        ${region.lat && region.lng ? `<div style="margin-top: 8px; font-size: 0.78rem; color: var(--text-muted);">📍 ${region.lat.toFixed(4)}, ${region.lng.toFixed(4)}</div>` : ''}
+        ${region.source ? `<div style="margin-top: 4px; font-size: 0.72rem; color: var(--text-muted); opacity: 0.7;">Источник: ${region.source}</div>` : ''}
+    `;
+    card.style.display = 'block';
+    card.style.background = 'white';
+    card.style.padding = '16px';
+    card.style.borderRadius = '12px';
+    card.style.border = '1px solid var(--border)';
+    card.style.boxShadow = '0 4px 12px rgba(0,0,0,0.03)';
 }
 
 /**
@@ -324,8 +439,18 @@ function renderParameters() {
         lookupSection.style.display = 'none';
     }
 
+    // Merge Global Project State (Climate, Temp) into Wizard Context
+    const project = ProjectStore.getState();
+    if (project.locationData) {
+        state.inputs['climate_zone'] = project.locationData.climate_zone;
+        state.inputs['t_max'] = project.locationData.t_max || state.inputs['t_max'];
+        state.inputs['t_min'] = project.locationData.t_min || state.inputs['t_min'];
+    }
+
     // Initial lookup run
     Wizard.runAutoLookups(state.methodicData, state.inputs);
+    
+    // Refresh provenance immediately for visual feedback
     renderLookupProvenancePanel();
 }
 
@@ -343,11 +468,18 @@ function renderQuestionGrid(container, questions, isReadOnly) {
         group.className = `input-group ${isReadOnly ? 'read-only' : ''}`;
 
         if (q.type === 'select' && q.options) {
+            // Check for visualization metadata
+            const traceText = state.inputs[`${q.variable_id}_trace`];
+            const hasLookup = q.auto_lookup || q.lookup_table;
+            const tableId = q.auto_lookup ? q.auto_lookup.table : q.lookup_table;
+            
             // Dropdown
             const currentVal = state.inputs[q.variable_id] || '';
             group.innerHTML = `
                 <label for="input-${q.variable_id}">
-                    ${q.label} ${q.unit ? `<span class="unit">[${q.unit}]</span>` : ''}
+                    ${hasLookup ? `<span class="table-preview-wrapper"><span style="text-decoration: underline dotted #3B82F6;">${q.label}</span>${formatTraceHTML(traceText, true)}</span>` : q.label} 
+                    ${tableId ? `<button class="handbook-inline-btn" title="Посмотреть справочник" onclick="openHandbookModal('${tableId}')">📖</button>` : ''}
+                    ${q.unit ? `<span class="unit">[${q.unit}]</span>` : ''}
                     ${q.token && !q.latex ? `<span class="token-badge">(${q.token})</span>` : ''}
                     ${q.latex ? `<span class="latex-hint" style="margin-left:8px; font-size:1.1em;">${typeof katex !== 'undefined' ? katex.renderToString(q.latex, {throwOnError: false}) : q.latex}</span>` : ''}
                 </label>
@@ -375,6 +507,22 @@ function renderQuestionGrid(container, questions, isReadOnly) {
         } else {
             // Number input
             let currentVal = state.inputs[q.variable_id];
+            
+            // Check Global Mapping Inheritence
+            let globalInheritedVal = null;
+            let isGloballyInherited = false;
+            let projectLocationData = ProjectStore.getState().locationData || {};
+            
+            if (q.global_mapping && projectLocationData[q.global_mapping] !== undefined) {
+                globalInheritedVal = projectLocationData[q.global_mapping];
+                // If the user hasn't typed an override, force the global value into state
+                if (currentVal == null && !state.inputs[`${q.variable_id}_override`]) {
+                    state.inputs[q.variable_id] = globalInheritedVal;
+                    currentVal = globalInheritedVal;
+                    isGloballyInherited = true;
+                }
+            }
+
             if (currentVal == null || currentVal === undefined) {
                 currentVal = '';
             } else if (isReadOnly && typeof currentVal === 'number' && !state.inputs[`${q.variable_id}_override`]) {
@@ -384,22 +532,46 @@ function renderQuestionGrid(container, questions, isReadOnly) {
             const isLookup = q.auto_lookup || q.lookup_table || q.data_source === 'lookup';
             const isOverridden = state.inputs[`${q.variable_id}_override`];
 
+            const hasLookup = q.auto_lookup || q.lookup_table;
+            const tableId = q.auto_lookup ? q.auto_lookup.table : q.lookup_table;
+            const traceText = state.inputs[`${q.variable_id}_trace`];
+
             group.innerHTML = `
                 <label for="input-${q.variable_id}">
-                    ${q.label} ${q.unit ? `<span class="unit">[${q.unit}]</span>` : ''}
+                    ${hasLookup ? `<span class="table-preview-wrapper"><span style="text-decoration: underline dotted #3B82F6;">${q.label}</span>${formatTraceHTML(traceText, true)}</span>` : q.label} 
+                    ${tableId ? `<button class="handbook-inline-btn" title="Посмотреть справочник" onclick="openHandbookModal('${tableId}')">📖</button>` : ''}
+                    ${q.unit ? `<span class="unit">[${q.unit}]</span>` : ''}
                     ${q.token && !q.latex ? `<span class="token-badge">(${q.token})</span>` : ''}
-                    ${isOverridden ? `<span class="override-badge">Вручную</span>` : ''}
+                    ${isGloballyInherited ? `<span class="override-badge" style="background:#0284c7; color:white;">🌍 Из региона</span>` : (isOverridden ? `<span class="override-badge">Вручную</span>` : '')}
                     ${q.latex ? `<span class="latex-hint" style="margin-left:8px; font-size:1.1em;">${typeof katex !== 'undefined' ? katex.renderToString(q.latex, {throwOnError: false}) : q.latex}</span>` : ''}
                 </label>
-                <input type="number" step="any" id="input-${q.variable_id}" value="${currentVal}"
-                    ${q.disabled && !isLookup ? 'disabled' : ''}
-                    ${q.min != null ? `min="${q.min}"` : ''}
-                    ${q.max != null ? `max="${q.max}"` : ''}
-                    placeholder="${q.default != null ? q.default : 'введите значение'}">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <input type="number" step="any" id="input-${q.variable_id}" value="${currentVal}"
+                        ${(q.disabled && !isLookup) || isGloballyInherited ? 'disabled' : ''}
+                        ${q.min != null ? `min="${q.min}"` : ''}
+                        ${q.max != null ? `max="${q.max}"` : ''}
+                        placeholder="${q.default != null ? q.default : 'введите значение'}"
+                        style="flex:1; min-width: 120px;">
+                    ${isGloballyInherited || globalInheritedVal !== null ? `<button id="unlock-${q.variable_id}" class="btn btn-secondary" style="padding:4px 8px;" title="Разблокировать для ручного ввода" >🔓</button>` : ''}
+                </div>
                 ${q.default != null ? `<span class="help-text" style="color:#0284c7;">ℹ <strong>По умолчанию: ${q.default}</strong>${q.help_text ? ' — ' + (q.help_text.startsWith(String(q.default)) ? q.help_text.substring(String(q.default).length).replace(/^[\s=—]+/, '') : q.help_text) : ''}</span>` : (q.help_text ? `<span class="help-text">${q.help_text}</span>` : '')}
-                ${state.inputs[`${q.variable_id}_trace`] ? `<span class="help-text trace-block">${formatTraceHTML(state.inputs[`${q.variable_id}_trace`])}</span>` : ''}
+                <div id="trace-${q.variable_id}" class="help-text trace-block">${traceText ? formatTraceHTML(traceText) : ''}</div>
             `;
             const input = group.querySelector('input');
+            const unlockBtn = group.querySelector(`#unlock-${q.variable_id}`);
+            
+            if (unlockBtn) {
+                unlockBtn.addEventListener('click', () => {
+                    input.disabled = false;
+                    input.focus();
+                    state.inputs[`${q.variable_id}_override`] = true;
+                    unlockBtn.style.display = 'none';
+                    // Strip the global badge
+                    const badge = group.querySelector('.override-badge');
+                    if (badge) badge.remove();
+                });
+            }
+
             input.addEventListener('input', (e) => {
                 const val = parseFloat(e.target.value);
                 input.classList.remove('input-valid', 'input-invalid');
@@ -452,13 +624,9 @@ function updateLookupValuesUI() {
                 const traceText = state.inputs[`${q.variable_id}_trace`];
                 
                 if (traceText) {
-                    if (!traceEl) {
-                        traceEl = document.createElement('span');
-                        traceEl.id = traceId;
-                        traceEl.className = 'help-text trace-block';
-                        el.parentNode.appendChild(traceEl);
+                    if (traceEl) {
+                        traceEl.innerHTML = formatTraceHTML(traceText);
                     }
-                    traceEl.innerHTML = formatTraceHTML(traceText);
                 } else if (traceEl) {
                     traceEl.innerHTML = '';
                 }
@@ -683,9 +851,10 @@ function safeDisplay(val) {
 /**
  * Parses trace string and wraps table name and results with the hover preview UI.
  * @param {string} traceText 
+ * @param {boolean} onlyTooltip - If true, returns only the tooltip div, not the "ℹ Таблица..." prefix
  * @returns {string} Formatted HTML
  */
-function formatTraceHTML(traceText) {
+function formatTraceHTML(traceText, onlyTooltip = false) {
     if (!traceText) return '';
     
     // Handle structured object
@@ -700,9 +869,12 @@ function formatTraceHTML(traceText) {
         const traceDetails = traceMatch[2];
         const previewHTML = buildTablePreviewHTML(tableName, traceDetails);
         
+        if (onlyTooltip) {
+            return previewHTML ? `<div class="table-preview-tooltip">${previewHTML}</div>` : '';
+        }
         return `ℹ Таблица <span class="table-preview-wrapper"><code class="prov-table-name ${previewHTML ? 'has-preview' : ''}">${tableName}</code>${previewHTML ? `<div class="table-preview-tooltip">${previewHTML}</div>` : ''}</span> (${traceDetails})`;
     }
-    return `ℹ ${traceText}`;
+    return onlyTooltip ? '' : `ℹ ${traceText}`;
 }
 
 let _provenanceOpen = true;
@@ -1221,20 +1393,39 @@ function initProjectCart() {
         btnFetchWeather.addEventListener('click', async () => {
             const stateObj = ProjectStore.getState();
             if (!stateObj.lat || !stateObj.lng) {
-                alert("Укажите координаты проекта (Широта и Долгота).");
+                showToast("Укажите координаты проекта (Широта и Долгота) или выберите регион.", "danger");
                 return;
             }
             btnFetchWeather.textContent = "Загрузка...";
+            const meteoRes = document.getElementById('meteo-results');
+            if (meteoRes) {
+                meteoRes.style.display = 'block';
+                meteoRes.innerHTML = '<em>Подключение к OpenMeteo...</em>';
+            }
+            
             const today = new Date().toISOString().split('T')[0];
             const data = await WeatherModule.fetchFromOpenMeteo(stateObj.lat, stateObj.lng, today);
-            if (data && data.hourly) {
-                const temp = data.hourly.temperature_2m[12]; // Noon temp
-                const wind = data.hourly.windspeed_10m[12];
-                alert(`Данные OpenMeteo получены!\n\nТемпература (в 12:00): ${temp}°C\nСкорость ветра: ${wind} м/с`);
-            } else {
-                alert("Ошибка получения погоды.");
+            
+            if (meteoRes) {
+                if (data && data.hourly) {
+                    const temp = data.hourly.temperature_2m[12]; // Noon temp
+                    const wind = data.hourly.windspeed_10m[12];
+                    meteoRes.innerHTML = `
+                        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+                            <span>🌡 Температура (12:00)</span>
+                            <strong>${temp} °C</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span>💨 Ветер (скорость)</span>
+                            <strong>${wind} м/с</strong>
+                        </div>
+                    `;
+                } else {
+                    meteoRes.innerHTML = `<span style="color:#dc2626;">Ошибка получения данных погоды.</span>`;
+                }
             }
-            btnFetchWeather.textContent = "☁️ OpenMeteo";
+            
+            btnFetchWeather.textContent = "☁️ Обновить";
         });
     }
 
@@ -1345,3 +1536,196 @@ function renderCart() {
         btnReport.classList.remove('btn-primary');
     }
 }
+
+/**
+ * Handbook Table Modal Logic
+ */
+let _currentHandbookTable = null;
+async function openHandbookModal(tableId) {
+    if (!tableId || !state.methodicData || !state.methodicData.tables) return;
+    
+    // Find table in unified format: tables.tables[]
+    const tablesArray = state.methodicData.tables.tables || [];
+    let table = tablesArray.find(t => t.id === tableId);
+    
+    // Try alternate ID formats
+    if (!table) {
+        table = tablesArray.find(t => t.id === `Table-${tableId}`) ||
+                tablesArray.find(t => t.id === `table_${tableId}`) ||
+                tablesArray.find(t => t.id === tableId.replace('-', '_'));
+    }
+    
+    _currentHandbookTable = table;
+    if (!table || !table.data || table.data.length === 0) {
+        showToast(`Таблица "${tableId}" не найдена или пуста.`, 'danger');
+        return;
+    }
+
+    const modal = document.getElementById('handbook-modal');
+    const container = document.getElementById('handbook-table-container');
+    const titleEl = document.getElementById('handbook-title');
+
+    const title = table.title || table.id;
+    const lookupType = table.lookup_type || 'exact';
+    const sourceDoc = table.source ? (typeof table.source === 'string' ? table.source : table.source.document || '') : '';
+    const columns = Object.keys(table.data[0]);
+    const rowCount = table.data.length;
+
+    titleEl.innerHTML = `${title} <span style="font-size:0.75em; color:#64748b; font-weight:400; margin-left:12px;">${tableId} &bull; ${lookupType} &bull; ${rowCount} rows${sourceDoc ? ' &bull; ' + sourceDoc : ''}</span>`;
+    
+    // State for sorting
+    let sortCol = null;
+    let sortAsc = true;
+    let searchQuery = '';
+
+    function renderTable() {
+        let filteredData = table.data;
+
+        // Apply search filter
+        if (searchQuery) {
+            const q = searchQuery.toLowerCase();
+            filteredData = filteredData.filter(row => 
+                columns.some(col => String(row[col] ?? '').toLowerCase().includes(q))
+            );
+        }
+
+        // Apply sort
+        if (sortCol) {
+            filteredData = [...filteredData].sort((a, b) => {
+                let va = a[sortCol], vb = b[sortCol];
+                if (typeof va === 'number' && typeof vb === 'number') {
+                    return sortAsc ? va - vb : vb - va;
+                }
+                return sortAsc 
+                    ? String(va ?? '').localeCompare(String(vb ?? '')) 
+                    : String(vb ?? '').localeCompare(String(va ?? ''));
+            });
+        }
+
+        // Determine which columns are input_keys vs output_keys
+        const inputKeys = new Set(table.input_keys || []);
+        const outputKeys = new Set(table.output_keys || []);
+
+        let html = `<div style="display:flex; gap:12px; margin-bottom:16px; align-items:center;">
+            <input type="text" id="handbook-search" placeholder="Поиск по таблице..." value="${searchQuery}" 
+                style="flex:1; padding:8px 12px; border:1px solid #e2e8f0; border-radius:8px; font-size:0.9rem;">
+            <span style="font-size:0.85rem; color:#64748b;">${filteredData.length} из ${rowCount} строк</span>
+        </div>`;
+
+        html += '<table class="handbook-view-table" style="width:100%; border-collapse:collapse; font-size:0.85rem;">';
+        html += '<thead><tr>';
+        columns.forEach(col => {
+            const isInput = inputKeys.has(col);
+            const isOutput = outputKeys.has(col);
+            const sortIndicator = sortCol === col ? (sortAsc ? ' ▲' : ' ▼') : '';
+            const colStyle = isInput ? 'background:#eff6ff; color:#1d4ed8;' : 
+                            (isOutput ? 'background:#f0fdf4; color:#166534;' : '');
+            html += `<th data-col="${col}" style="cursor:pointer; padding:8px 10px; border-bottom:2px solid #e2e8f0; text-align:left; user-select:none; ${colStyle} font-weight:600; white-space:nowrap;">
+                ${col}${sortIndicator}
+                ${isInput ? ' <span style="font-size:0.7em; opacity:0.7;">[key]</span>' : ''}
+                ${isOutput ? ' <span style="font-size:0.7em; opacity:0.7;">[out]</span>' : ''}
+            </th>`;
+        });
+        html += '</tr></thead><tbody>';
+
+        filteredData.forEach((row, rowIdx) => {
+            // Find original row index in table.data for editing
+            const origIdx = table.data.indexOf(row);
+            html += `<tr style="border-bottom:1px solid #f1f5f9;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background=''">`;
+            columns.forEach(col => {
+                const val = row[col];
+                const displayVal = val == null ? '—' : val;
+                const isEditable = outputKeys.has(col) || inputKeys.has(col);
+                html += `<td style="padding:6px 10px; ${isEditable ? 'cursor:pointer;' : ''}" 
+                    ${isEditable ? `ondblclick="handbookEditCell(this, ${origIdx}, '${col}')" title="Двойной клик для редактирования"` : ''}>
+                    ${displayVal}
+                </td>`;
+            });
+            html += '</tr>';
+        });
+
+        html += '</tbody></table>';
+
+        container.innerHTML = html;
+
+        // Wire search
+        const searchInput = document.getElementById('handbook-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderTable();
+            });
+            // Refocus and restore cursor position
+            searchInput.focus();
+            searchInput.setSelectionRange(searchQuery.length, searchQuery.length);
+        }
+
+        // Wire column header sort
+        container.querySelectorAll('th[data-col]').forEach(th => {
+            th.addEventListener('click', () => {
+                const col = th.getAttribute('data-col');
+                if (sortCol === col) {
+                    sortAsc = !sortAsc;
+                } else {
+                    sortCol = col;
+                    sortAsc = true;
+                }
+                renderTable();
+            });
+        });
+    }
+
+    renderTable();
+    modal.style.display = 'flex';
+}
+
+/**
+ * In-session cell editing for handbook modal tables.
+ * User can double-click a cell to edit its value.
+ * Changes update state.methodicData.tables in memory (session only).
+ */
+function handbookEditCell(td, rowIndex, colName) {
+    if (!_currentHandbookTable || !_currentHandbookTable.data) return;
+    
+    const targetTable = _currentHandbookTable;
+    if (!targetTable.data[rowIndex]) return;
+
+    const currentVal = targetTable.data[rowIndex][colName];
+    const input = document.createElement('input');
+    input.type = typeof currentVal === 'number' ? 'number' : 'text';
+    input.step = 'any';
+    input.value = currentVal ?? '';
+    input.style.cssText = 'width:100%; padding:4px; border:2px solid #3B82F6; border-radius:4px; font-size:0.85rem; background:#eff6ff;';
+    
+    td.textContent = '';
+    td.appendChild(input);
+    input.focus();
+    input.select();
+
+    const commit = () => {
+        const newVal = input.type === 'number' ? parseFloat(input.value) : input.value;
+        if (!isNaN(newVal) || input.type === 'text') {
+            targetTable.data[rowIndex][colName] = input.type === 'number' ? newVal : input.value;
+            td.textContent = input.type === 'number' ? newVal : input.value;
+            td.style.background = '#fef3c7';  // Yellow tint to show modified
+            td.title = `Изменено (было: ${currentVal})`;
+            
+            // Re-run lookups in case this table data affects current calculations
+            if (state.methodicData && state.inputs) {
+                Wizard.runAutoLookups(state.methodicData, state.inputs);
+                updateLookupValuesUI();
+                renderLookupProvenancePanel();
+            }
+            showToast(`Значение обновлено: ${colName} = ${input.type === 'number' ? newVal : input.value}`, 'info');
+        } else {
+            td.textContent = currentVal ?? '—';
+        }
+    };
+
+    input.addEventListener('blur', commit);
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); commit(); }
+        if (e.key === 'Escape') { td.textContent = currentVal ?? '—'; }
+    });
+}
+

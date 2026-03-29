@@ -10,6 +10,11 @@
       "output_keys": [
         "Q_spec"
       ],
+      "source": {
+        "document": "Методика расчёта выбросов для предприятий хранения и реализации нефтепродуктов..pdf",
+        "section": "6.2",
+        "table": "Таблица 6.1"
+      },
       "lookup_type": "multi_key_exact",
       "data": [
         {

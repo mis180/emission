@@ -1,6 +1,56 @@
 {
   "active_equations": [
     {
+      "formula_code": "5.2",
+      "formula_name": "Разность температур для группы резервуара",
+      "equation_order": 0,
+      "lhs_token": "delta_t",
+      "rhs": "t_max - t_air",
+      "latex": "\\Delta t = t_{max} - t_{air}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.6",
+      "formula_name": "Разность температур для группы резервуара",
+      "equation_order": 0,
+      "lhs_token": "delta_t",
+      "rhs": "t_max - t_air",
+      "latex": "\\Delta t = t_{max} - t_{air}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.4",
+      "formula_name": "Разность температур для группы резервуара",
+      "equation_order": 0,
+      "lhs_token": "delta_t",
+      "rhs": "t_max - t_air",
+      "latex": "\\Delta t = t_{max} - t_{air}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.3",
+      "formula_name": "Разность температур для группы резервуара",
+      "equation_order": 0,
+      "lhs_token": "delta_t",
+      "rhs": "t_max - t_air",
+      "latex": "\\Delta t = t_{max} - t_{air}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.2",
+      "formula_name": "Разность температур для группы резервуара",
+      "equation_order": 0,
+      "lhs_token": "delta_t",
+      "rhs": "t_max - t_air",
+      "latex": "\\Delta t = t_{max} - t_{air}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
       "formula_code": "4.1",
       "equation_order": 1,
       "lhs_token": "n",
@@ -54,8 +104,8 @@
       "formula_name": "Выбросы паров индивидуальных веществ",
       "equation_order": 3,
       "lhs_token": "M",
-      "rhs": "0.445*Pt_max*m*Kr_max*Kv*Vmax*1e-2/(273 + t_max)",
-      "latex": "M = \\frac{0.445 \\cdot P_{t_{max}} \\cdot m \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-2}}{273 + t_{max}}",
+      "rhs": "0.445*Pt_max*m_pure*Kr_max*Kv*Vmax*1e-2/(273 + t_max)",
+      "latex": "M = \\frac{0.445 \\cdot P_{t_{max}} \\cdot m_{pure} \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-2}}{273 + t_{max}}",
       "confidence": "TRUSTED",
       "status": "active"
     },
@@ -64,8 +114,8 @@
       "formula_name": "Выбросы паров индивидуальных веществ",
       "equation_order": 4,
       "lhs_token": "G",
-      "rhs": "0.160*(Pt_max*Kv+Pt_min)*m*Kr_avg*Kob*B*1e-4/(rho*(546 + t_min))",
-      "latex": "G = \\frac{0.160 \\cdot (P_{t_{max}} \\cdot K_v + P_{t_{min}}) \\cdot m \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B \\cdot 10^{-4}}{\\rho \\cdot (546 + t_{min})}",
+      "rhs": "0.160*(Pt_max*Kv+Pt_min)*m_pure*Kr_avg*Kob*B*1e-4/(rho*(546 + t_min))",
+      "latex": "G = \\frac{0.160 \\cdot (P_{t_{max}} \\cdot K_v + P_{t_{min}}) \\cdot m_{pure} \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B \\cdot 10^{-4}}{\\rho \\cdot (546 + t_{min})}",
       "confidence": "TRUSTED",
       "status": "active"
     },
@@ -154,8 +204,9 @@
       "formula_name": "Выбросы от АЗС",
       "equation_order": 1,
       "lhs_token": "M",
-      "rhs": "C1 * Vmax / 3600",
-      "latex": "M = \\frac{C_1 \\cdot V_{max}}{3600}",
+      "rhs": "(C_tank_max * V_sl / t_unload) + (C_tank_max * Vmax / 3600)",
+      "latex": "M = \\frac{C_{tank_{max}} \\cdot V_{sl}}{t} + \\frac{C_{tank_{max}} \\cdot V_{max}}{3600}",
+      "note": "Учитывает слив из автоцистерны (9.2.1) и заправку баков (9.2.2)",
       "confidence": "TRUSTED",
       "status": "active"
     },
@@ -164,9 +215,59 @@
       "formula_name": "Выбросы от АЗС",
       "equation_order": 2,
       "lhs_token": "G",
-      "rhs": "((Uoz + 420)*Boz + (Uvl + 515)*Bvl)*1e-6",
-      "latex": "G = ((U_{оз} + 420) \\cdot B_{оз} + (U_{вл} + 515) \\cdot B_{вл}) \\cdot 10^{-6}",
-      "note": "Коэффициенты 420 и 515 учитывают выбросы при заправке баков (Приложение 15)",
+      "rhs": "((Uoz + C_tank_oz + J)*Boz + (Uvl + C_tank_vl + J)*Bvl)*1e-6",
+      "latex": "G = ((U_{оз} + C_{tank_{oz}} + J) \\cdot B_{оз} + (U_{вл} + C_{tank_{vl}} + J) \\cdot B_{вл}) \\cdot 10^{-6}",
+      "note": "Учитывает наполнение резервуаров (9.2.4), заправку баков (9.2.7) и проливы (9.2.5, 9.2.8)",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "6.3",
+      "formula_name": "Выбросы от очистных сооружений (М)",
+      "equation_order": 1,
+      "lhs_token": "M_ww",
+      "rhs": "q_avg * F_ww * z / 3600",
+      "latex": "...",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "6.3",
+      "formula_name": "Выбросы от очистных сооружений (G)",
+      "equation_order": 2,
+      "lhs_token": "G_ww",
+      "rhs": "q_avg * F_ww * z * 8760 * 1e-6",
+      "latex": "...",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "6.5",
+      "formula_name": "Выбросы шламонакопителей (М)",
+      "equation_order": 1,
+      "lhs_token": "M_sludge",
+      "rhs": "q_ss * F_sludge",
+      "latex": "...",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "6.5",
+      "formula_name": "Выбросы шламонакопителей (G)",
+      "equation_order": 2,
+      "lhs_token": "G_sludge",
+      "rhs": "(q_aw * 4 + q_ss * 8) / 12 * F_sludge * 31536000 * 1e-6",
+      "latex": "...",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "6.7",
+      "formula_name": "Выбросы растворенных газов (M)",
+      "equation_order": 1,
+      "lhs_token": "M_gas",
+      "rhs": "1.85 / K_H",
+      "latex": "...",
       "confidence": "TRUSTED",
       "status": "active"
     }

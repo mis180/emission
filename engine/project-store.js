@@ -7,6 +7,8 @@ const ProjectStore = (() => {
         name: "Новый проект",
         lat: null,
         lng: null,
+        regionId: null,
+        locationData: {},
         sources: []
     };
 
@@ -22,6 +24,16 @@ const ProjectStore = (() => {
     function setCoordinates(lat, lng) {
         if (lat !== undefined) _state.lat = lat;
         if (lng !== undefined) _state.lng = lng;
+        save();
+    }
+
+    function setRegion(regionId, locationData) {
+        _state.regionId = regionId;
+        if (locationData) {
+            _state.locationData = locationData;
+        } else {
+            _state.locationData = {};
+        }
         save();
     }
 
@@ -110,6 +122,7 @@ const ProjectStore = (() => {
         getState,
         setName,
         setCoordinates,
+        setRegion,
         addSource,
         clear,
         save,

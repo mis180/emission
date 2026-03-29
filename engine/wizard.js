@@ -20,7 +20,8 @@ const Wizard = (() => {
 
         const fetchJson = async (url, optional = false) => {
             try {
-                const r = await fetch(url);
+                const cacheBuster = `?v=${Date.now()}`;
+                const r = await fetch(url + cacheBuster);
                 if (!r.ok) {
                     if (optional) return null;
                     throw new Error(`Failed to load ${url}: ${r.status} ${r.statusText}`);
@@ -53,7 +54,8 @@ const Wizard = (() => {
      * @returns {Promise<Array>} Array of methodic metadata objects
      */
     async function loadRegistry() {
-        const res = await fetch('data/registry.json');
+        const cacheBuster = `?v=${Date.now()}`;
+        const res = await fetch('data/registry.json' + cacheBuster);
         if (!res.ok) throw new Error(`Failed to load registry: ${res.status} ${res.statusText}`);
         const data = await res.json();
         return data.methodics || [];

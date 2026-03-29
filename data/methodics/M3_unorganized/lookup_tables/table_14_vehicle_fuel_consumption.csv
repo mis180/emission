@@ -1,0 +1,4 @@
+vehicle_model_ru,fuel_type_ru,fuel_consumption_t_per_h,source_note
+КАМАЗ-511,дизельное,0.013,
+"КРАЗ-25Г, Б-1",дизельное,0.019,
+ЗИЛ MM3-555,бензин,0.014,Нормализация из OCR '0.0 14'.

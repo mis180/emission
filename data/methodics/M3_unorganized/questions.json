@@ -8,15 +8,15 @@
           "k_1",
           "k_2",
           "G_prod",
-          "drop_height_range",
+          "drop_height_m",
           "B_drop",
-          "wind_class",
+          "wind_speed",
           "k_3",
           "enclosure_class",
           "k_4",
-          "moisture_class",
+          "moisture_percent",
           "k_5",
-          "size_class",
+          "piece_size_mm",
           "k_7",
           "storage_material_group",
           "q",
@@ -58,16 +58,18 @@
       "required": true
     },
     {
-      "id": "q_drop_height_range",
-      "variable_id": "drop_height_range",
-      "type": "select",
-      "label": "Высота пересыпки (B')"
+      "id": "q_drop_height_m",
+      "variable_id": "drop_height_m",
+      "type": "number",
+      "label": "Высота пересыпки (B')",
+      "unit": "м"
     },
     {
-      "id": "q_wind_class",
-      "variable_id": "wind_class",
-      "type": "select",
-      "label": "Скорость ветра (k₃)"
+      "id": "q_wind_speed",
+      "variable_id": "wind_speed",
+      "type": "number",
+      "label": "Скорость ветра (k₃)",
+      "unit": "м/с"
     },
     {
       "id": "q_enclosure_class",
@@ -76,16 +78,18 @@
       "label": "Степень укрытия (k₄)"
     },
     {
-      "id": "q_moisture_class",
-      "variable_id": "moisture_class",
-      "type": "select",
-      "label": "Влажность материала (k₅)"
+      "id": "q_moisture_percent",
+      "variable_id": "moisture_percent",
+      "type": "number",
+      "label": "Влажность материала (k₅)",
+      "unit": "%"
     },
     {
-      "id": "q_size_class",
-      "variable_id": "size_class",
-      "type": "select",
-      "label": "Крупность материала (k₇)"
+      "id": "q_piece_size_mm",
+      "variable_id": "piece_size_mm",
+      "type": "number",
+      "label": "Крупность материала (k₇)",
+      "unit": "мм"
     },
     {
       "id": "q_storage_material_group",
