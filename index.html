@@ -14,213 +14,284 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 </head>
 <body>
+
+
     <div class="app-container">
-        <!-- Sidebar Navigation -->
+        <!-- COMBINED SIDEBAR (Project Explorer) -->
         <aside class="sidebar">
-            <div class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
-                <span>EcoCalc</span>
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#4F46E5;"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    <span>EcoCalc</span>
+                </div>
+                <div id="header-project-name" style="font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-top:4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Новый проект</div>
             </div>
-            <div class="progress-container">
-                <div class="progress-fill" id="progress-fill"></div>
-            </div>
-            <ul class="stepper" id="stepper">
-                <li class="step active" data-step="1">1. Методика</li>
-                <li class="step" data-step="2">2. Тип расчёта</li>
-                <li class="step" data-step="3">3. Параметры</li>
-                <li class="step" data-step="4">4. Состав</li>
-                <li class="step" data-step="5">5. Проверка</li>
-                <li class="step" data-step="6">6. Результаты</li>
-            </ul>
-            <div class="sidebar-footer">
-                <div class="methodic-badge" id="methodic-badge"></div>
+
+            <nav class="sidebar-tabs">
+                <div class="sidebar-tab active" id="tab-hierarchy" onclick="switchSidebarTab('hierarchy')">Структура</div>
+                <div class="sidebar-tab" id="tab-environment" onclick="switchSidebarTab('environment')">Контекст</div>
+            </nav>
+
+            <div class="sidebar-content">
+                <!-- Tab: Hierarchy -->
+                <div id="sidebar-pane-hierarchy" class="sidebar-pane">
+                    <div class="project-tree-container" id="project-tree-container">
+                        <!-- Rendered by app.js -->
+                    </div>
+                </div>
+
+                <!-- Tab: Environment (Moved from Right Panel) -->
+                <div id="sidebar-pane-environment" class="sidebar-pane" style="display:none;">
+                    <div class="sidebar-section">
+                        <div class="sidebar-section-title">🌍 Регион</div>
+                        <select id="proj-region" class="cart-input" style="width:100%; margin-bottom:12px;">
+                            <option value="">-- Выберите регион --</option>
+                        </select>
+                        <div id="region-details-card" class="region-info-card" style="display:none; margin-bottom:20px;"></div>
+                    </div>
+
+                    <div class="sidebar-section mt-4" style="padding-top:16px; border-top:1px solid #f1f5f9;">
+                        <div class="sidebar-section-title">📍 Координаты</div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                            <input type="number" id="proj-lat" placeholder="Широта" class="cart-input" style="width:100%; font-size:0.8rem;">
+                            <input type="number" id="proj-lng" placeholder="Долгота" class="cart-input" style="width:100%; font-size:0.8rem;">
+                        </div>
+                        <button id="btn-show-map" class="btn btn-secondary btn-block mt-2" style="font-size:0.75rem; padding:8px;">🗺️ Карта</button>
+                    </div>
+
+                    <div class="sidebar-section mt-4" style="padding-top:16px; border-top:1px solid #f1f5f9;">
+                        <div class="sidebar-section-title" style="justify-content:space-between; display:flex;">
+                            Погода <button id="btn-fetch-weather" class="btn btn-secondary" style="font-size:0.65rem; padding: 2px 6px;">Обновить</button>
+                        </div>
+                        <div id="meteo-results" style="font-size:0.8rem; margin-top:8px; display:none; padding:10px; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;"></div>
+                    </div>
+
+                    <div class="sidebar-section mt-4" style="padding-top:16px; border-top:1px solid #f1f5f9;">
+                        <div class="sidebar-section-title">Действия</div>
+                        <button id="btn-export-json" class="btn btn-secondary btn-block" style="text-align:left; font-size:0.8rem;">💾 Экспорт JSON</button>
+                        <div id="cart-actions" class="mt-2"></div>
+                    </div>
+                </div>
             </div>
         </aside>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <header class="topbar">
-                <h2>Расчёт выбросов</h2>
-            </header>
-
-            <div class="step-content">
-                <!-- Step 1: Methodic Selection -->
-                <div class="step-pane active" id="pane-1">
-                    <h3>Выберите методику</h3>
-                    <p class="subtitle">Какую методику расчёта загрязняющих веществ использовать?</p>
-                    <div class="scenario-grid" id="methodic-grid">
-                        <div class="loading-spinner">Загрузка методик...</div>
+        <!-- MAIN CONTENT AREA -->
+        <main class="main-content" style="overflow-y:auto; padding:32px; background:#f8fafc;">
+            <!-- Project Dashboard -->
+            <div id="project-dashboard" class="dashboard-pane active">
+                <div class="dashboard-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+                    <h2 id="proj-dashboard-title" style="margin:0;">Проект: Обзор</h2>
+                    <div class="dashboard-actions">
+                        <button class="btn btn-primary" onclick="showFacilityForm()">+ Создать объект</button>
+                        <button class="btn btn-secondary" id="btn-generate-report-main">📄 Скачать PDF Отчет</button>
                     </div>
                 </div>
-
-                <!-- Step 2: Source Type + Calc Method -->
-                <div class="step-pane" id="pane-2">
-                    <h3>Тип расчёта</h3>
-                    <p class="subtitle">Выберите категорию источника выбросов.</p>
-                    <div id="source-type-grid" class="scenario-grid"></div>
-                    <div id="calc-method-section" style="display: none;">
-                        <h4 class="section-label" id="calc-method-label">Метод расчёта</h4>
-                        <div id="calc-method-grid" class="scenario-grid"></div>
-                    </div>
-                </div>
-
-                <!-- Step 3: Parameters -->
-                <div class="step-pane" id="pane-3">
-                    <h3>Входные параметры</h3>
-                    <p class="subtitle">Введите значения переменных для выбранной формулы.</p>
-                    
-                    <div id="formula-info" class="formula-info-bar"></div>
-
-                    <!-- Category 1: Explicit User Input -->
-                    <div class="input-category-section">
-                        <h4 class="section-label">1. Пользовательский ввод</h4>
-                        <div class="parameter-grid" id="user-input-grid"></div>
-                    </div>
-
-                    <!-- Category 2: Lookup values / Derived -->
-                    <div class="input-category-section mt-4" id="lookup-section" style="display: none;">
-                        <h4 class="section-label">2. Значения из справочников (автоматически)</h4>
-                        <div class="parameter-grid" id="lookup-input-grid"></div>
-                    </div>
-
-                    <!-- Provenance Panel: shows all active lookup sources -->
-                    <div class="provenance-panel mt-4" id="lookup-provenance-panel" style="display: none;">
-                        <div class="provenance-header" id="provenance-toggle" onclick="toggleProvenance()">
-                            <span class="provenance-icon">📋</span>
-                            <span>Источники коэффициентов</span>
-                            <span class="provenance-count" id="provenance-count">0</span>
-                            <span class="provenance-chevron" id="provenance-chevron">▼</span>
+                <!-- Project metadata form -->
+                <div class="project-meta-card mt-4" style="background:white; padding:24px; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:24px; box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);">
+                    <h3 style="margin-top:0; margin-bottom:16px;">Данные проекта</h3>
+                    <div class="cart-grid" style="grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Название проекта:</label>
+                            <input type="text" id="project-name" class="cart-input" value="Новый проект" style="width:100%;">
                         </div>
-                        <div class="provenance-body" id="provenance-body">
-                            <table class="provenance-table" id="provenance-table">
-                                <thead>
-                                    <tr>
-                                        <th>Коэффициент</th>
-                                        <th>Таблица</th>
-                                        <th>Ключ</th>
-                                        <th>Метод</th>
-                                        <th>Значение</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="provenance-tbody"></tbody>
-                            </table>
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Организация (Заказчик):</label>
+                            <input type="text" id="project-company" class="cart-input" placeholder="ТОО ..." style="width:100%;">
+                        </div>
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Разрешительный документ:</label>
+                            <input type="text" id="project-license" class="cart-input" placeholder="№ ... от ..." style="width:100%;">
                         </div>
                     </div>
                 </div>
-
-                <!-- Step 4: Composition -->
-                <div class="step-pane" id="pane-4">
-                    <h3>Состав загрязняющих веществ</h3>
-                    <p class="subtitle">Скорректируйте процентное содержание компонентов.</p>
-                    <div class="composition-list" id="composition-list"></div>
+                
+                <div id="project-summary-stats" class="mt-4">
+                    <!-- Dashboard charts and tables go here -->
                 </div>
+            </div>
 
-                <!-- Step 5: Review -->
-                <div class="step-pane" id="pane-5">
-                    <h3>Проверка данных</h3>
-                    <p class="subtitle">Убедитесь, что все введенные данные верны, перед расчётом.</p>
-                    <div class="review-table-container">
-                        <table class="results-table" id="review-table">
-                            <tbody></tbody>
-                        </table>
+            <!-- Facility Dashboard -->
+            <div id="facility-dashboard" class="dashboard-pane" style="display:none;">
+                <!-- Reactively rendered by app.js -->
+            </div>
+
+            <!-- Facility Creation/Edit Form -->
+            <div id="facility-form-pane" class="dashboard-pane" style="display:none; max-width:800px; margin:0 auto;">
+                <h2 style="margin-bottom:24px;">Параметры объекта (площадки)</h2>
+                <div class="facility-form-card" style="background:white; padding:32px; border-radius:12px; border:1px solid #e2e8f0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);">
+                    <input type="hidden" id="fac-form-id">
+                    <div class="cart-grid" style="grid-template-columns: 1fr; gap:20px;">
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Название объекта *</label>
+                            <input type="text" id="fac-form-name" class="cart-input" placeholder="Например: АЗС №15, Котельная" style="width:100%; padding:10px;">
+                        </div>
+                        
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Тип объекта</label>
+                            <select id="fac-form-type" class="cart-input" style="width:100%; padding:10px;">
+                                <option value="fuel_station">АЗС (Автозаправочная станция)</option>
+                                <option value="fuel_depot">Нефтебаза / Склад ГСМ</option>
+                                <option value="industrial_site">Промышленная площадка</option>
+                                <option value="construction">Строительная площадка</option>
+                                <option value="boiler_house">Котельная</option>
+                                <option value="warehouse">Склад / Хранилище</option>
+                                <option value="workshop">Цех / Мастерская</option>
+                                <option value="transport_base">Транспортная база</option>
+                                <option value="mining_site">Горная площадка</option>
+                                <option value="other" selected>Другое</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Период</label>
+                            <select id="fac-form-phase" class="cart-input" style="width:100%; padding:10px;">
+                                <option value="operation" selected>Период эксплуатации</option>
+                                <option value="construction">Период строительства</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Адрес (местоположение)</label>
+                            <input type="text" id="fac-form-address" class="cart-input" placeholder="ул. Абая, 123" style="width:100%; padding:10px;">
+                        </div>
+                        
+                        <div>
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Описание</label>
+                            <textarea id="fac-form-desc" class="cart-input" style="width:100%; height:80px; padding:10px; resize:vertical;" placeholder="Дополнительные сведения..."></textarea>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Step 6: Results -->
-                <div class="step-pane" id="pane-6">
-                    <h3>Результаты расчёта</h3>
-                    <p class="subtitle">Итоговые выбросы по формулам выбранной методики.</p>
-
-                    <div class="results-card">
-                        <h4>Сводка</h4>
-                        <table class="results-table" id="summary-table">
-                            <tbody></tbody>
-                        </table>
-                    </div>
-
-                    <div class="results-card mt-4">
-                        <h4>Разбивка по загрязняющим веществам</h4>
-                        <table class="results-table split-table" id="split-table">
-                            <thead>
-                                <tr>
-                                    <th>Загрязняющее вещество</th>
-                                    <th>%</th>
-                                    <th>Годовые (т/год)</th>
-                                    <th>Макс. (г/с)</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-
-                    <div class="results-card mt-4" id="equations-used-card">
-                        <h4>Использованные формулы</h4>
-                        <div id="equations-used-list"></div>
+                    <div class="mt-4" style="display:flex; gap:12px; margin-top:32px;">
+                        <button class="btn btn-primary" onclick="saveFacilityForm()">Сохранить объект</button>
+                        <button class="btn btn-secondary" onclick="showProjectDashboard()">Отмена</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Footer Controls -->
-            <footer class="bottom-controls">
-                <button class="btn btn-secondary" id="btn-prev" disabled>Назад</button>
-                <button class="btn btn-primary" id="btn-next">Далее</button>
-            </footer>
+            <!-- Calculator Wizard -->
+            <div id="calculator-wizard" class="dashboard-pane" style="display:none;">
+                <!-- NEW Horizontal Stepper -->
+                <div class="wizard-stepper-container">
+                    <ul class="stepper" id="stepper">
+                        <li class="step active" data-step="1"><div class="step-node">1</div><div class="step-label">Методика</div></li>
+                        <li class="step" data-step="2"><div class="step-node">2</div><div class="step-label">Область</div></li>
+                        <li class="step" data-step="3"><div class="step-node">3</div><div class="step-label">Параметры</div></li>
+                        <li class="step" data-step="4"><div class="step-node">4</div><div class="step-label">Состав</div></li>
+                        <li class="step" data-step="5"><div class="step-node">5</div><div class="step-label">Проверка</div></li>
+                        <li class="step" data-step="6"><div class="step-node">6</div><div class="step-label">Итог</div></li>
+                    </ul>
+                    <div id="methodic-badge" style="text-align:center; margin-top:12px; font-size:0.75rem; color:#64748b; font-weight:600;"></div>
+                </div>
+
+                <div class="wizard-main-card" style="background:white; padding:32px; border-radius:12px; border:1px solid #e2e8f0; min-height:550px; display:flex; flex-direction:column;">
+                    <div class="wizard-header" style="display: flex; align-items:center; justify-content:space-between; margin-bottom: 32px;">
+                        <div>
+                            <h2 id="wizard-context-title" style="margin:0;">Новый расчёт</h2>
+                            <div id="wizard-context-subtitle" style="font-size:0.85rem; color:#64748b; margin-top:4px;"></div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="returnToContext()">← Назад</button>
+                    </div>
+
+                    
+
+                        
+                        <div class="step-content">
+                            <input type="hidden" id="wizard-source-id">
+                            <input type="hidden" id="wizard-facility-id">
+
+                            <!-- Step 1: Methodic Selection -->
+                            <div class="step-pane active" id="pane-1">
+                                <h3 style="margin-top:0;">Выберите методику</h3>
+                                <div class="scenario-grid" id="methodic-grid"></div>
+                            </div>
+
+                            <!-- Step 2: Source Type + Calc Method -->
+                            <div class="step-pane" id="pane-2">
+                                <h4 class="section-label">Тип расчёта</h4>
+                                <div id="source-type-grid" class="scenario-grid"></div>
+                                <div id="calc-method-section" style="display: none; margin-top:24px;">
+                                    <h4 class="section-label" id="calc-method-label">Метод</h4>
+                                    <div id="calc-method-grid" class="scenario-grid"></div>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Parameters -->
+                            <div class="step-pane" id="pane-3">
+                                <div id="formula-info" class="formula-info-bar"></div>
+                                <div style="margin-bottom:20px; padding:16px; background:#f8fafc; border-radius:8px; border:1px solid #e2e8f0;">
+                                    <label style="display:block; margin-bottom:8px; font-weight:600; font-size:0.9rem;">Имя источника</label>
+                                    <input type="text" id="wizard-source-name" class="cart-input" placeholder="Например: Резервуар №4" style="width:100%; max-width:400px; padding:8px;">
+                                </div>
+
+                                <div class="input-category-section">
+                                    <h4 class="section-label">Переменные</h4>
+                                    <div class="parameter-grid" id="user-input-grid"></div>
+                                </div>
+                                <div class="input-category-section mt-4" id="lookup-section" style="display: none;">
+                                    <h4 class="section-label">Справочные коэффициенты</h4>
+                                    <div class="parameter-grid" id="lookup-input-grid"></div>
+                                </div>
+                                
+                                <div class="provenance-panel mt-4" id="lookup-provenance-panel" style="display: none;">
+                                    <div class="provenance-header" id="provenance-toggle" onclick="toggleProvenance()">
+                                        <span>📋 Происхождение данных</span>
+                                        <span class="provenance-count" id="provenance-count">0</span>
+                                        <span class="provenance-chevron">▼</span>
+                                    </div>
+                                    <div class="provenance-body" id="provenance-body">
+                                        <table class="provenance-table"><tbody id="provenance-tbody"></tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step 4: Composition -->
+                            <div class="step-pane" id="pane-4">
+                                <h3 style="margin-top:0;">Состав загрязняющих веществ</h3>
+                                <p class="subtitle">Скорректируйте процентное содержание компонентов.</p>
+                                <div class="composition-list" id="composition-list"></div>
+                            </div>
+
+                            <!-- Step 5: Review -->
+                            <div class="step-pane" id="pane-5">
+                                <h3 style="margin-top:0;">Проверка данных</h3>
+                                <p class="subtitle">Убедитесь, что все введенные данные верны, перед расчётом.</p>
+                                <div class="review-table-container">
+                                    <table class="results-table" id="review-table"><tbody></tbody></table>
+                                </div>
+                            </div>
+
+                            <!-- Step 6: Results -->
+                            <div class="step-pane" id="pane-6">
+                                <h3 style="margin-top:0;">Результаты расчёта</h3>
+                                <p class="subtitle">Итоговые выбросы по формулам выбранной методики.</p>
+                                <div class="results-card">
+                                    <h4>Сводка</h4>
+                                    <table class="results-table" id="summary-table"><tbody></tbody></table>
+                                </div>
+                                <div class="results-card mt-4">
+                                    <h4>Разбивка по загрязняющим веществам</h4>
+                                    <table class="results-table split-table" id="split-table">
+                                        <thead><tr><th>Загрязняющее вещество</th><th>%</th><th>Годовые (т/год)</th><th>Макс. (г/с)</th></tr></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="results-card mt-4" id="equations-used-card">
+                                    <h4>Использованные формулы</h4>
+                                    <div id="equations-used-list"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Controls -->
+                        <footer class="bottom-controls" style="margin-top:32px; padding-top:20px; border-top:1px solid #e2e8f0; background:transparent;">
+                            <button class="btn btn-secondary" id="btn-prev" disabled>Назад</button>
+                            <button class="btn btn-primary" id="btn-next">Далее</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
         </main>
 
-        <!-- Project Cart Sidebar -->
-        <aside class="project-sidebar">
-            <div class="help-panel" id="help-panel" style="display:none; background: #eef2f6; padding: 16px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #38BDF8;">
-                <h4 style="margin-bottom: 8px; color: #0284c7;">💡 Подсказка</h4>
-                <div id="help-content" style="font-size: 0.9rem; color: #334155;"></div>
-            </div>
-
-            <div class="project-header">
-                <h3>Проект</h3>
-                <input type="text" id="project-name" value="Новый проект" class="project-name-input">
-            </div>
-            
-            <div class="cart-section global-params">
-                <h4>Регион (Климат)</h4>
-                <select id="proj-region" class="cart-input" style="width: 100%; margin-bottom: 8px;">
-                    <option value="">-- Выберите регион --</option>
-                </select>
-                <h4>Координаты (по умолчанию)</h4>
-                <div class="cart-grid">
-                    <label>Шир. (Lat):</label> <input type="number" id="proj-lat" placeholder="43.2" step="any" class="cart-input">
-                    <label>Долг. (Lng):</label> <input type="number" id="proj-lng" placeholder="76.9" step="any" class="cart-input">
-                </div>
-                <button id="btn-show-map" class="btn btn-secondary btn-block mt-2" style="font-size:0.8rem; padding: 6px;">🗺️ Открыть карту</button>
-            </div>
-            
-            <div id="map-modal" style="display:none; position:fixed; top:10%; left:10%; right:10%; bottom:10%; background:white; z-index:9999; box-shadow:0 0 50px rgba(0,0,0,0.5); border-radius:12px; padding:20px; flex-direction:column;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                    <h3 style="margin:0;">Карта источников</h3>
-                    <button class="btn btn-secondary" onclick="document.getElementById('map-modal').style.display='none'">Закрыть</button>
-                </div>
-                <div id="map-container" style="flex:1; width:100%; border-radius:8px; border:1px solid #ccc;"></div>
-            </div>
-
-            <!-- Region Details Card (Dynamic) -->
-            <div id="region-details-card" class="region-info-card" style="display:none; margin-top:20px;"></div>
-
-            <div class="cart-section">
-                <h4 style="display:flex; justify-content:space-between;">Метеоданные <button id="btn-fetch-weather" class="btn btn-secondary" style="font-size:0.7rem; padding: 4px 8px;">☁️ OpenMeteo</button></h4>
-                <div id="meteo-results" style="font-size:0.8rem; margin-top:8px; display:none; padding:8px; border-radius:6px; background:#f8fafc; border:1px solid #e2e8f0;"></div>
-            </div>
-
-            <div class="cart-section" style="margin-top: 12px;">
-                <h4>Источники (<span id="cart-count">0</span>)</h4>
-                <ul id="cart-list" class="cart-list"></ul>
-            </div>
-            <div class="cart-totals">
-                <div>Σ M: <span id="cart-total-m" class="tot-val">0.000000</span> г/с</div>
-                <div>Σ G: <span id="cart-total-g" class="tot-val">0.000000</span> т/год</div>
-            </div>
-            <div class="cart-actions">
-                <button id="btn-add-to-cart" class="btn btn-success btn-block" disabled>+ Добавить источник</button>
-                <button id="btn-generate-report" class="btn btn-secondary btn-block mt-2" disabled>📄 Скачать PDF Отчет</button>
-            </div>
-        </aside>
+    </div>
     </div>
 
     <script src="lib/math.min.js"></script>
@@ -239,11 +310,11 @@
     <!-- Handbook Table Modal -->
     <div id="handbook-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9000; background:rgba(15, 23, 42, 0.75); backdrop-filter:blur(8px); align-items:center; justify-content:center;">
         <div class="handbook-content" style="background:white; width:90%; max-width:1000px; max-height:85vh; border-radius:16px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5); display:flex; flex-direction:column; overflow:hidden;">
-            <div class="modal-header" style="padding:20px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center;">
-                <h3 id="handbook-title" style="margin:0; font-size:1.25rem; color:#1e293b;">Справочная таблица</h3>
+            <div class="modal-header" style="padding:24px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; background:#f8fafc;">
+                <h3 id="handbook-title" style="margin:0; font-size:1.25rem; color:#0f172a;">Справочная таблица</h3>
                 <button class="btn btn-secondary" onclick="document.getElementById('handbook-modal').style.display='none'">Закрыть</button>
             </div>
-            <div id="handbook-table-container" style="flex:1; overflow:auto; padding:20px;"></div>
+            <div id="handbook-table-container" style="flex:1; overflow:auto; padding:24px;"></div>
         </div>
     </div>
 

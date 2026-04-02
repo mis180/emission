@@ -57,13 +57,15 @@ async function init() {
     }
 
     updateNavigation();
-    initProjectCart();
+    initProjectWorkflow();
     
     // Load from localStorage
     ProjectStore.load();
     const loadedState = ProjectStore.getState();
     const nameInput = document.getElementById('project-name');
     if (nameInput && loadedState.name) nameInput.value = loadedState.name;
+    const headerName = document.getElementById('header-project-name');
+    if (headerName && loadedState.name) headerName.textContent = loadedState.name;
     const latInput = document.getElementById('proj-lat');
     if (latInput && loadedState.lat) latInput.value = loadedState.lat;
     const lngInput = document.getElementById('proj-lng');
@@ -72,7 +74,8 @@ async function init() {
     // Load regions and populate dropdown
     await loadRegionsAndPopulateDropddown(loadedState.regionId);
     
-    renderCart();
+    renderProjectTree();
+    showProjectDashboard();
 
     // Global Error Handling for Async Errors
     window.addEventListener('unhandledrejection', (event) => {
@@ -1245,8 +1248,8 @@ function handleNext() {
         currentStep++;
         updateNavigation();
     } else {
-        // On Result step — export
-        window.print();
+        // On Result step
+        saveWizardResultToFacility();
     }
 }
 
@@ -1278,10 +1281,12 @@ function updateNavigation() {
         }
     });
 
-    // Update stepper sidebar
+    // Update horizontal stepper
+    const stepperItems = document.querySelectorAll('#stepper .step');
     stepperItems.forEach(item => {
         const stepNum = parseInt(item.getAttribute('data-step'));
-        item.className = 'step';
+        item.classList.remove('active', 'completed');
+        
         if (stepNum === currentStep) {
             item.classList.add('active');
         } else if (stepNum < currentStep) {
@@ -1293,7 +1298,7 @@ function updateNavigation() {
     btnPrev.disabled = currentStep === 1;
 
     if (currentStep === totalSteps) {
-        btnNext.textContent = 'Печать / Экспорт';
+        btnNext.textContent = 'Сохранить расчёт';
     } else {
         btnNext.textContent = 'Далее';
     }
@@ -1320,58 +1325,56 @@ function updateNavigation() {
 document.addEventListener('DOMContentLoaded', init);
 
 // ========================================================================
-// PROJECT CART LOGIC
+// PROJECT & FACILITY WORKFLOW
 // ========================================================================
-function initProjectCart() {
-    const btnAdd = document.getElementById('btn-add-to-cart');
-    
-    // Listen for project name changes
+
+const FACILITY_TYPES = [
+    { value: "fuel_station",     label: "АЗС (Автозаправочная станция)", icon: "⛽" },
+    { value: "fuel_depot",       label: "Нефтебаза / Склад ГСМ",         icon: "🛢️" },
+    { value: "industrial_site",  label: "Промышленная площадка",         icon: "🏭" },
+    { value: "construction",     label: "Строительная площадка",         icon: "🏗️" },
+    { value: "boiler_house",     label: "Котельная",                     icon: "🔥" },
+    { value: "warehouse",        label: "Склад / Хранилище",             icon: "📦" },
+    { value: "workshop",         label: "Цех / Мастерская",              icon: "🔧" },
+    { value: "transport_base",   label: "Транспортная база",             icon: "🚛" },
+    { value: "mining_site",      label: "Горная площадка",               icon: "⛏️" },
+    { value: "other",            label: "Другое",                        icon: "📋" }
+];
+
+let _activeDashboardPane = 'project-dashboard';
+let _selectedFacilityId = null;
+
+function initProjectWorkflow() {
+    // Listen for project name
     const nameInput = document.getElementById('project-name');
     if (nameInput) {
         nameInput.addEventListener('input', (e) => {
             ProjectStore.setName(e.target.value);
+            const hn = document.getElementById('header-project-name');
+            if (hn) hn.textContent = e.target.value;
+            renderProjectTree();
         });
     }
 
-    // Listen for global coordinate changes
+    // Global coords
     const latInput = document.getElementById('proj-lat');
     const lngInput = document.getElementById('proj-lng');
     if (latInput) latInput.addEventListener('input', (e) => ProjectStore.setCoordinates(parseFloat(e.target.value), undefined));
     if (lngInput) lngInput.addEventListener('input', (e) => ProjectStore.setCoordinates(undefined, parseFloat(e.target.value)));
 
-    // Add source to cart
-    if (btnAdd) {
-        btnAdd.addEventListener('click', () => {
-            if (!state.results || state.results.M == null || state.results.G == null) return;
-
-            ProjectStore.addSource({
-                methodic_name: state.methodicData.meta.name,
-                category: state.methodicData.meta.category || 'operation',
-                formula_code: state.formulaCode,
-                inputs: state.inputs,
-                results: state.results,
-                composition: state.composition
-            });
-
-            renderCart();
-
-            // Lock button until new calculation
-            btnAdd.disabled = true;
-            
-            // Visual feedback
-            btnAdd.textContent = "✓ Добавлено!";
-            setTimeout(() => { btnAdd.textContent = "+ Добавить источник"; }, 2000);
-        });
-    }
-    
-    // PDF Report Generator
-    const btnReport = document.getElementById('btn-generate-report');
-    if (btnReport) {
-        btnReport.addEventListener('click', () => {
+    // Report
+    const btnReportMain = document.getElementById('btn-generate-report-main');
+    if (btnReportMain) {
+        btnReportMain.addEventListener('click', () => {
             ReportGenerator.generatePDF(ProjectStore.getState());
         });
     }
+    
+    initUtilityPanels();
+}
 
+// Map, Weather, Export/Import
+function initUtilityPanels() {
     // Map Logic
     const btnShowMap = document.getElementById('btn-show-map');
     if (btnShowMap) {
@@ -1383,11 +1386,22 @@ function initProjectCart() {
                 MapModule.init('map-container', stateObj.lat, stateObj.lng);
             }
             MapModule.invalidateSize();
-            MapModule.refreshMarkers(stateObj.sources);
+            // Adapt markers to nested sources
+            let allSources = [];
+            if (stateObj.facilities) {
+                stateObj.facilities.forEach(fac => {
+                    if (fac.sources) {
+                        fac.sources.forEach(src => {
+                            allSources.push({...src, name: src.name || fac.name});
+                        });
+                    }
+                });
+            }
+            MapModule.refreshMarkers(allSources);
         });
     }
 
-    // Weather Fetch Logic
+    // Weather
     const btnFetchWeather = document.getElementById('btn-fetch-weather');
     if (btnFetchWeather) {
         btnFetchWeather.addEventListener('click', async () => {
@@ -1408,7 +1422,7 @@ function initProjectCart() {
             
             if (meteoRes) {
                 if (data && data.hourly) {
-                    const temp = data.hourly.temperature_2m[12]; // Noon temp
+                    const temp = data.hourly.temperature_2m[12];
                     const wind = data.hourly.windspeed_10m[12];
                     meteoRes.innerHTML = `
                         <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
@@ -1424,17 +1438,19 @@ function initProjectCart() {
                     meteoRes.innerHTML = `<span style="color:#dc2626;">Ошибка получения данных погоды.</span>`;
                 }
             }
-            
             btnFetchWeather.textContent = "☁️ Обновить";
         });
     }
 
     // Export/Import JSON
-    const actionsContainer = document.querySelector('.cart-actions');
-    if (actionsContainer && !document.getElementById('btn-export-json')) {
+    const actionsContainer = document.getElementById('cart-actions');
+    if (actionsContainer && !document.getElementById('btn-export-json-new')) {
+        let oldExport = document.getElementById('btn-export-json');
+        if (oldExport) oldExport.remove();
+
         const btnExport = document.createElement('button');
-        btnExport.id = 'btn-export-json';
-        btnExport.className = 'btn btn-secondary btn-block mt-2';
+        btnExport.id = 'btn-export-json-new';
+        btnExport.className = 'btn btn-secondary btn-block mt-3';
         btnExport.textContent = '💾 Экспорт JSON';
         btnExport.addEventListener('click', () => {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(ProjectStore.getState()));
@@ -1458,11 +1474,12 @@ function initProjectCart() {
             const reader = new FileReader();
             reader.onload = function(evt) {
                 if (ProjectStore.loadFromJSON(evt.target.result)) {
-                    renderCart();
                     const stateObj = ProjectStore.getState();
                     if (stateObj.name) document.getElementById('project-name').value = stateObj.name;
                     if (stateObj.lat) document.getElementById('proj-lat').value = stateObj.lat;
                     if (stateObj.lng) document.getElementById('proj-lng').value = stateObj.lng;
+                    renderProjectTree();
+                    showProjectDashboard();
                     alert('Проект успешно импортирован!');
                 } else {
                     alert('Ошибка импорта проекта. Неверный формат файла.');
@@ -1473,69 +1490,443 @@ function initProjectCart() {
     }
 }
 
-function renderCart() {
-    const list = document.getElementById('cart-list');
-    if (!list) return;
-    list.innerHTML = '';
+// ------ VIEW SWITCHING LOGIC ------
+function switchPane(paneId) {
+    const panes = ['project-dashboard', 'facility-dashboard', 'facility-form-pane', 'calculator-wizard'];
+    panes.forEach(p => {
+        const el = document.getElementById(p);
+        if (el) {
+            if (p === paneId) {
+                el.style.display = 'block';
+                el.classList.add('active');
+            } else {
+                el.style.display = 'none';
+                el.classList.remove('active');
+            }
+        }
+    });
+    _activeDashboardPane = paneId;
+    
+    // Auto-switch sidebar tab if needed
+    if (paneId === 'calculator-wizard') {
+        // Optional: switch to environment tab if we want to show meteo while calculating
+        // switchSidebarTab('environment');
+    }
+    
+    // Update active highlight in tree
+    const treeHeaders = document.querySelectorAll('.tree-facility-header');
+    treeHeaders.forEach(el => el.classList.remove('active'));
+    
+    if (paneId === 'facility-dashboard' || paneId === 'calculator-wizard') {
+        if (_selectedFacilityId) {
+            const facNode = document.querySelector(`.tree-facility[data-facility-id="${_selectedFacilityId}"]`);
+            if (facNode) {
+                const facHeader = facNode.querySelector('.tree-facility-header');
+                if (facHeader) facHeader.classList.add('active');
+            }
+        }
+    }
+}
 
-    let totalM = 0;
-    let totalG = 0;
+// ------ SIDEBAR TABS ------
+function switchSidebarTab(tabName) {
+    const panes = {
+        'hierarchy': 'sidebar-pane-hierarchy',
+        'environment': 'sidebar-pane-environment'
+    };
+    
+    const tabs = {
+        'hierarchy': 'tab-hierarchy',
+        'environment': 'tab-environment'
+    };
+    
+    Object.keys(panes).forEach(key => {
+        const pane = document.getElementById(panes[key]);
+        const tab = document.getElementById(tabs[key]);
+        if (pane) pane.style.display = (key === tabName) ? 'block' : 'none';
+        if (tab) {
+            if (key === tabName) tab.classList.add('active');
+            else tab.classList.remove('active');
+        }
+    });
+}
 
-    const project = ProjectStore.getState();
-    project.sources.forEach(src => {
-        totalM += (src.M != null) ? src.M : 0;
-        totalG += (src.G != null) ? src.G : 0;
-
-        const li = document.createElement('li');
-        li.className = 'cart-item';
-        
-        const mDisp = (src.M != null) ? src.M.toFixed(4) : '—';
-        const gDisp = (src.G != null) ? src.G.toFixed(4) : '—';
-
-        li.innerHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div>
-                    <div class="cart-item-title">${src.name}</div>
-                    <div class="cart-item-meta">${src.methodic_name} | Формула ${src.formula_code}</div>
-                    <div class="cart-item-meta" style="color:var(--primary); font-weight:600;">
-                        M: ${mDisp} г/с | G: ${gDisp} т/год
-                    </div>
+function showProjectDashboard() {
+    switchPane('project-dashboard');
+    _selectedFacilityId = null;
+    const totals = ProjectStore.getProjectTotals();
+    
+    // Update dashboard title
+    const stateObj = ProjectStore.getState();
+    document.getElementById('proj-dashboard-title').textContent = `Проект: ${stateObj.name || 'Обзор'}`;
+    
+    // Update project stats element
+    const statsEl = document.getElementById('project-summary-stats');
+    if (statsEl) {
+        statsEl.innerHTML = `
+            <div class="facility-total-card" style="margin-top:0; border:1px solid #c7d2fe; background:linear-gradient(135deg, #f8fafc, #eff6ff);">
+                <div class="total-block">
+                    <h4 style="color:#1e40af; font-size:0.75rem;">Суммарный выброс (г/с)</h4>
+                    <div class="val" style="color:#1d4ed8; font-size:2.2rem;">${totals.totalM.toFixed(6)}</div>
                 </div>
-                <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end;">
-                    <button class="btn-remove-source" title="Удалить" style="background:none; border:none; color:#dc3545; cursor:pointer;">✖</button>
-                    <button class="btn-clone-source" title="Дублировать" style="background:none; border:none; color:#0284c7; cursor:pointer;">⎘</button>
+                <div class="total-block">
+                    <h4 style="color:#1e40af; font-size:0.75rem;">Валовый выброс (т/год)</h4>
+                    <div class="val" style="color:#1d4ed8; font-size:2.2rem;">${totals.totalG.toFixed(6)}</div>
+                </div>
+            </div>
+            
+            <div style="margin-top:24px; display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
+                <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e2e8f0;">
+                    <div style="font-size:0.8rem; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Объекты</div>
+                    <div style="font-size:1.8rem; font-weight:700; margin-top:4px;">${stateObj.facilities ? stateObj.facilities.length : 0}</div>
+                </div>
+                <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e2e8f0;">
+                    <div style="font-size:0.8rem; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Источники</div>
+                    <div style="font-size:1.8rem; font-weight:700; margin-top:4px;">${ProjectStore.getTotalSourceCount()}</div>
                 </div>
             </div>
         `;
-        list.appendChild(li);
-
-        li.querySelector('.btn-remove-source').addEventListener('click', () => {
-            if (confirm('Вы уверены, что хотите удалить этот источник?')) {
-                ProjectStore.removeSource(src.id);
-                renderCart();
-            }
-        });
-        li.querySelector('.btn-clone-source').addEventListener('click', () => {
-            ProjectStore.duplicateSource(src.id);
-            renderCart();
-        });
-    });
-
-    document.getElementById('cart-count').textContent = project.sources.length;
-    document.getElementById('cart-total-m').textContent = totalM.toFixed(6);
-    document.getElementById('cart-total-g').textContent = totalG.toFixed(6);
-
-    const btnReport = document.getElementById('btn-generate-report');
-    if (project.sources.length > 0) {
-        btnReport.disabled = false;
-        btnReport.classList.add('btn-primary');
-        btnReport.classList.remove('btn-secondary');
-    } else {
-        btnReport.disabled = true;
-        btnReport.classList.add('btn-secondary');
-        btnReport.classList.remove('btn-primary');
     }
 }
+
+function showFacilityDashboard(facilityId) {
+    const fac = ProjectStore.getFacility(facilityId);
+    if (!fac) return;
+    _selectedFacilityId = facilityId;
+    switchPane('facility-dashboard');
+    
+    const totals = ProjectStore.getFacilityTotals(facilityId);
+    const typeObj = FACILITY_TYPES.find(t => t.value === fac.type) || FACILITY_TYPES[FACILITY_TYPES.length - 1];
+    
+    const container = document.getElementById('facility-dashboard');
+    container.innerHTML = `
+        <div class="facility-dashboard-header">
+            <div>
+                <h2 style="margin:0; font-size:1.6rem;">${typeObj.icon} ${fac.name}</h2>
+                <div style="color:var(--text-muted); margin-top:4px;">${typeObj.label} • ${fac.phase === 'operation' ? 'Эксплуатация' : 'Строительство'}</div>
+            </div>
+            <div class="actions" style="display:flex; gap:12px;">
+                <button class="btn btn-secondary" onclick="editFacility('${fac.id}')">Редактировать</button>
+                <button class="btn btn-secondary" onclick="duplicateFacility('${fac.id}')" title="Дублировать">⎘</button>
+                <button class="btn btn-secondary" onclick="deleteFacility('${fac.id}')" style="color:#ef4444; border-color:#fef2f2; background:#fef2f2;">✖</button>
+            </div>
+        </div>
+        
+        <div class="facility-header-card">
+            ${fac.address ? `<div style="font-size:0.95rem; margin-bottom:12px;">📍 ${fac.address}</div>` : ''}
+            ${fac.description ? `<div style="font-size:0.9rem; color:var(--text-secondary);">${fac.description}</div>` : ''}
+            
+            <div class="facility-total-card ml-0 mr-0 mt-4 mb-0">
+                <div class="total-block">
+                    <h4>Итого по объекту (M)</h4>
+                    <div class="val">${totals.M.toFixed(6)} <span style="font-size:1rem;">г/с</span></div>
+                </div>
+                <div class="total-block">
+                    <h4>Валовый Выброс (G)</h4>
+                    <div class="val">${totals.G.toFixed(6)} <span style="font-size:1rem;">т/год</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h3 style="margin:0;">Источники выбросов (${totals.sourceCount})</h3>
+            <button class="btn btn-primary" onclick="startNewSource('${fac.id}')">+ Обновить / Расчёт</button>
+        </div>
+        
+        <div id="fac-sources-table-container"></div>
+    `;
+    
+    renderFacilitySourcesTable(fac);
+}
+
+function renderFacilitySourcesTable(fac) {
+    const container = document.getElementById('fac-sources-table-container');
+    if (!container) return;
+    
+    if (!fac.sources || fac.sources.length === 0) {
+        container.innerHTML = `
+            <div style="text-align:center; padding:48px 24px; background:white; border-radius:12px; border:1px dashed #cbd5e1;">
+                <div style="font-size:3rem; margin-bottom:16px;">📭</div>
+                <h4 style="margin:0 0 8px 0; color:#334155;">Нет добавленных источников</h4>
+                <p style="color:#64748b; font-size:0.9rem; max-width:300px; margin:0 auto 20px auto;">
+                    Добавьте первый источник выбросов, чтобы начать формировать расчёты по объекту.
+                </p>
+                <button class="btn btn-primary" onclick="startNewSource('${fac.id}')">+ Создать расчёт</button>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = `<table class="facility-sources-table">
+        <thead>
+            <tr><th>#</th><th>Название источника</th><th>Методика</th><th>Форм.</th><th>M (г/с)</th><th>G (т/год)</th><th style="width:100px;">Действия</th></tr>
+        </thead>
+        <tbody>
+    `;
+    
+    fac.sources.forEach((src, idx) => {
+        const num = src.source_number || `000${idx+1}`;
+        html += `
+            <tr>
+                <td style="color:var(--text-muted); font-size:0.8rem; font-weight:600;">${num}</td>
+                <td style="font-weight:500;">${src.name || 'Безымянный источник'}</td>
+                <td style="font-size:0.8rem; color:#64748b;">${src.methodic_name}</td>
+                <td style="font-size:0.8rem;">${src.formula_code || '—'}</td>
+                <td style="color:#047857; font-weight:600;">${(src.M || 0).toFixed(6)}</td>
+                <td style="color:#047857; font-weight:600;">${(src.G || 0).toFixed(6)}</td>
+                <td>
+                    <div class="row-actions">
+                        <button class="btn-icon" onclick="editSource('${fac.id}', '${src.id}')" title="Редактировать">✏️</button>
+                        <button class="btn-icon" onclick="duplicateSourceInFacility('${fac.id}', '${src.id}')" title="Копировать">⎘</button>
+                        <button class="btn-icon danger" onclick="deleteSourceFromFacility('${fac.id}', '${src.id}')" title="Удалить">✖</button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    });
+    
+    html += `</tbody></table>`;
+    container.innerHTML = html;
+}
+
+// ------ TREE RENDERING ------
+function renderProjectTree() {
+    const container = document.getElementById('project-tree-container');
+    if (!container) return;
+    
+    const stateObj = ProjectStore.getState();
+    const facilities = stateObj.facilities || [];
+    const totals = ProjectStore.getProjectTotals();
+    
+    let html = `
+        <div class="tree-header">
+            <h3 style="margin:0; font-size:0.9rem; font-weight:700; color:var(--text-main); text-transform:uppercase; cursor:pointer;" onclick="showProjectDashboard()">
+                📁 Проект: ${stateObj.name || 'Новый проект'}
+            </h3>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">
+                ΣG = ${totals.totalG.toFixed(4)} т/год
+            </div>
+            <button class="btn btn-secondary btn-block" style="margin-top:16px;" onclick="showFacilityForm()">+ Объект</button>
+        </div>
+        <ul class="project-tree">
+    `;
+    
+    facilities.forEach(fac => {
+        const typeObj = FACILITY_TYPES.find(t => t.value === fac.type) || FACILITY_TYPES[FACILITY_TYPES.length - 1];
+        const isExpanded = _selectedFacilityId === fac.id || (fac.sources && fac.sources.length > 0);
+        
+        html += `<li class="tree-facility" data-facility-id="${fac.id}">
+            <div class="tree-facility-header ${_selectedFacilityId === fac.id ? 'active' : ''}" onclick="toggleTreeFacility(event, '${fac.id}')">
+                <span class="tree-chevron ${isExpanded ? 'expanded' : ''}">▶</span>
+                <span class="tree-icon">${typeObj.icon}</span>
+                <span class="tree-label">${fac.name}</span>
+                <span class="tree-badge">${fac.sources ? fac.sources.length : 0}</span>
+            </div>
+            <div class="tree-sources" id="tree-sources-${fac.id}" style="display:${isExpanded ? 'block' : 'none'};">
+        `;
+        
+        if (fac.sources) {
+            fac.sources.forEach(src => {
+                html += `
+                <div class="tree-source" onclick="editSource('${fac.id}', '${src.id}')">
+                    <span class="tree-dot">●</span>
+                    <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${src.name || 'Источник'}</span>
+                    <span class="tree-mini-result">${(src.G || 0).toFixed(4)}</span>
+                </div>`;
+            });
+        }
+        
+        html += `
+                <button class="btn-add-source-tree" onclick="startNewSource('${fac.id}')">+ Добавить расчёт</button>
+            </div>
+        </li>`;
+    });
+    
+    html += `</ul>`;
+    container.innerHTML = html;
+}
+
+window.toggleTreeFacility = function(e, facId) {
+    if (e.target.closest('.btn-add-source-tree') || e.target.closest('.tree-source')) return;
+    showFacilityDashboard(facId);
+    const srcDiv = document.getElementById(`tree-sources-${facId}`);
+    const chev = e.currentTarget.querySelector('.tree-chevron');
+    if (srcDiv) {
+        if (srcDiv.style.display === 'none') {
+            srcDiv.style.display = 'block';
+            chev.classList.add('expanded');
+        } else {
+            srcDiv.style.display = 'none';
+            chev.classList.remove('expanded');
+        }
+    }
+};
+
+// ------ FACILITY FORM ------
+function showFacilityForm() {
+    switchPane('facility-form-pane');
+    document.getElementById('fac-form-id').value = '';
+    document.getElementById('fac-form-name').value = '';
+    document.getElementById('fac-form-type').value = 'other';
+    document.getElementById('fac-form-phase').value = 'operation';
+    document.getElementById('fac-form-address').value = '';
+    document.getElementById('fac-form-desc').value = '';
+}
+
+function editFacility(facId) {
+    const fac = ProjectStore.getFacility(facId);
+    if (!fac) return;
+    switchPane('facility-form-pane');
+    document.getElementById('fac-form-id').value = fac.id;
+    document.getElementById('fac-form-name').value = fac.name || '';
+    document.getElementById('fac-form-type').value = fac.type || 'other';
+    document.getElementById('fac-form-phase').value = fac.phase || 'operation';
+    document.getElementById('fac-form-address').value = fac.address || '';
+    document.getElementById('fac-form-desc').value = fac.description || '';
+}
+
+window.saveFacilityForm = function() {
+    const id = document.getElementById('fac-form-id').value;
+    const name = document.getElementById('fac-form-name').value.trim();
+    if (!name) { showToast('Укажите название объекта', 'danger'); return; }
+    
+    const data = {
+        name,
+        type: document.getElementById('fac-form-type').value,
+        phase: document.getElementById('fac-form-phase').value,
+        address: document.getElementById('fac-form-address').value,
+        description: document.getElementById('fac-form-desc').value
+    };
+    
+    if (id) {
+        ProjectStore.updateFacility(id, data);
+        showFacilityDashboard(id);
+    } else {
+        const newFac = ProjectStore.addFacility(data);
+        showFacilityDashboard(newFac.id);
+    }
+    renderProjectTree();
+};
+
+window.deleteFacility = function(facId) {
+    if (confirm('ВНИМАНИЕ: Вы удаляете весь объект и все связанные с ним источники. Продолжить?')) {
+        ProjectStore.removeFacility(facId);
+        showProjectDashboard();
+        renderProjectTree();
+    }
+};
+
+window.duplicateFacility = function(facId) {
+    ProjectStore.duplicateFacility(facId);
+    renderProjectTree();
+};
+
+// ------ CALCULATOR WIZARD CONTEXT ------
+window._wizardContext = null;
+
+function returnToContext() {
+    if (_wizardContext && _wizardContext.facilityId) {
+        showFacilityDashboard(_wizardContext.facilityId);
+    } else {
+        showProjectDashboard();
+    }
+}
+
+window.deleteSourceFromFacility = function(facId, sourceId) {
+    if (confirm('Вы уверены, что хотите удалить этот источник?')) {
+        ProjectStore.removeSourceFromFacility(facId, sourceId);
+        showFacilityDashboard(facId);
+        renderProjectTree();
+    }
+};
+
+window.duplicateSourceInFacility = function(facId, sourceId) {
+    // Uses the new scoped method handling
+    const fac = ProjectStore.getFacility(facId);
+    const src = fac.sources.find(s => s.id === sourceId);
+    if (src) {
+        const clonedSrc = JSON.parse(JSON.stringify(src));
+        clonedSrc.id = "src_" + Date.now() + Math.floor(Math.random() * 1000);
+        clonedSrc.name = (clonedSrc.name || "Копия") + " (Копия)";
+        ProjectStore.addSourceToFacility(facId, clonedSrc);
+        showFacilityDashboard(facId);
+        renderProjectTree();
+    }
+};
+
+window.editSource = function(facId, sourceId) {
+    const fac = ProjectStore.getFacility(facId);
+    if (!fac) return;
+    const src = fac.sources.find(s => s.id === sourceId);
+    if (!src) return;
+    
+    _wizardContext = { facilityId: facId, sourceId: sourceId };
+    
+    // Auto-fill wizard state
+    state.inputs = JSON.parse(JSON.stringify(src.inputs || {}));
+    state.composition = src.composition ? JSON.parse(JSON.stringify(src.composition)) : [];
+    document.getElementById('wizard-source-name').value = src.name || '';
+    
+    document.getElementById('wizard-context-title').textContent = 'Редактирование расчёта';
+    document.getElementById('wizard-context-subtitle').textContent = `Объект: ${fac.name}`;
+    
+    // We launch into step 1 so user can change methodic or keep it.
+    // If they change methodic, the inputs clear.
+    currentStep = 1;
+    switchPane('calculator-wizard');
+    if (state.methodics) renderMethodicCards(state.methodics);
+    updateNavigation();
+};
+
+window.startNewSource = function(facilityId) {
+    const fac = ProjectStore.getFacility(facilityId);
+    if (!fac) return;
+    
+    _wizardContext = { facilityId };
+    
+    state.methodicId = null;
+    state.methodicData = null;
+    state.inputs = {};
+    state.results = null;
+    currentStep = 1;
+    document.getElementById('wizard-source-name').value = '';
+    
+    document.getElementById('wizard-context-title').textContent = 'Новый расчёт';
+    document.getElementById('wizard-context-subtitle').textContent = `Объект: ${fac.name}`;
+    
+    switchPane('calculator-wizard');
+    if (state.methodics) renderMethodicCards(state.methodics);
+    updateNavigation();
+};
+
+// Re-write wizard finish button to save to facility
+function saveWizardResultToFacility() {
+    if (!state.results || currentStep < 5) return;
+    if (!_wizardContext || !_wizardContext.facilityId) { showToast("Контекст объекта не найден", "danger"); return; }
+    
+    const srcName = document.getElementById('wizard-source-name').value || (state.methodicData ? state.methodicData.meta.name : 'Источник');
+    
+    const sourceData = {
+        name: srcName,
+        methodic_name: state.methodicData.meta.name,
+        category: state.methodicData.meta.category || 'operation',
+        formula_code: state.formulaCode,
+        inputs: state.inputs,
+        results: state.results,
+        composition: state.composition
+    };
+
+    if (_wizardContext.sourceId) {
+        ProjectStore.updateSourceInFacility(_wizardContext.facilityId, _wizardContext.sourceId, sourceData);
+    } else {
+        ProjectStore.addSourceToFacility(_wizardContext.facilityId, sourceData);
+    }
+
+    renderProjectTree();
+    showFacilityDashboard(_wizardContext.facilityId);
+    showToast("Расчёт успешно сохранен", "success");
+}
+
 
 /**
  * Handbook Table Modal Logic
