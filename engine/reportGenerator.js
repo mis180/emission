@@ -4,24 +4,18 @@
 
 const ReportGenerator = (() => {
 
-    const FACILITY_TYPES = {
-        "fuel_station": "АЗС (Автозаправочная станция)",
-        "fuel_depot": "Нефтебаза / Склад ГСМ",
-        "industrial_site": "Промышленная площадка",
-        "construction": "Строительная площадка",
-        "boiler_house": "Котельная",
-        "warehouse": "Склад / Хранилище",
-        "workshop": "Цех / Мастерская",
-        "transport_base": "Транспортная база",
-        "mining_site": "Горная площадка",
-        "other": "Другое"
-    };
+    // (FACILITY_TYPES is now loaded from data/constants.js)
 
-    async function generatePDF(project) {
+    async function generateProjectPDF(project, options = {}) {
         if (!project || !project.facilities || project.facilities.length === 0) {
-            alert('Нет объектов для генерации отчета.');
+            showToast('Нет объектов для генерации отчета.', 'danger');
             return;
         }
+
+        const lang = options.lang || 'ru';
+        const signatory = options.signatory || '________________________';
+        const position = options.position || 'Специалист';
+        const reportDate = options.date || new Date().toLocaleDateString('ru-RU');
 
         const docDefinition = {
             content: [],
@@ -47,17 +41,17 @@ const ReportGenerator = (() => {
         const companyName = project.company || 'Организация (Заказчик)';
         const projectName = project.name || 'Новый проект';
         const license = project.license || '—';
-        const dateStr = new Date().toLocaleDateString('ru-RU');
 
         // -----------------------------------------------------
         // 1. Cover Page
         // -----------------------------------------------------
+        const titleText = lang === 'kz' ? 'ШЫҒАРЫНДЫЛАРДЫ ЕСЕПТЕУ ТУРАЛЫ ЕСЕП' : 'ОТЧЕТ ПО РАСЧЕТУ ВЫБРОСОВ';
         docDefinition.content.push(
-            { text: 'ОТЧЕТ ПО РАСЧЕТУ ВЫБРОСОВ', style: 'title' },
+            { text: titleText, style: 'title' },
             { text: companyName, style: 'subtitle' },
             { text: `Проект: ${projectName}`, style: 'text', alignment: 'center', fontSize: 14, margin: [0,0,0,10] },
             { text: `Разрешительный документ: ${license}`, style: 'text', alignment: 'center' },
-            { text: `Дата формирования: ${dateStr}`, style: 'text', alignment: 'center', margin: [0,20,0,0] },
+            { text: `Дата формирования: ${reportDate}`, style: 'text', alignment: 'center', margin: [0,20,0,0] },
             { text: '', pageBreak: 'after' }
         );
 
@@ -66,7 +60,7 @@ const ReportGenerator = (() => {
         // -----------------------------------------------------
         docDefinition.content.push({
             toc: {
-                title: { text: 'СОДЕРЖАНИЕ', style: 'header' },
+                title: { text: lang === 'kz' ? 'МАЗМҰНЫ' : 'СОДЕРЖАНИЕ', style: 'header' },
                 numberStyle: { bold: true }
             }
         });
@@ -75,28 +69,71 @@ const ReportGenerator = (() => {
         // -----------------------------------------------------
         // 3. General Info
         // -----------------------------------------------------
-        docDefinition.content.push({ text: 'РАЗДЕЛ 1: ОБЩИЕ СВЕДЕНИЯ', style: 'sectionHeader', tocItem: true });
+        docDefinition.content.push({ text: lang === 'kz' ? '1-БӨЛІМ: ЖАЛПЫ МӘЛІМЕТТЕР' : 'РАЗДЕЛ 1: ОБЩИЕ СВЕДЕНИЯ', style: 'sectionHeader', tocItem: true });
         docDefinition.content.push(
             { text: `Организация: ${companyName}`, style: 'text' },
             { text: `Название проекта: ${projectName}`, style: 'text' },
-            { text: `Регион: ${project.regionId || 'Не указан'}`, style: 'text' },
             { text: `Базовые координаты: ${project.lat || '-'}, ${project.lng || '-'}`, style: 'text' }
         );
 
         // -----------------------------------------------------
+        // 3.5 Met Data Provenance
+        // -----------------------------------------------------
+        docDefinition.content.push({ text: lang === 'kz' ? 'МЕТЕОРОЛОГИЯЛЫҚ ҚАМТАМАСЫЗ ЕТУ' : 'МЕТЕОРОЛОГИЧЕСКОЕ ОБЕСПЕЧЕНИЕ', style: 'sectionHeader', margin: [0, 20, 0, 10], tocItem: true });
+        
+        const gm = project.geo_meteo;
+        const activeMet = gm && gm.met_datasets ? gm.met_datasets.find(d => d.id === gm.active_met_dataset_id) : null;
+        
+        if (activeMet) {
+            let qualityLabel = 'СИНТЕТИЧЕСКИЕ / МОДЕЛЬНЫЕ (Внимание: Не для офиц. использования)';
+            if (activeMet.data_quality === 'measured') qualityLabel = 'Фактические архивные данные (OpenMeteo API)';
+            else if (activeMet.data_quality === 'regional_norm') qualityLabel = 'Региональные нормы (СП РК)';
+            
+            docDefinition.content.push({
+                columns: [
+                    { width: '50%', text: `Источник: ${activeMet.name || 'OpenMeteo'}`, style: 'text' },
+                    { width: '50%', text: `Качество: ${qualityLabel}`, style: 'text', bold: activeMet.data_quality !== 'synthetic', color: activeMet.data_quality === 'synthetic' ? '#ef4444' : '#0f172a' }
+                ]
+            });
+            
+            if (activeMet.stability_freq) {
+                const stabRows = [
+                    [{text: 'Класс П-Г', style: 'tableHeader'}, {text: 'Частота (%)', style: 'tableHeader'}]
+                ];
+                Object.entries(activeMet.stability_freq).sort().forEach(([k, v]) => {
+                    stabRows.push([{text: k, alignment: 'center'}, {text: v.toFixed(2), alignment: 'right'}]);
+                });
+                
+                docDefinition.content.push(
+                    { text: 'Распределение стратификации атмосферы (по Паскуиллу-Гиффорду):', style: 'subheader' },
+                    {
+                        table: {
+                            headerRows: 1,
+                            widths: ['30%', '30%'],
+                            body: stabRows
+                        },
+                        margin: [0, 0, 0, 15]
+                    }
+                );
+            }
+        } else {
+            docDefinition.content.push({ text: 'Метеорологические данные не выбраны для данного проекта.', style: 'text', color: '#ef4444' });
+        }
+
+        // -----------------------------------------------------
         // 4. Facility Registry Table
         // -----------------------------------------------------
-        docDefinition.content.push({ text: 'РАЗДЕЛ 2: ПЕРЕЧЕНЬ ОБЪЕКТОВ (ПЛОЩАДОК)', style: 'sectionHeader', tocItem: true, margin: [0, 30, 0, 10] });
+        docDefinition.content.push({ text: lang === 'kz' ? '2-БӨЛІМ: ОБЪЕКТІЛЕР ТІЗІЛІМІ' : 'РАЗДЕЛ 2: ПЕРЕЧЕНЬ ОБЪЕКТОВ (ПЛОЩАДОК)', style: 'sectionHeader', tocItem: true, margin: [0, 30, 0, 10] });
         
         const facBody = [
-            [{ text: '№', style: 'tableHeader' }, { text: 'Наименование площадки', style: 'tableHeader' }, { text: 'Тип', style: 'tableHeader' }, { text: 'Адрес', style: 'tableHeader' }]
+            [{ text: '№', style: 'tableHeader' }, { text: lang === 'kz' ? 'Атауы' : 'Наименование площадки', style: 'tableHeader' }, { text: 'Тип', style: 'tableHeader' }, { text: 'Адрес', style: 'tableHeader' }]
         ];
         
         project.facilities.forEach((fac, idx) => {
             facBody.push([
                 { text: (idx + 1).toString(), style: 'tableBody', alignment: 'center' },
                 { text: fac.name, style: 'tableBody' },
-                { text: FACILITY_TYPES[fac.type] || fac.type, style: 'tableBody' },
+                { text: (FACILITY_TYPES.find(t => t.value === fac.type) || {}).label || fac.type, style: 'tableBody' },
                 { text: fac.address || '—', style: 'tableBody' }
             ]);
         });
@@ -106,7 +143,7 @@ const ReportGenerator = (() => {
         // -----------------------------------------------------
         // 5. Per-Facility Sources List
         // -----------------------------------------------------
-        docDefinition.content.push({ text: 'РАЗДЕЛ 3: ПЕРЕЧЕНЬ ИСТОЧНИКОВ ВЫБРОСОВ', style: 'sectionHeader', tocItem: true, margin: [0, 20, 0, 10] });
+        docDefinition.content.push({ text: lang === 'kz' ? '3-БӨЛІМ: ШЫҒАРЫНДЫ КӨЗДЕРІНІҢ ТІЗІМІ' : 'РАЗДЕЛ 3: ПЕРЕЧЕНЬ ИСТОЧНИКОВ ВЫБРОСОВ', style: 'sectionHeader', tocItem: true, margin: [0, 20, 0, 10] });
         
         project.facilities.forEach((fac, facIdx) => {
             docDefinition.content.push({ text: `Объект ${facIdx + 1}: ${fac.name}`, style: 'facilityHeader' });
@@ -134,7 +171,7 @@ const ReportGenerator = (() => {
         // -----------------------------------------------------
         // 6. Detailed Calculations (Appendix 6 logic)
         // -----------------------------------------------------
-        docDefinition.content.push({ text: 'ПРИЛОЖЕНИЕ 6: РАСЧЁТ ВЫБРОСОВ', style: 'sectionHeader', tocItem: true });
+        docDefinition.content.push({ text: lang === 'kz' ? '6-ҚОСЫМША: ШЫҒАРЫНДЫЛАРДЫ ЕСЕПТЕУ' : 'ПРИЛОЖЕНИЕ 6: РАСЧЁТ ВЫБРОСОВ', style: 'sectionHeader', tocItem: true });
         
         project.facilities.forEach((fac, facIdx) => {
             if (!fac.sources || fac.sources.length === 0) return;
@@ -198,19 +235,20 @@ const ReportGenerator = (() => {
                 if (src.composition && src.composition.length > 0) {
                     docDefinition.content.push({ text: 'Таблица 4. Вещества и расчетные выбросы', style: 'text', bold: true, margin: [0,5,0,2] });
                     const compBody = [
-                        [{ text: 'Загрязняющее вещество', style: 'tableHeader' }, { text: 'Доля (%)', style: 'tableHeader' }, { text: 'Макс. выброс (г/с)', style: 'tableHeader' }, { text: 'Годовой выброс (т/год)', style: 'tableHeader' }]
+                        [{ text: 'Код', style: 'tableHeader' }, { text: 'Загрязняющее вещество', style: 'tableHeader' }, { text: 'Доля (%)', style: 'tableHeader' }, { text: 'Макс. выброс (г/с)', style: 'tableHeader' }, { text: 'Годовой выброс (т/год)', style: 'tableHeader' }]
                     ];
                     src.composition.forEach(c => {
                         const m_part = (src.M != null ? src.M : (src.results && src.results.M || 0)) * (c.pct / 100);
                         const g_part = (src.G != null ? src.G : (src.results && src.results.G || 0)) * (c.pct / 100);
                         compBody.push([
+                            { text: c.code || '—', style: 'tableBody', alignment: 'center' },
                             { text: c.name, style: 'tableBody' },
                             { text: c.pct.toFixed(2), style: 'tableBody', alignment: 'center' },
                             { text: m_part.toFixed(6), style: 'tableBody', alignment: 'right' },
                             { text: g_part.toFixed(6), style: 'tableBody', alignment: 'right' }
                         ]);
                     });
-                    docDefinition.content.push({ table: { widths: ['*', 'auto', 'auto', 'auto'], body: compBody }, margin: [0,0,0,20] });
+                    docDefinition.content.push({ table: { widths: ['auto', '*', 'auto', 'auto', 'auto'], body: compBody }, margin: [0,0,0,20] });
                 }
             });
             
@@ -234,7 +272,7 @@ const ReportGenerator = (() => {
         // -----------------------------------------------------
         // 7. Project Summary & Pollutant Aggregation
         // -----------------------------------------------------
-        docDefinition.content.push({ text: 'СВОДНАЯ ИНФОРМАЦИЯ ПО ПРОЕКТУ', style: 'sectionHeader', tocItem: true });
+        docDefinition.content.push({ text: lang === 'kz' ? 'ЖОБА БОЙЫНША ҚОРЫТЫНДЫ' : 'СВОДНАЯ ИНФОРМАЦИЯ ПО ПРОЕКТУ', style: 'sectionHeader', tocItem: true });
         
         // Calculate aggregations
         let totalM = 0; let totalG = 0;
@@ -250,7 +288,7 @@ const ReportGenerator = (() => {
                 
                 if (s.composition) {
                     s.composition.forEach(c => {
-                        if (!pollutantMap[c.name]) pollutantMap[c.name] = { M: 0, G: 0 };
+                        if (!pollutantMap[c.name]) pollutantMap[c.name] = { M: 0, G: 0, code: c.code || '—' };
                         pollutantMap[c.name].M += sM * (c.pct / 100);
                         pollutantMap[c.name].G += sG * (c.pct / 100);
                     });
@@ -266,11 +304,12 @@ const ReportGenerator = (() => {
         docDefinition.content.push({ text: 'Сводная таблица по загрязняющим веществам', style: 'subheader' });
         
         const sumBody = [
-            [{ text: 'Наименование вещества', style: 'tableHeader' }, { text: 'M (г/с)', style: 'tableHeader' }, { text: 'G (т/год)', style: 'tableHeader' }]
+            [{ text: 'Код', style: 'tableHeader' }, { text: 'Наименование вещества', style: 'tableHeader' }, { text: 'M (г/с)', style: 'tableHeader' }, { text: 'G (т/год)', style: 'tableHeader' }]
         ];
         
         Object.keys(pollutantMap).sort().forEach(p => {
             sumBody.push([
+                { text: pollutantMap[p].code || '—', style: 'tableBody', alignment: 'center' },
                 { text: p, style: 'tableBody' },
                 { text: pollutantMap[p].M.toFixed(6), style: 'tableBody', alignment: 'right' },
                 { text: pollutantMap[p].G.toFixed(6), style: 'tableBody', alignment: 'right' }
@@ -285,13 +324,17 @@ const ReportGenerator = (() => {
         docDefinition.content.push({
             style: 'signatureBlock',
             columns: [
-                { text: 'Расчет выполнил: ________________________', width: '*' },
-                { text: 'Проверил: ________________________', width: '*' }
+                { text: `${position}: ${signatory}`, width: '*' },
+                { text: 'Проверил (Гл. эколог): ________________________', width: '*' }
             ]
         });
 
-        pdfMake.createPdf(docDefinition).download(`Emission_Report_${Date.now()}.pdf`);
+        return new Promise((resolve) => {
+            pdfMake.createPdf(docDefinition).getBlob((blob) => {
+                resolve(blob);
+            });
+        });
     }
 
-    return { generatePDF };
+    return { generateProjectPDF };
 })();

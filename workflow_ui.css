@@ -1,0 +1,261 @@
+/* workflow_ui.css — Guided Assembly Styles */
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --view-transition-speed: 0.4s;
+}
+
+/* Base structural changes */
+body {
+    background: #f1f5f9; /* Soft grey background */
+}
+
+/* Glassmorphism for major containers */
+.glass-pane {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* STEP 1: Landing Screen */
+#landing-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    overflow: hidden;
+}
+
+/* Landing background pattern */
+#landing-screen::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: radial-gradient(#4f46e5 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    opacity: 0.1;
+    transform: rotate(15deg);
+    z-index: 1;
+}
+
+.landing-card {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 60px;
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.landing-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.landing-logo svg {
+    width: 48px;
+    height: 48px;
+}
+
+.landing-logo span {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+}
+
+.landing-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.action-card {
+    padding: 32px 24px;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+}
+
+.action-card:hover {
+    border-color: #4f46e5;
+    background: #f5f3ff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.1);
+}
+
+.action-card .icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.action-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #0f172a;
+}
+
+.action-card p {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* View Sweeping Transitions */
+.view-pane {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--view-transition-speed) ease, transform var(--view-transition-speed) ease;
+}
+
+.view-pane.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Global Breadcrumb */
+.breadcrumb-container {
+    padding: 12px 0;
+    margin-bottom: 24px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: '/';
+    color: #cbd5e1;
+}
+
+.breadcrumb li.active {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: #4f46e5;
+}
+
+/* Report Readiness Checklist */
+.readiness-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.checklist-item.done {
+    color: #059669;
+}
+
+.checklist-item .status-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.checklist-item.done .status-icon {
+    background: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+
+.checklist-item.done .status-icon::after {
+    content: '✓';
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+/* Badges */
+.badge-region {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.badge-table {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #dbeafe;
+}
+
+/* Profile Selector Step 1 */
+.profile-selector {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    justify-content: center;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.profile-avatar.active {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}

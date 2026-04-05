@@ -20,7 +20,7 @@ const Wizard = (() => {
 
         const fetchJson = async (url, optional = false) => {
             try {
-                const cacheBuster = `?v=${Date.now()}`;
+                const cacheBuster = `?v=${typeof APP_VERSION !== 'undefined' ? APP_VERSION : Date.now()}`;
                 const r = await fetch(url + cacheBuster);
                 if (!r.ok) {
                     if (optional) return null;
@@ -54,7 +54,7 @@ const Wizard = (() => {
      * @returns {Promise<Array>} Array of methodic metadata objects
      */
     async function loadRegistry() {
-        const cacheBuster = `?v=${Date.now()}`;
+        const cacheBuster = `?v=${typeof APP_VERSION !== 'undefined' ? APP_VERSION : Date.now()}`;
         const res = await fetch('data/registry.json' + cacheBuster);
         if (!res.ok) throw new Error(`Failed to load registry: ${res.status} ${res.statusText}`);
         const data = await res.json();
@@ -175,6 +175,7 @@ const Wizard = (() => {
                 input_method: v.input_method || null,
                 data_source: v.data_source || null,
                 token: v.token || v.id || null,
+                global_mapping: v.global_mapping || null,
             };
         });
     }

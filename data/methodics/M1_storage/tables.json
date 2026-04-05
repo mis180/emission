@@ -466,37 +466,37 @@
       ],
       "data": [
         {
-          "substance": "Амилен",
+          "substance": "amylene",
           "OBUV": null,
           "PDK_mr": 1.5,
           "PDK_ss": 1.5
         },
         {
-          "substance": "Аммиак",
+          "substance": "ammonia",
           "OBUV": null,
           "PDK_mr": 0.2,
           "PDK_ss": 0.04
         },
         {
-          "substance": "Ацетон",
+          "substance": "acetone",
           "OBUV": null,
           "PDK_mr": 0.35,
           "PDK_ss": 0.35
         },
         {
-          "substance": "Бензин",
+          "substance": "gasoline_auto",
           "OBUV": null,
           "PDK_mr": 1.5,
           "PDK_ss": null
         },
         {
-          "substance": "Бензол",
+          "substance": "benzene",
           "OBUV": null,
           "PDK_mr": 1.5,
           "PDK_ss": 0.1
         },
         {
-          "substance": "Бутан",
+          "substance": "butane",
           "OBUV": null,
           "PDK_mr": 200.0,
           "PDK_ss": null
@@ -508,7 +508,7 @@
           "PDK_ss": 3.0
         },
         {
-          "substance": "Гексан",
+          "substance": "hexane",
           "OBUV": 50.0,
           "PDK_mr": 60.0,
           "PDK_ss": null
@@ -520,7 +520,7 @@
           "PDK_ss": 0.007
         },
         {
-          "substance": "Изопропилбензол",
+          "substance": "isopropylbenzene",
           "OBUV": null,
           "PDK_mr": 0.014,
           "PDK_ss": 0.014
@@ -532,7 +532,7 @@
           "PDK_ss": null
         },
         {
-          "substance": "Ксилолы",
+          "substance": "xylene",
           "OBUV": null,
           "PDK_mr": 0.2,
           "PDK_ss": 0.2
@@ -556,7 +556,7 @@
           "PDK_ss": null
         },
         {
-          "substance": "Пентан",
+          "substance": "pentane",
           "OBUV": null,
           "PDK_mr": 100.0,
           "PDK_ss": 25.0
@@ -580,7 +580,7 @@
           "PDK_ss": 0.05
         },
         {
-          "substance": "Сероводород",
+          "substance": "hydrogen_sulfide",
           "OBUV": null,
           "PDK_mr": 0.008,
           "PDK_ss": null
@@ -604,7 +604,7 @@
           "PDK_ss": 0.1
         },
         {
-          "substance": "Спирт метиловый",
+          "substance": "methanol",
           "OBUV": null,
           "PDK_mr": 1.0,
           "PDK_ss": 0.5
@@ -616,7 +616,7 @@
           "PDK_ss": 5.0
         },
         {
-          "substance": "Толуол",
+          "substance": "toluene",
           "OBUV": null,
           "PDK_mr": 0.6,
           "PDK_ss": 0.6
@@ -652,7 +652,7 @@
           "PDK_ss": 0.06
         },
         {
-          "substance": "Фенол",
+          "substance": "phenol",
           "OBUV": null,
           "PDK_mr": 0.01,
           "PDK_ss": 0.0003
@@ -682,7 +682,7 @@
           "PDK_ss": 0.2
         },
         {
-          "substance": "Этилбензол",
+          "substance": "ethylbenzene",
           "OBUV": null,
           "PDK_mr": 0.02,
           "PDK_ss": 0.02
@@ -2311,7 +2311,9 @@
           "group": "А,Б,В",
           "mode": "буферная емкость",
           "Kp": 0.1,
-          "Kp_avg": 0.1
+          "Kp_avg": 0.1,
+          "type": "Наземный вертикальный,Заглубленный,Наземный горизонтальный",
+          "volume": "<100,100-700,700-2000,>=2000"
         }
       ],
       "source": {
@@ -2420,112 +2422,112 @@
       ],
       "data": [
         {
-          "substance": "Бутан",
+          "substance": "butane",
           "A": 6.83029,
           "B": 945.9,
           "C": 240.0,
           "m": 58.12
         },
         {
-          "substance": "Пентан",
+          "substance": "pentane",
           "A": 6.87372,
           "B": 1075.82,
           "C": 233.36,
           "m": 72.15
         },
         {
-          "substance": "Гексан",
+          "substance": "hexane",
           "A": 6.87776,
           "B": 1171.53,
           "C": 224.37,
           "m": 86.18
         },
         {
-          "substance": "Гептан",
+          "substance": "heptane",
           "A": 6.90027,
           "B": 1266.87,
           "C": 216.76,
           "m": 100.21
         },
         {
-          "substance": "Изооктан",
+          "substance": "isooctane",
           "A": 6.8117,
           "B": 1259.2,
           "C": 221.0,
           "m": 114.23
         },
         {
-          "substance": "Цетан",
+          "substance": "cetane",
           "A": 7.33309,
           "B": 2036.4,
           "C": 172.5,
           "m": 226.45
         },
         {
-          "substance": "Бензол",
+          "substance": "benzene",
           "A": 6.9121,
           "B": 1224.64,
           "C": 221.2,
           "m": 78.11
         },
         {
-          "substance": "Толуол",
+          "substance": "toluene",
           "A": 6.95334,
           "B": 1343.94,
           "C": 219.38,
           "m": 92.14
         },
         {
-          "substance": "о-Ксилол",
+          "substance": "o_xylene",
           "A": 6.99891,
           "B": 1474.68,
           "C": 213.69,
           "m": 106.16
         },
         {
-          "substance": "м-Ксилол",
+          "substance": "m_xylene",
           "A": 7.00908,
           "B": 1462.27,
           "C": 215.11,
           "m": 106.16
         },
         {
-          "substance": "п-Ксилол",
+          "substance": "p_xylene",
           "A": 6.99052,
           "B": 1453.43,
           "C": 215.31,
           "m": 106.16
         },
         {
-          "substance": "Этилбензол",
+          "substance": "ethylbenzene",
           "A": 6.95719,
           "B": 1424.26,
           "C": 213.21,
           "m": 106.17
         },
         {
-          "substance": "Изопропилбензол",
+          "substance": "isopropylbenzene",
           "A": 6.93666,
           "B": 1460.79,
           "C": 207.78,
           "m": 120.19
         },
         {
-          "substance": "Спирт метиловый",
+          "substance": "methanol",
           "A": 8.12,
           "B": 1592.86,
           "C": 233.4,
           "m": 32.04
         },
         {
-          "substance": "Ацетон",
+          "substance": "acetone",
           "A": 7.2506,
           "B": 1281.7,
           "C": 237.0,
           "m": 58.08
         },
         {
-          "substance": "Фенол",
+          "substance": "phenol",
           "A": 7.86819,
           "B": 2011.4,
           "C": 222.0,
@@ -2554,27 +2556,27 @@
       ],
       "data": [
         {
-          "substance": "Сероводород",
+          "substance": "hydrogen_sulfide",
           "t": 0.0,
           "K_H": 1.85
         },
         {
-          "substance": "Сероводород",
+          "substance": "hydrogen_sulfide",
           "t": 25.0,
           "K_H": 2.15
         },
         {
-          "substance": "Сероводород",
+          "substance": "hydrogen_sulfide",
           "t": 30.0,
           "K_H": 2.2
         },
         {
-          "substance": "Сероводород",
+          "substance": "hydrogen_sulfide",
           "t": 40.0,
           "K_H": 2.27
         },
         {
-          "substance": "Сероводород",
+          "substance": "hydrogen_sulfide",
           "t": 60.0,
           "K_H": 2.24
         }
@@ -3294,6 +3296,62 @@
           "C_tank_max": 0.24,
           "C_tank_oz": 0.25,
           "C_tank_vl": 0.24
+        },
+        {
+          "substance": "white_spirit",
+          "climate_zone": "middle",
+          "C_tank_max": 580.0,
+          "C_tank_oz": 420.0,
+          "C_tank_vl": 515.0
+        },
+        {
+          "substance": "white_spirit",
+          "climate_zone": "south",
+          "C_tank_max": 701.8,
+          "C_tank_oz": 520.0,
+          "C_tank_vl": 623.1
+        },
+        {
+          "substance": "toluene",
+          "climate_zone": "middle",
+          "C_tank_max": 580.0,
+          "C_tank_oz": 420.0,
+          "C_tank_vl": 515.0
+        },
+        {
+          "substance": "toluene",
+          "climate_zone": "south",
+          "C_tank_max": 701.8,
+          "C_tank_oz": 520.0,
+          "C_tank_vl": 623.1
+        },
+        {
+          "substance": "xylene",
+          "climate_zone": "middle",
+          "C_tank_max": 580.0,
+          "C_tank_oz": 420.0,
+          "C_tank_vl": 515.0
+        },
+        {
+          "substance": "xylene",
+          "climate_zone": "south",
+          "C_tank_max": 701.8,
+          "C_tank_oz": 520.0,
+          "C_tank_vl": 623.1
+        },
+        {
+          "substance": "ethylbenzene",
+          "climate_zone": "middle",
+          "C_tank_max": 580.0,
+          "C_tank_oz": 420.0,
+          "C_tank_vl": 515.0
+        },
+        {
+          "substance": "ethylbenzene",
+          "climate_zone": "south",
+          "C_tank_max": 701.8,
+          "C_tank_oz": 520.0,
+          "C_tank_vl": 623.1
         }
       ],
       "source": {

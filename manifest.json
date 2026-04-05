@@ -1,0 +1,21 @@
+{
+  "name": "EcoCalc - Платформа расчета выбросов",
+  "short_name": "EcoCalc",
+  "description": "Профессиональный инструмент для расчета выбросов загрязняющих веществ.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "pwa_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

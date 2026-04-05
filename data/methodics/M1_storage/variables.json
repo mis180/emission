@@ -74,7 +74,8 @@
       "label": "Давление насыщенных паров при 38 °C",
       "unit": "mmHg",
       "datatype": "numeric",
-      "latex": "P_{38}"
+      "latex": "P_{38}",
+      "category": "Физико-химические свойства"
     },
     {
       "id": "m",
@@ -110,7 +111,8 @@
       "unit": "°C",
       "datatype": "numeric",
       "latex": "t_{нк}",
-      "hint": "Используется для определения молекулярной массы нефтей и бензинов (Табл. 5)"
+      "hint": "Используется для определения молекулярной массы нефтей и бензинов (Табл. 5)",
+      "category": "Физико-химические свойства"
     },
     {
       "id": "B",
@@ -118,7 +120,8 @@
       "label": "Годовой объём/масса перекачки",
       "unit": "t/yr",
       "datatype": "numeric",
-      "latex": "B"
+      "latex": "B",
+      "category": "Эксплуатационные показатели"
     },
     {
       "id": "rho",
@@ -126,7 +129,8 @@
       "label": "Плотность продукта",
       "unit": "kg/m³",
       "datatype": "numeric",
-      "latex": "\\rho"
+      "latex": "\\rho",
+      "category": "Физико-химические свойства"
     },
     {
       "id": "Vp",
@@ -134,7 +138,8 @@
       "label": "Объём резервуара",
       "unit": "m³",
       "datatype": "numeric",
-      "latex": "V_p"
+      "latex": "V_p",
+      "category": "Характеристики резервуара"
     },
     {
       "id": "Np",
@@ -142,7 +147,8 @@
       "label": "Количество резервуаров",
       "datatype": "numeric",
       "latex": "N_p",
-      "default": 1
+      "default": 1,
+      "category": "Характеристики резервуара"
     },
     {
       "id": "n",
@@ -189,7 +195,8 @@
       "label": "Концентрация паров при 20 °C",
       "unit": "g/m³",
       "datatype": "numeric",
-      "latex": "C_{20}"
+      "latex": "C_{20}",
+      "category": "Физико-химические свойства"
     },
     {
       "id": "Vmax",
@@ -324,7 +331,8 @@
       "token": "equipHours",
       "label": "Часы работы в году",
       "unit": "h",
-      "datatype": "numeric"
+      "datatype": "numeric",
+      "category": "Эксплуатационные показатели"
     },
     {
       "id": "K_dep",
@@ -432,7 +440,8 @@
       "datatype": "numeric",
       "latex": "t_{max}",
       "global_mapping": "t_max",
-      "default": 20
+      "default": 20,
+      "category": "Режим и температура"
     },
     {
       "id": "t_min",
@@ -441,7 +450,8 @@
       "datatype": "numeric",
       "latex": "t_{min}",
       "global_mapping": "t_min",
-      "default": -10
+      "default": -10,
+      "category": "Режим и температура"
     },
     {
       "id": "productGroupKt",
@@ -508,7 +518,8 @@
           "value": "Заглубленный",
           "label": "Заглубленный"
         }
-      ]
+      ],
+      "category": "Конструкция резервуара"
     },
     {
       "id": "tankMode",
@@ -532,7 +543,8 @@
           "value": "буферная емкость",
           "label": "буферная емкость"
         }
-      ]
+      ],
+      "category": "Конструкция резервуара"
     },
     {
       "id": "tankVolume",
@@ -635,7 +647,8 @@
           "value": "ethylbenzene",
           "label": "Этилбензол"
         }
-      ]
+      ],
+      "category": "Физико-химические свойства"
     },
     {
       "id": "X_i",
@@ -837,7 +850,6 @@
       "token": "zone",
       "label": "Климатическая зона",
       "datatype": "string",
-      "global_mapping": "climate_zone",
       "options": [
         {
           "value": "middle",

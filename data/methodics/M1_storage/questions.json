@@ -4,6 +4,7 @@
       "oil_gasoline_R38": {
         "formula_code": "4.2",
         "variables": [
+          "climate_zone",
           "productGroupKt",
           "tankGroup",
           "tankType",
@@ -58,6 +59,7 @@
       "other_products_C20": {
         "formula_code": "4.6",
         "variables": [
+          "climate_zone",
           "productGroupKt",
           "tankGroup",
           "tankType",
@@ -113,6 +115,7 @@
         "formula_code": "5.2",
         "variables": [
           "substance",
+          "climate_zone",
           "t_max",
           "t_air",
           "tankGroup",
@@ -149,6 +152,7 @@
       "_default": {
         "formula_code": "7.1",
         "variables": [
+          "climate_zone",
           "substance",
           "Vmax",
           "V_sl",
@@ -449,7 +453,10 @@
       "variable_id": "climate_zone",
       "type": "select",
       "label": "Климатическая зона",
-      "disabled": true
+      "options": [
+        { "value": "middle", "label": "Средняя климатическая зона" },
+        { "value": "south", "label": "Южная климатическая зона" }
+      ]
     },
     {
       "id": "q_m_pure",
