@@ -51,7 +51,8 @@
       "status": "active"
     },
     {
-      "formula_code": "4.1",
+      "formula_code": "4.2",
+      "formula_name": "Число оборотов резервуара",
       "equation_order": 1,
       "lhs_token": "n",
       "rhs": "B/(rho*Vp*Np)",
@@ -61,8 +62,18 @@
     },
     {
       "formula_code": "4.2",
+      "formula_name": "Давление для поиска Kv",
+      "equation_order": 1.5,
+      "lhs_token": "P_lookup",
+      "rhs": "P38",
+      "latex": "P_{lookup} = P_{38}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.2",
       "formula_name": "Выбросы паров нефтей и бензинов",
-      "equation_order": 1,
+      "equation_order": 2,
       "lhs_token": "M",
       "rhs": "0.163*P38*m*Kt_max*Kr_max*Kv*Vmax*1e-4",
       "latex": "M = 0.163 \\cdot P_{38} \\cdot m \\cdot Kt_{max} \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-4}",
@@ -72,7 +83,7 @@
     {
       "formula_code": "4.2",
       "formula_name": "Выбросы паров нефтей и бензинов",
-      "equation_order": 2,
+      "equation_order": 3,
       "lhs_token": "G",
       "rhs": "0.294*P38*m*(Kt_max*Kv + Kt_min)*Kr_avg*Kob*B*1e-7/rho",
       "latex": "G = 0.294 \\cdot P_{38} \\cdot m \\cdot (Kt_{max} \\cdot K_v + Kt_{min}) \\cdot Kr_{avg} \\cdot K_{ob} \\cdot \\frac{B \\cdot 10^{-7}}{\\rho}",
@@ -81,8 +92,18 @@
     },
     {
       "formula_code": "4.3",
-      "formula_name": "Выбросы паров индивидуальных веществ",
+      "formula_name": "Число оборотов резервуара",
       "equation_order": 1,
+      "lhs_token": "n",
+      "rhs": "B/(rho*Vp*Np)",
+      "latex": "n = \\frac{B}{\\rho \\cdot V_p \\cdot N_p}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.3",
+      "formula_name": "Выбросы паров индивидуальных веществ",
+      "equation_order": 2,
       "lhs_token": "Pt_max",
       "rhs": "10^(A_antoine - (B_antoine / (273 + t_max)))",
       "latex": "P_{t_{max}} = 10^{A_{antoine} - \\frac{B_{antoine}}{273 + t_{max}}}",
@@ -92,7 +113,7 @@
     {
       "formula_code": "4.3",
       "formula_name": "Выбросы паров индивидуальных веществ",
-      "equation_order": 2,
+      "equation_order": 3,
       "lhs_token": "Pt_min",
       "rhs": "10^(A_antoine - (B_antoine / (273 + t_min)))",
       "latex": "P_{t_{min}} = 10^{A_{antoine} - \\frac{B_{antoine}}{273 + t_{min}}}",
@@ -102,7 +123,7 @@
     {
       "formula_code": "4.3",
       "formula_name": "Выбросы паров индивидуальных веществ",
-      "equation_order": 3,
+      "equation_order": 4,
       "lhs_token": "M",
       "rhs": "0.445*Pt_max*m_pure*Kr_max*Kv*Vmax*1e-2/(273 + t_max)",
       "latex": "M = \\frac{0.445 \\cdot P_{t_{max}} \\cdot m_{pure} \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-2}}{273 + t_{max}}",
@@ -111,18 +132,38 @@
     },
     {
       "formula_code": "4.3",
+      "formula_name": "Давление для поиска Kv",
+      "equation_order": 4.5,
+      "lhs_token": "P_lookup",
+      "rhs": "Pt_max",
+      "latex": "P_{lookup} = P_{t_{max}}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.3",
       "formula_name": "Выбросы паров индивидуальных веществ",
-      "equation_order": 4,
+      "equation_order": 5,
       "lhs_token": "G",
-      "rhs": "0.160*(Pt_max*Kv+Pt_min)*m_pure*Kr_avg*Kob*B*1e-4/(rho*(546 + t_min))",
-      "latex": "G = \\frac{0.160 \\cdot (P_{t_{max}} \\cdot K_v + P_{t_{min}}) \\cdot m_{pure} \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B \\cdot 10^{-4}}{\\rho \\cdot (546 + t_{min})}",
+      "rhs": "0.160*(Pt_max*Kv+Pt_min)*m_pure*Kr_avg*Kob*B*1e-4/(rho*(546 + t_min + t_max))",
+      "latex": "G = \\frac{0.160 \\cdot (P_{t_{max}} \\cdot K_v + P_{t_{min}}) \\cdot m_{pure} \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B \\cdot 10^{-4}}{\\rho \\cdot (546 + t_{min} + t_{max})}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.4",
+      "formula_name": "Число оборотов резервуара",
+      "equation_order": 1,
+      "lhs_token": "n",
+      "rhs": "B/(rho*Vp*Np)",
+      "latex": "n = \\frac{B}{\\rho \\cdot V_p \\cdot N_p}",
       "confidence": "TRUSTED",
       "status": "active"
     },
     {
       "formula_code": "4.4",
       "formula_name": "Выбросы паров многокомпонентных смесей",
-      "equation_order": 1,
+      "equation_order": 2,
       "lhs_token": "M_i",
       "rhs": "0.445 * Pt_max * X_i * Kr_max * Kv * Vmax * 1e-2 / (sum_X_over_m * (273 + t_max))",
       "latex": "M_i = \\frac{0.445 \\cdot P_{t_{max}} \\cdot X_i \\cdot Kr_{max} \\cdot K_v \\cdot V_{max} \\cdot 10^{-2}}{(\\sum \\frac{X}{m}) \\cdot (273 + t_{max})}",
@@ -132,7 +173,7 @@
     {
       "formula_code": "4.4",
       "formula_name": "Выбросы паров многокомпонентных смесей",
-      "equation_order": 2,
+      "equation_order": 3,
       "lhs_token": "G_i",
       "rhs": "0.160 * (Pt_max * Kv + Pt_min) * X_i * Kr_avg * Kob * B * 1e-4 / (rho * sum_X_over_m * (546 + t_min + t_max))",
       "latex": "G_i = \\frac{0.160 \\cdot (P_{t_{max}} \\cdot K_v + P_{t_{min}}) \\cdot X_i \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B \\cdot 10^{-4}}{\\rho \\cdot (\\sum \\frac{X}{m}) \\cdot (546 + t_{min} + t_{max})}",
@@ -141,8 +182,18 @@
     },
     {
       "formula_code": "4.6",
-      "formula_name": "Выбросы паров нефтепродуктов (кроме бензинов)",
+      "formula_name": "Число оборотов резервуара",
       "equation_order": 1,
+      "lhs_token": "n",
+      "rhs": "B/(rho*Vp*Np)",
+      "latex": "n = \\frac{B}{\\rho \\cdot V_p \\cdot N_p}",
+      "confidence": "TRUSTED",
+      "status": "active"
+    },
+    {
+      "formula_code": "4.6",
+      "formula_name": "Выбросы паров нефтепродуктов (кроме бензинов)",
+      "equation_order": 2,
       "lhs_token": "M",
       "rhs": "C20 * Kt_max * Kr_max * Vmax / 3600",
       "latex": "M = \\frac{C_{20} \\cdot Kt_{max} \\cdot Kr_{max} \\cdot V_{max}}{3600}",
@@ -152,7 +203,7 @@
     {
       "formula_code": "4.6",
       "formula_name": "Выбросы паров нефтепродуктов (кроме бензинов)",
-      "equation_order": 2,
+      "equation_order": 3,
       "lhs_token": "G",
       "rhs": "C20 * (Kt_max + Kt_min) * Kr_avg * Kob * B / (2e6 * rho)",
       "latex": "G = \\frac{C_{20} \\cdot (Kt_{max} + Kt_{min}) \\cdot Kr_{avg} \\cdot K_{ob} \\cdot B}{2 \\cdot 10^6 \\cdot \\rho}",

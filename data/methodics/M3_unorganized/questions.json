@@ -33,7 +33,8 @@
       "variable_id": "material_type",
       "type": "select",
       "label": "Тип пересыпаемого материала",
-      "help_text": "Автоматически определяет коэффициенты k₁ и k₂ из Таблицы 1 (Приложение 8)."
+      "help_text": "Автоматически определяет коэффициенты k₁ и k₂ из Таблицы 1 (Приложение 8).",
+      "options_from_table": "material_factors"
     },
     {
       "id": "q_k1",
@@ -75,7 +76,8 @@
       "id": "q_enclosure_class",
       "variable_id": "enclosure_class",
       "type": "select",
-      "label": "Степень укрытия (k₄)"
+      "label": "Степень укрытия (k₄)",
+      "options_from_table": "enclosure_coefficient"
     },
     {
       "id": "q_moisture_percent",
@@ -96,7 +98,8 @@
       "variable_id": "storage_material_group",
       "type": "select",
       "label": "Группа материала на складе",
-      "help_text": "Определяет удельное выделение q из Таблицы 6."
+      "help_text": "Определяет удельное выделение q из Таблицы 6.",
+      "options_from_table": "surface_emission_q"
     },
     {
       "id": "q_F_surface",

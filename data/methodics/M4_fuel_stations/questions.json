@@ -1,59 +1,314 @@
 {
   "flow": {
-    "pumps": {
+    "azs_tank_receiving": {
+      "_default": {
+        "formula_code": "7.1_receive",
+        "variables": [
+          "climate_zone",
+          "substance",
+          "tank_type",
+          "PZV_receive",
+          "V_sl",
+          "t_unload",
+          "Qoz",
+          "Qvl",
+          "C_tank_max",
+          "C_tank_oz",
+          "C_tank_vl",
+          "J"
+        ]
+      }
+    },
+    "azs_tank_storage": {
+      "_default": {
+        "formula_code": "7.1_storage",
+        "variables": [
+          "climate_zone",
+          "substance",
+          "tank_type_storage",
+          "tank_volume_cat",
+          "NP",
+          "GXP",
+          "Knp"
+        ]
+      }
+    },
+    "azs_vehicle_refueling": {
+      "_default": {
+        "formula_code": "7.1_refuel",
+        "variables": [
+          "climate_zone",
+          "substance",
+          "PZV_refuel",
+          "NN",
+          "VTRK",
+          "Qoz",
+          "Qvl",
+          "C_ba_max",
+          "C_ba_oz",
+          "C_ba_vl",
+          "J"
+        ]
+      }
+    },
+    "unorg_equipment": {
       "_default": {
         "formula_code": "6.2",
         "variables": [
-          "equip_type",
-          "fluid_type",
-          "Q_spec",
-          "T"
+          "equipType",
+          "productBoilGroup",
+          "equipCount",
+          "equipHours",
+          "Q_spec"
+        ]
+      }
+    },
+    "azs_combined": {
+      "_default": {
+        "formula_code": "7.1_combined",
+        "variables": [
+          "climate_zone",
+          "substance",
+          "tank_type",
+          "tank_type_storage",
+          "tank_volume_cat",
+          "NP",
+          "V_sl",
+          "t_unload",
+          "VTRK",
+          "NN",
+          "PZV_receive",
+          "PZV_refuel",
+          "Qoz",
+          "Qvl",
+          "C_tank_max",
+          "C_tank_oz",
+          "C_tank_vl",
+          "C_ba_max",
+          "C_ba_oz",
+          "C_ba_vl",
+          "J",
+          "GXP",
+          "Knp"
         ]
       }
     }
   },
   "questions": [
     {
-      "id": "q_equip_type",
-      "variable_id": "equip_type",
+      "id": "q_climate_zone",
+      "variable_id": "climate_zone",
       "type": "select",
-      "label": "Тип оборудования",
-      "required": true,
-      "options": [
-        {"value": "heat_ex",           "label": "Кожухотрубный теплообменник"},
-        {"value": "pump_single_end",   "label": "Насос центробежный с 1 торцевым уплотнением"},
-        {"value": "pump_single_gland", "label": "Насос центробежный с 1 сальниковым уплотнением"},
-        {"value": "pump_double_end",   "label": "Насос центробежный с 2 торцевыми уплотнениями"},
-        {"value": "pump_double_gland", "label": "Насос центробежный с 2 сальниковыми уплотнениями"}
-      ]
+      "label": "Климатическая зона"
     },
     {
-      "id": "q_fluid_type",
-      "variable_id": "fluid_type",
+      "id": "q_substance",
+      "variable_id": "substance",
       "type": "select",
-      "label": "Вид нефтепродукта",
-      "required": true,
-      "options": [
-        {"value": "gas_benz",    "label": "Газ / Бензин (t < 120°C)"},
-        {"value": "kero_diesel", "label": "Керосин / Дизель (t = 120–300°C)"},
-        {"value": "oil_mazut",   "label": "Масло / Мазут (t > 300°C)"}
-      ]
+      "label": "Вид нефтепродукта"
+    },
+    {
+      "id": "q_tank_type",
+      "variable_id": "tank_type",
+      "type": "select",
+      "label": "Конструкция резервуара"
+    },
+    {
+      "id": "q_V_sl",
+      "variable_id": "V_sl",
+      "type": "number",
+      "label": "Объем слитого нефтепродукта",
+      "unit": "м3",
+      "required": true
+    },
+    {
+      "id": "q_t_unload",
+      "variable_id": "t_unload",
+      "type": "number",
+      "label": "Время слива из автоцистерны",
+      "unit": "с",
+      "required": true
+    },
+    {
+      "id": "q_Qoz",
+      "variable_id": "Qoz",
+      "type": "number",
+      "label": "Объем реализации за осенне-зимний период",
+      "unit": "м3/период",
+      "required": true
+    },
+    {
+      "id": "q_Qvl",
+      "variable_id": "Qvl",
+      "type": "number",
+      "label": "Объем реализации за весенне-летний период",
+      "unit": "м3/период",
+      "required": true
+    },
+    {
+      "id": "q_C_tank_max",
+      "variable_id": "C_tank_max",
+      "type": "number",
+      "label": "Концентрация паров при заполнении резервуара (макс)",
+      "unit": "г/м3",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара."
+    },
+    {
+      "id": "q_C_tank_oz",
+      "variable_id": "C_tank_oz",
+      "type": "number",
+      "label": "Концентрация паров при заполнении резервуара (ОЗ)",
+      "unit": "г/м3",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара."
+    },
+    {
+      "id": "q_C_tank_vl",
+      "variable_id": "C_tank_vl",
+      "type": "number",
+      "label": "Концентрация паров при заполнении резервуара (ВЛ)",
+      "unit": "г/м3",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара."
+    },
+    {
+      "id": "q_J",
+      "variable_id": "J",
+      "type": "number",
+      "label": "Удельные выбросы при проливах",
+      "unit": "г/м3",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 12 по виду продукта и климатической зоне."
+    },
+    {
+      "id": "q_VTRK",
+      "variable_id": "VTRK",
+      "type": "number",
+      "label": "Производительность одного рукава ТРК",
+      "unit": "м3/ч",
+      "required": true
+    },
+    {
+      "id": "q_NN",
+      "variable_id": "NN",
+      "type": "number",
+      "label": "Количество одновременно работающих рукавов ТРК",
+      "integer_only": true,
+      "required": true
+    },
+    {
+      "id": "q_C_ba_max",
+      "variable_id": "C_ba_max",
+      "type": "number",
+      "label": "Концентрация паров при заполнении бака автомобиля (макс)",
+      "unit": "г/м3",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 12 по виду продукта и климатической зоне."
+    },
+    {
+      "id": "q_C_ba_oz",
+      "variable_id": "C_ba_oz",
+      "type": "number",
+      "label": "Концентрация паров при заполнении бака автомобиля (ОЗ)",
+      "unit": "г/м3",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 15 по виду продукта и климатической зоне."
+    },
+    {
+      "id": "q_C_ba_vl",
+      "variable_id": "C_ba_vl",
+      "type": "number",
+      "label": "Концентрация паров при заполнении бака автомобиля (ВЛ)",
+      "unit": "г/м3",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 15 по виду продукта и климатической зоне."
+    },
+    {
+      "id": "q_equipType",
+      "variable_id": "equipType",
+      "type": "select",
+      "label": "Тип оборудования",
+      "help_text": "Для компрессоров в таблице 6.1 заданы значения только для легких фракций и газов."
+    },
+    {
+      "id": "q_productBoilGroup",
+      "variable_id": "productBoilGroup",
+      "type": "select",
+      "label": "Группа нефтепродукта по температуре кипения"
+    },
+    {
+      "id": "q_equipCount",
+      "variable_id": "equipCount",
+      "type": "number",
+      "label": "Количество единиц оборудования",
+      "integer_only": true,
+      "required": true
+    },
+    {
+      "id": "q_equipHours",
+      "variable_id": "equipHours",
+      "type": "number",
+      "label": "Годовой фонд времени работы",
+      "unit": "ч/год",
+      "required": true
     },
     {
       "id": "q_Q_spec",
       "variable_id": "Q_spec",
       "type": "number",
-      "label": "Удельное выделение ЗВ (Таблица 6.1)",
+      "label": "Удельное выделение загрязняющих веществ",
       "unit": "кг/ч",
-      "disabled": true
+      "disabled": true,
+      "help_text": "Определяется автоматически по таблице 6.1 по типу оборудования и группе продукта."
     },
     {
-      "id": "q_T",
-      "variable_id": "T",
+      "id": "q_PZV_receive",
+      "variable_id": "PZV_receive",
       "type": "number",
-      "label": "Годовой фонд времени работы",
-      "unit": "ч/год",
+      "label": "Эффективность УЛФ (Слив в резервуар)",
+      "unit": "%",
+      "help_text": "Укажите процент улавливания паров. Если система отсутствует, оставьте 0."
+    },
+    {
+      "id": "q_PZV_refuel",
+      "variable_id": "PZV_refuel",
+      "type": "number",
+      "label": "Эффективность УЛФ (Заправка из ТРК)",
+      "unit": "%",
+      "help_text": "Укажите процент улавливания паров. Если система отсутствует, оставьте 0."
+    },
+    {
+      "id": "q_NP",
+      "variable_id": "NP",
+      "type": "number",
+      "label": "Количество резервуаров",
+      "integer_only": true,
       "required": true
+    },
+    {
+      "id": "q_tank_volume_cat",
+      "variable_id": "tank_volume_cat",
+      "type": "select",
+      "label": "Категория объема резервуара",
+      "help_text": "Таблица Приложения 13 в текущей реализации ограничена резервуарами до 100 м3."
+    },
+    {
+      "id": "q_GXP",
+      "variable_id": "GXP",
+      "type": "number",
+      "label": "Удельный выброс при хранении",
+      "unit": "т/год",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 13. ВНИМАНИЕ: Приложение 13 в исходной методике регламентирует потери только для бензина. Для дизельного топлива и масел программа автоматически принимает значение потерь от хранения равным нулю в соответствии с физическим смыслом."
+    },
+    {
+      "id": "q_Knp",
+      "variable_id": "Knp",
+      "type": "number",
+      "label": "Поправочный коэфф. нефтепродукта",
+      "disabled": true,
+      "help_text": "Определяется автоматически по Приложению 12 по виду продукта и климатической зоне."
     }
   ]
 }

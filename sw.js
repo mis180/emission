@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ecocalc-v1.0.0';
+const CACHE_NAME = 'ecocalc-v1.0.1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -80,8 +80,18 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       const fetchPromise = fetch(event.request).then(networkResponse => {
-        caches.open(CACHE_NAME).then(cache => cache.put(event.request, networkResponse.clone()));
+        const responseToCache = networkResponse.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          // Do not cache opaque responses if you want to avoid cache pollution, but standard sw allows it.
+          // Only cache valid responses. For no-cors, status is 0. 
+          if (responseToCache.status === 200 || responseToCache.status === 0) {
+              cache.put(event.request, responseToCache);
+          }
+        });
         return networkResponse;
+      }).catch(err => {
+        console.error('[SW] Fetch failed:', event.request.url, err);
+        throw err;
       });
       return cachedResponse || fetchPromise;
     })

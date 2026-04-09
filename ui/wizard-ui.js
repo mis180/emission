@@ -11,12 +11,29 @@ function renderMethodicCards(methodics) {
     }
 
     methodics.forEach(m => {
+        const hasPdfMap = {
+            'M1_storage': ['reference/M1_storage/source.pdf'],
+            'M2_welding': ['reference/M2_welding/source.pdf'],
+            'M3_unorganized': ['reference/M3_unorganized/source.pdf'],
+            'M4_fuel_stations': ['reference/M4_fuel_stations/source.pdf'],
+            'M12_tanks': ['reference/M12_tanks/source.pdf'],
+            'M9_flares': ['reference/M9_flares/source_part1.pdf', 'reference/M9_flares/source_part2.pdf']
+        };
+
+        let pdfLinksHtml = '';
+        if (hasPdfMap[m.id]) {
+            pdfLinksHtml = `<div class="mt-2">` + hasPdfMap[m.id].map((link, i) => 
+                `<a href="${link}" target="_blank" class="btn btn-secondary" style="font-size: 0.7rem; padding: 4px 8px; margin-right: 4px; text-decoration: none;" onclick="event.stopPropagation()">📥 PDF ${hasPdfMap[m.id].length > 1 ? (i+1) : ''}</a>`
+            ).join('') + `</div>`;
+        }
+
         const card = document.createElement('div');
         card.className = `scenario-card ${state.methodicId === m.id ? 'selected' : ''}`;
         card.innerHTML = `
             <h4>${m.name}</h4>
             <p><small>${m.name_en || ''}</small></p>
             <p class="mt-4"><small>Версия: <strong>${m.version}</strong> • Формулы: ${m.formula_codes.length}</small></p>
+            ${pdfLinksHtml}
         `;
         card.addEventListener('click', async () => {
             state.methodicId = m.id;
@@ -241,13 +258,16 @@ function renderParameters() {
     const formulaCode = state.formulaCode || Wizard.getFormulaCode(state.methodicData.questions, state.sourceType, state.calcMethod);
     const eqInfo = Wizard.getEquationInfo(state.methodicData, formulaCode);
     
+    const sourceTypeDef = state.methodicData.meta.source_types.find(st => st.value === state.sourceType);
+    const branchLabel = sourceTypeDef ? sourceTypeDef.label : (eqInfo[0]?.formula_name || '');
+    
     formulaPanel.innerHTML = `
         <div class="sidebar-panel-header" style="cursor:pointer;" onclick="const b = this.nextElementSibling; b.style.display = b.style.display==='none'?'block':'none';">
             📐 Формула расчета
             <span>▼</span>
         </div>
         <div class="sidebar-panel-body" style="display:none; background:#f9fafb;">
-            <div style="font-weight:700; margin-bottom:8px; font-size:0.85rem;">${eqInfo[0]?.formula_name || ''}</div>
+            <div style="font-weight:700; margin-bottom:8px; font-size:0.85rem;">${branchLabel}</div>
             ${eqInfo.map(eq => `
                 <div style="margin-bottom:8px; font-size:0.8rem;">
                     ${eq.latex ? `<div style="overflow-x:auto;">${renderLatex(eq.latex)}</div>` : `<code>${eq.lhs} = ${eq.rhs}</code>`}
@@ -777,7 +797,7 @@ function renderComposition() {
     list.innerHTML = '';
 
     if (state.composition.length === 0) {
-        state.composition = Composition.getDefault(state.methodicData, state.sourceType, state.calcMethod);
+        state.composition = Composition.getDefault(state.methodicData, state.sourceType, state.calcMethod, state.inputs);
     }
 
     state.composition.forEach((comp, idx) => {

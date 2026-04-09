@@ -1,6 +1,6 @@
 {
   "id": "M2_welding",
-  "name": "Расчет выбросов при сварочных работах",
+  "name": "Сварочные работы",
   "name_en": "Welding Emissions",
   "version": "РНД 211.2.02.03-2004",
   "country": "KZ",
@@ -10,12 +10,18 @@
     {
       "value": "welding_mass",
       "label": "Сварка (по массе материалов)",
-      "formula_codes": ["5.1"]
+      "formula_codes": [
+        "5.1"
+      ]
     }
   ],
   "calc_methods": {
     "welding_mass": [
-      { "value": "standard", "label": "Стандартный расчет", "formula_code": "5.1" }
+      {
+        "value": "standard",
+        "label": "Стандартный расчет",
+        "formula_code": "5.1"
+      }
     ]
   }
 }

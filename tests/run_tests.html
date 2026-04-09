@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EMISSION Engine Tests</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 20px; background: #f8fafc; color: #0f172a; }
+        h1 { font-size: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+        .pass { color: #16a34a; font-weight: bold; }
+        .fail { color: #dc2626; font-weight: bold; }
+        .summary { margin-bottom: 20px; padding: 16px; background: white; border: 1px solid #e2e8f0; border-radius: 8px; }
+        #results { white-space: pre-wrap; font-family: monospace; background: #1e293b; color: #f8fafc; padding: 16px; border-radius: 8px; overflow-x: auto; }
+    </style>
+    <!-- Load required libraries -->
+    <script src="../lib/math.min.js"></script>
+    
+    <!-- Load engine files -->
+    <script src="../engine/project-store.js"></script>
+    <script src="../engine/lookup.js"></script>
+    <script src="../engine/evaluator.js"></script>
+</head>
+<body>
+    <h1>⚙️ EMISSION Engine Test Runner</h1>
+    <div class="summary">
+        <div>Passed: <span id="pass-count" class="pass">0</span></div>
+        <div>Failed: <span id="fail-count" class="fail">0</span></div>
+    </div>
+    <div id="results">Running tests...</div>
+
+    <script>
+        let _passed = 0, _failed = 0;
+        const resultsEl = document.getElementById('results');
+        
+        function logMsg(msg, isErr = false) {
+            resultsEl.innerHTML += `<div style="color: ${isErr ? '#ef4444' : '#a7f3d0'}">${msg}</div>`;
+            console[isErr ? 'error' : 'log'](msg);
+        }
+
+        function assert(condition, message) {
+            if (condition) {
+                _passed++;
+                logMsg(`[PASS] ${message}`);
+            } else {
+                _failed++;
+                logMsg(`[FAIL] ${message}`, true);
+            }
+            updateSummary();
+        }
+
+        function assertEq(actual, expected, message) {
+            assert(actual === expected, `${message} — expected ${expected}, got ${actual}`);
+        }
+
+        function assertApprox(actual, expected, tolerance, message) {
+            const diff = Math.abs(actual - expected);
+            assert(diff <= tolerance, `${message} — expected ${expected}, got ${actual} (diff: ${diff})`);
+        }
+
+        function updateSummary() {
+            document.getElementById('pass-count').textContent = _passed;
+            document.getElementById('fail-count').textContent = _failed;
+        }
+
+        async function runAllTests() {
+            resultsEl.innerHTML = '';
+            
+            try {
+                await runLookupTests();
+                await runEvaluatorTests();
+                await runProjectStoreTests();
+                logMsg('\n✅ All test suites finished.');
+            } catch (e) {
+                logMsg(`\n❌ Error during test execution: ${e.message}`, true);
+            }
+        }
+    </script>
+    
+    <!-- Load test files -->
+    <script src="test_lookup.js"></script>
+    <script src="test_evaluator.js"></script>
+    <script src="test_project_store.js"></script>
+    
+    <!-- Auto-run -->
+    <script>
+        window.onload = runAllTests;
+    </script>
+</body>
+</html>

@@ -1,76 +1,485 @@
 {
   "variables": [
     {
-      "id": "equip_type",
-      "token": "equip_type",
-      "label": "Тип оборудования",
+      "id": "substance",
+      "token": "substance",
+      "label": "Вид нефтепродукта",
+      "datatype": "string",
+      "default": "gasoline_auto",
       "options": [
         {
-          "value": "heat_ex",
-          "label": "Теплообменник"
+          "value": "gasoline_auto",
+          "label": "Бензин автомобильный"
         },
         {
-          "value": "pump_single_end",
-          "label": "Насос одинарный (торцевое уплотнение)"
+          "value": "diesel",
+          "label": "Дизельное топливо"
         },
         {
-          "value": "pump_single_gland",
-          "label": "Насос одинарный (сальниковое уплотнение)"
-        },
-        {
-          "value": "pump_double_end",
-          "label": "Насос двойной (торцевое уплотнение)"
-        },
-        {
-          "value": "pump_double_gland",
-          "label": "Насос двойной (сальниковое уплотнение)"
+          "value": "oils",
+          "label": "Масла"
         }
-      ],
-      "datatype": "string"
+      ]
     },
     {
-      "id": "fluid_type",
-      "token": "fluid_type",
-      "label": "Вид нефтепродукта",
+      "id": "climate_zone",
+      "token": "climate_zone",
+      "label": "Климатическая зона",
+      "datatype": "string",
+      "default": "middle",
       "options": [
         {
-          "value": "gas_benz",
-          "label": "Газ / Бензин"
+          "value": "middle",
+          "label": "Средняя климатическая зона"
         },
         {
-          "value": "kero_diesel",
-          "label": "Керосин / Дизель"
-        },
-        {
-          "value": "oil_mazut",
-          "label": "Масло / Мазут"
+          "value": "south",
+          "label": "Южная климатическая зона"
         }
-      ],
-      "datatype": "string"
+      ]
+    },
+    {
+      "id": "tank_type",
+      "token": "tank_type",
+      "label": "Тип и размещение резервуара (АЗС)",
+      "datatype": "string",
+      "default": "underground",
+      "options": [
+        {
+          "value": "underground",
+          "label": "Заглубленный (подземный)"
+        },
+        {
+          "value": "aboveground",
+          "label": "Наземный"
+        }
+      ]
+    },
+    {
+      "id": "tank_type_storage",
+      "token": "tank_type_storage",
+      "label": "Конструкция резервуара (хранение)",
+      "datatype": "string",
+      "default": "underground",
+      "options": [
+        {
+          "value": "underground",
+          "label": "Заглубленный (подземный)"
+        },
+        {
+          "value": "horizontal",
+          "label": "Наземный горизонтальный"
+        },
+        {
+          "value": "vertical_none",
+          "label": "Наземный вертикальный (без ССВ)"
+        },
+        {
+          "value": "vertical_pontoon",
+          "label": "Наземный вертикальный (с понтоном)"
+        },
+        {
+          "value": "vertical_floating_roof",
+          "label": "Наземный вертикальный (плав. крыша)"
+        },
+        {
+          "value": "vertical_gor",
+          "label": "Наземный вертикальный (с ГОР)"
+        }
+      ]
+    },
+    {
+      "id": "PZV_receive",
+      "token": "PZV_receive",
+      "label": "Эффективность УЛФ (Слив в резервуар)",
+      "unit": "%",
+      "datatype": "numeric",
+      "latex": "P_{zv,recv}",
+      "default": 0,
+      "min": 0,
+      "max": 99,
+      "hint": "Укажите 0, если система отсутствует. Для современных систем обычно 90-95%."
+    },
+    {
+      "id": "PZV_refuel",
+      "token": "PZV_refuel",
+      "label": "Эффективность УЛФ (Заправка из ТРК)",
+      "unit": "%",
+      "datatype": "numeric",
+      "latex": "P_{zv,trk}",
+      "default": 0,
+      "min": 0,
+      "max": 99,
+      "hint": "Укажите 0, если система отсутствует. Для современных систем обычно 90-95%."
+    },
+    {
+      "id": "NP",
+      "token": "NP",
+      "label": "Количество резервуаров данного типа",
+      "datatype": "numeric",
+      "default": 1,
+      "min": 1,
+      "latex": "N_p"
+    },
+    {
+      "id": "tank_volume_cat",
+      "token": "tank_volume_cat",
+      "label": "Категория объема резервуара",
+      "datatype": "string",
+      "default": "100",
+      "options": [
+        {
+          "value": "100",
+          "label": "до 100 м3"
+        }
+      ]
+    },
+    {
+      "id": "V_sl",
+      "token": "V_sl",
+      "label": "Объем слитого нефтепродукта",
+      "unit": "м3",
+      "datatype": "numeric",
+      "latex": "V_{sl}",
+      "min": 0
+    },
+    {
+      "id": "t_unload",
+      "token": "t_unload",
+      "label": "Время слива из автоцистерны",
+      "unit": "с",
+      "datatype": "numeric",
+      "latex": "t",
+      "min": 1
+    },
+    {
+      "id": "VTRK",
+      "token": "VTRK",
+      "label": "Производительность одного рукава ТРК",
+      "unit": "м3/ч",
+      "datatype": "numeric",
+      "latex": "V_{trk}",
+      "min": 0
+    },
+    {
+      "id": "NN",
+      "token": "NN",
+      "label": "Количество одновременно работающих рукавов ТРК",
+      "datatype": "numeric",
+      "default": 1,
+      "min": 1,
+      "latex": "N_n"
+    },
+    {
+      "id": "Qoz",
+      "token": "Qoz",
+      "label": "Сезонный объем нефтепродукта (осенне-зимний период)",
+      "unit": "м3/период",
+      "datatype": "numeric",
+      "latex": "Q_{oz}",
+      "min": 0
+    },
+    {
+      "id": "Qvl",
+      "token": "Qvl",
+      "label": "Сезонный объем нефтепродукта (весенне-летний период)",
+      "unit": "м3/период",
+      "datatype": "numeric",
+      "latex": "Q_{vl}",
+      "min": 0
+    },
+    {
+      "id": "C_tank_max",
+      "token": "C_tank_max",
+      "label": "Концентрация паров при заполнении резервуара (макс)",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "C_{p,max}",
+      "auto_lookup": {
+        "table": "Table_15_tank",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone",
+          "tank_type": "tank_type"
+        },
+        "output": "C_tank_max"
+      }
+    },
+    {
+      "id": "C_tank_oz",
+      "token": "C_tank_oz",
+      "label": "Концентрация паров при заполнении резервуара (ОЗ)",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "C_{p,oz}",
+      "auto_lookup": {
+        "table": "Table_15_tank",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone",
+          "tank_type": "tank_type"
+        },
+        "output": "C_tank_oz"
+      }
+    },
+    {
+      "id": "C_tank_vl",
+      "token": "C_tank_vl",
+      "label": "Концентрация паров при заполнении резервуара (ВЛ)",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "C_{p,vl}",
+      "auto_lookup": {
+        "table": "Table_15_tank",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone",
+          "tank_type": "tank_type"
+        },
+        "output": "C_tank_vl"
+      }
+    },
+    {
+      "id": "C_ba_max",
+      "token": "C_ba_max",
+      "label": "Концентрация паров при заполнении бака автомобиля (макс)",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "C_{ba,max}",
+      "auto_lookup": {
+        "table": "Table_12",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "C1"
+      }
+    },
+    {
+      "id": "C_ba_oz",
+      "token": "C_ba_oz",
+      "label": "Концентрация паров при заполнении бака автомобиля (ОЗ)",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "C_{ba,oz}",
+      "auto_lookup": {
+        "table": "Table_15_vehicle",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "C_ba_oz"
+      }
+    },
+    {
+      "id": "C_ba_vl",
+      "token": "C_ba_vl",
+      "label": "Концентрация паров при заполнении бака автомобиля (ВЛ)",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "C_{ba,vl}",
+      "auto_lookup": {
+        "table": "Table_15_vehicle",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "C_ba_vl"
+      }
+    },
+    {
+      "id": "J",
+      "token": "J",
+      "label": "Удельные выбросы при проливах",
+      "unit": "г/м3",
+      "datatype": "numeric",
+      "latex": "J",
+      "auto_lookup": {
+        "table": "Table_12",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "J"
+      }
+    },
+    {
+      "id": "Knp",
+      "token": "Knp",
+      "label": "Поправочный коэфф. нефтепродукта",
+      "datatype": "numeric",
+      "latex": "K_{np}",
+      "auto_lookup": {
+        "table": "Table_12",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone"
+        },
+        "output": "Knp"
+      }
+    },
+    {
+      "id": "GXP",
+      "token": "GXP",
+      "label": "Удельные потери при хранении",
+      "unit": "т/год",
+      "datatype": "numeric",
+      "latex": "G_{xp}",
+      "auto_lookup": {
+        "table": "Table_Appendix_13",
+        "key": {
+          "substance": "substance",
+          "climate_zone": "climate_zone",
+          "tank_type": "tank_type_storage",
+          "tank_volume_cat": "tank_volume_cat"
+        },
+        "output": "GXP"
+      }
+    },
+    {
+      "id": "equipType",
+      "token": "equipType",
+      "label": "Тип оборудования",
+      "datatype": "string",
+      "options": [
+        {
+          "value": "hx_shell_tube_tube",
+          "label": "Кожухотрубный теплообменник (трубное пространство)"
+        },
+        {
+          "value": "hx_shell_tube_shell",
+          "label": "Кожухотрубный теплообменник (межтрубное пространство)"
+        },
+        {
+          "value": "hx_cooler",
+          "label": "Кожухотрубный холодильник"
+        },
+        {
+          "value": "hx_reboiler",
+          "label": "Кожухотрубный кипятильник"
+        },
+        {
+          "value": "immersion_cooler",
+          "label": "Погружной холодильник"
+        },
+        {
+          "value": "air_cooler",
+          "label": "Аппарат воздушного охлаждения"
+        },
+        {
+          "value": "pump_single_mech",
+          "label": "Насос с одним торцевым уплотнением"
+        },
+        {
+          "value": "pump_single_packed",
+          "label": "Насос с одним сальниковым уплотнением"
+        },
+        {
+          "value": "pump_double_mech",
+          "label": "Насос с двумя торцевыми уплотнениями"
+        },
+        {
+          "value": "pump_double_packed",
+          "label": "Насос с двумя сальниковыми уплотнениями"
+        },
+        {
+          "value": "pump_double_sealless",
+          "label": "Насос с двойным торцевым уплотнением или бессальниковый"
+        },
+        {
+          "value": "compressor_centrifugal",
+          "label": "Компрессор центробежный"
+        },
+        {
+          "value": "compressor_reciprocating",
+          "label": "Компрессор поршневой"
+        }
+      ]
+    },
+    {
+      "id": "productBoilGroup",
+      "token": "productBoilGroup",
+      "label": "Группа нефтепродукта по температуре кипения",
+      "datatype": "string",
+      "options": [
+        {
+          "value": "light",
+          "label": "Газ, бензин и жидкости с tк < 120°C"
+        },
+        {
+          "value": "middle",
+          "label": "Керосин, дизель и жидкости с tк = 120-300°C"
+        },
+        {
+          "value": "heavy",
+          "label": "Нефть, мазут и жидкости с tк > 300°C"
+        }
+      ]
     },
     {
       "id": "Q_spec",
       "token": "Q_spec",
-      "label": "Удельное выделение ЗВ (Q_spec)",
+      "label": "Удельное выделение загрязняющих веществ",
       "unit": "кг/ч",
       "datatype": "numeric",
-      "latex": "Q_{spec}",
+      "latex": "Q",
       "auto_lookup": {
         "table": "Table_6_1",
         "key": {
-          "equip_type": "equip_type",
-          "fluid_type": "fluid_type"
+          "equipment": "equipType",
+          "product_group": "productBoilGroup"
         },
         "output": "Q_spec"
       }
     },
     {
-      "id": "T",
-      "token": "T",
+      "id": "equipCount",
+      "token": "equipCount",
+      "label": "Количество единиц оборудования",
+      "datatype": "numeric",
+      "default": 1,
+      "min": 1
+    },
+    {
+      "id": "equipHours",
+      "token": "equipHours",
       "label": "Годовой фонд времени работы",
       "unit": "ч/год",
       "datatype": "numeric",
-      "latex": "T"
+      "latex": "T",
+      "min": 0
+    },
+    {
+      "id": "G_zak",
+      "token": "G_zak",
+      "label": "Валовый выброс при закачке в резервуары",
+      "unit": "т/год",
+      "datatype": "numeric",
+      "is_calc": true
+    },
+    {
+      "id": "G_pr_r",
+      "token": "G_pr_r",
+      "label": "Валовый выброс от проливов при сливе",
+      "unit": "т/год",
+      "datatype": "numeric",
+      "is_calc": true
+    },
+    {
+      "id": "G_ba",
+      "token": "G_ba",
+      "label": "Валовый выброс при заправке баков",
+      "unit": "т/год",
+      "datatype": "numeric",
+      "is_calc": true
+    },
+    {
+      "id": "G_pr_a",
+      "token": "G_pr_a",
+      "label": "Валовый выброс от проливов при заправке",
+      "unit": "т/год",
+      "datatype": "numeric",
+      "is_calc": true
     }
   ]
 }

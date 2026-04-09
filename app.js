@@ -6,7 +6,7 @@
  */
 
 // --- APP STATE --- //
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.0.1';
 let currentStep = 1;
 const totalSteps = 6;
 

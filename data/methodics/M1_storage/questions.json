@@ -231,7 +231,8 @@
       "variable_id": "substance",
       "type": "select",
       "label": "Наименование продукта/вещества",
-      "id": "q_substance"
+      "id": "q_substance",
+      "options_from_table": "Table_12"
     },
     {
       "variable_id": "P38",
@@ -335,7 +336,8 @@
       "variable_id": "productGroupKt",
       "type": "select",
       "label": "Группа продукта (Табл. 7/Kt)",
-      "id": "q_productGroupKt"
+      "id": "q_productGroupKt",
+      "options_from_table": "Table_5"
     },
     {
       "variable_id": "tankGroup",
@@ -349,19 +351,57 @@
       "variable_id": "tankType",
       "type": "select",
       "label": "Тип резервуара",
-      "id": "q_tankType"
+      "id": "q_tankType",
+      "options": [
+        {
+          "value": "RVS",
+          "label": "РВС (наземный)"
+        },
+        {
+          "value": "Podzemniy",
+          "label": "Подземный/обвалованный"
+        }
+      ]
     },
     {
       "variable_id": "tankMode",
       "type": "select",
       "label": "Режим эксплуатации / ССВ",
-      "id": "q_tankMode"
+      "id": "q_tankMode",
+      "options": [
+        {
+          "value": "A",
+          "label": "Не понтон/плавающая крыша (А)"
+        },
+        {
+          "value": "B",
+          "label": "С понтоном/плавающей крышей (Б)"
+        }
+      ]
     },
     {
       "variable_id": "tankVolume",
       "type": "select",
       "label": "Объем резервуара (Группа)",
-      "id": "q_tankVolume"
+      "id": "q_tankVolume",
+      "options": [
+        {
+          "value": "100",
+          "label": "до 100 м3"
+        },
+        {
+          "value": "400",
+          "label": "от 100 до 400 м3"
+        },
+        {
+          "value": "1000",
+          "label": "от 400 до 1000 м3"
+        },
+        {
+          "value": "10000",
+          "label": "более 1000 м3"
+        }
+      ]
     },
     {
       "variable_id": "Knp",
@@ -454,8 +494,14 @@
       "type": "select",
       "label": "Климатическая зона",
       "options": [
-        { "value": "middle", "label": "Средняя климатическая зона" },
-        { "value": "south", "label": "Южная климатическая зона" }
+        {
+          "value": "middle",
+          "label": "Средняя климатическая зона"
+        },
+        {
+          "value": "south",
+          "label": "Южная климатическая зона"
+        }
       ]
     },
     {

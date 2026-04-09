@@ -167,8 +167,7 @@
       "auto_lookup": {
         "table": "Table_10",
         "key": "n",
-        "output": "Kob",
-        "interpolate_key": "n"
+        "output": "Kob"
       }
     },
     {
@@ -719,16 +718,18 @@
       "latex": "K_v",
       "auto_lookup": {
         "table": "Table_9",
-        "key": {
-          "Pt_mmHg": [
-            "P38",
-            "Pt_max"
-          ]
-        },
+        "key": "P_lookup",
         "output": "Kv",
         "interpolate_key": "Pt_mmHg"
       },
       "hint": "Для давлений ниже 540 мм рт.ст. принимается Kv = 1.0 (по нижней границе таблицы)"
+    },
+    {
+      "id": "P_lookup",
+      "token": "P_lookup",
+      "label": "Давление для поиска Kv",
+      "datatype": "numeric",
+      "is_calc": true
     },
     {
       "id": "Kr_max",

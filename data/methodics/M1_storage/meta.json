@@ -1,24 +1,100 @@
 {
   "id": "M1_storage",
-  "name": "Расчёт выбросов от резервуаров и хранилищ нефтепродуктов",
+  "name": "Резервуары и хранилища нефтепродуктов",
   "name_en": "Oil/Gas Storage & Transfer Emissions",
   "version": "РНД 211.2.02.09-2004",
   "country": "KZ",
   "regulatory_basis": "РНД 211.2.02.09-2004. Методика расчета выбросов",
   "source_pdf": "РНД 211.2.02.09-2004 - резервуары.pdf",
-  "formula_codes": ["4.2", "4.3", "4.4", "4.6", "5.2", "6.2", "7.1"],
+  "formula_codes": [
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.6",
+    "5.2",
+    "6.2",
+    "7.1"
+  ],
   "source_types": [
-    { "value": "tank_industrial", "label": "Резервуары (промплощадки/НПЗ/трубопроводы)", "formula_codes": ["4.2", "4.3", "4.4", "4.6"] },
-    { "value": "tank_depot", "label": "Резервуары (нефтебазы/склады ГСМ)", "formula_codes": ["5.2"] },
-    { "value": "unorg_equipment", "label": "Неорганизованные (оборудование)", "formula_codes": ["6.2"] },
-    { "value": "fuel_station_liquid", "label": "АЗС (жидкие топлива)", "formula_codes": ["7.1"] }
+    {
+      "value": "tank_industrial",
+      "label": "Резервуары (промплощадки/НПЗ/трубопроводы)",
+      "formula_codes": [
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.6"
+      ]
+    },
+    {
+      "value": "tank_depot",
+      "label": "Резервуары (нефтебазы/склады ГСМ)",
+      "formula_codes": [
+        "5.2"
+      ]
+    },
+    {
+      "value": "unorg_equipment",
+      "label": "Неорганизованные (оборудование)",
+      "formula_codes": [
+        "6.2"
+      ]
+    },
+    {
+      "value": "fuel_station_liquid",
+      "label": "АЗС (жидкие топлива)",
+      "formula_codes": [
+        "7.1"
+      ]
+    },
+    {
+      "value": "unorg_flanges",
+      "label": "Неорганизованные (фланцы/арматура, табл. 6.2)",
+      "formula_codes": []
+    },
+    {
+      "value": "unorg_wastewater",
+      "label": "Неорганизованные (очистные сооружения, табл. 6.3–6.4)",
+      "formula_codes": []
+    },
+    {
+      "value": "unorg_sludge",
+      "label": "Неорганизованные (шламонакопители, табл. 6.5)",
+      "formula_codes": []
+    },
+    {
+      "value": "gas_in_water",
+      "label": "Газ, растворённый в воде (Генри)",
+      "formula_codes": []
+    },
+    {
+      "value": "fuel_station_gas",
+      "label": "АГЗС/КПГ (газы)",
+      "formula_codes": []
+    }
   ],
   "calc_methods": {
     "tank_industrial": [
-      { "value": "oil_gasoline_R38", "label": "Нефть/бензин (по P38 и tнк)", "formula_code": "4.2" },
-      { "value": "other_products_C20", "label": "Нефтепродукты кроме бензина (по C20)", "formula_code": "4.6" },
-      { "value": "pure_substances_antoine", "label": "Индивидуальное вещество (Антуан)", "formula_code": "4.3" },
-      { "value": "known_mixture", "label": "Смесь по компонентам", "formula_code": "4.4" }
+      {
+        "value": "oil_gasoline_R38",
+        "label": "Нефть/бензин (по P38 и tнк)",
+        "formula_code": "4.2"
+      },
+      {
+        "value": "other_products_C20",
+        "label": "Нефтепродукты кроме бензина (по C20)",
+        "formula_code": "4.6"
+      },
+      {
+        "value": "pure_substances_antoine",
+        "label": "Индивидуальное вещество (Антуан)",
+        "formula_code": "4.3"
+      },
+      {
+        "value": "known_mixture",
+        "label": "Смесь по компонентам",
+        "formula_code": "4.4"
+      }
     ]
   }
 }
