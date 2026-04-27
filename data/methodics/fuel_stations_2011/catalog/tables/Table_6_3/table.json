@@ -1,0 +1,90 @@
+{
+    "table_id":  "Table_6_3",
+    "title":  "Coefficient q_sr for wastewater",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Section 6.3",
+                   "table":  "6.3",
+                   "page":  28,
+                   "image_ref":  "catalog/tables/Table_6_3/source.png"
+               },
+    "resolution":  "interpolate",
+    "selectors":  [
+                      {
+                          "name":  "vessel_type",
+                          "datatype":  "string",
+                          "enum_id":  "vessel_type_unorg"
+                      }
+                  ],
+    "axis":  {
+                 "name":  "temp",
+                 "field":  "temp",
+                 "datatype":  "numeric",
+                 "mode":  "point",
+                 "unit_id":  "celsius"
+             },
+    "outputs":  [
+                    {
+                        "name":  "q_sr",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_m2_h"
+                    }
+                ],
+    "missing_policy":  "error",
+    "boundary_policy":  "clamp",
+    "rows":  [
+                 {
+                     "vessel_type":  "oil_trap",
+                     "temp":  0,
+                     "q_sr":  1.294
+                 },
+                 {
+                     "vessel_type":  "oil_trap",
+                     "temp":  10,
+                     "q_sr":  3.158
+                 },
+                 {
+                     "vessel_type":  "oil_trap",
+                     "temp":  20,
+                     "q_sr":  7.267
+                 },
+                 {
+                     "vessel_type":  "oil_trap",
+                     "temp":  30,
+                     "q_sr":  15.603
+                 },
+                 {
+                     "vessel_type":  "oil_trap",
+                     "temp":  40,
+                     "q_sr":  31.79
+                 },
+                 {
+                     "vessel_type":  "settling_tank",
+                     "temp":  0,
+                     "q_sr":  0.053
+                 },
+                 {
+                     "vessel_type":  "settling_tank",
+                     "temp":  10,
+                     "q_sr":  0.236
+                 },
+                 {
+                     "vessel_type":  "settling_tank",
+                     "temp":  20,
+                     "q_sr":  0.84
+                 },
+                 {
+                     "vessel_type":  "settling_tank",
+                     "temp":  30,
+                     "q_sr":  2.519
+                 },
+                 {
+                     "vessel_type":  "settling_tank",
+                     "temp":  40,
+                     "q_sr":  6.576
+                 }
+             ],
+    "schema_version":  2
+}

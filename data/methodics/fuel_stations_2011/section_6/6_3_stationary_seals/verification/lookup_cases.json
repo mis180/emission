@@ -1,0 +1,39 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "6_3_stationary_seals",
+    "formula_code":  "6.3",
+    "cases":  [
+                  {
+                      "case_id":  "6_3_stationary_seals_lookup_01",
+                      "title":  "6.3 Table 6.2 baseline lookup",
+                      "status":  "active",
+                      "binding_target":  "seal_g_leak",
+                      "table_id":  "Table_6_2",
+                      "output_key":  "seal_g_leak",
+                      "resolution":  "exact",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Section 6.2",
+                                       "page":  24,
+                                       "image_ref":  "assets/tables/Table_6_2.png"
+                                   },
+                      "selectors":  {
+                                        "equipment_type":  "control_valve",
+                                        "stream_type":  "gas_medium"
+                                    },
+                      "expected":  {
+                                       "value":  0.020988,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0
+                                                     },
+                                       "unit_id":  "kg_per_h"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0
+                                    }
+                  }
+              ]
+}

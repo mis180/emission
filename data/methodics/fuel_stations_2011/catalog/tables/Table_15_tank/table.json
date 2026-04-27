@@ -1,0 +1,146 @@
+{
+    "table_id":  "Table_15_tank",
+    "title":  "Vapor concentration when filling tank (max)",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 15",
+                   "image_ref":  "catalog/tables/Table_15_tank/source.png"
+               },
+    "resolution":  "exact",
+    "selectors":  [
+                      {
+                          "name":  "substance",
+                          "datatype":  "string",
+                          "enum_id":  "substance"
+                      },
+                      {
+                          "name":  "climate_zone",
+                          "datatype":  "string",
+                          "enum_id":  "climate_zone"
+                      },
+                      {
+                          "name":  "tank_type",
+                          "datatype":  "string",
+                          "enum_id":  "tank_type"
+                      }
+                  ],
+    "outputs":  [
+                    {
+                        "name":  "C_tank_max",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_m3"
+                    },
+                    {
+                        "name":  "C_tank_oz",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_m3"
+                    },
+                    {
+                        "name":  "C_tank_vl",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_m3"
+                    }
+                ],
+    "missing_policy":  "error",
+    "rows":  [
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "aboveground",
+                     "C_tank_max":  580.0,
+                     "C_tank_oz":  250.0,
+                     "C_tank_vl":  310.0
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "C_tank_max":  480.0,
+                     "C_tank_oz":  210.2,
+                     "C_tank_vl":  255.0
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "middle",
+                     "tank_type":  "aboveground",
+                     "C_tank_max":  1.86,
+                     "C_tank_oz":  0.96,
+                     "C_tank_vl":  1.32
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "C_tank_max":  1.55,
+                     "C_tank_oz":  0.8,
+                     "C_tank_vl":  1.1
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "middle",
+                     "tank_type":  "aboveground",
+                     "C_tank_max":  0.2,
+                     "C_tank_oz":  0.12,
+                     "C_tank_vl":  0.12
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "C_tank_max":  0.16,
+                     "C_tank_oz":  0.1,
+                     "C_tank_vl":  0.1
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "aboveground",
+                     "C_tank_max":  701.8,
+                     "C_tank_oz":  310.0,
+                     "C_tank_vl":  375.1
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "C_tank_max":  580.0,
+                     "C_tank_oz":  260.4,
+                     "C_tank_vl":  308.5
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "south",
+                     "tank_type":  "aboveground",
+                     "C_tank_max":  2.25,
+                     "C_tank_oz":  1.19,
+                     "C_tank_vl":  1.6
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "C_tank_max":  1.88,
+                     "C_tank_oz":  0.99,
+                     "C_tank_vl":  1.33
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "south",
+                     "tank_type":  "aboveground",
+                     "C_tank_max":  0.24,
+                     "C_tank_oz":  0.15,
+                     "C_tank_vl":  0.15
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "C_tank_max":  0.19,
+                     "C_tank_oz":  0.12,
+                     "C_tank_vl":  0.12
+                 }
+             ],
+    "schema_version":  2
+}

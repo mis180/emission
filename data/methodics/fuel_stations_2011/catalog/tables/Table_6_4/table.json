@@ -1,0 +1,112 @@
+{
+    "table_id":  "Table_6_4",
+    "title":  "Coefficient z for wastewater",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Section 6.4",
+                   "page":  29,
+                   "image_ref":  "catalog/tables/Table_6_4/source.png"
+               },
+    "resolution":  "interpolate",
+    "axis":  {
+                 "name":  "covering_degree",
+                 "field":  "covering_degree",
+                 "datatype":  "numeric",
+                 "mode":  "point",
+                 "unit_id":  "dimensionless"
+             },
+    "outputs":  [
+                    {
+                        "name":  "z_coeff",
+                        "datatype":  "numeric",
+                        "unit_id":  "dimensionless"
+                    }
+                ],
+    "missing_policy":  "error",
+    "boundary_policy":  "clamp",
+    "rows":  [
+                 {
+                     "covering_degree":  0,
+                     "z_coeff":  1
+                 },
+                 {
+                     "covering_degree":  0.1,
+                     "z_coeff":  0.96
+                 },
+                 {
+                     "covering_degree":  0.15,
+                     "z_coeff":  0.94
+                 },
+                 {
+                     "covering_degree":  0.2,
+                     "z_coeff":  0.91
+                 },
+                 {
+                     "covering_degree":  0.25,
+                     "z_coeff":  0.88
+                 },
+                 {
+                     "covering_degree":  0.3,
+                     "z_coeff":  0.85
+                 },
+                 {
+                     "covering_degree":  0.35,
+                     "z_coeff":  0.82
+                 },
+                 {
+                     "covering_degree":  0.4,
+                     "z_coeff":  0.79
+                 },
+                 {
+                     "covering_degree":  0.45,
+                     "z_coeff":  0.76
+                 },
+                 {
+                     "covering_degree":  0.5,
+                     "z_coeff":  0.72
+                 },
+                 {
+                     "covering_degree":  0.55,
+                     "z_coeff":  0.68
+                 },
+                 {
+                     "covering_degree":  0.6,
+                     "z_coeff":  0.63
+                 },
+                 {
+                     "covering_degree":  0.65,
+                     "z_coeff":  0.57
+                 },
+                 {
+                     "covering_degree":  0.7,
+                     "z_coeff":  0.5
+                 },
+                 {
+                     "covering_degree":  0.75,
+                     "z_coeff":  0.42
+                 },
+                 {
+                     "covering_degree":  0.8,
+                     "z_coeff":  0.36
+                 },
+                 {
+                     "covering_degree":  0.85,
+                     "z_coeff":  0.28
+                 },
+                 {
+                     "covering_degree":  0.9,
+                     "z_coeff":  0.21
+                 },
+                 {
+                     "covering_degree":  0.95,
+                     "z_coeff":  0.15
+                 },
+                 {
+                     "covering_degree":  1,
+                     "z_coeff":  0.1
+                 }
+             ],
+    "schema_version":  2
+}

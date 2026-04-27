@@ -1,0 +1,15 @@
+{
+    "formula_code": "4.1.13",
+    "section": "4.1.13",
+    "title_ru": "Helper: annual tank turnover",
+    "status": "active",
+    "confidence": "HIGH",
+    "source_pages": [
+        16
+    ],
+    "shared_tables_used": [],
+    "runtime_differs_from_source": false,
+    "notes": [
+        "Helper equation used to calculate annual tank turnover n before selecting Kob."
+    ]
+}

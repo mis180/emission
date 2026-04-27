@@ -1,0 +1,87 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_5_wastewater",
+    "formula_code": "6.5",
+    "cases": [
+        {
+            "case_id": "6_5_wastewater_golden_01",
+            "title": "6.5 baseline runtime scenario",
+            "status": "active",
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.5",
+                "page": 29,
+                "image_ref": null
+            },
+            "inputs": {
+                "F_area": 10,
+                "covering_degree": 0,
+                "temp_avg_unorg": 0,
+                "vessel_type_unorg": "oil_trap"
+            },
+            "expected_outputs": {
+                "G": {
+                    "value": 0.1133544,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "t_per_yr"
+                }
+            },
+            "expected_lookups": {
+                "q_sr": {
+                    "value": 1.294,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0
+                    },
+                    "unit_id": "g_per_m2_h"
+                },
+                "z_coeff": {
+                    "value": 1,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0
+                    },
+                    "unit_id": "dimensionless"
+                }
+            },
+            "expected_equations": [
+                {
+                    "lhs_token": "M",
+                    "equation_order": 1,
+                    "expected": {
+                        "value": 0.003594444444444445,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "g_per_s"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G",
+                    "equation_order": 2,
+                    "expected": {
+                        "value": 0.1133544,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                }
+            ]
+        }
+    ]
+}

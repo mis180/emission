@@ -1,0 +1,53 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "Kp_max",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_max"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Kp_avg",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_sr"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Kg_max",
+            "table_id": "Table_App_4",
+            "output_key": "kg",
+            "selectors": {
+                "substance": "substance_gas"
+            },
+            "axis_input": "t_liq_max",
+            "trace_label": "Table_App_4 -> kg"
+        },
+        {
+            "target_variable": "Kg_min",
+            "table_id": "Table_App_4",
+            "output_key": "kg",
+            "selectors": {
+                "substance": "substance_gas"
+            },
+            "axis_input": "t_liq_min",
+            "trace_label": "Table_App_4 -> kg"
+        }
+    ]
+}

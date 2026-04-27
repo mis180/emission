@@ -1,0 +1,56 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "fr_pct",
+            "table_id": "table_2a_lkm_volatile_fraction",
+            "output_key": "fr_pct",
+            "selectors": {
+                "material_key": "material_key"
+            },
+            "axis_input": null,
+            "trace_label": "Таблица 2: доля летучей части ЛКМ"
+        },
+        {
+            "target_variable": "delta_a_pct",
+            "table_id": "table_3_painting_method_loss_factors",
+            "output_key": "delta_a_pct",
+            "selectors": {
+                "paint_method": "paint_method"
+            },
+            "axis_input": null,
+            "trace_label": "Таблица 3: доля аэрозоля при окраске"
+        },
+        {
+            "target_variable": "delta_x_pct",
+            "table_id": "table_2b_lkm_component_fraction",
+            "output_key": "delta_x_pct",
+            "selectors": {
+                "material_key": "material_key",
+                "pollutant_key": "pollutant_key"
+            },
+            "axis_input": null,
+            "trace_label": "Таблица 2: содержание компонента в летучей части ЛКМ"
+        },
+        {
+            "target_variable": "delta_r_paint_pct",
+            "table_id": "table_3_painting_method_loss_factors",
+            "output_key": "delta_r_paint_pct",
+            "selectors": {
+                "paint_method": "paint_method"
+            },
+            "axis_input": null,
+            "trace_label": "Таблица 3: выделение растворителя при окраске"
+        },
+        {
+            "target_variable": "delta_r_dry_pct",
+            "table_id": "table_3_painting_method_loss_factors",
+            "output_key": "delta_r_dry_pct",
+            "selectors": {
+                "paint_method": "paint_method"
+            },
+            "axis_input": null,
+            "trace_label": "Таблица 3: выделение растворителя при сушке"
+        }
+    ]
+}

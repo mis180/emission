@@ -79,9 +79,9 @@
             </div>
 
             <div class="profile-selector">
-                <div class="profile-avatar active" title="Инженер-эколог" onclick="selectProfile('engineer')">👨‍🔧</div>
-                <div class="profile-avatar" title="Главный инженер" onclick="selectProfile('lead')">🤵</div>
-                <div class="profile-avatar" title="Менеджер" onclick="selectProfile('manager')">🏢</div>
+                <div class="profile-avatar active" title="Инженер-эколог" onclick="selectProfile('engineer', event)">👨‍🔧</div>
+                <div class="profile-avatar" title="Главный инженер" onclick="selectProfile('lead', event)">🤵</div>
+                <div class="profile-avatar" title="Менеджер" onclick="selectProfile('manager', event)">🏢</div>
             </div>
         </div>
     </div>
@@ -95,6 +95,7 @@
                     <span>EcoCalc</span>
                 </div>
                 <div style="display:flex; gap: 8px;">
+                    <div id="sync-status-indicator" style="cursor:help; font-size: 1.1rem; padding: 4px; display: flex; align-items: center;" title="Статус синхронизации">☁️</div>
                     <button class="btn-icon-only" onclick="exitToLanding()" title="К списку проектов" style="background:none; border:none; color:#64748b; cursor:pointer; padding:4px;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                     </button>
@@ -222,27 +223,19 @@
                         </div>
                         
                         <div>
-                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Тип объекта</label>
-                            <select id="fac-form-type" class="cart-input" style="width:100%; padding:10px;">
-                                <option value="fuel_station">АЗС (Автозаправочная станция)</option>
-                                <option value="fuel_depot">Нефтебаза / Склад ГСМ</option>
-                                <option value="industrial_site">Промышленная площадка</option>
-                                <option value="construction">Строительная площадка</option>
-                                <option value="boiler_house">Котельная</option>
-                                <option value="warehouse">Склад / Хранилище</option>
-                                <option value="workshop">Цех / Мастерская</option>
-                                <option value="transport_base">Транспортная база</option>
-                                <option value="mining_site">Горная площадка</option>
-                                <option value="other" selected>Другое</option>
-                            </select>
+                            <label style="display:block; margin-bottom:12px; font-weight:600; font-size:0.95rem; color:#1e293b;">Что вы рассчитываете?</label>
+                            <input type="hidden" id="fac-form-type" value="other">
+                            <div id="fac-form-type-grid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:12px;"></div>
                         </div>
                         
-                        <div>
-                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Период</label>
+                        <div style="margin-top:16px;">
+                            <label style="display:block; margin-bottom:6px; font-weight:500; font-size:0.85rem; color:#475569;">Для какого этапа выполняется расчёт?</label>
                             <select id="fac-form-phase" class="cart-input" style="width:100%; padding:10px;">
-                                <option value="operation" selected>Период эксплуатации</option>
-                                <option value="construction">Период строительства</option>
+                                <option value="operation" selected>Эксплуатация</option>
+                                <option value="construction">Строительство</option>
+                                <option value="both">Оба этапа</option>
                             </select>
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:6px;" id="fac-form-phase-desc">Повседневная работа: заправка, приём топлива, хранение</div>
                         </div>
                         
                         <div>
@@ -270,6 +263,8 @@
                             </div>
                         </div>
                     </div>
+                    
+
                     <div class="mt-4" style="display:flex; gap:12px; margin-top:32px;">
                         <button class="btn btn-primary" onclick="saveFacilityForm()">Сохранить объект</button>
                         <button class="btn btn-secondary" onclick="showProjectDashboard()">Отмена</button>
@@ -382,6 +377,7 @@
                         <li class="step" data-step="3"><div class="step-node">3</div><div class="step-label">Параметры</div></li>
                         <li class="step" data-step="4"><div class="step-node">4</div><div class="step-label">Состав</div></li>
                         <li class="step" data-step="5"><div class="step-node">5</div><div class="step-label">Проверка</div></li>
+                        <li class="step" data-step="template" style="display:none;"><div class="step-node"></div><div class="step-label">Оборудование</div></li>
                         <li class="step" data-step="6"><div class="step-node">6</div><div class="step-label">Итог</div></li>
                     </ul>
                     <div id="methodic-badge" style="text-align:center; margin-top:12px; font-size:0.75rem; color:#64748b; font-weight:600;"></div>
@@ -408,6 +404,20 @@
                             <div class="step-pane active" id="pane-1">
                                 <h3 style="margin-top:0;">Выберите методику</h3>
                                 <div class="scenario-grid" id="methodic-grid"></div>
+                            </div>
+                            
+                            <!-- Template Equipment Configuration (P3) -->
+                            <div class="step-pane" id="pane-template-equip">
+                                <h3 style="margin-top:0;">Оборудование объекта</h3>
+                                <p class="subtitle">Укажите наличие оборудования для автоматического подбора модулей.</p>
+                                <div id="template-equip-form" style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;"></div>
+                            </div>
+
+                            <!-- Template Module Generation Review (P4) -->
+                            <div class="step-pane" id="pane-template-modules">
+                                <h3 style="margin-top:0;">Сформированные модули</h3>
+                                <p class="subtitle">Список расчётных модулей, автоматически подобранных на основании состава оборудования.</p>
+                                <div id="template-modules-list" style="margin-top: 20px;"></div>
                             </div>
 
                             <!-- Step 2: Source Type + Calc Method -->
@@ -568,9 +578,10 @@
 
     <script src="data/constants.js"></script>
     <script src="engine/evaluator.js"></script>
-    <script src="engine/lookup.js"></script>
+    <script src="engine/lookup-engine.js"></script>
     <script src="engine/wizard.js"></script>
     <script src="engine/composition.js"></script>
+    <script src="engine/migrations/fuel_stations_2011.js"></script>
     <script src="engine/project-store.js"></script>
     <script src="engine/map-module.js"></script>
     <script src="engine/weather-module.js"></script>
@@ -584,6 +595,9 @@
     <script src="ui/project-ui.js"></script>
     <script src="ui/handbook-modal.js"></script>
     <script src="ui/validation-report-ui.js"></script>
+    <script src="ui/history-ui.js"></script>
+    <script src="ui/sync-ui.js"></script>
+    <script src="engine/seed-loader.js"></script>
     <script src="app.js"></script>
     <!-- Handbook Table Modal -->
     <div id="handbook-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9000; background:rgba(15, 23, 42, 0.75); backdrop-filter:blur(8px); align-items:center; justify-content:center;">

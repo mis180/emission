@@ -1,0 +1,14 @@
+{
+    "timestamp": "2026-04-26T17:36:02.238222",
+    "status": "success",
+    "vars_count": 20,
+    "eqs_count": 8,
+    "source_eqs_count": 9,
+    "tables_count": 5,
+    "bindings_count": 5,
+    "flow_methods_count": 3,
+    "warning_count": 1,
+    "warnings": [
+        "USING_CATALOG_TABLES: loaded 5 tables from catalog/tables"
+    ]
+}

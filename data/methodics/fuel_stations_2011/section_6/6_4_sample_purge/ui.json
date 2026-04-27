@@ -1,0 +1,40 @@
+{
+    "questions": [
+        {
+            "variable_id": "V_purge",
+            "required": true
+        },
+        {
+            "variable_id": "rho_purge",
+            "required": true
+        },
+        {
+            "variable_id": "n_purge",
+            "required": true
+        },
+        {
+            "variable_id": "k_purge",
+            "required": true
+        },
+        {
+            "variable_id": "c_purge_mass",
+            "required": true
+        },
+        {
+            "variable_id": "phi_purge_hours",
+            "required": true
+        },
+        {
+            "variable_id": "M_purge_kg_h",
+            "hidden": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        }
+    ]
+}

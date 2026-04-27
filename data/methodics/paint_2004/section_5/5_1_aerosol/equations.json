@@ -1,0 +1,75 @@
+{
+  "source_equations": [
+    {
+      "eq_id": "5.1.1",
+      "formula_name": "Валовый выброс нелетучей части аэрозоля краски",
+      "lhs_symbol": "M_an_okr",
+      "rhs_source": "m_f * delta_a * (100 - f_r) / 10^4 * (1 - eta)",
+      "latex": "M_{an,okr} = \\frac{m_f \\cdot \\delta_a \\cdot (100 - f_r)}{10^4} \\cdot (1 - \\eta)",
+      "output_unit_id": "t_per_yr",
+      "page": 8,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    },
+    {
+      "eq_id": "5.1.2",
+      "formula_name": "Максимальный разовый выброс нелетучей части аэрозоля краски",
+      "lhs_symbol": "M_an_okr",
+      "rhs_source": "m_m * delta_a * (100 - f_r) / (10^4 * 3.6) * (1 - eta)",
+      "latex": "M_{an,okr} = \\frac{m_m \\cdot \\delta_a \\cdot (100 - f_r)}{10^4 \\cdot 3.6} \\cdot (1 - \\eta)",
+      "output_unit_id": "g_per_s",
+      "page": 8,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    },
+    {
+      "eq_id": "5.5.1",
+      "formula_name": "Применение коэффициента оседания аэрозоля",
+      "lhs_symbol": "K_os",
+      "rhs_source": "Коэффициент оседания учитывается при расчете валового и максимального разового выброса аэрозоля краски.",
+      "latex": "K_{os}",
+      "output_unit_id": "dimensionless",
+      "page": 10,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    }
+  ],
+  "runtime_equations": [
+    {
+      "formula_code": "5.1",
+      "equation_order": 1,
+      "lhs_token": "M_aerosol_gross_tpy",
+      "rhs": "m_f_tpy * delta_a_pct * (100 - fr_pct) / 10000 * K_os * (1 - eta_cleaning / 100)",
+      "latex": "M_{aerosol,gross} = \\frac{m_f \\cdot \\delta_a \\cdot (100 - f_r)}{10^4} \\cdot K_{os} \\cdot (1 - \\eta/100)",
+      "formula_name": "Валовый выброс аэрозоля краски",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.1.1",
+        "5.5.1"
+      ],
+      "derived_runtime_only": true,
+      "adaptation_notes": [
+        "K_os is applied according to section 5.5; eta_cleaning is represented as a percent input."
+      ]
+    },
+    {
+      "formula_code": "5.1",
+      "equation_order": 2,
+      "lhs_token": "M_aerosol_max_gps",
+      "rhs": "m_m_kgph * delta_a_pct * (100 - fr_pct) / (10000 * 3.6) * K_os * (1 - eta_cleaning / 100)",
+      "latex": "M_{aerosol,max} = \\frac{m_m \\cdot \\delta_a \\cdot (100 - f_r)}{10^4 \\cdot 3.6} \\cdot K_{os} \\cdot (1 - \\eta/100)",
+      "formula_name": "Максимальный разовый выброс аэрозоля краски",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.1.2",
+        "5.5.1"
+      ],
+      "derived_runtime_only": true,
+      "adaptation_notes": [
+        "K_os is applied according to section 5.5; eta_cleaning is represented as a percent input."
+      ]
+    }
+  ]
+}

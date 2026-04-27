@@ -1,0 +1,339 @@
+{
+    "variables": [
+        {
+            "id": "NP",
+            "token": "NP",
+            "label": "Количество резервуаров данного типа",
+            "datatype": "numeric",
+            "default": 1,
+            "min": 1,
+            "latex": "N_p",
+            "source_token_aliases": [
+                "N_p"
+            ],
+            "notes": [
+                "Maps the source symbol N_p to the number of tanks in the storage-loss branch."
+            ],
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            },
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "Knp",
+            "token": "Knp",
+            "label": "Поправочный коэфф. нефтепродукта",
+            "datatype": "numeric",
+            "latex": "K_{np}",
+            "source_token_aliases": [
+                "K_np"
+            ],
+            "notes": [
+                "Maps the source symbol K_np to the product correction factor used in the storage-loss branch."
+            ],
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "C1",
+            "token": "C1",
+            "label": "Концентрация паров при наполнении резервуара, г/м³",
+            "latex": "C_1",
+            "datatype": "numeric",
+            "unit_id": "g_per_m3",
+            "min": 0,
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "Ghr",
+            "token": "Ghr",
+            "label": "Выброс при хранении на один резервуар, т/год",
+            "latex": "G_{ч}",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "source_token_aliases": [
+                "G_hr"
+            ],
+            "notes": [
+                "Maps the source symbol G_hr to the specific emission rate Ghr."
+            ],
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "Kp_avg",
+            "token": "Kp_avg",
+            "label": "Коэффициент конструкции (средний)",
+            "latex": "Kp_avg",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "Kp_max",
+            "token": "Kp_max",
+            "label": "Коэффициент конструкции (макс)",
+            "latex": "Kp_max",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            },
+            "unit_id": "g_per_s"
+        },
+        {
+            "id": "Vch_max",
+            "token": "Vch_max",
+            "label": "Максимальный часовой расход паровоздушной смеси, м3/ч",
+            "latex": "V_{частичн,макс}",
+            "datatype": "numeric",
+            "unit_id": "m3_per_h",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "Uvl",
+            "token": "Uvl",
+            "label": "Концентрация паров в испаряемом объёме (влажный сезон), г/м³",
+            "latex": "U_{вл}",
+            "datatype": "numeric",
+            "unit_id": "g_per_t",
+            "min": 0,
+            "source_token_aliases": [
+                "Y_vl"
+            ],
+            "notes": [
+                "Maps the source symbol Y_vl to Uvl."
+            ],
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "B_oz",
+            "token": "B_oz",
+            "label": "Масса продукта за осенне-зимний период, т/период",
+            "latex": "B_{оз}",
+            "datatype": "numeric",
+            "unit_id": "t_per_period",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "Uoz",
+            "token": "Uoz",
+            "label": "Концентрация паров в испаряемом объёме (озимый сезон), г/м³",
+            "latex": "U_{оз}",
+            "datatype": "numeric",
+            "unit_id": "g_per_t",
+            "min": 0,
+            "source_token_aliases": [
+                "Y_oz"
+            ],
+            "notes": [
+                "Maps the source symbol Y_oz to Uoz."
+            ],
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "B_vl",
+            "token": "B_vl",
+            "label": "Масса продукта за весенне-летний период, т/период",
+            "latex": "B_{вл}",
+            "datatype": "numeric",
+            "unit_id": "t_per_period",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "V_nom",
+            "token": "V_nom",
+            "label": "Номинальный объем резервуара, м³",
+            "datatype": "numeric",
+            "unit_id": "m3",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe"
+            }
+        },
+        {
+            "id": "substance",
+            "token": "substance",
+            "label": "Вид нефтепродукта",
+            "datatype": "string",
+            "default": "gasoline_auto",
+            "enum_id": "substance_petroleum_products",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "climate_zone",
+            "token": "climate_zone",
+            "label": "Климатическая зона",
+            "datatype": "string",
+            "default": "middle",
+            "enum_id": "climate_zone",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            },
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "productBoilGroup",
+            "token": "productBoilGroup",
+            "label": "Группа нефтепродукта по температуре кипения",
+            "datatype": "string",
+            "category": "selector",
+            "enum_id": "productBoilGroup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "tank_construction",
+            "token": "tank_construction",
+            "label": "Конструкция резервуара",
+            "latex": "tank\\\\_construction",
+            "datatype": "string",
+            "enum_id": "tank_construction",
+            "unit_id": "dimensionless",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "tank_mode_recv",
+            "token": "tank_mode_recv",
+            "label": "Режим работы резервуара",
+            "latex": "tank\\\\_mode",
+            "datatype": "string",
+            "enum_id": "tank_mode",
+            "unit_id": "dimensionless",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "ssv_type",
+            "token": "ssv_type",
+            "label": "Тип ССВ",
+            "latex": "ssv\\\\_type",
+            "datatype": "string",
+            "enum_id": "ssv_type",
+            "unit_id": "dimensionless",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "tank_type_storage",
+            "token": "tank_type_storage",
+            "label": "Тип и размещение резервуара (АЗС)",
+            "datatype": "string",
+            "default": "underground",
+            "enum_id": "tank_type_storage",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "kp_type_max",
+            "token": "kp_type_max",
+            "label": "Тип коэффициента Kp (макс)",
+            "datatype": "string",
+            "category": "constant",
+            "default": "max",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        },
+        {
+            "id": "kp_type_sr",
+            "token": "kp_type_sr",
+            "label": "Тип коэффициента Kp (средний)",
+            "datatype": "string",
+            "category": "constant",
+            "default": "sr",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "5.2"
+            }
+        }
+    ]
+}

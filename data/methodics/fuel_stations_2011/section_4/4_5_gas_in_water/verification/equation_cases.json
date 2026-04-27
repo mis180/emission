@@ -1,0 +1,52 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_5_gas_in_water",
+    "formula_code": "4.5",
+    "cases": [
+        {
+            "case_id": "4_5_gas_in_water_equation_01",
+            "title": "4.5 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "4.5.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.5",
+                "page": 19,
+                "image_ref": null
+            },
+            "inputs": {
+                "t_liq_max": 0,
+                "t_liq_min": 0,
+                "X_i": 1,
+                "substance_gas": "ammonia",
+                "Vch_max": 1,
+                "t_oper_days": 20,
+                "t_oper_hours": 20,
+                "productBoilGroup": "light",
+                "ssv_type": "none",
+                "tank_construction": "vert",
+                "tank_mode_recv": "mernik",
+                "V_nom": 0
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 4.114285714285715e-13,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_5_wastewater",
+    "formula_code": "6.5",
+    "cases": [
+        {
+            "case_id": "6_5_wastewater_equation_01",
+            "title": "6.5 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "6.5.2"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.5",
+                "page": 29,
+                "image_ref": null
+            },
+            "inputs": {
+                "F_area": 10,
+                "covering_degree": 0,
+                "temp_avg_unorg": 0,
+                "vessel_type_unorg": "oil_trap"
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.003594444444444445,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

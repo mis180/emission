@@ -1,0 +1,123 @@
+{
+    "variables": [
+        {
+            "id": "F_gas",
+            "token": "F_gas",
+            "label": "Площадь отверстия (сечение), м²",
+            "latex": "F_gas",
+            "datatype": "numeric",
+            "unit_id": "m2",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "H_gas",
+            "token": "H_gas",
+            "label": "Высота столба газа / Напор, м",
+            "latex": "H_gas",
+            "datatype": "numeric",
+            "unit_id": "m",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            }
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            },
+            "unit_id": "g_per_s"
+        },
+        {
+            "id": "N_gas",
+            "token": "N_gas",
+            "label": "Число заправок в год",
+            "latex": "N",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            }
+        },
+        {
+            "id": "mu_coeff",
+            "token": "mu_coeff",
+            "label": "Коэффициент расхода (мю)",
+            "latex": "\\mu",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            }
+        },
+        {
+            "id": "n_gas",
+            "token": "n_gas",
+            "label": "Количество единиц заправочного оборудования",
+            "latex": "n",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 1,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            }
+        },
+        {
+            "id": "rho_gas",
+            "token": "rho_gas",
+            "label": "Плотность газа, кг/м³",
+            "latex": "\\rho",
+            "datatype": "numeric",
+            "unit_id": "kg_per_m3",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            }
+        },
+        {
+            "id": "tau_gas",
+            "token": "tau_gas",
+            "label": "Продолжительность одной операции выпуска газа, с",
+            "latex": "\\tau",
+            "datatype": "numeric",
+            "unit_id": "s",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.2"
+            }
+        }
+    ]
+}

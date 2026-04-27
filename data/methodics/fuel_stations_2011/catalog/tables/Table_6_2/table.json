@@ -1,0 +1,105 @@
+{
+    "table_id":  "Table_6_2",
+    "title":  "Coefficient K_t for equipment and pumps",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Section 6.2",
+                   "table":  "6.2",
+                   "pages":  [
+                                 24,
+                                 25
+                             ],
+                   "image_ref":  "catalog/tables/Table_6_2/source.png"
+               },
+    "resolution":  "exact",
+    "selectors":  [
+                      {
+                          "name":  "equipment_type",
+                          "datatype":  "string",
+                          "enum_id":  "seal_equipment_type"
+                      },
+                      {
+                          "name":  "stream_type",
+                          "datatype":  "string",
+                          "enum_id":  "seal_stream_type"
+                      }
+                  ],
+    "outputs":  [
+                    {
+                        "name":  "seal_g_leak",
+                        "datatype":  "numeric",
+                        "unit_id":  "kg_per_h"
+                    },
+                    {
+                        "name":  "seal_x_fail",
+                        "datatype":  "numeric",
+                        "unit_id":  "dimensionless"
+                    }
+                ],
+    "missing_policy":  "error",
+    "rows":  [
+                 {
+                     "equipment_type":  "control_valve",
+                     "stream_type":  "gas_medium",
+                     "seal_g_leak":  0.020988,
+                     "seal_x_fail":  0.293
+                 },
+                 {
+                     "equipment_type":  "control_valve",
+                     "stream_type":  "light_hc_two_phase",
+                     "seal_g_leak":  0.012996,
+                     "seal_x_fail":  0.365
+                 },
+                 {
+                     "equipment_type":  "control_valve",
+                     "stream_type":  "heavy_hc",
+                     "seal_g_leak":  0.006588,
+                     "seal_x_fail":  0.07
+                 },
+                 {
+                     "equipment_type":  "control_valve",
+                     "stream_type":  "hydrogen",
+                     "seal_g_leak":  0.008784,
+                     "seal_x_fail":  0.3
+                 },
+                 {
+                     "equipment_type":  "safety_valve",
+                     "stream_type":  "vapor_gas_streams",
+                     "seal_g_leak":  0.136008,
+                     "seal_x_fail":  0.46
+                 },
+                 {
+                     "equipment_type":  "safety_valve",
+                     "stream_type":  "light_liquid_hc",
+                     "seal_g_leak":  0.08802,
+                     "seal_x_fail":  0.25
+                 },
+                 {
+                     "equipment_type":  "safety_valve",
+                     "stream_type":  "heavy_hc",
+                     "seal_g_leak":  0.111024,
+                     "seal_x_fail":  0.35
+                 },
+                 {
+                     "equipment_type":  "flange_joint",
+                     "stream_type":  "vapor_gas_streams",
+                     "seal_g_leak":  0.00072,
+                     "seal_x_fail":  0.03
+                 },
+                 {
+                     "equipment_type":  "flange_joint",
+                     "stream_type":  "light_liquid_hc",
+                     "seal_g_leak":  0.000396,
+                     "seal_x_fail":  0.05
+                 },
+                 {
+                     "equipment_type":  "flange_joint",
+                     "stream_type":  "heavy_hc",
+                     "seal_g_leak":  0.000288,
+                     "seal_x_fail":  0.02
+                 }
+             ],
+    "schema_version":  2
+}

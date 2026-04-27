@@ -1,0 +1,50 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "6.6.1",
+            "formula_name_ru": "Формула 6.6.1",
+            "lhs_symbol": "M",
+            "rhs_source": "n_surface_norm * F_area / 2592",
+            "page": 30,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.6.2",
+            "formula_name_ru": "Формула 6.6.2",
+            "lhs_symbol": "G",
+            "rhs_source": "6 * F_area * (n1_norm + n2_norm) * 0.001",
+            "page": 30,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "6.6",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "n_surface_norm * F_area / 2592",
+            "formula_name": "Шламонакопители и очистные сооружения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.6.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.6",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "6 * F_area * (n1_norm + n2_norm) * 0.001",
+            "formula_name": "Шламонакопители и очистные сооружения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.6.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

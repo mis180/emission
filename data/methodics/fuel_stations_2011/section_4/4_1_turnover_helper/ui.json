@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "variable_id": "B_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "rho_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "V_tank_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "NP_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "n_turnover_calc",
+            "hidden": true
+        }
+    ]
+}

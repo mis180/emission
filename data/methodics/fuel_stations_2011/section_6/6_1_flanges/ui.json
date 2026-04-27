@@ -1,0 +1,56 @@
+{
+    "questions": [
+        {
+            "variable_id": "Uvl",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "B_oz",
+            "required": true
+        },
+        {
+            "variable_id": "Uoz",
+            "hidden": true
+        },
+        {
+            "variable_id": "B_vl",
+            "required": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        },
+        {
+            "variable_id": "productBoilGroup",
+            "required": true
+        },
+        {
+            "variable_id": "substance",
+            "required": true
+        },
+        {
+            "variable_id": "tank_construction",
+            "required": true
+        },
+        {
+            "variable_id": "tank_mode_recv",
+            "required": true
+        },
+        {
+            "variable_id": "ssv_type",
+            "required": true
+        },
+        {
+            "variable_id": "climate_zone",
+            "required": true
+        },
+        {
+            "variable_id": "V_nom",
+            "required": true
+        }
+    ]
+}

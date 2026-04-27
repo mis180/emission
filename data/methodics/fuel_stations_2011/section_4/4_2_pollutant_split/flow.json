@@ -1,0 +1,9 @@
+{
+    "formula_code": "4.2_split",
+    "label": "4.2.4-4.2.5 - Pollutant split",
+    "variables": [
+        "M_total_split",
+        "G_total_split",
+        "C_i_pct"
+    ]
+}

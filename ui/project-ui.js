@@ -1,4 +1,5 @@
-// --- PROJECT UI MODULE ---\n// ========================================================================
+// --- PROJECT UI MODULE ---
+// ========================================================================
 // PROJECT & FACILITY WORKFLOW
 // ========================================================================
 
@@ -23,7 +24,7 @@ function initProjectWorkflow() {
             
             const res = Validation.validateField({ required: true, label: 'Название проекта', type: 'text' }, val);
             updateInlineValidation(nameInput, res);
-            updateReportReadiness();
+// updateReportReadiness();
         });
     }
 
@@ -33,7 +34,7 @@ function initProjectWorkflow() {
             ProjectStore.setProjectMeta({ company: val });
             const res = Validation.validateField({ required: true, label: 'Заказчик', type: 'text' }, val);
             updateInlineValidation(companyInput, res);
-            updateReportReadiness();
+// updateReportReadiness();
         });
     }
 
@@ -43,7 +44,7 @@ function initProjectWorkflow() {
             ProjectStore.setProjectMeta({ license: val });
             const res = Validation.validateField({ required: true, label: 'Лицензия', type: 'text' }, val);
             updateInlineValidation(licenseInput, res);
-            updateReportReadiness();
+// updateReportReadiness();
         });
     }
 
@@ -57,13 +58,6 @@ function initProjectWorkflow() {
     if (btnReportFinal) {
         btnReportFinal.onclick = showProjectValidation;
     }
-    
-    initUtilityPanels();
-}
-
-// Utility Panel Logic (Removed for Clean UI)
-function initUtilityPanels() {
-    // No-op - moved logic or deleted
 }
 
 // --- INTERACTIVE MINI-MAP --- //
@@ -342,24 +336,6 @@ function updateCheckItem(id, isDone) {
 }
 
 
-/**
- * BREADCRUMBS (Global UX)
- */
-function renderBreadcrumbs(path = []) {
-    const gb = document.getElementById('global-breadcrumb');
-    if (!gb) return;
-    
-    let html = `<li><a href="#" onclick="showProjectDashboard(); return false;">Проекты</a></li>`;
-    path.forEach((p, idx) => {
-        const isLast = idx === path.length - 1;
-        if (isLast) {
-            html += `<li class="active">${p.label}</li>`;
-        } else {
-            html += `<li><a href="#" onclick="${p.action}; return false;">${p.label}</a></li>`;
-        }
-    });
-    gb.innerHTML = html;
-}
 
 /**
  * FACILITY ACTIONS (Step 6)
@@ -410,6 +386,22 @@ function showFacilityDashboard(facilityId) {
     const totals = ProjectStore.getFacilityTotals(facilityId);
     const typeObj = FACILITY_TYPES.find(t => t.value === fac.type) || FACILITY_TYPES[FACILITY_TYPES.length - 1];
     
+    // P8: Dispersion Gating logic
+    const emissionsComplete = fac.sources && fac.sources.length > 0 && fac.sources.every(s => s.M != null && s.G != null && !s._is_template);
+    const hasAnySources = fac.sources && fac.sources.length > 0;
+    const hasSomeCalc = fac.sources && fac.sources.some(s => s.M != null && s.G != null);
+    
+    let gisBtnHtml = '';
+    if (!hasAnySources) {
+        gisBtnHtml = `<button class="btn btn-secondary" disabled title="Сначала добавьте источники выбросов" style="opacity:0.6; cursor:not-allowed;">🗺️ Карта</button>`;
+    } else if (!emissionsComplete && hasSomeCalc) {
+        gisBtnHtml = `<button class="btn btn-secondary" style="border-color:#eab308; color:#a16207;" onclick="if(confirm('⚠️ Выполнено не для всех источников — всё равно перейти?')) GeoMeteoWorkspace.openWithContext('facility', '${escapeHTML(fac.id)}')">🗺️ Карта (содержит пустые)</button>`;
+    } else if (emissionsComplete) {
+        gisBtnHtml = `<button class="btn btn-primary" style="background:#10b981; border-color:#059669;" onclick="GeoMeteoWorkspace.openWithContext('facility', '${escapeHTML(fac.id)}')">✅ Перейти к рассеиванию</button>`;
+    } else {
+        gisBtnHtml = `<button class="btn btn-secondary" disabled title="Сначала рассчитайте источники" style="opacity:0.6; cursor:not-allowed;">🗺️ Карта</button>`;
+    }
+    
     const container = document.getElementById('facility-dashboard');
     container.innerHTML = `
         <div class="facility-dashboard-header">
@@ -418,7 +410,7 @@ function showFacilityDashboard(facilityId) {
                 <div style="color:var(--text-muted); margin-top:4px;">${typeObj.label} • ${fac.phase === 'operation' ? 'Эксплуатация' : 'Строительство'}</div>
             </div>
             <div class="actions" style="display:flex; gap:12px;">
-                <button class="btn btn-secondary" onclick="GeoMeteoWorkspace.openWithContext('facility', '${escapeHTML(fac.id)}')">🗺️ Карта</button>
+                ${gisBtnHtml}
                 <button class="btn btn-secondary" onclick="editFacility('${escapeHTML(fac.id)}')">Редактировать</button>
                 <button class="btn btn-secondary" onclick="duplicateFacility('${escapeHTML(fac.id)}')" title="Дублировать">⎘</button>
                 <button class="btn btn-secondary" onclick="deleteFacility('${escapeHTML(fac.id)}')" style="color:#ef4444; border-color:#fef2f2; background:#fef2f2;">✖</button>
@@ -443,14 +435,24 @@ function showFacilityDashboard(facilityId) {
         
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
             <h3 style="margin:0;">Источники выбросов (${totals.sourceCount})</h3>
-            <button class="btn btn-primary" onclick="startNewSource('${fac.id}')">+ Обновить / Расчёт</button>
+            ${fac.workflowVersion === 'template' ? 
+                `<button class="btn btn-primary" onclick="if(typeof startEquipmentWizard==='function') startEquipmentWizard('${fac.id}')">⚙️ Настроить оборудование</button>` :
+                `<button class="btn btn-primary" onclick="startNewSource('${fac.id}')">+ Обновить / Расчёт</button>`
+            }
         </div>
         
         <div id="fac-sources-table-container"></div>
+        
+        <!-- P7: Pollutant totals card appended here -->
+        <div id="fac-pollutant-totals-container" style="margin-top:24px;"></div>
     `;
     
     renderFacilitySourcesTable(fac);
+    renderFacilityPollutantTotals(fac);
 }
+
+// P6: Source filter state
+let _sourceFilters = { scenario: 'all', status: 'all', search: '' };
 
 function renderFacilitySourcesTable(fac) {
     const container = document.getElementById('fac-sources-table-container');
@@ -469,28 +471,171 @@ function renderFacilitySourcesTable(fac) {
         `;
         return;
     }
-    
-    let html = `<table class="facility-sources-table">
+
+    // Collect unique values for filter dropdowns
+    const scenarios = new Set();
+    const statuses = new Set();
+    fac.sources.forEach(src => {
+        scenarios.add(src.category === 'construction' ? 'construction' : 'operation');
+        if (src._is_not_implemented) statuses.add('not_implemented');
+        else if (src.M != null && src.G != null && !src._is_template) statuses.add('ready');
+        else if (src._is_template) statuses.add('template');
+        else statuses.add('pending');
+    });
+
+    const statusLabels = {
+        'all': 'Все',
+        'ready': '✅ Завершено',
+        'pending': '⏳ Ожидает',
+        'template': '⚠️ Шаблон',
+        'not_implemented': '🚧 В разработке'
+    };
+    const scenarioLabels = {
+        'all': 'Все',
+        'operation': 'Эксплуатация',
+        'construction': 'Строительство'
+    };
+
+    // P6: Filter controls bar
+    let html = `
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:12px; padding:12px 16px; background:#f8fafc; border-radius:10px; border:1px solid #e2e8f0;">
+            <div style="display:flex; align-items:center; gap:6px;">
+                <label style="font-size:0.75rem; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.03em;">Сценарий:</label>
+                <select id="src-filter-scenario" class="cart-input" style="padding:5px 10px; font-size:0.8rem; min-width:140px; border-radius:6px;" onchange="window._applySourceFilter('${fac.id}')">
+                    <option value="all" ${_sourceFilters.scenario === 'all' ? 'selected' : ''}>Все</option>
+                    ${[...scenarios].map(s => `<option value="${s}" ${_sourceFilters.scenario === s ? 'selected' : ''}>${scenarioLabels[s] || s}</option>`).join('')}
+                </select>
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+                <label style="font-size:0.75rem; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.03em;">Статус:</label>
+                <select id="src-filter-status" class="cart-input" style="padding:5px 10px; font-size:0.8rem; min-width:140px; border-radius:6px;" onchange="window._applySourceFilter('${fac.id}')">
+                    <option value="all" ${_sourceFilters.status === 'all' ? 'selected' : ''}>Все</option>
+                    ${[...statuses].map(s => `<option value="${s}" ${_sourceFilters.status === s ? 'selected' : ''}>${statusLabels[s] || s}</option>`).join('')}
+                </select>
+            </div>
+            <div style="flex:1; min-width:150px;">
+                <input type="text" id="src-filter-search" class="cart-input" placeholder="🔍 Поиск по названию..." value="${escapeHTML(_sourceFilters.search)}" style="width:100%; padding:5px 10px; font-size:0.8rem; border-radius:6px;" oninput="window._applySourceFilter('${fac.id}')">
+            </div>
+            <button class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem; border-radius:6px;" onclick="window._resetSourceFilters('${fac.id}')">Сбросить</button>
+        </div>
+    `;
+
+    // Apply filters
+    const filtered = fac.sources.filter(src => {
+        const srcScenario = src.category === 'construction' ? 'construction' : 'operation';
+        if (_sourceFilters.scenario !== 'all' && srcScenario !== _sourceFilters.scenario) return false;
+
+        if (_sourceFilters.status !== 'all') {
+            const isReady = src.M != null && src.G != null && !src._is_template;
+            const isNotImpl = src._is_not_implemented;
+            const isTemplate = src._is_template && !isNotImpl;
+            const isPending = !isReady && !isNotImpl && !isTemplate;
+            if (_sourceFilters.status === 'ready' && !isReady) return false;
+            if (_sourceFilters.status === 'not_implemented' && !isNotImpl) return false;
+            if (_sourceFilters.status === 'template' && !isTemplate) return false;
+            if (_sourceFilters.status === 'pending' && !isPending) return false;
+        }
+
+        if (_sourceFilters.search) {
+            const q = _sourceFilters.search.toLowerCase();
+            const name = (src.name || '').toLowerCase();
+            const num = (src.source_number || '').toLowerCase();
+            if (!name.includes(q) && !num.includes(q)) return false;
+        }
+
+        return true;
+    });
+
+    const filteredCount = filtered.length;
+    const totalCount = fac.sources.length;
+    const isFiltered = _sourceFilters.scenario !== 'all' || _sourceFilters.status !== 'all' || _sourceFilters.search !== '';
+
+    if (isFiltered) {
+        html += `<div style="font-size:0.75rem; color:#64748b; margin-bottom:8px; padding-left:4px;">Показано: ${filteredCount} из ${totalCount} источников</div>`;
+    }
+
+    // P6: Updated Table columns
+    html += `<div style="overflow-x:auto;">
+        <table class="facility-sources-table">
         <thead>
-            <tr><th>#</th><th>Название источника</th><th>Методика</th><th>Форм.</th><th>M (г/с)</th><th>G (т/год)</th><th style="width:100px;">Действия</th></tr>
+            <tr><th>№</th><th>Наименование</th><th>Сценарий</th><th>Модуль</th><th>ЗВ</th><th>M (г/с)</th><th>G (т/год)</th><th>Статус</th><th style="width:100px;">Действия</th></tr>
         </thead>
         <tbody>
     `;
     
-    fac.sources.forEach((src, idx) => {
+    if (filtered.length === 0) {
+        html += `<tr><td colspan="9" style="text-align:center; padding:24px; color:#94a3b8; font-style:italic;">Нет источников, соответствующих фильтрам</td></tr>`;
+    }
+    
+    filtered.forEach((src, idx) => {
         const num = src.source_number || `000${idx+1}`;
+        const isReady = src.M != null && src.G != null && !src._is_template;
+        const isNotImpl = src._is_not_implemented;
+        
+        let displayMethodic = src.methodic_name || '—';
+        if (displayMethodic === '—' && src.methodic_id && window.getMethodicRegistry) {
+            const m = window.getMethodicRegistry().find(reg => reg.id === src.methodic_id);
+            if (m) displayMethodic = m.name;
+        }
+
+        let statusHtml = '';
+        if (isNotImpl) {
+            statusHtml = `<span style="background:#fee2e2; color:#991b1b; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:700;">🚧 НЕТ В РЕЕСТРЕ</span>`;
+        } else if (isReady) {
+            statusHtml = `<span style="background:#dcfce7; color:#166534; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:700;">✅ ГОТОВО</span>`;
+        } else if (src._is_template) {
+            statusHtml = `<span style="background:#fef3c7; color:#92400e; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:700;">⚠️ ШАБЛОН</span>`;
+        } else {
+            statusHtml = `<span style="background:#e0f2fe; color:#075985; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:700;">⏳ ОЖИДАЕТ</span>`;
+        }
+
+        const hasError = src.inputs && src.inputs._error;
+        if (hasError) {
+            statusHtml = `<span title="${escapeHTML(src.inputs._error)}" style="background:#fee2e2; color:#b91c1c; padding:2px 6px; border-radius:4px; font-size:0.7rem; font-weight:700; cursor:help;">❌ ОШИБКА</span>`;
+        }
+        
+        const zvCount = src.composition ? src.composition.length : 0;
+        const scenario = src.category === 'construction' ? 'Строительство' : 'Эксплуатация';
+
+        let subtext = '';
+        let moduleCellContent = `
+            <div style="font-size:0.8rem; color:#334155; font-weight:500;">${escapeHTML(displayMethodic)}</div>
+            <div style="color:#94a3b8; font-size:0.7rem; margin-top:2px;">Формула: ${src.formula_code || '—'}</div>
+        `;
+
+        if (isNotImpl) {
+            subtext = `<div style="font-size:0.7rem; color:#64748b; margin-top:4px;">Методика в разработке</div>`;
+            moduleCellContent = `<div style="font-size:0.8rem; color:#94a3b8; font-style:italic;">Расчёт не реализован</div>`;
+        } else if (hasError) {
+            subtext = `<div style="font-size:0.7rem; color:#ef4444; margin-top:4px; font-weight:600;">⚠️ Ошибка в структуре</div>`;
+        } else if (src._is_template) {
+            subtext = `<div style="font-size:0.7rem; color:#b45309; margin-top:4px;">Требуется заполнение</div>`;
+        }
+
         html += `
-            <tr>
+            <tr style="${src._is_template || isNotImpl ? 'background:#fafaf9;' : ''}">
                 <td style="color:var(--text-muted); font-size:0.8rem; font-weight:600;">${escapeHTML(num)}</td>
-                <td style="font-weight:500;">${escapeHTML(src.name || 'Безымянный источник')}</td>
-                <td style="font-size:0.8rem; color:#64748b;">${escapeHTML(src.methodic_name)}</td>
-                <td style="font-size:0.8rem;">${src.formula_code || '—'}</td>
-                <td style="color:#047857; font-weight:600;">${(src.M || 0).toFixed(6)}</td>
-                <td style="color:#047857; font-weight:600;">${(src.G || 0).toFixed(6)}</td>
+                <td style="font-weight:500;">
+                    ${escapeHTML(src.name || 'Источник')}
+                    ${subtext}
+                </td>
+                <td style="font-size:0.8rem; color:#64748b;">${scenario}</td>
+                <td>${moduleCellContent}</td>
+                <td style="font-size:0.85rem; color:#475569; text-align:center;">${zvCount}</td>
+                <td style="color:${isReady ? '#047857' : '#94a3b8'}; font-weight:600;">${isReady ? (src.M || 0).toFixed(6) : '—'}</td>
+                <td style="color:${isReady ? '#047857' : '#94a3b8'}; font-weight:600;">${isReady ? (src.G || 0).toFixed(6) : '—'}</td>
+                <td style="text-align:center;">${statusHtml}</td>
                 <td>
                     <div class="row-actions">
-                        <button class="btn-icon" onclick="editSource('${escapeHTML(fac.id)}', '${escapeHTML(src.id)}')" title="Редактировать">✏️</button>
-                        <button class="btn-icon" onclick="duplicateSourceInFacility('${escapeHTML(fac.id)}', '${escapeHTML(src.id)}')" title="Копировать">⎘</button>
+                        ${(src._is_template && !isNotImpl) ? 
+                            `<button class="btn btn-primary" style="padding:4px 10px; font-size:0.75rem; border-radius:6px; font-weight:600;" onclick="startCalculationFromModule('${escapeHTML(fac.id)}', ProjectStore.getFacility('${escapeHTML(fac.id)}').sources.find(s => s.id === '${escapeHTML(src.id)}'))">Заполнить</button>` :
+                            `<button class="btn-icon" 
+                                    onclick="editSource('${escapeHTML(fac.id)}', '${escapeHTML(src.id)}')" 
+                                    title="${isNotImpl ? 'Методика в разработке' : 'Редактировать параметры расчёта'}" 
+                                    ${isNotImpl ? 'disabled style="opacity:0.4; cursor:not-allowed;"' : ''}>✏️</button>`
+                        }
+                        <button class="btn-icon" onclick="duplicateSourceInFacility('${escapeHTML(fac.id)}', '${escapeHTML(src.id)}')" title="Копировать источник">⎘</button>
+                        <button class="btn-icon" onclick="HistoryUI.renderSourceHistory('${escapeHTML(fac.id)}', '${escapeHTML(src.id)}')" title="История расчётов">📜</button>
                         <button class="btn-icon danger" onclick="deleteSourceFromFacility('${escapeHTML(fac.id)}', '${escapeHTML(src.id)}')" title="Удалить">✖</button>
                     </div>
                 </td>
@@ -498,7 +643,93 @@ function renderFacilitySourcesTable(fac) {
         `;
     });
     
-    html += `</tbody></table>`;
+    html += `</tbody></table></div>`;
+
+    const emissionsComplete = fac.sources.length > 0 && fac.sources.every(s => s.M != null && s.G != null && !s._is_template);
+    const hasSomeCalc = fac.sources.some(s => s.M != null && s.G != null);
+    const calcDone = fac.sources.filter(s => s.M != null && s.G != null && !s._is_template).length;
+    const calcTotal = fac.sources.length;
+
+    html += `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding:16px 20px; background:white; border-radius:10px; border:1px solid #e2e8f0; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+            <div style="font-size:0.85rem; color:#64748b;">
+                Завершено: <strong style="color:${emissionsComplete ? '#059669' : '#d97706'};">${calcDone} / ${calcTotal}</strong> источников
+            </div>
+            <div>
+    `;
+    if (!fac.sources.length) {
+        html += `<button class="btn btn-secondary" disabled style="opacity:0.5; cursor:not-allowed;">🗺️ Перейти к рассеиванию</button>`;
+    } else if (emissionsComplete) {
+        html += `<button class="btn btn-primary" style="background:#10b981; border-color:#059669; padding:8px 20px;" onclick="GeoMeteoWorkspace.openWithContext('facility', '${escapeHTML(fac.id)}')">✅ Перейти к рассеиванию</button>`;
+    } else if (hasSomeCalc) {
+        html += `<button class="btn btn-secondary" style="border-color:#eab308; color:#a16207; padding:8px 20px;" onclick="if(confirm('⚠️ Выполнено ${calcDone} из ${calcTotal} источников — всё равно перейти?')) GeoMeteoWorkspace.openWithContext('facility', '${escapeHTML(fac.id)}')">🗺️ Перейти к рассеиванию (${calcDone}/${calcTotal})</button>`;
+    } else {
+        html += `<button class="btn btn-secondary" disabled style="opacity:0.5; cursor:not-allowed;" title="Сначала рассчитайте источники">🗺️ Перейти к рассеиванию</button>`;
+    }
+    html += `</div></div>`;
+
+    container.innerHTML = html;
+}
+
+// P6: Filter helpers
+window._applySourceFilter = function(facId) {
+    _sourceFilters.scenario = document.getElementById('src-filter-scenario')?.value || 'all';
+    _sourceFilters.status = document.getElementById('src-filter-status')?.value || 'all';
+    _sourceFilters.search = document.getElementById('src-filter-search')?.value || '';
+    const fac = ProjectStore.getFacility(facId);
+    if (fac) renderFacilitySourcesTable(fac);
+};
+
+window._resetSourceFilters = function(facId) {
+    _sourceFilters = { scenario: 'all', status: 'all', search: '' };
+    const fac = ProjectStore.getFacility(facId);
+    if (fac) renderFacilitySourcesTable(fac);
+};
+
+function renderFacilityPollutantTotals(fac) {
+    const container = document.getElementById('fac-pollutant-totals-container');
+    if (!container) return;
+    
+    const totals = ProjectStore.getFacilityTotals(fac.id);
+    
+    if (!totals.byPollutant || totals.byPollutant.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
+    
+    let html = `
+        <div class="results-card" style="margin-top: 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h4 style="margin:0;">Сводка по загрязняющим веществам</h4>
+                <div style="font-size:0.8rem; color:#64748b;">ЗВ: ${totals.byPollutant.length} шт.</div>
+            </div>
+            <table class="results-table" style="font-size:0.85rem;">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;">Название вещества</th>
+                        <th style="width:120px;">M (г/с)</th>
+                        <th style="width:120px;">G (т/год)</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+    
+    totals.byPollutant.forEach(p => {
+        html += `
+            <tr>
+                <td style="font-weight:500;">${escapeHTML(p.name)}</td>
+                <td style="color:#047857; font-weight:600;">${p.M.toFixed(6)}</td>
+                <td style="color:#0f766e; font-weight:600;">${p.G.toFixed(6)}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                </tbody>
+            </table>
+        </div>
+    `;
+    
     container.innerHTML = html;
 }
 
@@ -585,6 +816,9 @@ function showFacilityForm() {
     document.getElementById('fac-form-address').value = '';
     document.getElementById('fac-form-desc').value = '';
     
+    if (typeof renderFacilityTypeGrid === 'function') renderFacilityTypeGrid();
+    if (typeof updatePhaseDesc === 'function') updatePhaseDesc();
+
     // Default coordinates from Project if available
     const pState = ProjectStore.getState();
     document.getElementById('fac-form-lat').value = pState.lat ? pState.lat.toFixed(6) : '';
@@ -602,6 +836,9 @@ function editFacility(facId) {
     document.getElementById('fac-form-address').value = fac.address || '';
     document.getElementById('fac-form-desc').value = fac.description || '';
     
+    if (typeof renderFacilityTypeGrid === 'function') renderFacilityTypeGrid();
+    if (typeof updatePhaseDesc === 'function') updatePhaseDesc();
+
     // Load Coordinates
     document.getElementById('fac-form-lat').value = fac.lat || '';
     document.getElementById('fac-form-lng').value = fac.lng || '';
@@ -720,4 +957,46 @@ window.duplicateSourceInFacility = function(facId, sourceId) {
     }
 };
 
+window.renderFacilityTypeGrid = function() {
+    const grid = document.getElementById('fac-form-type-grid');
+    const hiddenInput = document.getElementById('fac-form-type');
+    if (!grid) return;
+    
+    let html = '';
+    FACILITY_TYPES.forEach(t => {
+        const isSelected = hiddenInput.value === t.value;
+        
+        html += `
+            <div class="facility-type-card ${isSelected ? 'active' : ''}" 
+                 onclick="selectFacilityType('${t.value}')"
+                 style="position:relative; border:2px solid ${isSelected ? '#4f46e5' : '#e2e8f0'}; background:${isSelected ? '#eff6ff' : 'white'}; border-radius:12px; padding:16px; cursor:pointer; text-align:center; transition:all 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+                <div style="font-size:2rem; margin-bottom:8px;">${t.icon}</div>
+                <div style="font-size:0.85rem; font-weight:600; color:#1e293b; line-height:1.2;">${t.label}</div>
+            </div>
+        `;
+    });
+    grid.innerHTML = html;
+    
+};
 
+window.selectFacilityType = function(val) {
+    document.getElementById('fac-form-type').value = val;
+    renderFacilityTypeGrid();
+};
+
+window.updatePhaseDesc = function() {
+    const val = document.getElementById('fac-form-phase').value;
+    const desc = document.getElementById('fac-form-phase-desc');
+    if (!desc) return;
+    if (val === 'operation') desc.textContent = "Повседневная работа: заправка, приём топлива, хранение";
+    if (val === 'construction') desc.textContent = "Монтажные работы: земляные работы, сварка, покрытие";
+    if (val === 'both') desc.textContent = "Расчёт для строительства и эксплуатации в одном проекте";
+};
+
+// Listen to phase changes
+document.addEventListener('DOMContentLoaded', () => {
+    const phaseSelect = document.getElementById('fac-form-phase');
+    if (phaseSelect) {
+        phaseSelect.addEventListener('change', window.updatePhaseDesc);
+    }
+});

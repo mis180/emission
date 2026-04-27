@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "package_id": "paint_2004",
+  "method_id": "5_3_volatile_max",
+  "formula_code": "5.3",
+  "cases": [
+    {
+      "case_id": "paint_5_3_total_equation_01",
+      "title": "5.3 total max volatile equation",
+      "status": "active",
+      "source_equation_ids": [
+        "5.3.7"
+      ],
+      "evidence": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5.3",
+        "page": 9,
+        "image_ref": null
+      },
+      "inputs": {
+        "material_key": "эмали_пф_115",
+        "paint_method": "Пневматический",
+        "pollutant_key": "0616",
+        "m_m_kgph": 20,
+        "eta_cleaning": 0
+      },
+      "target": {
+        "lhs_token": "M_comp_total_gps",
+        "equation_order": 3
+      },
+      "expected": {
+        "value": 1.25,
+        "unit_id": "g_per_s"
+      }
+    }
+  ]
+}

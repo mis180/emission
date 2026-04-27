@@ -1,0 +1,53 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_3_pure_substance",
+    "formula_code": "4.3",
+    "cases": [
+        {
+            "case_id": "4_3_pure_substance_equation_01",
+            "title": "4.3 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "4.3.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.3",
+                "page": 18,
+                "image_ref": null
+            },
+            "inputs": {
+                "t_liq_max": -30,
+                "t_liq_min": -30,
+                "substance_pure": "butane",
+                "B_year": 1,
+                "productBoilGroup": "light",
+                "n_turnover": 100,
+                "tank_construction": "vert",
+                "tank_mode_recv": "mernik",
+                "ssv_type": "none",
+                "Vch_max": 1,
+                "m_pure": 1,
+                "rho_liq": 1,
+                "V_nom": 0
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 1.7130192592592592,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

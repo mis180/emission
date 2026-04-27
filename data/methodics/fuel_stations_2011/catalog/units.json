@@ -1,0 +1,184 @@
+{
+    "units": [
+        {
+            "id": "g_per_m3",
+            "symbol": "г/м³",
+            "symbol_en": "g/m³",
+            "dimension": "concentration"
+        },
+        {
+            "id": "m3",
+            "symbol": "м³",
+            "symbol_en": "m³",
+            "dimension": "volume"
+        },
+        {
+            "id": "m3_per_h",
+            "symbol": "м³/ч",
+            "symbol_en": "m³/h",
+            "dimension": "throughput"
+        },
+        {
+            "id": "t_per_yr",
+            "symbol": "т/год",
+            "symbol_en": "t/yr",
+            "dimension": "mass_rate"
+        },
+        {
+            "id": "g_per_s",
+            "symbol": "г/с",
+            "symbol_en": "g/s",
+            "dimension": "mass_rate"
+        },
+        {
+            "id": "kg_per_h",
+            "symbol": "кг/ч",
+            "symbol_en": "kg/h",
+            "dimension": "mass_rate"
+        },
+        {
+            "id": "s",
+            "symbol": "с",
+            "symbol_en": "s",
+            "dimension": "time"
+        },
+        {
+            "id": "h",
+            "symbol": "h",
+            "symbol_en": "h",
+            "dimension": "time"
+        },
+        {
+            "id": "g_per_h",
+            "symbol": "г/ч",
+            "symbol_en": "g/h",
+            "dimension": "mass_rate"
+        },
+        {
+            "id": "h_per_yr",
+            "symbol": "ч/год",
+            "symbol_en": "h/yr",
+            "dimension": "time"
+        },
+        {
+            "id": "pct",
+            "symbol": "%",
+            "symbol_en": "%",
+            "dimension": "ratio"
+        },
+        {
+            "id": "mmhg",
+            "symbol": "мм рт. ст.",
+            "symbol_en": "mmHg",
+            "dimension": "pressure"
+        },
+        {
+            "id": "celsius",
+            "symbol": "°C",
+            "symbol_en": "°C",
+            "dimension": "temperature"
+        },
+        {
+            "id": "m2",
+            "symbol": "м²",
+            "symbol_en": "m²",
+            "dimension": "area"
+        },
+        {
+            "id": "g_per_s_m2",
+            "symbol": "г/(с·м²)",
+            "symbol_en": "g/(s·m²)",
+            "dimension": "flux"
+        },
+        {
+            "id": "m3_per_period",
+            "symbol": "м³/период",
+            "symbol_en": "m³/period",
+            "dimension": "volume"
+        },
+        {
+            "id": "dimensionless",
+            "symbol": "—",
+            "symbol_en": "—",
+            "dimension": "dimensionless"
+        },
+        {
+            "id": "m3_per_yr",
+            "symbol": "m3/yr",
+            "symbol_en": "m3/yr",
+            "dimension": "throughput"
+        },
+        {
+            "id": "kg_per_m3",
+            "symbol": "kg/m3",
+            "symbol_en": "kg/m3",
+            "dimension": "density"
+        },
+        {
+            "id": "g_per_mol",
+            "symbol": "g/mol",
+            "symbol_en": "g/mol",
+            "dimension": "molar_mass"
+        },
+        {
+            "id": "mm2",
+            "symbol": "mm2",
+            "symbol_en": "mm2",
+            "dimension": "area"
+        },
+        {
+            "id": "mpa",
+            "symbol": "MPa",
+            "symbol_en": "MPa",
+            "dimension": "pressure"
+        },
+        {
+            "id": "kelvin",
+            "symbol": "K",
+            "symbol_en": "K",
+            "dimension": "temperature"
+        },
+        {
+            "id": "m",
+            "symbol": "m",
+            "symbol_en": "m",
+            "dimension": "length"
+        },
+        {
+            "id": "g_per_t",
+            "symbol": "g/t",
+            "symbol_en": "g/t",
+            "dimension": "specific_emission"
+        },
+        {
+            "id": "pa",
+            "symbol": "Pa",
+            "symbol_en": "Pa",
+            "dimension": "pressure"
+        },
+        {
+            "id": "t_per_m3",
+            "symbol": "t/m3",
+            "symbol_en": "t/m3",
+            "dimension": "density"
+        },
+        {
+            "id": "t_per_period",
+            "symbol": "t/period",
+            "symbol_en": "t/period",
+            "dimension": "mass"
+        },
+        {
+            "id": "g_per_m2_h",
+            "symbol": "g/(m2*h)",
+            "symbol_en": "g/(m2*h)",
+            "dimension": "flux"
+        },
+        {
+            "id": "kg_per_m2_month",
+            "symbol": "kg/(m2*month)",
+            "symbol_en": "kg/(m2*month)",
+            "dimension": "specific_emission"
+        }
+    ]
+}

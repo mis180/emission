@@ -1,0 +1,90 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "Knp",
+            "table_id": "Table_12",
+            "output_key": "Knp",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Knp"
+        },
+        {
+            "target_variable": "Kp_max",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_max"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Kp_avg",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_sr"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "C1",
+            "table_id": "Table_12",
+            "output_key": "C1",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> C1"
+        },
+        {
+            "target_variable": "Uoz",
+            "table_id": "Table_12",
+            "output_key": "Uoz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Uoz"
+        },
+        {
+            "target_variable": "Uvl",
+            "table_id": "Table_12",
+            "output_key": "Uvl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Uvl"
+        },
+        {
+            "target_variable": "Ghr",
+            "table_id": "Table_Appendix_13",
+            "output_key": "GXP",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type_storage",
+                "tank_volume_cat": "V_nom"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Appendix_13 -> GXP"
+        }
+    ]
+}

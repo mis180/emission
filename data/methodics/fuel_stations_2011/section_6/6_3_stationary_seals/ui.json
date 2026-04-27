@@ -1,0 +1,44 @@
+{
+    "questions": [
+        {
+            "variable_id": "seal_equipment_type",
+            "required": true
+        },
+        {
+            "variable_id": "seal_stream_type",
+            "required": true
+        },
+        {
+            "variable_id": "seal_count",
+            "required": true
+        },
+        {
+            "variable_id": "seal_c_ij_mass",
+            "required": true
+        },
+        {
+            "variable_id": "seal_hours",
+            "required": true
+        },
+        {
+            "variable_id": "seal_g_leak",
+            "hidden": true
+        },
+        {
+            "variable_id": "seal_x_fail",
+            "hidden": true
+        },
+        {
+            "variable_id": "M_seal_kg_h",
+            "hidden": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        }
+    ]
+}

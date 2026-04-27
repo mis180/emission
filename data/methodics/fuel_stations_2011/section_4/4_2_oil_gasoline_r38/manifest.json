@@ -1,0 +1,21 @@
+{
+    "formula_code":  "4.2",
+    "section":  "4_2_oil_gasoline_r38",
+    "title_ru":  "Выбросы паров нефти и бензинов",
+    "status":  "active",
+    "confidence":  "HIGH",
+    "source_pages":  [
+                         17
+                     ],
+    "shared_tables_used":  [
+                               "Table_App_10",
+                               "Table_App_5",
+                               "Table_App_7",
+                               "Table_App_8",
+                               "Table_App_9"
+                           ],
+    "runtime_differs_from_source":  true,
+    "notes":  [
+
+              ]
+}

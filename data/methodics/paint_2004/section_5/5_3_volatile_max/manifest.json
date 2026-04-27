@@ -1,0 +1,19 @@
+{
+  "formula_code": "5.3",
+  "section": "5_3_volatile_max",
+  "title_ru": "Максимальный разовый выброс летучих компонентов ЛКМ",
+  "status": "active",
+  "confidence": "HIGH",
+  "source_pages": [
+    9
+  ],
+  "shared_tables_used": [
+    "table_2a_lkm_volatile_fraction",
+    "table_2b_lkm_component_fraction",
+    "table_3_painting_method_loss_factors"
+  ],
+  "runtime_differs_from_source": true,
+  "notes": [
+    "Runtime equations use percent-form inputs and include the user-supplied cleaning efficiency as eta_cleaning / 100."
+  ]
+}

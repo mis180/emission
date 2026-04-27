@@ -1,0 +1,76 @@
+{
+    "table_id":  "Table_15_vehicle",
+    "title":  "Vapor concentration when filling vehicle tank",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 15",
+                   "image_ref":  "catalog/tables/Table_15_vehicle/source.png"
+               },
+    "resolution":  "exact",
+    "selectors":  [
+                      {
+                          "name":  "substance",
+                          "datatype":  "string",
+                          "enum_id":  "substance"
+                      },
+                      {
+                          "name":  "climate_zone",
+                          "datatype":  "string",
+                          "enum_id":  "climate_zone"
+                      }
+                  ],
+    "outputs":  [
+                    {
+                        "name":  "C_ba_oz",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_m3"
+                    },
+                    {
+                        "name":  "C_ba_vl",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_m3"
+                    }
+                ],
+    "missing_policy":  "error",
+    "rows":  [
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "C_ba_oz":  420.0,
+                     "C_ba_vl":  515.0
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "middle",
+                     "C_ba_oz":  1.6,
+                     "C_ba_vl":  2.2
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "middle",
+                     "C_ba_oz":  0.2,
+                     "C_ba_vl":  0.2
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "C_ba_oz":  520.0,
+                     "C_ba_vl":  623.1
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "south",
+                     "C_ba_oz":  1.98,
+                     "C_ba_vl":  2.66
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "south",
+                     "C_ba_oz":  0.25,
+                     "C_ba_vl":  0.24
+                 }
+             ],
+    "schema_version":  2
+}

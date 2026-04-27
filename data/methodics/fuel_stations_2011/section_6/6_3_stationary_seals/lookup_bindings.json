@@ -1,0 +1,27 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "seal_g_leak",
+            "table_id": "Table_6_2",
+            "output_key": "seal_g_leak",
+            "selectors": {
+                "equipment_type": "seal_equipment_type",
+                "stream_type": "seal_stream_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_2 -> seal_g_leak"
+        },
+        {
+            "target_variable": "seal_x_fail",
+            "table_id": "Table_6_2",
+            "output_key": "seal_x_fail",
+            "selectors": {
+                "equipment_type": "seal_equipment_type",
+                "stream_type": "seal_stream_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_2 -> seal_x_fail"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "formula_code": "6.2",
+    "variables": [
+        "equipType",
+        "productBoilGroup",
+        "equipCount",
+        "equipHours",
+        "Q_spec"
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "4_5_gas_in_water",
+    "formula_code":  "4.5",
+    "cases":  [
+                  {
+                      "case_id":  "4_5_gas_in_water_lookup_01",
+                      "title":  "4.5 lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "Kp_max",
+                      "table_id":  "Table_App_8",
+                      "output_key":  "kp",
+                      "resolution":  "range",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Appendix 8",
+                                       "page":  null,
+                                       "image_ref":  "assets/tables/Table_App_8.png"
+                                   },
+                      "selectors":  {
+                                        "product_group":  "light",
+                                        "tank_construction":  "vert",
+                                        "tank_mode":  "mernik",
+                                        "ssv_type":  "none",
+                                        "kp_type":  "max"
+                                    },
+                      "expected":  {
+                                       "value":  0.9,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "dimensionless"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    },
+                      "axis_input":  0
+                  }
+              ]
+}

@@ -1,0 +1,43 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_2_pollutant_split",
+    "formula_code": "4.2_split",
+    "cases": [
+        {
+            "case_id": "4_2_pollutant_split_equation_01",
+            "title": "4.2.4 equation M_i",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.4"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.2",
+                "page": 17,
+                "image_ref": null
+            },
+            "inputs": {
+                "M_total_split": 20,
+                "G_total_split": 8,
+                "C_i_pct": 25
+            },
+            "target": {
+                "lhs_token": "M_pollutant",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 5,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

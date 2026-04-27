@@ -1,0 +1,697 @@
+{
+    "enums": [
+        {
+            "id": "substance",
+            "values": [
+                {
+                    "value": "gasoline_auto",
+                    "label": "Бензин автомобильный",
+                    "aliases": [
+                        "gasoline",
+                        "бензин"
+                    ]
+                },
+                {
+                    "value": "diesel",
+                    "label": "Дизельное топливо",
+                    "aliases": [
+                        "дизель",
+                        "дт"
+                    ]
+                },
+                {
+                    "value": "oils",
+                    "label": "Масла",
+                    "aliases": [
+                        "oil"
+                    ]
+                },
+                {
+                    "value": "butane",
+                    "label": "Бутан"
+                },
+                {
+                    "value": "pentane",
+                    "label": "Пентан"
+                },
+                {
+                    "value": "hexane",
+                    "label": "Гексан"
+                },
+                {
+                    "value": "heptane",
+                    "label": "Гептан"
+                },
+                {
+                    "value": "isooctane",
+                    "label": "Изооктан"
+                },
+                {
+                    "value": "cetane",
+                    "label": "Цетан"
+                },
+                {
+                    "value": "ethylene",
+                    "label": "Этилен"
+                },
+                {
+                    "value": "propylene",
+                    "label": "Пропилен"
+                },
+                {
+                    "value": "butylene",
+                    "label": "Бутилен"
+                },
+                {
+                    "value": "amylene",
+                    "label": "Амилен"
+                },
+                {
+                    "value": "benzene",
+                    "label": "Бензол"
+                },
+                {
+                    "value": "toluene",
+                    "label": "Толуол"
+                },
+                {
+                    "value": "o_xylene",
+                    "label": "о-Ксилол"
+                },
+                {
+                    "value": "m_xylene",
+                    "label": "м-Ксилол"
+                },
+                {
+                    "value": "p_xylene",
+                    "label": "п-Ксилол"
+                },
+                {
+                    "value": "ethylbenzene",
+                    "label": "Этилбензол"
+                },
+                {
+                    "value": "isopropylbenzene",
+                    "label": "Изопропилбензол"
+                },
+                {
+                    "value": "methyl_alcohol",
+                    "label": "Метиловый спирт"
+                },
+                {
+                    "value": "ethyl_alcohol",
+                    "label": "Этиловый спирт"
+                },
+                {
+                    "value": "isobutyl_alcohol",
+                    "label": "Изобутиловый спирт"
+                },
+                {
+                    "value": "acetic_acid",
+                    "label": "Уксусная кислота"
+                },
+                {
+                    "value": "acetone",
+                    "label": "Ацетон"
+                },
+                {
+                    "value": "methyl_ethyl_ketone",
+                    "label": "Метилэтилкетон"
+                },
+                {
+                    "value": "furfural",
+                    "label": "Фурфурол"
+                },
+                {
+                    "value": "phenol",
+                    "label": "Фенол"
+                },
+                {
+                    "value": "ethylene_glycol",
+                    "label": "Этиленгликоль"
+                },
+                {
+                    "value": "diethylene_glycol",
+                    "label": "Диэтиленгликоль"
+                },
+                {
+                    "value": "ammonia",
+                    "label": "Аммиак"
+                },
+                {
+                    "value": "sulfur_dioxide",
+                    "label": "Диоксид серы"
+                },
+                {
+                    "value": "hydrogen_sulfide",
+                    "label": "Сероводород"
+                },
+                {
+                    "value": "formaldehyde",
+                    "label": "Формальдегид"
+                },
+                {
+                    "value": "chlorine",
+                    "label": "Хлор"
+                },
+                {
+                    "value": "hydrogen_chloride",
+                    "label": "Хлористый водород"
+                }
+            ]
+        },
+        {
+            "id": "substance_petroleum_products",
+            "values": [
+                {
+                    "value": "gasoline_auto",
+                    "label": "Бензин автомобильный",
+                    "aliases": [
+                        "gasoline",
+                        "бензин"
+                    ]
+                },
+                {
+                    "value": "diesel",
+                    "label": "Дизельное топливо",
+                    "aliases": [
+                        "дизель",
+                        "дт"
+                    ]
+                },
+                {
+                    "value": "oils",
+                    "label": "Масла",
+                    "aliases": [
+                        "oil"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "climate_zone",
+            "values": [
+                {
+                    "value": "middle",
+                    "label": "Средняя климатическая зона",
+                    "aliases": [
+                        "mid",
+                        "middle_zone",
+                        "средняя"
+                    ]
+                },
+                {
+                    "value": "south",
+                    "label": "Южная климатическая зона",
+                    "aliases": [
+                        "южная"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "tank_type",
+            "values": [
+                {
+                    "value": "underground",
+                    "label": "Заглубленный (подземный)",
+                    "aliases": [
+                        "podzemny",
+                        "subsurface",
+                        "подземный"
+                    ]
+                },
+                {
+                    "value": "aboveground",
+                    "label": "Наземный",
+                    "aliases": [
+                        "наземный"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "tank_type_storage",
+            "values": [
+                {
+                    "value": "underground",
+                    "label": "Заглубленный (подземный)"
+                },
+                {
+                    "value": "horizontal",
+                    "label": "Наземный горизонтальный"
+                },
+                {
+                    "value": "vertical_none",
+                    "label": "Наземный вертикальный (без ССВ)",
+                    "aliases": [
+                        "vert_none"
+                    ]
+                },
+                {
+                    "value": "vertical_pontoon",
+                    "label": "Наземный вертикальный (с понтоном)",
+                    "aliases": [
+                        "vert_pontoon"
+                    ]
+                },
+                {
+                    "value": "vertical_floating_roof",
+                    "label": "Наземный вертикальный (плав. крыша)",
+                    "aliases": [
+                        "vert_roof"
+                    ]
+                },
+                {
+                    "value": "vertical_gor",
+                    "label": "Наземный вертикальный (с ГОР)",
+                    "aliases": [
+                        "vert_gor"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "tank_volume_cat",
+            "values": [
+                {
+                    "value": "100",
+                    "label": "до 100 м3"
+                },
+                {
+                    "value": "200",
+                    "label": "200 м3"
+                },
+                {
+                    "value": "300",
+                    "label": "300 м3"
+                },
+                {
+                    "value": "400",
+                    "label": "400 м3"
+                },
+                {
+                    "value": "700",
+                    "label": "700 м3"
+                },
+                {
+                    "value": "1000",
+                    "label": "1000 м3"
+                },
+                {
+                    "value": "2000",
+                    "label": "2000 м3"
+                },
+                {
+                    "value": "3000",
+                    "label": "3000 м3"
+                },
+                {
+                    "value": "5000",
+                    "label": "5000 м3"
+                },
+                {
+                    "value": "10000",
+                    "label": "10000 м3"
+                },
+                {
+                    "value": "15000",
+                    "label": "15000 м3 и более"
+                }
+            ]
+        },
+        {
+            "id": "product_group",
+            "values": [
+                {
+                    "value": "gasoline",
+                    "label": "Бензины"
+                },
+                {
+                    "value": "oil_products",
+                    "label": "Нефти и темные нефтепродукты"
+                }
+            ]
+        },
+        {
+            "id": "tank_construction",
+            "values": [
+                {
+                    "value": "vert",
+                    "label": "Вертикальный наземный"
+                },
+                {
+                    "value": "horiz",
+                    "label": "Горизонтальный наземный"
+                },
+                {
+                    "value": "underground",
+                    "label": "Подземный"
+                }
+            ]
+        },
+        {
+            "id": "tank_mode",
+            "values": [
+                {
+                    "value": "mernik",
+                    "label": "Мерник (прием/раздача)"
+                },
+                {
+                    "value": "buffer",
+                    "label": "Буферный (хранение)"
+                }
+            ]
+        },
+        {
+            "id": "ssv_type",
+            "values": [
+                {
+                    "value": "none",
+                    "label": "Без ССВ"
+                },
+                {
+                    "value": "pontoon",
+                    "label": "С понтоном"
+                },
+                {
+                    "value": "roof",
+                    "label": "Плавающая крыша"
+                }
+            ]
+        },
+        {
+            "id": "productBoilGroup",
+            "values": [
+                {
+                    "value": "light",
+                    "label": "Легкокипящие (бензины, лигроины)",
+                    "aliases": [
+                        "gasoline"
+                    ]
+                },
+                {
+                    "value": "middle",
+                    "label": "Среднекипящие (керосины, дизтопливо)",
+                    "aliases": [
+                        "diesel"
+                    ]
+                },
+                {
+                    "value": "heavy",
+                    "label": "Тяжелокипящие (масла, мазуты)",
+                    "aliases": [
+                        "oil"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "equipType",
+            "values": [
+                {
+                    "value": "hx_shell_tube_tube",
+                    "label": "Теплообменник кожухотрубный (трубное пространство)"
+                },
+                {
+                    "value": "hx_shell_tube_shell",
+                    "label": "Теплообменник кожухотрубный (межтрубное пространство)"
+                },
+                {
+                    "value": "hx_cooler",
+                    "label": "Холодильник"
+                },
+                {
+                    "value": "hx_reboiler",
+                    "label": "Кипятильник"
+                },
+                {
+                    "value": "immersion_cooler",
+                    "label": "Погружной конденсатор-холодильник"
+                },
+                {
+                    "value": "air_cooler",
+                    "label": "Аппарат воздушного охлаждения"
+                },
+                {
+                    "value": "pump_single_mech",
+                    "label": "Насос одинарный торцевой"
+                },
+                {
+                    "value": "pump_single_packed",
+                    "label": "Насос одинарный сальниковый"
+                },
+                {
+                    "value": "pump_double_mech",
+                    "label": "Насос двойной торцевой"
+                },
+                {
+                    "value": "pump_double_packed",
+                    "label": "Насос двойной сальниковый"
+                },
+                {
+                    "value": "pump_double_sealless",
+                    "label": "Насос бессальниковый (герметичный)"
+                },
+                {
+                    "value": "compressor_centrifugal",
+                    "label": "Компрессор центробежный"
+                },
+                {
+                    "value": "compressor_reciprocating",
+                    "label": "Компрессор поршневой"
+                }
+            ]
+        },
+        {
+            "id": "vessel_type_unorg",
+            "values": [
+                {
+                    "value": "oil_trap",
+                    "label": "Нефтеловушка",
+                    "aliases": [
+                        "trap"
+                    ]
+                },
+                {
+                    "value": "open_tank",
+                    "label": "Открытый резервуар"
+                },
+                {
+                    "value": "aeration_tank",
+                    "label": "Аэротенк"
+                },
+                {
+                    "value": "settling_tank",
+                    "label": "Отстойник",
+                    "aliases": [
+                        "pond"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "season_mazut",
+            "values": [
+                {
+                    "value": "spring_summer",
+                    "label": "Весенне-летний период",
+                    "aliases": [
+                        "summer"
+                    ]
+                },
+                {
+                    "value": "autumn_winter",
+                    "label": "Осенне-зимний период",
+                    "aliases": [
+                        "winter"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "substance_pure",
+            "values": [
+                {
+                    "value": "butane",
+                    "label": "Бутан"
+                },
+                {
+                    "value": "pentane",
+                    "label": "Пентан"
+                },
+                {
+                    "value": "hexane",
+                    "label": "Гексан"
+                },
+                {
+                    "value": "heptane",
+                    "label": "Гептан"
+                },
+                {
+                    "value": "isooctane",
+                    "label": "Изооктан"
+                },
+                {
+                    "value": "benzene",
+                    "label": "Бензол"
+                },
+                {
+                    "value": "toluene",
+                    "label": "Толуол"
+                },
+                {
+                    "value": "acetone",
+                    "label": "Ацетон"
+                },
+                {
+                    "value": "methyl_alcohol",
+                    "label": "Метиловый спирт"
+                },
+                {
+                    "value": "ethyl_alcohol",
+                    "label": "Этиловый спирт"
+                }
+            ]
+        },
+        {
+            "id": "substance_pure_app16",
+            "values": [
+                {
+                    "value": "butane",
+                    "label": "Butane"
+                },
+                {
+                    "value": "pentane",
+                    "label": "Pentane"
+                },
+                {
+                    "value": "hexane",
+                    "label": "Hexane"
+                },
+                {
+                    "value": "heptane",
+                    "label": "Heptane"
+                },
+                {
+                    "value": "n_octane",
+                    "label": "n-Octane"
+                },
+                {
+                    "value": "n_nonane",
+                    "label": "n-Nonane"
+                },
+                {
+                    "value": "n_decane",
+                    "label": "n-Decane"
+                },
+                {
+                    "value": "butene_2",
+                    "label": "2-Butene"
+                },
+                {
+                    "value": "pentene_2",
+                    "label": "2-Pentene"
+                }
+            ]
+        },
+        {
+            "id": "substance_gas",
+            "values": [
+                {
+                    "value": "ammonia",
+                    "label": "Аммиак"
+                },
+                {
+                    "value": "hydrogen_sulfide",
+                    "label": "Сероводород"
+                },
+                {
+                    "value": "sulfur_dioxide",
+                    "label": "Диоксид серы"
+                },
+                {
+                    "value": "chlorine",
+                    "label": "Хлор"
+                },
+                {
+                    "value": "hydrogen_chloride",
+                    "label": "Хлористый водород"
+                }
+            ]
+        },
+        {
+            "id": "product_type_annex5",
+            "values": [
+                {
+                    "value": "gasoline",
+                    "label": "Gasoline fraction",
+                    "aliases": [
+                        "light",
+                        "gasoline_auto",
+                        "A"
+                    ]
+                },
+                {
+                    "value": "crude_oil",
+                    "label": "Crude oil / heavy fractions",
+                    "aliases": [
+                        "middle",
+                        "heavy",
+                        "oil_products",
+                        "diesel",
+                        "oils",
+                        "B",
+                        "V"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "seal_equipment_type",
+            "values": [
+                {
+                    "value": "control_valve",
+                    "label": "Control / shutoff-regulating valves"
+                },
+                {
+                    "value": "safety_valve",
+                    "label": "Safety valves"
+                },
+                {
+                    "value": "flange_joint",
+                    "label": "Flanged connections"
+                }
+            ]
+        },
+        {
+            "id": "seal_stream_type",
+            "values": [
+                {
+                    "value": "gas_medium",
+                    "label": "Gas medium"
+                },
+                {
+                    "value": "light_hc_two_phase",
+                    "label": "Light hydrocarbons / two-phase media"
+                },
+                {
+                    "value": "heavy_hc",
+                    "label": "Heavy hydrocarbons"
+                },
+                {
+                    "value": "hydrogen",
+                    "label": "Hydrogen"
+                },
+                {
+                    "value": "vapor_gas_streams",
+                    "label": "Vapor-gas streams"
+                },
+                {
+                    "value": "light_liquid_hc",
+                    "label": "Light liquid hydrocarbons"
+                }
+            ]
+        }
+    ]
+}

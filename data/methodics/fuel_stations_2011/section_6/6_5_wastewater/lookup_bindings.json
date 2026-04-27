@@ -1,0 +1,23 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "q_sr",
+            "table_id": "Table_6_3",
+            "output_key": "q_sr",
+            "selectors": {
+                "vessel_type": "vessel_type_unorg"
+            },
+            "axis_input": "temp_avg_unorg",
+            "trace_label": "Table_6_3 -> q_sr"
+        },
+        {
+            "target_variable": "z_coeff",
+            "table_id": "Table_6_4",
+            "output_key": "z_coeff",
+            "selectors": {},
+            "axis_input": "covering_degree",
+            "trace_label": "Table_6_4 -> z_coeff"
+        }
+    ]
+}

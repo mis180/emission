@@ -1,0 +1,42 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "6.1.1",
+            "formula_name_ru": "Формула 6.1 (Валовый выброс)",
+            "lhs_symbol": "G",
+            "rhs_source": "(Y_oz * B_oz + Y_vl * B_vl) * Kp_avg * 0.000001",
+            "page": 22,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "6.1",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0",
+            "formula_name": "Неплотности и соединения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "Runtime adaptation: M is set to 0 as the source only defines annual emissions for this category."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.1",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "(Uoz * B_oz + Uvl * B_vl) * Kp_avg * 0.000001",
+            "formula_name": "Неплотности и соединения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.1.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

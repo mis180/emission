@@ -1,0 +1,164 @@
+{
+    "id": "fuel_stations_2011",
+    "name": "АЗС и АГЗС",
+    "name_en": "Fuel and Gas Filling Stations",
+    "version": "Приказ МООС РК 2011 № 196-Ө",
+    "country": "KZ",
+    "category": "fuel_stations",
+    "regulatory_basis": "Методические указания расчета выбросов от предприятий, осуществляющих хранение и реализацию нефтепродуктов (нефтебазы, АЗС) и других жидкостей и газов",
+    "source_document": "Методические указания расчета выбросов от предприятий, осуществляющих хранение и реализацию нефтепродуктов (нефтебазы, АЗС) и других жидкостей и газов",
+    "source_pdf": "reference/2011_fuel_stations.pdf",
+    "source_types": [
+        {
+            "value": "tank_industrial",
+            "label": "Резервуары предприятий и промплощадок (Раздел 4)",
+            "formula_codes": [
+                "4.2",
+                "4.3",
+                "4.4",
+                "4.5",
+                "4.6"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "tank_depot",
+            "label": "Резервуары на нефтебазах (Раздел 5.2)",
+            "formula_codes": [
+                "5.2"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "unorg_flanges",
+            "label": "Неорганизованные выбросы: фланцы и арматура (Раздел 6.1)",
+            "formula_codes": [
+                "6.1"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "unorg_equipment",
+            "label": "Неорганизованные выбросы: оборудование (Раздел 6.2)",
+            "formula_codes": [
+                "6.2"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "unorg_wastewater",
+            "label": "Открытые поверхности очистных сооружений (Раздел 6.5)",
+            "formula_codes": [
+                "6.5"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "unorg_sludge",
+            "label": "Шламонакопители и открытые поверхности (Раздел 6.6)",
+            "formula_codes": [
+                "6.6"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "azs_tank_receiving",
+            "label": "АЗС: слив нефтепродукта в резервуары",
+            "formula_codes": [
+                "7.1_receive"
+            ],
+            "visibility_status": "ready_public",
+            "exclusive_with_formula_codes": [
+                "7.1_combined"
+            ]
+        },
+        {
+            "value": "azs_vehicle_refueling",
+            "label": "АЗС Комплекс: заправка",
+            "formula_codes": [
+                "7.1_refuel"
+            ],
+            "visibility_status": "ready_public",
+            "exclusive_with_formula_codes": [
+                "7.1_combined"
+            ]
+        },
+        {
+            "value": "azs_tank_storage",
+            "label": "АЗС: хранение в резервуарах (малые дыхания)",
+            "formula_codes": [
+                "7.1_storage"
+            ],
+            "visibility_status": "ready_public",
+            "exclusive_with_formula_codes": [
+                "7.1_combined"
+            ]
+        },
+        {
+            "value": "azs_combined",
+            "label": "АЗС: слив, хранение и заправка жидкого топлива",
+            "formula_codes": [
+                "7.1_combined"
+            ],
+            "visibility_status": "ready_public",
+            "exclusive_with_formula_codes": [
+                "7.1_receive",
+                "7.1_refuel",
+                "7.1_storage"
+            ],
+            "double_count_guard": "7.1_combined includes receive, storage, and refueling losses; do not add 7.1_receive, 7.1_refuel, or 7.1_storage separately for the same facility."
+        },
+        {
+            "value": "azgs_gas",
+            "label": "АГЗС/АГНКС: выбросы газа (Раздел 7.2)",
+            "formula_codes": [
+                "7.2"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "tank_turnover_helper",
+            "label": "Helper: tank annual turnover n (4.1.13)",
+            "formula_codes": [
+                "4.1.13"
+            ],
+            "visibility_status": "hidden_internal"
+        },
+        {
+            "value": "tank_pollutant_split",
+            "label": "Post-processing: pollutant split (4.2.4-4.2.5)",
+            "formula_codes": [
+                "4.2_split"
+            ],
+            "visibility_status": "hidden_internal"
+        },
+        {
+            "value": "unorg_stationary_seals",
+            "label": "Неорганизованные выбросы: стационарные уплотнения и фланцы (Раздел 6.3)",
+            "formula_codes": [
+                "6.3"
+            ],
+            "visibility_status": "beta_limited"
+        },
+        {
+            "value": "unorg_sample_purge",
+            "label": "Неорганизованные выбросы: технологические продувки проб (Раздел 6.4.1)",
+            "formula_codes": [
+                "6.4.1"
+            ],
+            "visibility_status": "beta_limited"
+        }
+    ],
+    "lookup_storage_mode": "shared_catalog_tables_v2",
+    "verification_storage_mode": "method_local_verification_v1",
+    "authoring_status": "verified_with_branch_limits",
+    "verification_status": "pass",
+    "visibility_status": "ready_public",
+    "ready_formula_codes": [
+        "7.1_receive",
+        "7.1_refuel",
+        "7.1_storage",
+        "7.1_combined"
+    ],
+    "confidence_note": "Обычный интерфейс показывает только ветки АЗС для жидкого топлива: слив, заправка, хранение и комбинированный расчёт. Остальные ветки остаются в режиме бета/внутренних до повторной семантической проверки PDF."
+}

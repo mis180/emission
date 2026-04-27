@@ -1,0 +1,37 @@
+{
+  "questions": [
+    {
+      "variable_id": "material_key",
+      "required": true
+    },
+    {
+      "variable_id": "paint_method",
+      "required": true
+    },
+    {
+      "variable_id": "m_f_tpy",
+      "required": true
+    },
+    {
+      "variable_id": "m_m_kgph",
+      "required": true
+    },
+    {
+      "variable_id": "K_os",
+      "required": true,
+      "help_text": "Выберите значение по таблице 1 с учетом длины газовоздушного тракта."
+    },
+    {
+      "variable_id": "eta_cleaning",
+      "required": true
+    },
+    {
+      "variable_id": "fr_pct",
+      "hidden": true
+    },
+    {
+      "variable_id": "delta_a_pct",
+      "hidden": true
+    }
+  ]
+}

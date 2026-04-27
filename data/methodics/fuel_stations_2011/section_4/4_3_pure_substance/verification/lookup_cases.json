@@ -1,0 +1,85 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "4_3_pure_substance",
+    "formula_code":  "4.3",
+    "cases":  [
+                  {
+                      "case_id":  "4_3_pure_substance_lookup_01",
+                      "title":  "4.3 lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "Kp_max",
+                      "table_id":  "Table_App_8",
+                      "output_key":  "kp",
+                      "resolution":  "range",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Appendix 8",
+                                       "page":  null,
+                                       "image_ref":  "assets/tables/Table_App_8.png"
+                                   },
+                      "selectors":  {
+                                        "product_group":  "light",
+                                        "tank_construction":  "vert",
+                                        "tank_mode":  "mernik",
+                                        "ssv_type":  "none",
+                                        "kp_type":  "max"
+                                    },
+                      "expected":  {
+                                       "value":  0.9,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "dimensionless"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    },
+                      "axis_input":  0
+                  },
+                  {
+                      "case_id":  "4_3_pure_substance_lookup_02_app16_positive",
+                      "title":  "4.3 Appendix 16 lookup covers n-octane",
+                      "status":  "active",
+                      "binding_target":  "Pt_max",
+                      "table_id":  "Table_App_16",
+                      "output_key":  "pa",
+                      "resolution":  "interpolate",
+                      "selectors":  {
+                                        "substance":  "n_octane"
+                                    },
+                      "axis_input":  25,
+                      "expected":  {
+                                       "value":  1859.0,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "pa"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    }
+                  },
+                  {
+                      "case_id":  "4_3_pure_substance_lookup_03_unsupported_selector",
+                      "title":  "4.3 Appendix 16 blocks unsupported pure substance",
+                      "status":  "active",
+                      "binding_target":  "Pt_max",
+                      "table_id":  "Table_App_16",
+                      "output_key":  "pa",
+                      "resolution":  "interpolate",
+                      "selectors":  {
+                                        "substance":  "benzene"
+                                    },
+                      "axis_input":  25,
+                      "expect_error":  true,
+                      "expected_error":  {
+                                             "contains":  "No rows remain after selector filtering"
+                                         }
+                  }
+              ]
+}

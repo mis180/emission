@@ -1,0 +1,60 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "6.2.1",
+            "formula_name_ru": "Формула 6.2.1",
+            "lhs_symbol": "M",
+            "rhs_source": "Q_spec * equipCount / 3.6",
+            "page": 23,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.2.2",
+            "formula_name_ru": "Формула 6.2.2",
+            "lhs_symbol": "G",
+            "rhs_source": "Q_spec * equipCount * equipHours * 0.001",
+            "page": 23,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "6.2",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "Q_spec * equipCount / 3.6",
+            "latex": "M = \\frac{Q \\cdot n}{3.6}",
+            "formula_name": "Выбросы от теплообменных аппаратов и средств перекачки",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 6.2.1",
+                "Runtime adaptation: multiplies the per-unit source symbol Q by equipCount to aggregate identical units."
+            ],
+            "source_equation_ids": [
+                "6.2.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.2",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "Q_spec * equipCount * equipHours * 0.001",
+            "latex": "G = Q \\cdot n \\cdot T \\cdot 10^{-3}",
+            "formula_name": "Годовой выброс от теплообменных аппаратов и средств перекачки",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 6.2.2",
+                "Runtime adaptation: multiplies the per-unit source symbol Q by equipCount to aggregate identical units."
+            ],
+            "source_equation_ids": [
+                "6.2.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

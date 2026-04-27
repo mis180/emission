@@ -1,0 +1,24 @@
+{
+    "formula_code": "4.5",
+    "variables": [
+        "Kg_max",
+        "Kg_min",
+        "X_i",
+        "Kp_max",
+        "Kp_avg",
+        "Vch_max",
+        "t_oper_days",
+        "t_oper_hours",
+        "t_liq_max",
+        "t_liq_min",
+        "productBoilGroup",
+        "tank_construction",
+        "tank_mode_recv",
+        "ssv_type",
+        "substance_gas",
+        "M",
+        "G",
+        "V_nom"
+    ],
+    "label": "Формула 4.5 - Водные растворы газов"
+}

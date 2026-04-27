@@ -1,0 +1,35 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "n_surface_norm",
+            "table_id": "Table_6_5",
+            "output_key": "n_surface_norm",
+            "selectors": {
+                "season": "season_mazut"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_5 -> n_surface_norm"
+        },
+        {
+            "target_variable": "n1_norm",
+            "table_id": "Table_6_5",
+            "output_key": "n1_norm",
+            "selectors": {
+                "season": "season_mazut"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_5 -> n1_norm"
+        },
+        {
+            "target_variable": "n2_norm",
+            "table_id": "Table_6_5",
+            "output_key": "n2_norm",
+            "selectors": {
+                "season": "season_mazut"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_5 -> n2_norm"
+        }
+    ]
+}

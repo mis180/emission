@@ -1,0 +1,18 @@
+{
+    "formula_code":  "6.5",
+    "section":  "6_5_wastewater",
+    "title_ru":  "Выбросы от объектов очистных сооружений",
+    "status":  "active",
+    "confidence":  "HIGH",
+    "source_pages":  [
+                         29
+                     ],
+    "shared_tables_used":  [
+                               "Table_6_3",
+                               "Table_6_4"
+                           ],
+    "runtime_differs_from_source":  true,
+    "notes":  [
+
+              ]
+}

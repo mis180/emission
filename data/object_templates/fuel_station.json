@@ -1,0 +1,267 @@
+{
+    "facility_type":  "fuel_station",
+    "version":  1,
+    "subtypes":  [
+                     {
+                         "value":  "liquid_only",
+                         "label":  "Только жидкое топливо",
+                         "description":  "АИ-92, АИ-95, дизель"
+                     },
+                     {
+                         "value":  "lpg_only",
+                         "label":  "Только СУГ",
+                         "description":  "Автогазовая заправочная"
+                     },
+                     {
+                         "value":  "combined",
+                         "label":  "АЗС-АГЗС",
+                         "description":  "Жидкое топливо + СУГ"
+                     }
+                 ],
+    "phase_descriptions":  {
+                               "operation":  "Повседневная работа: заправка, приём топлива, хранение",
+                               "construction":  "Монтажные работы: земляные работы, сварка, покрытие",
+                               "both":  "Расчёт для строительства и эксплуатации"
+                           },
+    "equipment_questions":  [
+                                {
+                                    "id":  "has_ai92",
+                                    "label":  "АИ-92 присутствует",
+                                    "type":  "boolean",
+                                    "show_if":  "subtype != \u0027lpg_only\u0027"
+                                },
+                                {
+                                    "id":  "has_ai95",
+                                    "label":  "АИ-95 присутствует",
+                                    "type":  "boolean",
+                                    "show_if":  "subtype != \u0027lpg_only\u0027"
+                                },
+                                {
+                                    "id":  "has_diesel",
+                                    "label":  "Дизель присутствует",
+                                    "type":  "boolean",
+                                    "show_if":  "subtype != \u0027lpg_only\u0027"
+                                },
+                                {
+                                    "id":  "has_lpg",
+                                    "label":  "СУГ присутствует",
+                                    "type":  "boolean",
+                                    "show_if":  "subtype != \u0027liquid_only\u0027"
+                                },
+                                {
+                                    "id":  "has_vapor_return",
+                                    "label":  "Газовозврат",
+                                    "type":  "boolean"
+                                },
+                                {
+                                    "id":  "has_oil_trap",
+                                    "label":  "Нефтеловушка",
+                                    "type":  "boolean"
+                                },
+                                {
+                                    "id":  "has_dgu",
+                                    "label":  "Дизельный генератор (ДГУ)",
+                                    "type":  "boolean"
+                                },
+                                {
+                                    "id":  "dgu_hours_year",
+                                    "label":  "Часов работы ДГУ в год",
+                                    "type":  "number",
+                                    "show_if":  "has_dgu == true",
+                                    "unit":  "ч/год"
+                                },
+                                {
+                                    "id":  "tank_type",
+                                    "label":  "Тип резервуаров",
+                                    "type":  "select",
+                                    "options":  [
+                                                    {
+                                                        "value":  "underground",
+                                                        "label":  "Подземные"
+                                                    },
+                                                    {
+                                                        "value":  "aboveground",
+                                                        "label":  "Наземные"
+                                                    }
+                                                ]
+                                },
+                                {
+                                    "id":  "tank_volume_ai92_m3",
+                                    "label":  "Объём резервуара АИ-92",
+                                    "type":  "number",
+                                    "show_if":  "has_ai92 == true",
+                                    "unit":  "м³"
+                                },
+                                {
+                                    "id":  "tank_volume_ai95_m3",
+                                    "label":  "Объём резервуара АИ-95",
+                                    "type":  "number",
+                                    "show_if":  "has_ai95 == true",
+                                    "unit":  "м³"
+                                },
+                                {
+                                    "id":  "tank_volume_diesel_m3",
+                                    "label":  "Объём резервуара дизель",
+                                    "type":  "number",
+                                    "show_if":  "has_diesel == true",
+                                    "unit":  "м³"
+                                },
+                                {
+                                    "id":  "tank_volume_lpg_m3",
+                                    "label":  "Объём резервуара СУГ",
+                                    "type":  "number",
+                                    "show_if":  "has_lpg == true",
+                                    "unit":  "м³"
+                                },
+                                {
+                                    "id":  "dispenser_count",
+                                    "label":  "Количество ТРК",
+                                    "type":  "number",
+                                    "show_if":  "subtype != \u0027lpg_only\u0027"
+                                },
+                                {
+                                    "id":  "lpg_filling_points",
+                                    "label":  "Постов заправки СУГ",
+                                    "type":  "number",
+                                    "show_if":  "has_lpg == true"
+                                }
+                            ],
+    "module_rules":  [
+                         {
+                             "condition":  "has_ai92 || has_ai95 || has_diesel",
+                             "scenario":  "operation",
+                             "modules":  [
+                                             {
+                                                 "module_id":  "fuel_storage_refueling_ai92",
+                                                 "display_name":  "Хранение и отпуск АИ-92",
+                                                 "why_generated_template":  "Выбран резервуар АИ-92 и {dispenser_count} ТРК",
+                                                 "show_if":  "has_ai92 == true",
+                                                 "methodic_id":  "fuel_stations_2011",
+                                                 "source_type":  "azs_combined",
+                                                 "calc_method":  "7.1_combined",
+                                                 "default_source_number":  "6001",
+                                                 "default_source_name":  "ТРК + Резервуар АИ-92",
+                                                 "expected_pollutants":  [
+                                                                             "Углеводороды С1-С5",
+                                                                             "Углеводороды С6-С10",
+                                                                             "Бензол",
+                                                                             "Толуол",
+                                                                             "Ксилол"
+                                                                         ],
+                                                 "status":  "ready",
+                                                 "formula_code":  "7.1_combined"
+                                             },
+                                             {
+                                                 "module_id":  "fuel_storage_refueling_ai95",
+                                                 "display_name":  "Хранение и отпуск АИ-95",
+                                                 "why_generated_template":  "Выбран резервуар АИ-95",
+                                                 "show_if":  "has_ai95 == true",
+                                                 "methodic_id":  "fuel_stations_2011",
+                                                 "source_type":  "azs_combined",
+                                                 "calc_method":  "7.1_combined",
+                                                 "default_source_number":  "6002",
+                                                 "default_source_name":  "ТРК + Резервуар АИ-95",
+                                                 "expected_pollutants":  [
+                                                                             "Углеводороды С1-С5",
+                                                                             "Углеводороды С6-С10",
+                                                                             "Бензол",
+                                                                             "Толуол",
+                                                                             "Ксилол"
+                                                                         ],
+                                                 "status":  "ready",
+                                                 "formula_code":  "7.1_combined"
+                                             },
+                                             {
+                                                 "module_id":  "fuel_storage_refueling_diesel",
+                                                 "display_name":  "Хранение и отпуск дизельного топлива",
+                                                 "why_generated_template":  "Выбран резервуар дизельного топлива",
+                                                 "show_if":  "has_diesel == true",
+                                                 "methodic_id":  "fuel_stations_2011",
+                                                 "source_type":  "azs_combined",
+                                                 "calc_method":  "7.1_combined",
+                                                 "default_source_number":  "6003",
+                                                 "default_source_name":  "ТРК + Резервуар Дизель",
+                                                 "expected_pollutants":  [
+                                                                             "Углеводороды С12-С19"
+                                                                         ],
+                                                 "status":  "ready",
+                                                 "formula_code":  "7.1_combined"
+                                             }
+                                         ]
+                         },
+                         {
+                             "condition":  "has_oil_trap == true",
+                             "scenario":  "operation",
+                             "modules":  [
+                                             {
+                                                 "module_id":  "oil_trap",
+                                                 "display_name":  "Испарение с нефтеловушки",
+                                                 "why_generated_template":  "Выбрана нефтеловушка",
+                                                 "methodic_id":  "fuel_stations_2011",
+                                                 "source_type":  "azs_combined",
+                                                 "calc_method":  "7.1_combined",
+                                                 "default_source_number":  "6004",
+                                                 "default_source_name":  "Нефтеловушка",
+                                                 "expected_pollutants":  [
+                                                                             "Углеводороды С6-С10"
+                                                                         ],
+                                                 "status":  "ready",
+                                                 "formula_code":  "7.1_combined"
+                                             }
+                                         ]
+                         },
+                         {
+                             "condition":  "has_lpg == true",
+                             "scenario":  "operation",
+                             "modules":  [
+                                             {
+                                                 "module_id":  "lpg_vehicle_filling",
+                                                 "display_name":  "Заправка СУГ (автомобили)",
+                                                 "why_generated_template":  "Выбраны {lpg_filling_points} постов заправки СУГ",
+                                                 "methodic_id":  "fuel_stations_2011",
+                                                 "source_type":  null,
+                                                 "calc_method":  null,
+                                                 "default_source_number":  "6005",
+                                                 "default_source_name":  "Заправка СУГ",
+                                                 "expected_pollutants":  [
+                                                                             "Углеводороды С1-С5",
+                                                                             "Меркаптаны"
+                                                                         ],
+                                                 "status":  "not_implemented",
+                                                 "formula_code":  null
+                                             },
+                                             {
+                                                 "module_id":  "lpg_pump_block",
+                                                 "display_name":  "Насосный блок СУГ",
+                                                 "why_generated_template":  "Выбран насосный блок для СУГ",
+                                                 "methodic_id":  "fuel_stations_2011",
+                                                 "source_type":  null,
+                                                 "calc_method":  null,
+                                                 "default_source_number":  "6006",
+                                                 "default_source_name":  "Насосный блок СУГ",
+                                                 "expected_pollutants":  [
+                                                                             "Углеводороды С1-С5"
+                                                                         ],
+                                                 "status":  "not_implemented",
+                                                 "formula_code":  null
+                                             },
+                                             {
+                                                 "module_id":  "lpg_unloading",
+                                                 "display_name":  "Слив СУГ с автоцистерны",
+                                                 "why_generated_template":  "Выбран слив СУГ",
+                                                 "methodic_id":  "fuel_stations_2011",
+                                                 "source_type":  null,
+                                                 "calc_method":  null,
+                                                 "default_source_number":  "6007",
+                                                 "default_source_name":  "Слив СУГ (танкер)",
+                                                 "expected_pollutants":  [
+                                                                             "Углеводороды С1-С5"
+                                                                         ],
+                                                 "status":  "not_implemented",
+                                                 "formula_code":  null
+                                             }
+                                         ]
+                         }
+                     ],
+    "seed_config_path":  "data/seeds/fuel_station_combined_seed.json"
+}

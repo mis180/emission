@@ -1,0 +1,42 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_6_sludge",
+    "formula_code": "6.6",
+    "cases": [
+        {
+            "case_id": "6_6_sludge_equation_01",
+            "title": "6.6 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "6.6.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.6",
+                "page": 30,
+                "image_ref": null
+            },
+            "inputs": {
+                "F_area": 10,
+                "season_mazut": "spring_summer"
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.01111111111111111,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

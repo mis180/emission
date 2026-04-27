@@ -1,50 +1,89 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "EMISSION Platform Tables Schema",
+  "title": "EMISSION Platform Tables Schema (v2)",
   "type": "object",
   "properties": {
+    "schema_version": { "type": "number", "const": 2 },
     "tables": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "lookup_type", "input_keys", "output_keys", "data"],
+        "required": ["table_id", "resolution", "outputs", "rows"],
         "properties": {
-          "id": { "type": "string" },
+          "table_id": { "type": "string" },
           "title": { "type": "string" },
+          "authority": { "type": "string" },
+          "jurisdiction": { "type": "string" },
           "source": {
+            "type": "object",
+            "properties": {
+              "document": { "type": "string" },
+              "section": { "type": "string" },
+              "page": { "type": "number" },
+              "image_ref": { "type": "string" }
+            }
+          },
+          "resolution": { 
+            "type": "string", 
+            "enum": ["exact", "interpolate", "range"] 
+          },
+          "selectors": {
+            "type": "array",
+            "items": { 
+              "type": "object",
+              "required": ["name", "datatype"],
+              "properties": {
+                "name": { "type": "string" },
+                "datatype": { "type": "string" },
+                "enum_id": { "type": "string" }
+              }
+            }
+          },
+          "axis": {
             "anyOf": [
-              { "type": "string" },
+              { "type": "null" },
               {
                 "type": "object",
+                "required": ["name", "datatype", "mode"],
                 "properties": {
-                  "document": { "type": "string" },
-                  "section": { "type": "string" },
-                  "table": { "type": "string" }
+                  "name": { "type": "string" },
+                  "datatype": { "type": "string" },
+                  "unit_id": { "type": "string" },
+                  "mode": { "type": "string", "enum": ["point", "interval"] },
+                  "field": { "type": "string" },
+                  "min_field": { "type": "string" },
+                  "max_field": { "type": "string" },
+                  "min_inclusive": { "type": "boolean" },
+                  "max_inclusive": { "type": "boolean" }
                 }
               }
             ]
           },
-          "lookup_type": { 
-            "type": "string", 
-            "enum": ["exact", "multi_key_exact", "interpolate", "interpolate_with_filter", "range_match"] 
-          },
-          "input_keys": {
+          "outputs": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": { 
+              "type": "object",
+              "required": ["name", "datatype", "unit_id"],
+              "properties": {
+                "name": { "type": "string" },
+                "datatype": { "type": "string" },
+                "unit_id": { "type": "string" }
+              }
+            }
           },
-          "output_keys": {
-            "type": "array",
-            "items": { "type": "string" }
-          },
-          "filter_key": { "type": "string" },
-          "interpolate_key": { "type": "string" },
-          "data": {
+          "missing_policy": { "type": "string" },
+          "boundary_policy": { "type": ["string", "null"] },
+          "rows": {
             "type": "array",
             "items": { "type": "object" }
+          },
+          "notes": {
+            "type": "array",
+            "items": { "type": "string" }
           }
         }
       }
     }
   },
-  "required": ["tables"]
+  "required": ["schema_version", "tables"]
 }

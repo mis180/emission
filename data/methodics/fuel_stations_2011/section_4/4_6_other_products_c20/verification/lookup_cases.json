@@ -1,0 +1,39 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "4_6_other_products_c20",
+    "formula_code":  "4.6",
+    "cases":  [
+                  {
+                      "case_id":  "4_6_other_products_c20_lookup_01",
+                      "title":  "4.6 lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "Kt_max",
+                      "table_id":  "Table_App_7",
+                      "output_key":  "kt",
+                      "resolution":  "interpolate",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Appendix 7",
+                                       "page":  null,
+                                       "image_ref":  "assets/tables/Table_App_7.png"
+                                   },
+                      "selectors":  {
+                                        "product_group":  "light"
+                                    },
+                      "expected":  {
+                                       "value":  0.09,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "dimensionless"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    },
+                      "axis_input":  -30
+                  }
+              ]
+}

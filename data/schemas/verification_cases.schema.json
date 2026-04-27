@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Method Verification Cases",
+  "type": "object",
+  "required": ["schema_version", "package_id", "method_id", "cases"],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "package_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "formula_code": {
+      "type": "string"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["case_id", "title", "status"],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "active", "reviewed", "deprecated"]
+          },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              },
+              "page": {
+                "type": ["number", "null"]
+              },
+              "image_ref": {
+                "type": ["string", "null"]
+              }
+            },
+            "additionalProperties": true
+          },
+          "inputs": {
+            "type": "object"
+          },
+          "expected_outputs": {
+            "type": "object"
+          },
+          "expected_lookups": {
+            "type": "object"
+          },
+          "expected_equations": {
+            "type": "array"
+          },
+          "source_equation_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "target": {
+            "type": "object"
+          },
+          "expected": {},
+          "tolerance": {
+            "type": "object"
+          },
+          "binding_target": {
+            "type": "string"
+          },
+          "table_id": {
+            "type": "string"
+          },
+          "output_key": {
+            "type": "string"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": ["exact", "range", "interpolate"]
+          },
+          "selectors": {
+            "type": "object"
+          },
+          "axis_input": {}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

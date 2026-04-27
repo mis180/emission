@@ -1,0 +1,119 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_5_gas_in_water",
+    "formula_code": "4.5",
+    "cases": [
+        {
+            "case_id": "4_5_gas_in_water_golden_01",
+            "title": "4.5 baseline runtime scenario",
+            "status": "active",
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.5",
+                "page": 19,
+                "image_ref": null
+            },
+            "inputs": {
+                "t_liq_max": 0,
+                "t_liq_min": 0,
+                "X_i": 1,
+                "substance_gas": "ammonia",
+                "Vch_max": 1,
+                "t_oper_days": 20,
+                "t_oper_hours": 20,
+                "productBoilGroup": "light",
+                "ssv_type": "none",
+                "tank_construction": "vert",
+                "tank_mode_recv": "mernik",
+                "V_nom": 0
+            },
+            "expected_outputs": {
+                "M": {
+                    "value": 4.114285714285715e-13,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "g_per_s"
+                },
+                "G": {
+                    "value": 4.1616e-13,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "t_per_yr"
+                }
+            },
+            "expected_lookups": {
+                "Kp_max": {
+                    "value": 0.9,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "Kp_avg": {
+                    "value": 0.63,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "Kg_max": {
+                    "value": 1.5600000000000002e-09,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "Kg_min": {
+                    "value": 1.5600000000000002e-09,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                }
+            },
+            "expected_equations": [
+                {
+                    "lhs_token": "M",
+                    "equation_order": 1,
+                    "expected": {
+                        "value": 4.114285714285715e-13,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "g_per_s"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G",
+                    "equation_order": 2,
+                    "expected": {
+                        "value": 4.1616e-13,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                }
+            ]
+        }
+    ]
+}

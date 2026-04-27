@@ -1,0 +1,380 @@
+{
+  "table_id": "table_a1_pollutant_catalog",
+  "title": "Приложение А: санитарно-гигиенические нормативы загрязняющих веществ",
+  "authority": "reference",
+  "jurisdiction": "KZ",
+  "resolution": "exact",
+  "source": {
+    "document": "РНД 211.2.02.05-2004",
+    "section": "Appendix A",
+    "page": 31,
+    "image_ref": "catalog/tables/table_a1_pollutant_catalog/source.png"
+  },
+  "selectors": [
+    {
+      "name": "pollutant_key",
+      "datatype": "string",
+      "enum_id": "paint_pollutant"
+    }
+  ],
+  "axis": null,
+  "outputs": [
+    {
+      "name": "official_name",
+      "datatype": "string",
+      "unit_id": "text"
+    },
+    {
+      "name": "pdk_mr_mg_m3",
+      "datatype": "numeric",
+      "unit_id": "mg_per_m3"
+    },
+    {
+      "name": "pdk_ss_mg_m3",
+      "datatype": "numeric",
+      "unit_id": "mg_per_m3"
+    },
+    {
+      "name": "obuv_mg_m3",
+      "datatype": "numeric",
+      "unit_id": "mg_per_m3"
+    }
+  ],
+  "missing_policy": "warn_and_null",
+  "boundary_policy": null,
+  "rows": [
+    {
+      "pollutant_key": "0616",
+      "pollutant_code": "0616",
+      "methodology_name": "Ксилол",
+      "official_name": "Ксилол (смесь изомеров о-, м-, п-) /273/",
+      "pdk_mr_mg_m3": 0.2,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "3",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "0620",
+      "pollutant_code": "0620",
+      "methodology_name": "Стирол",
+      "official_name": "Винилбензол (Стирол) /106/",
+      "pdk_mr_mg_m3": 0.04,
+      "pdk_ss_mg_m3": 0.002,
+      "obuv_mg_m3": null,
+      "hazard_class": "2",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "0621",
+      "pollutant_code": "0621",
+      "methodology_name": "Толуол",
+      "official_name": "Толуол /473/",
+      "pdk_mr_mg_m3": 0.6,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "3",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "0915",
+      "pollutant_code": "0915",
+      "methodology_name": "Хлорбензол",
+      "official_name": "Хлорбензол /536/",
+      "pdk_mr_mg_m3": 0.1,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "3",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1042",
+      "pollutant_code": "1042",
+      "methodology_name": "Спирт н- бутиловый",
+      "official_name": "Бутан-1-ол (Спирт н- бутиловый) /92/",
+      "pdk_mr_mg_m3": 0.1,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "3",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1046",
+      "pollutant_code": "1046",
+      "methodology_name": "Спирт диацетоновый",
+      "official_name": "4-Гидрокси-4-метилпентан- 2-он (Спирт диацетоновый) /260/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 0.3,
+      "hazard_class": "",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1048",
+      "pollutant_code": "1048",
+      "methodology_name": "Спирт изобутиловый",
+      "official_name": "2-Метилпропан-1-ол (Спирт изобутиловый) /326/",
+      "pdk_mr_mg_m3": 0.1,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1061",
+      "pollutant_code": "1061",
+      "methodology_name": "Спирт этиловый",
+      "official_name": "Этанол (Спирт этиловый) /574/",
+      "pdk_mr_mg_m3": 5.0,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1071",
+      "pollutant_code": "1071",
+      "methodology_name": "Фенол",
+      "official_name": "Фенол /512/",
+      "pdk_mr_mg_m3": 0.01,
+      "pdk_ss_mg_m3": 0.003,
+      "obuv_mg_m3": null,
+      "hazard_class": "2",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1078",
+      "pollutant_code": "1078",
+      "methodology_name": "Этиленгликоль",
+      "official_name": "Этан-1,2-диол (Этиленгликоль, Этандиол) /1440/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 1.0,
+      "hazard_class": "",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1110",
+      "pollutant_code": "1110",
+      "methodology_name": "Бутилцеллозол ьв",
+      "official_name": "2-(Изобутокси) этанол (Моноизобутиловый эфир этиленгликоля, Бутилцеллозольв) /234/",
+      "pdk_mr_mg_m3": 1.0,
+      "pdk_ss_mg_m3": 0.3,
+      "obuv_mg_m3": null,
+      "hazard_class": "3",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1112",
+      "pollutant_code": "1112",
+      "methodology_name": "Этилкарбитол",
+      "official_name": "2-(2-Этоксиэтокси) этанол (Моноэтиловый эфир диэтиленгликоля, Этилкарбитол) /1494/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 1.5,
+      "hazard_class": "",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1119",
+      "pollutant_code": "1119",
+      "methodology_name": "Этилцеллозоль в",
+      "official_name": "2-Этоксиэтанол (Этиловый эфир этиленгликоля, Этилцеллозольв) /1491/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 0.7,
+      "hazard_class": "",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1210",
+      "pollutant_code": "1210",
+      "methodology_name": "Бутилацетат",
+      "official_name": "Бутилацетат /100/",
+      "pdk_mr_mg_m3": 0.1,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1240",
+      "pollutant_code": "1240",
+      "methodology_name": "Этилацетат",
+      "official_name": "Этилацетат /581/",
+      "pdk_mr_mg_m3": 0.1,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1260",
+      "pollutant_code": "1260",
+      "methodology_name": "Этиленгликоль ацетат",
+      "official_name": "2-Этоксиэтилацетат (Целлозольвацетат) /1492/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 1.0,
+      "hazard_class": "",
+      "source_page": 31
+    },
+    {
+      "pollutant_key": "1325",
+      "pollutant_code": "1325",
+      "methodology_name": "Формальдегид",
+      "official_name": "Формальдегид /522/",
+      "pdk_mr_mg_m3": 0.035,
+      "pdk_ss_mg_m3": 0.003,
+      "obuv_mg_m3": null,
+      "hazard_class": "2",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "1401",
+      "pollutant_code": "1401",
+      "methodology_name": "Ацетон",
+      "official_name": "Пропан-2-он (Ацетон) /398/",
+      "pdk_mr_mg_m3": 0.35,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "1405",
+      "pollutant_code": "1405",
+      "methodology_name": "Ацетон эфирный, Растворитель АР",
+      "official_name": "Растворитель древесно- спиртовой марки А (ацетоноэфирный) (контроль по ацетону) /419/",
+      "pdk_mr_mg_m3": 0.12,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "1408",
+      "pollutant_code": "1408",
+      "methodology_name": "МИБК, Метилизобутилк етон",
+      "official_name": "4-Метилпентан-2-он (Метилизобутилкетон) /322/",
+      "pdk_mr_mg_m3": 0.1,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "1409",
+      "pollutant_code": "1409",
+      "methodology_name": "Метилэтилкето н",
+      "official_name": "Бутан-2-он (Метилэтилкетон) /189/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 0.1,
+      "hazard_class": "",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "1411",
+      "pollutant_code": "1411",
+      "methodology_name": "Циклогексанон",
+      "official_name": "Циклогексанон /563/",
+      "pdk_mr_mg_m3": 0.04,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": null,
+      "hazard_class": "3",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "1913",
+      "pollutant_code": "1913",
+      "methodology_name": "Нитропропан",
+      "official_name": "2-Нитропропан /902/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 0.1,
+      "hazard_class": "",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "2704",
+      "pollutant_code": "2704",
+      "methodology_name": "Бензин, бензин «калоша»",
+      "official_name": "Бензин (нефтяной, малосернистый в пересчете на углерод) /54/",
+      "pdk_mr_mg_m3": 5.0,
+      "pdk_ss_mg_m3": 1.5,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "2741",
+      "pollutant_code": "2741",
+      "methodology_name": "Нефрас",
+      "official_name": "Гептановая фракция Нефрас ЧС 94/99 /236/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 1.5,
+      "hazard_class": "",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "2748",
+      "pollutant_code": "2748",
+      "methodology_name": "Растворитель о кситерпеновый",
+      "official_name": "Скипидар (в пересчете на углерод) /442/",
+      "pdk_mr_mg_m3": 2.0,
+      "pdk_ss_mg_m3": 1.0,
+      "obuv_mg_m3": null,
+      "hazard_class": "4",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "2750",
+      "pollutant_code": "2750",
+      "methodology_name": "Сольвент",
+      "official_name": "Сольвент нафта /1144/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 0.2,
+      "hazard_class": "",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "2752",
+      "pollutant_code": "2752",
+      "methodology_name": "Уайт-спирит",
+      "official_name": "Уайт-спирит /1287/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 1.0,
+      "hazard_class": "",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "2902",
+      "pollutant_code": "2902",
+      "methodology_name": "Окрасочный аэрозоль",
+      "official_name": "Взвешенные вещества /105/",
+      "pdk_mr_mg_m3": 0.5,
+      "pdk_ss_mg_m3": 0.15,
+      "obuv_mg_m3": null,
+      "hazard_class": "3",
+      "source_page": 32
+    },
+    {
+      "pollutant_key": "3542",
+      "pollutant_code": "3542",
+      "methodology_name": "Лактон С12",
+      "official_name": "Пропионовой кислоты у- лактон-3-(17-a-гидрокси-7- метокси андроста-З, 5-диен- 17-а-ил) (Лактон) /1017/",
+      "pdk_mr_mg_m3": null,
+      "pdk_ss_mg_m3": null,
+      "obuv_mg_m3": 0.03,
+      "hazard_class": "",
+      "source_page": 32
+    }
+  ],
+  "notes": [
+    "Reference-only pollutant metadata; runtime emissions formulas do not depend on this table."
+  ]
+}

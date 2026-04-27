@@ -1,0 +1,76 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_2_pollutant_split",
+    "formula_code": "4.2_split",
+    "cases": [
+        {
+            "case_id": "4_2_pollutant_split_golden_01",
+            "title": "4.2 pollutant split baseline runtime scenario",
+            "status": "active",
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.2",
+                "page": 17,
+                "image_ref": null
+            },
+            "inputs": {
+                "M_total_split": 20,
+                "G_total_split": 8,
+                "C_i_pct": 25
+            },
+            "expected_outputs": {
+                "M_pollutant": {
+                    "value": 5,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "g_per_s"
+                },
+                "G_pollutant": {
+                    "value": 2,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "t_per_yr"
+                }
+            },
+            "expected_equations": [
+                {
+                    "lhs_token": "M_pollutant",
+                    "equation_order": 1,
+                    "expected": {
+                        "value": 5,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "g_per_s"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G_pollutant",
+                    "equation_order": 2,
+                    "expected": {
+                        "value": 2,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                }
+            ]
+        }
+    ]
+}

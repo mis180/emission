@@ -6,7 +6,7 @@
  */
 
 // --- APP STATE --- //
-const APP_VERSION = '1.0.1';
+const APP_VERSION = '1.0.8';
 let currentStep = 1;
 const totalSteps = 6;
 
@@ -22,6 +22,7 @@ let state = {
     sourceType: null,
     calcMethod: null,
     formulaCode: null,
+    showBetaFormulas: true,
 
     // User inputs
     inputs: {},
@@ -33,6 +34,7 @@ let state = {
     // Available methodics
     methodics: []
 };
+window.getMethodicRegistry = () => state.methodics || [];
 
 // --- DOM ELEMENTS --- //
 const btnNext = document.getElementById('btn-next');
@@ -73,7 +75,7 @@ async function init() {
     }
 
     updateNavigation();
-    initProjectWorkflow();
+    initProjectWorkflow();SyncUI.init();
     
     // Don't auto-load the project state if we are still on the landing screen!
     // openProject() will be called when the user clicks a project.
@@ -153,11 +155,10 @@ async function handleLogout() {
 /**
  * LANDING PAGE ACTIONS (Step 1)
  */
-function selectProfile(type) {
+function selectProfile(type, event) {
     const avatars = document.querySelectorAll('.profile-avatar');
     avatars.forEach(a => a.classList.remove('active'));
     event.currentTarget.classList.add('active');
-    state.currentProfile = type;
     showToast(`Профиль изменен: ${type}`, 'info');
 }
 
@@ -264,8 +265,6 @@ function renderRecentProjects(projects) {
     `).join('');
 }
 
-// Region and Weather logic removed.
-
 /**
  * Global Toast Notification System
  */
@@ -275,10 +274,16 @@ function showToast(message, type = 'info') {
 
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
+    let bg, color, border, icon;
+    if (type === 'danger') { bg = '#fee2e2'; color = '#991b1b'; border = '#fecaca'; icon = '⚠️ '; }
+    else if (type === 'warning') { bg = '#fef3c7'; color = '#b45309'; border = '#fde68a'; icon = '⚠️ '; }
+    else if (type === 'success') { bg = '#dcfce7'; color = '#166534'; border = '#bbf7d0'; icon = '✅ '; }
+    else { bg = '#e0f2fe'; color = '#0369a1'; border = '#bae6fd'; icon = 'ℹ️ '; }
+
     toast.style.cssText = `
-        background: ${type === 'danger' ? '#fee2e2' : '#e0f2fe'};
-        color: ${type === 'danger' ? '#991b1b' : '#0369a1'};
-        border: 1px solid ${type === 'danger' ? '#fecaca' : '#bae6fd'};
+        background: ${bg};
+        color: ${color};
+        border: 1px solid ${border};
         padding: 12px 20px;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -287,7 +292,7 @@ function showToast(message, type = 'info') {
         font-weight: 500;
         animation: slideIn 0.3s ease-out;
     `;
-    toast.innerHTML = (type === 'danger' ? '⚠️ ' : 'ℹ️ ') + message;
+    toast.innerHTML = icon + message;
 
     container.appendChild(toast);
 
@@ -298,6 +303,7 @@ function showToast(message, type = 'info') {
         setTimeout(() => toast.remove(), 300);
     }, 5000);
 }
+
 
 /**
  * Defensive KaTeX renderer helper
@@ -334,13 +340,6 @@ function switchPane(paneId) {
         }
     });
     _activeDashboardPane = paneId;
-    
-    // Auto-switch sidebar tab if needed
-    if (paneId === 'calculator-wizard') {
-        // Optional: switch to environment tab if we want to show meteo while calculating
-        // switchSidebarTab('environment');
-    }
-    
     // Update active highlight in tree
     const treeHeaders = document.querySelectorAll('.tree-facility-header');
     treeHeaders.forEach(el => el.classList.remove('active'));
@@ -355,9 +354,4 @@ function switchPane(paneId) {
         }
     }
 }
-
-// ------ SIDEBAR TABS ------
-// switchSidebarTab removed
-
-
 

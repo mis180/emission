@@ -1,0 +1,17 @@
+{
+    "formula_code":  "6.2",
+    "section":  "6_2_equipment",
+    "title_ru":  "Выбросы от теплообменных аппаратов и средств перекачки",
+    "status":  "active",
+    "confidence":  "HIGH",
+    "source_pages":  [
+                         23
+                     ],
+    "shared_tables_used":  [
+                               "Table_6_1"
+                           ],
+    "runtime_differs_from_source":  true,
+    "notes":  [
+
+              ]
+}

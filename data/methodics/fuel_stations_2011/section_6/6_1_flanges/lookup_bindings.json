@@ -1,0 +1,41 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "Kp_avg",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_sr"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Uoz",
+            "table_id": "Table_12",
+            "output_key": "Uoz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Uoz"
+        },
+        {
+            "target_variable": "Uvl",
+            "table_id": "Table_12",
+            "output_key": "Uvl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Uvl"
+        }
+    ]
+}

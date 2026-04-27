@@ -1,0 +1,20 @@
+{
+    "formula_code":  "4.3",
+    "section":  "4_3_pure_substance",
+    "title_ru":  "Выбросы паров индивидуальных веществ",
+    "status":  "active",
+    "confidence":  "HIGH",
+    "source_pages":  [
+                         18
+                     ],
+    "shared_tables_used":  [
+                               "Table_App_10",
+                               "Table_App_16",
+                               "Table_App_8",
+                               "Table_App_9"
+                           ],
+    "runtime_differs_from_source":  true,
+    "notes":  [
+
+              ]
+}

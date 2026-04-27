@@ -1,0 +1,10 @@
+{
+    "formula_code": "6.6",
+    "variables": [
+        "season_mazut",
+        "n_surface_norm",
+        "F_area",
+        "n1_norm",
+        "n2_norm"
+    ]
+}

@@ -1,0 +1,108 @@
+{
+    "variables": [
+        {
+            "id": "equipType",
+            "token": "equipType",
+            "label": "Тип оборудования",
+            "datatype": "string",
+            "category": "selector",
+            "enum_id": "equipType",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.2"
+            }
+        },
+        {
+            "id": "productBoilGroup",
+            "token": "productBoilGroup",
+            "label": "Группа нефтепродукта по температуре кипения",
+            "datatype": "string",
+            "category": "selector",
+            "enum_id": "productBoilGroup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.2"
+            }
+        },
+        {
+            "id": "Q_spec",
+            "token": "Q_spec",
+            "label": "Удельное выделение загрязняющих веществ",
+            "datatype": "numeric",
+            "latex": "Q",
+            "source_token_aliases": [
+                "Q"
+            ],
+            "notes": [
+                "Maps the source symbol Q to the per-unit specific emission rate from Table_6_1.",
+                "The runtime 6.2 branch multiplies Q_spec by equipCount to aggregate identical units."
+            ],
+            "unit_id": "kg_per_h",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.2"
+            }
+        },
+        {
+            "id": "equipCount",
+            "token": "equipCount",
+            "label": "Количество единиц оборудования",
+            "datatype": "numeric",
+            "default": 1,
+            "min": 1,
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.2"
+            }
+        },
+        {
+            "id": "equipHours",
+            "token": "equipHours",
+            "label": "Годовой фонд времени работы",
+            "datatype": "numeric",
+            "latex": "T",
+            "min": 0,
+            "source_token_aliases": [
+                "T"
+            ],
+            "notes": [
+                "Maps the source symbol T to the annual operating time of one equipment unit."
+            ],
+            "unit_id": "h_per_yr",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.2"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.2"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.2"
+            },
+            "unit_id": "g_per_s"
+        }
+    ]
+}

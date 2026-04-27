@@ -1,0 +1,343 @@
+{
+    "table_id":  "Table_App_16",
+    "title":  "Saturated vapor pressure",
+    "authority":  "reference",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 16",
+                   "image_ref":  "catalog/tables/Table_App_16/source.png"
+               },
+    "resolution":  "interpolate",
+    "selectors":  [
+                      {
+                          "name":  "substance",
+                          "datatype":  "string",
+                          "enum_id":  "substance_pure_app16"
+                      }
+                  ],
+    "axis":  {
+                 "name":  "t",
+                 "field":  "t",
+                 "datatype":  "numeric",
+                 "mode":  "point",
+                 "unit_id":  "celsius"
+             },
+    "outputs":  [
+                    {
+                        "name":  "pa",
+                        "datatype":  "numeric",
+                        "unit_id":  "pa"
+                    }
+                ],
+    "missing_policy":  "error",
+    "boundary_policy":  "clamp",
+    "rows":  [
+                 {
+                     "substance":  "butane",
+                     "t":  -30,
+                     "pa":  44800
+                 },
+                 {
+                     "substance":  "butane",
+                     "t":  -20,
+                     "pa":  45500
+                 },
+                 {
+                     "substance":  "butane",
+                     "t":  -10,
+                     "pa":  700000
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  -30,
+                     "pa":  5098
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  -20,
+                     "pa":  9021
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  -10,
+                     "pa":  15260
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  0,
+                     "pa":  24400
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  10,
+                     "pa":  37750
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  20,
+                     "pa":  56410
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  25,
+                     "pa":  68160
+                 },
+                 {
+                     "substance":  "pentane",
+                     "t":  30,
+                     "pa":  81770
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  -30,
+                     "pa":  956
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  -20,
+                     "pa":  1587
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  -10,
+                     "pa":  3480
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  0,
+                     "pa":  6110
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  10,
+                     "pa":  10450
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  20,
+                     "pa":  17600
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  25,
+                     "pa":  20350
+                 },
+                 {
+                     "substance":  "hexane",
+                     "t":  30,
+                     "pa":  25200
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  -30,
+                     "pa":  174
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  -20,
+                     "pa":  386
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  -10,
+                     "pa":  789
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  0,
+                     "pa":  1512
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  10,
+                     "pa":  2737
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  20,
+                     "pa":  4712
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  25,
+                     "pa":  6079
+                 },
+                 {
+                     "substance":  "heptane",
+                     "t":  30,
+                     "pa":  7763
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  -30,
+                     "pa":  31.5
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  -20,
+                     "pa":  78.9
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  -10,
+                     "pa":  179.6
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  0,
+                     "pa":  380.4
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  10,
+                     "pa":  748.8
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  20,
+                     "pa":  1391.0
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  25,
+                     "pa":  1859.0
+                 },
+                 {
+                     "substance":  "n_octane",
+                     "t":  30,
+                     "pa":  2454.0
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  -30,
+                     "pa":  7.5
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  -20,
+                     "pa":  17.9
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  -10,
+                     "pa":  49.8
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  0,
+                     "pa":  114.0
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  10,
+                     "pa":  234.5
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  20,
+                     "pa":  461.0
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  25,
+                     "pa":  633.0
+                 },
+                 {
+                     "substance":  "n_nonane",
+                     "t":  30,
+                     "pa":  857.0
+                 },
+                 {
+                     "substance":  "n_decane",
+                     "t":  -10,
+                     "pa":  8.6
+                 },
+                 {
+                     "substance":  "n_decane",
+                     "t":  0,
+                     "pa":  22.9
+                 },
+                 {
+                     "substance":  "n_decane",
+                     "t":  10,
+                     "pa":  54.4
+                 },
+                 {
+                     "substance":  "n_decane",
+                     "t":  20,
+                     "pa":  119.7
+                 },
+                 {
+                     "substance":  "n_decane",
+                     "t":  25,
+                     "pa":  174.5
+                 },
+                 {
+                     "substance":  "n_decane",
+                     "t":  30,
+                     "pa":  244.7
+                 },
+                 {
+                     "substance":  "butene_2",
+                     "t":  -30,
+                     "pa":  22600
+                 },
+                 {
+                     "substance":  "butene_2",
+                     "t":  -20,
+                     "pa":  36900
+                 },
+                 {
+                     "substance":  "butene_2",
+                     "t":  -10,
+                     "pa":  57800
+                 },
+                 {
+                     "substance":  "butene_2",
+                     "t":  0,
+                     "pa":  87100
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  -30,
+                     "pa":  4860
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  -20,
+                     "pa":  9690
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  -10,
+                     "pa":  14700
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  0,
+                     "pa":  23800
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  10,
+                     "pa":  37000
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  20,
+                     "pa":  55400
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  25,
+                     "pa":  67300
+                 },
+                 {
+                     "substance":  "pentene_2",
+                     "t":  30,
+                     "pa":  80750
+                 }
+             ],
+    "schema_version":  2
+}

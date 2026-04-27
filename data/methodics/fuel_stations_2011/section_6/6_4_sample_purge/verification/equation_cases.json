@@ -1,0 +1,46 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_4_sample_purge",
+    "formula_code": "6.4.1",
+    "cases": [
+        {
+            "case_id": "6_4_sample_purge_equation_01",
+            "title": "6.4.1 equation M_prj",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.4.1",
+                "page": 25,
+                "image_ref": null
+            },
+            "inputs": {
+                "V_purge": 0.001,
+                "rho_purge": 700,
+                "n_purge": 2,
+                "k_purge": 3,
+                "c_purge_mass": 0.5,
+                "phi_purge_hours": 10
+            },
+            "target": {
+                "lhs_token": "M_purge_kg_h",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.21000000000000002,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "kg_per_h"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

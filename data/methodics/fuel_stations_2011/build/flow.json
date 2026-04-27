@@ -1,0 +1,345 @@
+{
+    "calculator_methods": {
+        "4.1.13": {
+            "formula_code": "4.1.13",
+            "label": "4.1.13 - Annual tank turnover helper",
+            "variables": [
+                "B_turnover",
+                "rho_turnover",
+                "V_tank_turnover",
+                "NP_turnover"
+            ]
+        },
+        "4.2": {
+            "formula_code": "4.2",
+            "variables": [
+                "P38_src",
+                "t_nk",
+                "B_vl",
+                "Kt_min",
+                "Kp_max",
+                "Kp_avg",
+                "tank_mode_recv",
+                "n_turnover",
+                "V_nom",
+                "Kob",
+                "ssv_type",
+                "rho_liq",
+                "B_oz",
+                "t_liq_min",
+                "m_vapor",
+                "t_liq_max",
+                "Kv",
+                "productBoilGroup",
+                "Kt_max",
+                "tank_construction",
+                "Vch_max",
+                "B_year"
+            ],
+            "label": "Формула 4.2 - Нефть/Бензин"
+        },
+        "4.2_split": {
+            "formula_code": "4.2_split",
+            "label": "4.2.4-4.2.5 - Pollutant split",
+            "variables": [
+                "M_total_split",
+                "G_total_split",
+                "C_i_pct"
+            ]
+        },
+        "4.3": {
+            "formula_code": "4.3",
+            "variables": [
+                "substance_pure",
+                "Pt_max",
+                "Pt_min",
+                "m_pure",
+                "Kp_max",
+                "Kp_avg",
+                "Kv",
+                "Kob",
+                "Vch_max",
+                "B_year",
+                "rho_liq",
+                "t_liq_max",
+                "t_liq_min",
+                "productBoilGroup",
+                "tank_construction",
+                "tank_mode_recv",
+                "ssv_type",
+                "n_turnover",
+                "V_nom",
+                "M",
+                "G"
+            ],
+            "label": "Формула 4.3 - Индивидуальные вещества"
+        },
+        "4.4": {
+            "formula_code": "4.4",
+            "variables": [
+                "Pt_i_max",
+                "Pt_i_min",
+                "X_i",
+                "sum_Xi_mi",
+                "sum_Xi_rhoi",
+                "tank_construction",
+                "ssv_type",
+                "tank_mode_recv",
+                "productBoilGroup",
+                "Kp_max",
+                "Kp_avg",
+                "Vch_max",
+                "pt_38_mmhg",
+                "Kv",
+                "n_turnover",
+                "NP",
+                "Kob",
+                "B_year",
+                "t_liq_max",
+                "t_liq_min",
+                "M",
+                "G",
+                "V_nom"
+            ],
+            "label": "Формула 4.4 - Многокомпонентные смеси"
+        },
+        "4.5": {
+            "formula_code": "4.5",
+            "variables": [
+                "Kg_max",
+                "Kg_min",
+                "X_i",
+                "Kp_max",
+                "Kp_avg",
+                "Vch_max",
+                "t_oper_days",
+                "t_oper_hours",
+                "t_liq_max",
+                "t_liq_min",
+                "productBoilGroup",
+                "tank_construction",
+                "tank_mode_recv",
+                "ssv_type",
+                "substance_gas",
+                "M",
+                "G",
+                "V_nom"
+            ],
+            "label": "Формула 4.5 - Водные растворы газов"
+        },
+        "4.6": {
+            "formula_code": "4.6",
+            "variables": [
+                "C20",
+                "C20_l",
+                "C20_z",
+                "B_oz",
+                "B_vl",
+                "Kp_max",
+                "Kp_avg",
+                "Kob",
+                "Kt_max",
+                "Kt_min",
+                "productBoilGroup",
+                "tank_construction",
+                "tank_mode_recv",
+                "ssv_type",
+                "n_turnover",
+                "V_nom",
+                "Vch_max",
+                "rho_liq",
+                "t_liq_max",
+                "t_liq_min",
+                "G_462",
+                "G_463",
+                "M",
+                "G"
+            ],
+            "label": "Формула 4.6 - Прочие продукты"
+        },
+        "5.2": {
+            "formula_code": "5.2",
+            "variables": [
+                "C1",
+                "Kp_max",
+                "Vch_max",
+                "Uoz",
+                "B_oz",
+                "Uvl",
+                "B_vl",
+                "Kp_avg",
+                "Ghr",
+                "Knp",
+                "NP",
+                "substance",
+                "climate_zone",
+                "productBoilGroup",
+                "tank_construction",
+                "tank_mode_recv",
+                "ssv_type",
+                "tank_type_storage",
+                "V_nom"
+            ]
+        },
+        "6.1": {
+            "formula_code": "6.1",
+            "variables": [
+                "Uoz",
+                "B_oz",
+                "Uvl",
+                "B_vl",
+                "Kp_avg",
+                "productBoilGroup",
+                "substance",
+                "tank_construction",
+                "tank_mode_recv",
+                "ssv_type",
+                "climate_zone",
+                "Vch_max",
+                "V_nom"
+            ],
+            "label": "Неорганизованные выбросы: фланцы и арматура"
+        },
+        "6.2": {
+            "formula_code": "6.2",
+            "variables": [
+                "equipType",
+                "productBoilGroup",
+                "equipCount",
+                "equipHours",
+                "Q_spec"
+            ]
+        },
+        "6.3": {
+            "formula_code": "6.3",
+            "label": "6.3 - Stationary seals and flange-like connections",
+            "variables": [
+                "seal_equipment_type",
+                "seal_stream_type",
+                "seal_g_leak",
+                "seal_x_fail",
+                "seal_count",
+                "seal_c_ij_mass",
+                "seal_hours"
+            ]
+        },
+        "6.4.1": {
+            "formula_code": "6.4.1",
+            "label": "6.4.1 - Technological sample purges",
+            "variables": [
+                "V_purge",
+                "rho_purge",
+                "n_purge",
+                "k_purge",
+                "c_purge_mass",
+                "phi_purge_hours"
+            ]
+        },
+        "6.5": {
+            "formula_code": "6.5",
+            "variables": [
+                "vessel_type_unorg",
+                "temp_avg_unorg",
+                "covering_degree",
+                "q_sr",
+                "z_coeff",
+                "F_area"
+            ]
+        },
+        "6.6": {
+            "formula_code": "6.6",
+            "variables": [
+                "season_mazut",
+                "n_surface_norm",
+                "F_area",
+                "n1_norm",
+                "n2_norm"
+            ]
+        },
+        "7.1_combined": {
+            "formula_code": "7.1_combined",
+            "variables": [
+                "climate_zone",
+                "substance",
+                "tank_type",
+                "tank_type_storage",
+                "tank_volume_cat",
+                "NP",
+                "V_sl",
+                "t_unload",
+                "VTRK",
+                "NN",
+                "PZV_receive",
+                "PZV_refuel",
+                "Qoz",
+                "Qvl",
+                "C_tank_max",
+                "C_tank_oz",
+                "C_tank_vl",
+                "C_ba_max",
+                "C_ba_oz",
+                "C_ba_vl",
+                "J",
+                "GXP",
+                "Knp"
+            ]
+        },
+        "7.1_receive": {
+            "formula_code": "7.1_receive",
+            "variables": [
+                "climate_zone",
+                "substance",
+                "tank_type",
+                "PZV_receive",
+                "V_sl",
+                "t_unload",
+                "Qoz",
+                "Qvl",
+                "C_tank_max",
+                "C_tank_oz",
+                "C_tank_vl",
+                "J"
+            ]
+        },
+        "7.1_refuel": {
+            "formula_code": "7.1_refuel",
+            "variables": [
+                "climate_zone",
+                "substance",
+                "PZV_refuel",
+                "NN",
+                "VTRK",
+                "Qoz",
+                "Qvl",
+                "C_ba_max",
+                "C_ba_oz",
+                "C_ba_vl",
+                "J"
+            ]
+        },
+        "7.1_storage": {
+            "formula_code": "7.1_storage",
+            "variables": [
+                "climate_zone",
+                "substance",
+                "tank_type_storage",
+                "tank_volume_cat",
+                "NP",
+                "GXP",
+                "Knp"
+            ]
+        },
+        "7.2": {
+            "formula_code": "7.2",
+            "variables": [
+                "mu_coeff",
+                "rho_gas",
+                "n_gas",
+                "F_gas",
+                "H_gas",
+                "tau_gas",
+                "N_gas"
+            ]
+        }
+    }
+}

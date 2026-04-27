@@ -1,0 +1,130 @@
+{
+  "table_id": "table_3_painting_method_loss_factors",
+  "title": "Таблица 3: выброс загрязняющих веществ при нанесении лакокрасочных покрытий",
+  "authority": "normative",
+  "jurisdiction": "KZ",
+  "resolution": "exact",
+  "source": {
+    "document": "РНД 211.2.02.05-2004",
+    "section": "5, Table 3",
+    "page": 29,
+    "image_ref": "catalog/tables/table_3_painting_method_loss_factors/source.png"
+  },
+  "selectors": [
+    {
+      "name": "paint_method",
+      "datatype": "string",
+      "enum_id": "paint_method"
+    }
+  ],
+  "axis": null,
+  "outputs": [
+    {
+      "name": "delta_a_pct",
+      "datatype": "numeric",
+      "unit_id": "pct"
+    },
+    {
+      "name": "delta_r_paint_pct",
+      "datatype": "numeric",
+      "unit_id": "pct"
+    },
+    {
+      "name": "delta_r_dry_pct",
+      "datatype": "numeric",
+      "unit_id": "pct"
+    }
+  ],
+  "missing_policy": "error",
+  "boundary_policy": null,
+  "rows": [
+    {
+      "paint_method": "Пневматический",
+      "delta_a_pct": 30.0,
+      "delta_r_paint_pct": 25.0,
+      "delta_r_dry_pct": 75.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Горячее распыление",
+      "delta_a_pct": 20.0,
+      "delta_r_paint_pct": 22.0,
+      "delta_r_dry_pct": 78.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Пневмоэлектростатический",
+      "delta_a_pct": 3.5,
+      "delta_r_paint_pct": 20.0,
+      "delta_r_dry_pct": 80.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Безвоздушный",
+      "delta_a_pct": 2.5,
+      "delta_r_paint_pct": 23.0,
+      "delta_r_dry_pct": 77.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Гидроэлектростатический",
+      "delta_a_pct": 1.0,
+      "delta_r_paint_pct": 25.0,
+      "delta_r_dry_pct": 75.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Электростатический",
+      "delta_a_pct": 0.3,
+      "delta_r_paint_pct": 50.0,
+      "delta_r_dry_pct": 50.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Струйный облив",
+      "delta_a_pct": null,
+      "delta_r_paint_pct": 35.0,
+      "delta_r_dry_pct": 65.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Окунание (пропитка)",
+      "delta_a_pct": null,
+      "delta_r_paint_pct": 28.0,
+      "delta_r_dry_pct": 72.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Кистью, валиком",
+      "delta_a_pct": null,
+      "delta_r_paint_pct": 28.0,
+      "delta_r_dry_pct": 72.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "Электроосаждение",
+      "delta_a_pct": null,
+      "delta_r_paint_pct": 10.0,
+      "delta_r_dry_pct": 90.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "- металлических изделий",
+      "delta_a_pct": null,
+      "delta_r_paint_pct": 60.0,
+      "delta_r_dry_pct": 40.0,
+      "source_page": 29
+    },
+    {
+      "paint_method": "- деревянных изделий",
+      "delta_a_pct": null,
+      "delta_r_paint_pct": 80.0,
+      "delta_r_dry_pct": 20.0,
+      "source_page": 29
+    }
+  ],
+  "notes": [
+    "Rows without aerosol losses intentionally keep delta_a_pct as null; formula 5.1 is only valid for methods with aerosol formation.",
+    "The source group header for lacquer-flow machines was excluded because it is not a selectable calculation row."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "7_1_receive",
+    "formula_code":  "7.1_receive",
+    "cases":  [
+                  {
+                      "case_id":  "7_1_receive_lookup_01",
+                      "title":  "7.1_receive lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "C_tank_max",
+                      "table_id":  "Table_15_tank",
+                      "output_key":  "C_tank_max",
+                      "resolution":  "exact",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Appendix 15",
+                                       "page":  null,
+                                       "image_ref":  "assets/tables/Table_15_tank.png"
+                                   },
+                      "selectors":  {
+                                        "substance":  "gasoline_auto",
+                                        "climate_zone":  "middle",
+                                        "tank_type":  "underground"
+                                    },
+                      "expected":  {
+                                       "value":  480.0,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "g_per_m3"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    }
+                  },
+                  {
+                      "case_id":  "7_1_receive_lookup_02_unsupported_substance",
+                      "title":  "7.1_receive blocks unsupported tank-table substance",
+                      "status":  "active",
+                      "binding_target":  "C_tank_max",
+                      "table_id":  "Table_15_tank",
+                      "output_key":  "C_tank_max",
+                      "resolution":  "exact",
+                      "selectors":  {
+                                        "substance":  "benzene",
+                                        "climate_zone":  "middle",
+                                        "tank_type":  "underground"
+                                    },
+                      "expect_error":  true,
+                      "expected_error":  {
+                                             "contains":  "No matching exact row"
+                                         }
+                  }
+              ]
+}

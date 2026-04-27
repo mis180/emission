@@ -1,0 +1,1505 @@
+{
+  "table_id": "table_2a_lkm_volatile_fraction",
+  "title": "Таблица 2: доля летучей части ЛКМ",
+  "authority": "normative",
+  "jurisdiction": "KZ",
+  "resolution": "exact",
+  "source": {
+    "document": "РНД 211.2.02.05-2004",
+    "section": "5.4, Table 2",
+    "page": 11,
+    "image_ref": "catalog/tables/table_2a_lkm_volatile_fraction/source.png"
+  },
+  "selectors": [
+    {
+      "name": "material_key",
+      "datatype": "string",
+      "enum_id": "paint_material"
+    }
+  ],
+  "axis": null,
+  "outputs": [
+    {
+      "name": "fr_pct",
+      "datatype": "numeric",
+      "unit_id": "pct"
+    }
+  ],
+  "missing_policy": "error",
+  "boundary_policy": null,
+  "rows": [
+    {
+      "material_key": "шпатлевки_пф_002",
+      "material_group": "ШПАТЛЕВКИ",
+      "material_mark": "ПФ-002",
+      "fr_pct": 25.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "шпатлевки_нц_007",
+      "material_group": "ШПАТЛЕВКИ",
+      "material_mark": "НЦ-007",
+      "fr_pct": 35.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "шпатлевки_нц_008",
+      "material_group": "ШПАТЛЕВКИ",
+      "material_mark": "НЦ-008",
+      "fr_pct": 70.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "шпатлевки_нц_173",
+      "material_group": "ШПАТЛЕВКИ",
+      "material_mark": "НЦ-173",
+      "fr_pct": 96.9,
+      "source_page": 11
+    },
+    {
+      "material_key": "шпатлевки_эп_0010",
+      "material_group": "ШПАТЛЕВКИ",
+      "material_mark": "ЭП-0010",
+      "fr_pct": 10.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "шпатлевки_хв_005",
+      "material_group": "ШПАТЛЕВКИ",
+      "material_mark": "ХВ-005",
+      "fr_pct": 67.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "шпатлевки_мч_0054",
+      "material_group": "ШПАТЛЕВКИ",
+      "material_mark": "МЧ-0054",
+      "fr_pct": 11.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "грунтовки_ак_070",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "АК-070",
+      "fr_pct": 86.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "грунтовки_гф_017",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ГФ-017",
+      "fr_pct": 51.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "грунтовки_гф_021",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ГФ-021",
+      "fr_pct": 45.0,
+      "source_page": 11
+    },
+    {
+      "material_key": "грунтовки_гф_0119",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ГФ-0119",
+      "fr_pct": 47.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_гф_030",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ГФ-030",
+      "fr_pct": 24.75,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_гф_031",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ГФ-031",
+      "fr_pct": 46.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_гф_032",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ГФ-032",
+      "fr_pct": 61.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_гф_0163",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ГФ-0163",
+      "fr_pct": 32.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_вл_02",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ВЛ-02",
+      "fr_pct": 79.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_вл_023",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ВЛ-023",
+      "fr_pct": 74.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_нц_173",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "НЦ-173",
+      "fr_pct": 96.9,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_нц_0135",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "НЦ-0135",
+      "fr_pct": 63.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_нц_0140",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "НЦ-0140",
+      "fr_pct": 80.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_нц_0205",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "НЦ-0205",
+      "fr_pct": 61.0,
+      "source_page": 12
+    },
+    {
+      "material_key": "грунтовки_пф_002",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ПФ-002",
+      "fr_pct": 25.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_пф_020",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ПФ-020",
+      "fr_pct": 43.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_фл_03к_фл_03ж",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ФЛ-03К ФЛ-03Ж",
+      "fr_pct": 30.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_фл_086",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ФЛ-086",
+      "fr_pct": 46.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_фл_087",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ФЛ-087",
+      "fr_pct": 47.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_хс_010",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ХС-010",
+      "fr_pct": 67.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_хс_059",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ХС-059",
+      "fr_pct": 64.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_хс_068",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "ХС-068",
+      "fr_pct": 69.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_мл_0_29",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "МЛ-0.29",
+      "fr_pct": 40.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "грунтовки_мч_0054",
+      "material_group": "ГРУНТОВКИ",
+      "material_mark": "МЧ-0054",
+      "fr_pct": 11.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "эмали_ас_182",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "АС-182",
+      "fr_pct": 47.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "эмали_ак_194",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "АК-194",
+      "fr_pct": 72.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "эмали_ак_1102",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "АК-1102",
+      "fr_pct": 80.5,
+      "source_page": 13
+    },
+    {
+      "material_key": "эмали_гф_92",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ГФ-92",
+      "fr_pct": 51.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "эмали_гф_92гм",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ГФ-92ГМ",
+      "fr_pct": 45.0,
+      "source_page": 13
+    },
+    {
+      "material_key": "эмали_гф_92гс",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ГФ-92ГС",
+      "fr_pct": 43.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_гф_92хс",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ГФ-92ХС",
+      "fr_pct": 44.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_гф_820",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ГФ-820",
+      "fr_pct": 50.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_12",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-12",
+      "fr_pct": 49.5,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_152",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-152",
+      "fr_pct": 57.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_158",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-158",
+      "fr_pct": 47.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_165",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-165",
+      "fr_pct": 51.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_197",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-197",
+      "fr_pct": 49.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_242",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-242",
+      "fr_pct": 44.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_279",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-279",
+      "fr_pct": 50.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_283",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-283",
+      "fr_pct": 45.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_629",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-629",
+      "fr_pct": 44.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мл_1156",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЛ-1156",
+      "fr_pct": 49.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мс_17",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МС-17",
+      "fr_pct": 57.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мс_160",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МС-160",
+      "fr_pct": 57.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мс_226",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МС-226",
+      "fr_pct": 50.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мч_123",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЧ-123",
+      "fr_pct": 55.0,
+      "source_page": 14
+    },
+    {
+      "material_key": "эмали_мч_240",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "МЧ-240",
+      "fr_pct": 55.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_нц_11",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "НЦ-11",
+      "fr_pct": 74.5,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_нц_132п",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "НЦ-132П",
+      "fr_pct": 80.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_нц_257",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "НЦ-257",
+      "fr_pct": 62.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_нц_1125",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "НЦ-1125",
+      "fr_pct": 60.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_115",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-115",
+      "fr_pct": 45.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_133",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-133",
+      "fr_pct": 50.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_167",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-167",
+      "fr_pct": 40.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_188",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-188",
+      "fr_pct": 44.5,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_218гс",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-218ГС",
+      "fr_pct": 27.5,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_283",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-283",
+      "fr_pct": 50.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_837",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-837",
+      "fr_pct": 53.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_1105",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-1105",
+      "fr_pct": 39.0,
+      "source_page": 15
+    },
+    {
+      "material_key": "эмали_пф_1189",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-1189",
+      "fr_pct": 47.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пф_1126",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-1126",
+      "fr_pct": 57.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пэ_220",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПЭ-220",
+      "fr_pct": 35.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пэ_250",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПЭ-250",
+      "fr_pct": 35.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пэ_250м_пэ_250пм",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПЭ-250М ПЭ-250ПМ",
+      "fr_pct": 43.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пэ_251_пэ_251б",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПЭ-251 ПЭ-251Б",
+      "fr_pct": 25.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пэ_247",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПЭ-247",
+      "fr_pct": 40.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пф_246_пэ_265",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПФ-246 ПЭ-265",
+      "fr_pct": 8.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_в_пэ_1179",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "В-ПЭ-1179",
+      "fr_pct": 74.0,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_пэ_276",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ПЭ-276",
+      "fr_pct": 9.5,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_эп_51",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ЭП-51",
+      "fr_pct": 76.5,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_эп_140",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ЭП-140",
+      "fr_pct": 53.5,
+      "source_page": 16
+    },
+    {
+      "material_key": "эмали_эп_148",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ЭП-148",
+      "fr_pct": 35.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_эп_255",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ЭП-255",
+      "fr_pct": 36.5,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_эп_525",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ЭП-525",
+      "fr_pct": 29.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_эп_773",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ЭП-773",
+      "fr_pct": 38.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_эп_1236",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ЭП-1236",
+      "fr_pct": 59.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_хв_16",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХВ-16",
+      "fr_pct": 78.5,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_хв_110",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХВ-110",
+      "fr_pct": 61.5,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_хв_124",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХВ-124",
+      "fr_pct": 27.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_хв_518",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХВ-518",
+      "fr_pct": 70.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_хв_785",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХВ-785",
+      "fr_pct": 73.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_хв_1120",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХВ-1120",
+      "fr_pct": 75.0,
+      "source_page": 17
+    },
+    {
+      "material_key": "эмали_ко_83",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "КО-83",
+      "fr_pct": 78.0,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_ко_811",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "КО-811",
+      "fr_pct": 64.5,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_ко_822",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "КО-822",
+      "fr_pct": 65.0,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_ко_935",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "КО-935",
+      "fr_pct": 30.0,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_хс_119_хс_119э",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХС-119 ХС-119Э",
+      "fr_pct": 68.5,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_хс_75у",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХС-75У",
+      "fr_pct": 68.5,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_хс_759",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ХС-759",
+      "fr_pct": 69.0,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_фл_5233",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ФЛ-5233",
+      "fr_pct": 87.5,
+      "source_page": 18
+    },
+    {
+      "material_key": "эмали_вл_515",
+      "material_group": "ЭМАЛИ",
+      "material_mark": "ВЛ-515",
+      "fr_pct": 72.0,
+      "source_page": 18
+    },
+    {
+      "material_key": "лаки_ак_113",
+      "material_group": "ЛАКИ",
+      "material_mark": "АК-113",
+      "fr_pct": 93.0,
+      "source_page": 18
+    },
+    {
+      "material_key": "лаки_ак_113ф",
+      "material_group": "ЛАКИ",
+      "material_mark": "АК-113Ф",
+      "fr_pct": 91.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_бт_99",
+      "material_group": "ЛАКИ",
+      "material_mark": "БТ-99",
+      "fr_pct": 56.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_бт_577",
+      "material_group": "ЛАКИ",
+      "material_mark": "БТ-577",
+      "fr_pct": 63.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_бт_985",
+      "material_group": "ЛАКИ",
+      "material_mark": "БТ-985",
+      "fr_pct": 60.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_бт_987",
+      "material_group": "ЛАКИ",
+      "material_mark": "БТ-987",
+      "fr_pct": 60.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_бт_988",
+      "material_group": "ЛАКИ",
+      "material_mark": "БТ-988",
+      "fr_pct": 60.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_гф_92",
+      "material_group": "ЛАКИ",
+      "material_mark": "ГФ-92",
+      "fr_pct": 45.5,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_гф_95",
+      "material_group": "ЛАКИ",
+      "material_mark": "ГФ-95",
+      "fr_pct": 51.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_кф_965",
+      "material_group": "ЛАКИ",
+      "material_mark": "КФ-965",
+      "fr_pct": 65.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_лбс_1",
+      "material_group": "ЛАКИ",
+      "material_mark": "ЛБС-1",
+      "fr_pct": 45.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_лбс_21",
+      "material_group": "ЛАКИ",
+      "material_mark": "ЛБС-21",
+      "fr_pct": 32.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_мл_92",
+      "material_group": "ЛАКИ",
+      "material_mark": "МЛ-92",
+      "fr_pct": 47.5,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_мл_133",
+      "material_group": "ЛАКИ",
+      "material_mark": "МЛ-133",
+      "fr_pct": 55.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_мч_52",
+      "material_group": "ЛАКИ",
+      "material_mark": "МЧ-52",
+      "fr_pct": 38.76,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_нц_211",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-211",
+      "fr_pct": 76.0,
+      "source_page": 19
+    },
+    {
+      "material_key": "лаки_нц_218",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-218",
+      "fr_pct": 70.0,
+      "source_page": 20
+    },
+    {
+      "material_key": "лаки_нц_221",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-221",
+      "fr_pct": 83.1,
+      "source_page": 20
+    },
+    {
+      "material_key": "лаки_нц_222",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-222",
+      "fr_pct": 78.0,
+      "source_page": 20
+    },
+    {
+      "material_key": "лаки_нц_223",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-223",
+      "fr_pct": 67.0,
+      "source_page": 20
+    },
+    {
+      "material_key": "лаки_нц_224",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-224",
+      "fr_pct": 75.0,
+      "source_page": 20
+    },
+    {
+      "material_key": "лаки_нц_243",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-243",
+      "fr_pct": 74.0,
+      "source_page": 20
+    },
+    {
+      "material_key": "лаки_нц_2101",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-2101",
+      "fr_pct": 72.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_нц_2105",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-2105",
+      "fr_pct": 81.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_нц_2_95",
+      "material_group": "ЛАКИ",
+      "material_mark": "НЦ-2-95",
+      "fr_pct": 67.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_пэ_220",
+      "material_group": "ЛАКИ",
+      "material_mark": "ПЭ-220",
+      "fr_pct": 35.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_пэ_232",
+      "material_group": "ЛАКИ",
+      "material_mark": "ПЭ-232",
+      "fr_pct": 8.9,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_пэ_246_пэ_265",
+      "material_group": "ЛАКИ",
+      "material_mark": "ПЭ-246 ПЭ-265",
+      "fr_pct": 8.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_пэ_250м",
+      "material_group": "ЛАКИ",
+      "material_mark": "ПЭ-250М",
+      "fr_pct": 43.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_пэ_251б",
+      "material_group": "ЛАКИ",
+      "material_mark": "ПЭ-251Б",
+      "fr_pct": 25.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_ур_231",
+      "material_group": "ЛАКИ",
+      "material_mark": "УР-231",
+      "fr_pct": 70.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_ур_249м",
+      "material_group": "ЛАКИ",
+      "material_mark": "УР-249М",
+      "fr_pct": 71.0,
+      "source_page": 21
+    },
+    {
+      "material_key": "лаки_ур_227м",
+      "material_group": "ЛАКИ",
+      "material_mark": "УР-227М",
+      "fr_pct": 65.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "лаки_бакелитовый_лак_180",
+      "material_group": "ЛАКИ",
+      "material_mark": "Бакелитовый лак 180",
+      "fr_pct": 57.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "лаки_пф_170",
+      "material_group": "ЛАКИ",
+      "material_mark": "ПФ-170",
+      "fr_pct": 50.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "лаки_фл_559",
+      "material_group": "ЛАКИ",
+      "material_mark": "ФЛ-559",
+      "fr_pct": 60.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "лаки_фл_582",
+      "material_group": "ЛАКИ",
+      "material_mark": "ФЛ-582",
+      "fr_pct": 65.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "лаки_хв_784",
+      "material_group": "ЛАКИ",
+      "material_mark": "ХВ-784",
+      "fr_pct": 84.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "лаки_эп_730",
+      "material_group": "ЛАКИ",
+      "material_mark": "ЭП-730",
+      "fr_pct": 70.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_4",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-4",
+      "fr_pct": 100.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_4а",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-4А",
+      "fr_pct": 100.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_5_р_5а",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-5 Р-5А",
+      "fr_pct": 100.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_6",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-6",
+      "fr_pct": 100.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_7",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-7",
+      "fr_pct": 100.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_10",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-10",
+      "fr_pct": 100.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_12",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-12",
+      "fr_pct": 100.0,
+      "source_page": 22
+    },
+    {
+      "material_key": "растворители_р_14",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-14",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_24",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-24",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_30_р_40",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-30, Р-40",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_60",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-60",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_189",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-189",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_197",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-197",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_198",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-198",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_119э",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-119Э",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_219",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-219",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_1101",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-1101",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_1166",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-1166",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_1176",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-1176",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_2106",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-2106",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_2106м",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-2106М",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_р_3160",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-3160",
+      "fr_pct": 100.0,
+      "source_page": 23
+    },
+    {
+      "material_key": "растворители_рл_176",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РЛ-176",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_рл_176м",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РЛ-176М",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_рл_251_м_а",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РЛ-251 м. А",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_рл_251_м_б",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РЛ-251 м. Б",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_рл_277",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РЛ-277",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_рл_278",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Рл-278",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_рл_298",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РЛ-298",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_рл_541",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РЛ-541",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_645",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "№ 645",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_646",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "№ 646",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_647",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "№ 647",
+      "fr_pct": 100.0,
+      "source_page": 24
+    },
+    {
+      "material_key": "растворители_648",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "№ 648",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_649",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "№ 649",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_650",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "№ 650",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_рмл_218",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РМЛ-218",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_рмл",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РМЛ",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_рмл_315",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РМЛ-315",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_рдв",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РДВ",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_ркб_1",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РКБ-1",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_ркб_2",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РКБ-2",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_р_83",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-83",
+      "fr_pct": 100.0,
+      "source_page": 25
+    },
+    {
+      "material_key": "растворители_р_119",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-119",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_рвл",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РВЛ",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_рфг",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РФГ",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_рс_2",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РС-2",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_рп",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "РП",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_м",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "М",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_амр_3",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "АМР-3",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_лкр",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "ЛКР",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "растворители_р_251б",
+      "material_group": "РАСТВОРИТЕЛИ",
+      "material_mark": "Р-251Б",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_1в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-1В",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_2в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-2В",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_3в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-3В",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_4в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-4В",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_5в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-5В",
+      "fr_pct": 100.0,
+      "source_page": 26
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_р_6в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "Р-6В",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_р_7в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "Р-7В",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_8в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-8В",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_9в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-9В",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_10в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-10В",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_11в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-11В",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэ_12в",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭ-12В",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рэс_5107",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РЭС-5107",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "разбавители_для_электроокраски_рп",
+      "material_group": "РАЗБАВИТЕЛИ ДЛЯ ЭЛЕКТРООКРАСКИ",
+      "material_mark": "РП",
+      "fr_pct": 100.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "прочее_разравнивающ_ая_жидкость_рме",
+      "material_group": "ПРОЧЕЕ",
+      "material_mark": "Разравнивающ ая жидкость РМЕ",
+      "fr_pct": 94.0,
+      "source_page": 27
+    },
+    {
+      "material_key": "прочее_распределител_ьная_жидкость_нц_313",
+      "material_group": "ПРОЧЕЕ",
+      "material_mark": "Распределител ьная жидкость НЦ-313",
+      "fr_pct": 96.9,
+      "source_page": 27
+    },
+    {
+      "material_key": "прочее_нитрополитур_а_нц_314",
+      "material_group": "ПРОЧЕЕ",
+      "material_mark": "Нитрополитур а НЦ-314",
+      "fr_pct": 86.0,
+      "source_page": 28
+    },
+    {
+      "material_key": "прочее_полировочная_n18",
+      "material_group": "ПРОЧЕЕ",
+      "material_mark": "Полировочная N18",
+      "fr_pct": 97.0,
+      "source_page": 28
+    },
+    {
+      "material_key": "прочее_ускоритель_n25",
+      "material_group": "ПРОЧЕЕ",
+      "material_mark": "Ускоритель N25",
+      "fr_pct": 90.0,
+      "source_page": 28
+    },
+    {
+      "material_key": "прочее_ускоритель_n30",
+      "material_group": "ПРОЧЕЕ",
+      "material_mark": "Ускоритель N30",
+      "fr_pct": 90.0,
+      "source_page": 28
+    },
+    {
+      "material_key": "прочее_паста_полировочная",
+      "material_group": "ПРОЧЕЕ",
+      "material_mark": "Паста полировочная",
+      "fr_pct": 15.0,
+      "source_page": 28
+    }
+  ],
+  "notes": [
+    "Table 2 spans PDF pages 11-28; image_ref points to the first table page and source_page is retained per row."
+  ]
+}

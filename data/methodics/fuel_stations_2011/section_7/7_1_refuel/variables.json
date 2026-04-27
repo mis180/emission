@@ -1,0 +1,250 @@
+{
+    "variables": [
+        {
+            "id": "substance",
+            "token": "substance",
+            "label": "Вид нефтепродукта",
+            "datatype": "string",
+            "default": "gasoline_auto",
+            "enum_id": "substance_petroleum_products",
+            "category": "selector"
+        },
+        {
+            "id": "climate_zone",
+            "token": "climate_zone",
+            "label": "Климатическая зона",
+            "datatype": "string",
+            "default": "middle",
+            "enum_id": "climate_zone",
+            "category": "selector",
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "PZV_refuel",
+            "token": "PZV_refuel",
+            "label": "Эффективность УЛФ (Заправка из ТРК)",
+            "datatype": "numeric",
+            "latex": "P_{zv,trk}",
+            "default": 0,
+            "min": 0,
+            "max": 99,
+            "hint": "Укажите 0, если система отсутствует. Для современных систем обычно 90-95%.",
+            "notes": [
+                "Runtime-only efficiency factor for vapor-recovery correction in the refueling branch."
+            ],
+            "unit_id": "pct",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "VTRK",
+            "token": "VTRK",
+            "label": "Производительность одного рукава ТРК",
+            "datatype": "numeric",
+            "latex": "V_{trk}",
+            "min": 0,
+            "source_token_aliases": [
+                "V_trk"
+            ],
+            "notes": [
+                "Maps the source symbol V_trk to the flow of one hose.",
+                "The runtime refueling branch multiplies VTRK by NN to derive total simultaneous TRK flow."
+            ],
+            "unit_id": "m3_per_h",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "NN",
+            "token": "NN",
+            "label": "Количество одновременно работающих рукавов ТРК",
+            "datatype": "numeric",
+            "default": 1,
+            "min": 1,
+            "latex": "N_n",
+            "notes": [
+                "Runtime-only helper for simultaneous hoses.",
+                "The source formula 7.1.2 uses total TRK flow directly; NN is the package adaptation that scales one-hose flow to that total."
+            ],
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            },
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "Qoz",
+            "token": "Qoz",
+            "label": "Сезонный объем нефтепродукта (осенне-зимний период)",
+            "datatype": "numeric",
+            "latex": "Q_{oz}",
+            "min": 0,
+            "source_token_aliases": [
+                "Q_oz"
+            ],
+            "notes": [
+                "Maps the source symbol Q_oz to the autumn-winter throughput."
+            ],
+            "unit_id": "m3_per_period",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "Qvl",
+            "token": "Qvl",
+            "label": "Сезонный объем нефтепродукта (весенне-летний период)",
+            "datatype": "numeric",
+            "latex": "Q_{vl}",
+            "min": 0,
+            "source_token_aliases": [
+                "Q_vl"
+            ],
+            "notes": [
+                "Maps the source symbol Q_vl to the spring-summer throughput."
+            ],
+            "unit_id": "m3_per_period",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "C_ba_max",
+            "token": "C_ba_max",
+            "label": "Концентрация паров при заполнении бака автомобиля (макс)",
+            "datatype": "numeric",
+            "latex": "C_{ba,max}",
+            "source_token_aliases": [
+                "C_ba_am_max"
+            ],
+            "notes": [
+                "Maps the source symbol C_ba_am_max to the lookup-backed maximum concentration during vehicle refueling."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "C_ba_oz",
+            "token": "C_ba_oz",
+            "label": "Концентрация паров при заполнении бака автомобиля (ОЗ)",
+            "datatype": "numeric",
+            "latex": "C_{ba,oz}",
+            "source_token_aliases": [
+                "C_ba_oz"
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "C_ba_vl",
+            "token": "C_ba_vl",
+            "label": "Концентрация паров при заполнении бака автомобиля (ВЛ)",
+            "datatype": "numeric",
+            "latex": "C_{ba,vl}",
+            "source_token_aliases": [
+                "C_ba_vl"
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "J",
+            "token": "J",
+            "label": "Удельные выбросы при проливах",
+            "datatype": "numeric",
+            "latex": "J",
+            "source_token_aliases": [
+                "J"
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "G_ba",
+            "token": "G_ba",
+            "label": "Валовый выброс при заправке баков",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_refuel"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "G_pr_a",
+            "token": "G_pr_a",
+            "label": "Валовый выброс от проливов при заправке",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_refuel"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_refuel"
+            },
+            "unit_id": "g_per_s"
+        }
+    ]
+}

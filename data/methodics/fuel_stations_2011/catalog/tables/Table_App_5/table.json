@@ -1,0 +1,518 @@
+{
+    "table_id":  "Table_App_5",
+    "title":  "Molar mass of vapor in equilibrium (m)",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 5",
+                   "image_ref":  "catalog/tables/Table_App_5/source.png"
+               },
+    "resolution":  "interpolate",
+    "selectors":  [
+                      {
+                          "name":  "product_type",
+                          "datatype":  "string",
+                          "enum_id":  "product_type_annex5"
+                      }
+                  ],
+    "axis":  {
+                 "name":  "t_nk",
+                 "field":  "t_nk",
+                 "datatype":  "numeric",
+                 "mode":  "point",
+                 "unit_id":  "celsius"
+             },
+    "outputs":  [
+                    {
+                        "name":  "m",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_mol"
+                    }
+                ],
+    "missing_policy":  "error",
+    "boundary_policy":  "clamp",
+    "rows":  [
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  10,
+                     "m":  51.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  11,
+                     "m":  51.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  12,
+                     "m":  52.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  13,
+                     "m":  52.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  14,
+                     "m":  53.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  15,
+                     "m":  54.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  16,
+                     "m":  54.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  17,
+                     "m":  55.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  18,
+                     "m":  55.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  19,
+                     "m":  56.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  20,
+                     "m":  57.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  21,
+                     "m":  57.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  22,
+                     "m":  58.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  23,
+                     "m":  58.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  24,
+                     "m":  59.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  25,
+                     "m":  60.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  26,
+                     "m":  60.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  27,
+                     "m":  61.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  28,
+                     "m":  61.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  29,
+                     "m":  62.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  30,
+                     "m":  63.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  31,
+                     "m":  63.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  32,
+                     "m":  64.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  33,
+                     "m":  64.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  34,
+                     "m":  65.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  35,
+                     "m":  66.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  36,
+                     "m":  66.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  37,
+                     "m":  67.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  38,
+                     "m":  67.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  39,
+                     "m":  68.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  40,
+                     "m":  69.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  41,
+                     "m":  69.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  42,
+                     "m":  70.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  43,
+                     "m":  70.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  44,
+                     "m":  71.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  45,
+                     "m":  72.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  46,
+                     "m":  72.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  47,
+                     "m":  73.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  48,
+                     "m":  73.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  49,
+                     "m":  74.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  50,
+                     "m":  75.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  51,
+                     "m":  75.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  52,
+                     "m":  76.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  53,
+                     "m":  76.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  54,
+                     "m":  77.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  55,
+                     "m":  78.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  56,
+                     "m":  78.6
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  57,
+                     "m":  79.2
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  58,
+                     "m":  79.8
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  59,
+                     "m":  80.4
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  60,
+                     "m":  81.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  65,
+                     "m":  84.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  70,
+                     "m":  87.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  75,
+                     "m":  90.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  80,
+                     "m":  93.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  85,
+                     "m":  96.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  90,
+                     "m":  99.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  95,
+                     "m":  102.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  100,
+                     "m":  105.0
+                 },
+                 {
+                     "product_type":  "crude_oil",
+                     "t_nk":  110,
+                     "m":  111.0
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  30,
+                     "m":  60.0
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  31,
+                     "m":  60.3
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  32,
+                     "m":  60.6
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  33,
+                     "m":  60.9
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  34,
+                     "m":  61.2
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  35,
+                     "m":  61.5
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  36,
+                     "m":  61.8
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  37,
+                     "m":  62.1
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  38,
+                     "m":  62.5
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  39,
+                     "m":  62.8
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  40,
+                     "m":  63.1
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  41,
+                     "m":  63.4
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  42,
+                     "m":  63.7
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  43,
+                     "m":  64.1
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  44,
+                     "m":  64.4
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  45,
+                     "m":  64.7
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  46,
+                     "m":  65.1
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  47,
+                     "m":  65.4
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  48,
+                     "m":  65.7
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  49,
+                     "m":  66.1
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  50,
+                     "m":  66.4
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  51,
+                     "m":  66.7
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  52,
+                     "m":  67.1
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  53,
+                     "m":  67.4
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  54,
+                     "m":  67.8
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  55,
+                     "m":  68.1
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  56,
+                     "m":  68.5
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  57,
+                     "m":  68.8
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  58,
+                     "m":  69.2
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  59,
+                     "m":  69.5
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  60,
+                     "m":  70.0
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  62,
+                     "m":  71.0
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  85,
+                     "m":  80.0
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  105,
+                     "m":  88.0
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  120,
+                     "m":  95.0
+                 },
+                 {
+                     "product_type":  "gasoline",
+                     "t_nk":  140,
+                     "m":  105.0
+                 }
+             ],
+    "schema_version":  2
+}

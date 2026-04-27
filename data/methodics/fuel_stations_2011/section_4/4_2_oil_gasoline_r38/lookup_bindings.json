@@ -1,0 +1,79 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "m_vapor",
+            "table_id": "Table_App_5",
+            "output_key": "m",
+            "selectors": {
+                "product_type": "productBoilGroup"
+            },
+            "axis_input": "t_nk",
+            "trace_label": "Table_App_5 -> m"
+        },
+        {
+            "target_variable": "Kt_max",
+            "table_id": "Table_App_7",
+            "output_key": "kt",
+            "selectors": {
+                "product_group": "productBoilGroup"
+            },
+            "axis_input": "t_liq_max",
+            "trace_label": "Table_App_7 -> kt"
+        },
+        {
+            "target_variable": "Kt_min",
+            "table_id": "Table_App_7",
+            "output_key": "kt",
+            "selectors": {
+                "product_group": "productBoilGroup"
+            },
+            "axis_input": "t_liq_min",
+            "trace_label": "Table_App_7 -> kt"
+        },
+        {
+            "target_variable": "Kp_max",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_max"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Kp_avg",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_sr"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Kv",
+            "table_id": "Table_App_9",
+            "output_key": "kv",
+            "selectors": {},
+            "axis_input": "P38_src",
+            "trace_label": "Table_App_9 -> kv"
+        },
+        {
+            "target_variable": "Kob",
+            "table_id": "Table_App_10",
+            "output_key": "kob",
+            "selectors": {},
+            "axis_input": "n_turnover",
+            "trace_label": "Table_App_10 -> kob"
+        }
+    ]
+}

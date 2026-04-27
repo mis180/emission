@@ -1,0 +1,101 @@
+{
+    "questions": [
+        {
+            "variable_id": "productBoilGroup",
+            "required": true
+        },
+        {
+            "variable_id": "NP",
+            "integer_only": true,
+            "hidden": true
+        },
+        {
+            "variable_id": "n_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "Kp_max",
+            "help_text": "Определяется автоматически по Приложению 8.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kp_avg",
+            "help_text": "Определяется автоматически по Приложению 8.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kv",
+            "help_text": "Определяется автоматически по Приложению 9.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kob",
+            "help_text": "Определяется автоматически по Приложению 10.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Vch_max",
+            "required": true
+        },
+        {
+            "variable_id": "B_year",
+            "required": true
+        },
+        {
+            "variable_id": "t_liq_max",
+            "required": true
+        },
+        {
+            "variable_id": "t_liq_min",
+            "required": true
+        },
+        {
+            "variable_id": "ssv_type",
+            "required": true
+        },
+        {
+            "variable_id": "sum_Xi_rhoi",
+            "required": true
+        },
+        {
+            "variable_id": "Pt_i_max",
+            "required": true
+        },
+        {
+            "variable_id": "sum_Xi_mi",
+            "required": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "tank_construction",
+            "required": true
+        },
+        {
+            "variable_id": "pt_38_mmhg",
+            "required": true
+        },
+        {
+            "variable_id": "Pt_i_min",
+            "required": true
+        },
+        {
+            "variable_id": "tank_mode_recv",
+            "required": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        },
+        {
+            "variable_id": "X_i",
+            "required": true
+        },
+        {
+            "variable_id": "V_nom",
+            "required": true
+        }
+    ]
+}

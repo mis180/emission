@@ -46,14 +46,36 @@ const ReportGenerator = (() => {
         // 1. Cover Page
         // -----------------------------------------------------
         const titleText = lang === 'kz' ? 'ШЫҒАРЫНДЫЛАРДЫ ЕСЕПТЕУ ТУРАЛЫ ЕСЕП' : 'ОТЧЕТ ПО РАСЧЕТУ ВЫБРОСОВ';
+        
+        // Readiness Check
+        let allReady = true;
+        project.facilities.forEach(f => {
+            if (f.sources) {
+                f.sources.forEach(s => {
+                    if (s._is_template || s._is_not_implemented) allReady = false;
+                });
+            }
+        });
+
         docDefinition.content.push(
             { text: titleText, style: 'title' },
             { text: companyName, style: 'subtitle' },
             { text: `Проект: ${projectName}`, style: 'text', alignment: 'center', fontSize: 14, margin: [0,0,0,10] },
             { text: `Разрешительный документ: ${license}`, style: 'text', alignment: 'center' },
-            { text: `Дата формирования: ${reportDate}`, style: 'text', alignment: 'center', margin: [0,20,0,0] },
-            { text: '', pageBreak: 'after' }
+            { text: `Дата формирования: ${reportDate}`, style: 'text', alignment: 'center', margin: [0,20,0,0] }
         );
+
+        if (!allReady) {
+            docDefinition.content.push({
+                text: '⚠️ ВНИМАНИЕ: Отчет содержит незавершенные или шаблонные расчеты!',
+                color: '#ef4444',
+                bold: true,
+                alignment: 'center',
+                margin: [0, 20, 0, 0]
+            });
+        }
+
+        docDefinition.content.push({ text: '', pageBreak: 'after' });
 
         // -----------------------------------------------------
         // 2. Table of Contents
@@ -133,7 +155,7 @@ const ReportGenerator = (() => {
             facBody.push([
                 { text: (idx + 1).toString(), style: 'tableBody', alignment: 'center' },
                 { text: fac.name, style: 'tableBody' },
-                { text: (FACILITY_TYPES.find(t => t.value === fac.type) || {}).label || fac.type, style: 'tableBody' },
+                { text: (typeof FACILITY_TYPES !== 'undefined' ? (FACILITY_TYPES.find(t => t.value === fac.type) || {}).label : null) || fac.type, style: 'tableBody' },
                 { text: fac.address || '—', style: 'tableBody' }
             ]);
         });
@@ -152,15 +174,17 @@ const ReportGenerator = (() => {
                 return;
             }
             const srcBody = [
-                [{ text: 'Код исч.', style: 'tableHeader' }, { text: 'Наименование источника', style: 'tableHeader' }, { text: 'Методика', style: 'tableHeader' }, { text: 'Формула', style: 'tableHeader' }]
+                [{ text: 'Код', style: 'tableHeader' }, { text: 'Наименование источника', style: 'tableHeader' }, { text: 'Тип/Метод', style: 'tableHeader' }, { text: 'Статус', style: 'tableHeader' }]
             ];
             fac.sources.forEach((src, srcIdx) => {
                 const sNum = src.source_number || `000${srcIdx + 1}`;
+                const readiness = (typeof ProjectStore !== 'undefined') ? ProjectStore.getSourceReadinessStatus(src) : { label: '—', color: '#000' };
+                
                 srcBody.push([
                     { text: sNum, style: 'tableBody', alignment: 'center' },
                     { text: src.name || 'Безымянный источник', style: 'tableBody' },
-                    { text: src.methodic_name || '-', style: 'tableBody' },
-                    { text: src.formula_code || '-', style: 'tableBody', alignment: 'center' }
+                    { text: `${src.methodic_name || '-'}\n(${src.formula_code || '-'})`, style: 'tableBody', fontSize: 8 },
+                    { text: readiness.label, style: 'tableBody', color: readiness.color, bold: true, alignment: 'center' }
                 ]);
             });
             docDefinition.content.push({ table: { widths: ['auto', '*', '*', 'auto'], body: srcBody }, margin: [0, 5, 0, 15] });
@@ -316,17 +340,25 @@ const ReportGenerator = (() => {
             ]);
         });
 
-        docDefinition.content.push({ table: { widths: ['*', 'auto', 'auto'], body: sumBody }, margin: [0,0,0,30] });
+        docDefinition.content.push({ table: { widths: ['auto', '*', 'auto', 'auto'], body: sumBody }, margin: [0,0,0,30] });
 
         // -----------------------------------------------------
-        // 8. Signature Block
-        // -----------------------------------------------------
+        // Signatures
         docDefinition.content.push({
             style: 'signatureBlock',
             columns: [
                 { text: `${position}: ${signatory}`, width: '*' },
                 { text: 'Проверил (Гл. эколог): ________________________', width: '*' }
             ]
+        });
+
+        // Audit Footer
+        docDefinition.content.push({
+            text: `ID проекта: ${project.id} | Верифицировано системой EMISSION Core v2.0`,
+            fontSize: 7,
+            color: '#94a3b8',
+            alignment: 'center',
+            margin: [0, 40, 0, 0]
         });
 
         return new Promise((resolve) => {

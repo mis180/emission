@@ -1,0 +1,52 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "5_2_depot_tanks",
+    "formula_code": "5.2",
+    "cases": [
+        {
+            "case_id": "5_2_depot_tanks_equation_01",
+            "title": "5.2 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "5.2.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "5.2",
+                "page": 21,
+                "image_ref": null
+            },
+            "inputs": {
+                "NP": 1,
+                "Vch_max": 1,
+                "B_oz": 1,
+                "B_vl": 1,
+                "V_nom": 100,
+                "substance": "gasoline_auto",
+                "climate_zone": "middle",
+                "productBoilGroup": "light",
+                "tank_construction": "vert",
+                "tank_mode_recv": "mernik",
+                "ssv_type": "none",
+                "tank_type_storage": "vertical_none"
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.2349,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

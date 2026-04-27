@@ -1,0 +1,14 @@
+{
+    "formula_code": "6.4",
+    "variables": [
+        "rho_i_valve",
+        "n_i_valve",
+        "k_i_valve",
+        "phi_i_valve",
+        "f_i_valve",
+        "P_i_valve",
+        "M_i_mol",
+        "T_i_valve",
+        "c_ij_mass"
+    ]
+}

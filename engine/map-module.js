@@ -1,5 +1,5 @@
 /**
- * map-module.js — GIS Rendering Engine
+ * map-module.js - GIS Rendering Engine
  * Layer-aware Leaflet manager with custom markers, emission-intensity coloring,
  * and helpers for plume visualization.
  */
@@ -24,10 +24,10 @@ const MapModule = (() => {
      * ============================== */
 
     const INTENSITY_COLORS = {
-        low:      { bg: '#10b981', border: '#059669', label: '< 0.01 т/г' },
-        medium:   { bg: '#f59e0b', border: '#d97706', label: '0.01–0.1 т/г' },
-        high:     { bg: '#ef4444', border: '#dc2626', label: '0.1–1.0 т/г' },
-        critical: { bg: '#7c2d12', border: '#451a03', label: '≥ 1.0 т/г' }
+        low:      { bg: '#10b981', border: '#059669', label: '< 0.01 \u0442/\u0433' },
+        medium:   { bg: '#f59e0b', border: '#d97706', label: '0.01\u20130.1 \u0442/\u0433' },
+        high:     { bg: '#ef4444', border: '#dc2626', label: '0.1\u20131.0 \u0442/\u0433' },
+        critical: { bg: '#7c2d12', border: '#451a03', label: '\u2265 1.0 \u0442/\u0433' }
     };
 
     function getIntensityLevel(gTonsPerYear) {
@@ -37,21 +37,31 @@ const MapModule = (() => {
         return 'critical';
     }
 
+    function escapeHtml(value) {
+        if (value == null) return '';
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
     /* ==============================
      *  FACILITY TYPE ICONS
      * ============================== */
 
     const FACILITY_TYPE_ICONS = {
-        fuel_station:    '⛽',
-        fuel_depot:      '🛢️',
-        industrial_site: '🏭',
-        construction:    '🏗️',
-        boiler_house:    '🔥',
-        warehouse:       '📦',
-        workshop:        '🔧',
-        transport_base:  '🚛',
-        mining_site:     '⛏️',
-        other:           '📍'
+        fuel_station:    '\u26FD',
+        fuel_depot:      '\uD83D\uDEE2\uFE0F',
+        industrial_site: '\uD83C\uDFED',
+        construction:    '\uD83C\uDFD7\uFE0F',
+        boiler_house:    '\uD83D\uDD25',
+        warehouse:       '\uD83D\uDCE6',
+        workshop:        '\uD83D\uDD27',
+        transport_base:  '\uD83D\uDE8C',
+        mining_site:     '\u26CF\uFE0F',
+        other:           '\uD83D\uDCCD'
     };
 
     /* ==============================
@@ -105,12 +115,12 @@ const MapModule = (() => {
         });
 
         const overlays = {
-            "Источники": _layers[LAYER_NAMES.SOURCES],
-            "Рецепторы": _layers[LAYER_NAMES.RECEPTORS],
-            "Граница": _layers[LAYER_NAMES.BOUNDARY],
-            "Сан. зоны": _layers[LAYER_NAMES.SAN_ZONES],
-            "Шлейф": _layers[LAYER_NAMES.PLUME],
-            "Объекты": _layers[LAYER_NAMES.MANUAL]
+            "\u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a\u0438": _layers[LAYER_NAMES.SOURCES],
+            "\u0420\u0435\u0446\u0435\u043f\u0442\u043e\u0440\u044b": _layers[LAYER_NAMES.RECEPTORS],
+            "\u0413\u0440\u0430\u043d\u0438\u0446\u0430": _layers[LAYER_NAMES.BOUNDARY],
+            "\u0421\u0430\u043d. \u0437\u043e\u043d\u044b": _layers[LAYER_NAMES.SAN_ZONES],
+            "\u0428\u043b\u0435\u0439\u0444": _layers[LAYER_NAMES.PLUME],
+            "\u041e\u0431\u044a\u0435\u043a\u0442\u044b": _layers[LAYER_NAMES.MANUAL]
         };
 
         L.control.layers(baseMaps, overlays, { position: 'topright' }).addTo(_map);
@@ -137,10 +147,10 @@ const MapModule = (() => {
                 // Measurement Tooltips
                 if (shape === 'Line') {
                     const dist = calculateLeafletLength(layer);
-                    layer.bindTooltip(`Длина: ${dist > 1000 ? (dist/1000).toFixed(2) + ' км' : dist.toFixed(0) + ' м'}`, {permanent: true, direction: 'center', className: 'measure-tooltip'}).openTooltip();
+                    layer.bindTooltip(`\u0414\u043b\u0438\u043d\u0430: ${dist > 1000 ? (dist/1000).toFixed(2) + ' \u043a\u043c' : dist.toFixed(0) + ' \u043c'}`, {permanent: true, direction: 'center', className: 'measure-tooltip'}).openTooltip();
                 } else if (shape === 'Polygon' || shape === 'Rectangle') {
                     const area = calculateLeafletArea(layer);
-                    layer.bindTooltip(`Площадь: ${area > 10000 ? (area/10000).toFixed(2) + ' га' : area.toFixed(0) + ' м²'}`, {permanent: true, direction: 'center', className: 'measure-tooltip'}).openTooltip();
+                    layer.bindTooltip(`\u041f\u043b\u043e\u0449\u0430\u0434\u044c: ${area > 10000 ? (area/10000).toFixed(2) + ' \u0433\u0430' : area.toFixed(0) + ' \u043c\u00b2'}`, {permanent: true, direction: 'center', className: 'measure-tooltip'}).openTooltip();
                 }
 
                 const geojson = layer.toGeoJSON();
@@ -173,25 +183,25 @@ const MapModule = (() => {
                 
                 div.innerHTML = `
                     <div class="map-legend-title" style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'">
-                        <span>Легенда Слоев</span><span style="font-size:0.7em;">▼</span>
+                        <span>\u041b\u0435\u0433\u0435\u043d\u0434\u0430 \u0441\u043b\u043e\u0435\u0432</span><span style="font-size:0.7em;">\u25BC</span>
                     </div>
                     <div style="display:block;">
                     <div style="font-size: 0.8rem; margin-bottom: 8px; border-bottom:1px solid #e2e8f0; padding-bottom:8px;">
-                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('sources', this.checked)"> Источники (📍)</label>
-                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('sanitary_zones', this.checked)"> Сан. зоны (⭕)</label>
-                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('receptors', this.checked)"> Рецепторы (🟣)</label>
-                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('plume_contours', this.checked)"> Шлейф рассеивания (💨)</label>
+                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('sources', this.checked)"> \u0418\u0441\u0442\u043e\u0447\u043d\u0438\u043a\u0438 (\uD83D\uDCCD)</label>
+                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('sanitary_zones', this.checked)"> \u0421\u0430\u043d. \u0437\u043e\u043d\u044b (\u2B55)</label>
+                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('receptors', this.checked)"> \u0420\u0435\u0446\u0435\u043f\u0442\u043e\u0440\u044b (\uD83D\uDFE3)</label>
+                        <label style="display:flex; align-items:center; gap:6px; margin-bottom:4px; cursor:pointer;"><input type="checkbox" checked onchange="MapModule.toggleLayer('plume_contours', this.checked)"> \u0428\u043b\u0435\u0439\u0444 \u0440\u0430\u0441\u0441\u0435\u0438\u0432\u0430\u043d\u0438\u044f (\uD83D\uDCA8)</label>
                     </div>
                     <div style="display:flex; justify-content:space-between; margin-bottom:10px; gap:16px;">
                         <div>
-                            <div class="map-legend-title" style="font-size:0.75rem; margin-bottom:4px; color:#64748b;">Выбросы (G)</div>
-                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#10b981; border-radius:50%;"></div><div class="map-legend-label">Низкие</div></div>
-                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#f59e0b; border-radius:50%;"></div><div class="map-legend-label">Средние</div></div>
-                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#ef4444; border-radius:50%;"></div><div class="map-legend-label">Высокие</div></div>
-                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#7c2d12; border-radius:50%;"></div><div class="map-legend-label">Критич.</div></div>
+                            <div class="map-legend-title" style="font-size:0.75rem; margin-bottom:4px; color:#64748b;">\u0412\u044b\u0431\u0440\u043e\u0441\u044b (G)</div>
+                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#10b981; border-radius:50%;"></div><div class="map-legend-label">\u041d\u0438\u0437\u043a\u0438\u0435</div></div>
+                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#f59e0b; border-radius:50%;"></div><div class="map-legend-label">\u0421\u0440\u0435\u0434\u043d\u0438\u0435</div></div>
+                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#ef4444; border-radius:50%;"></div><div class="map-legend-label">\u0412\u044b\u0441\u043e\u043a\u0438\u0435</div></div>
+                            <div class="map-legend-item"><div class="map-legend-swatch" style="background:#7c2d12; border-radius:50%;"></div><div class="map-legend-label">\u041a\u0440\u0438\u0442.</div></div>
                         </div>
                         <div>
-                            <div class="map-legend-title" style="font-size:0.75rem; margin-bottom:4px; color:#64748b;">Рассеивание</div>
+                            <div class="map-legend-title" style="font-size:0.75rem; margin-bottom:4px; color:#64748b;">\u0420\u0430\u0441\u0441\u0435\u0438\u0432\u0430\u043d\u0438\u0435</div>
                             <div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(16, 185, 129, 0.25); border:1px solid #10b981;"></div><div class="map-legend-label">0.1 Cmax</div></div>
                             <div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(234, 179, 8, 0.35); border:1px solid #eab308;"></div><div class="map-legend-label">0.25 Cmax</div></div>
                             <div class="map-legend-item"><div class="map-legend-swatch" style="background:rgba(249, 115, 22, 0.45); border:1px solid #f97316;"></div><div class="map-legend-label">0.5 Cmax</div></div>
@@ -200,8 +210,8 @@ const MapModule = (() => {
                     </div>
                     <hr style="margin:8px 0; border:0; border-top:1px solid #e2e8f0;">
                     <div style="display:flex; justify-content:space-between; gap:16px;">
-                        <div class="map-legend-item"><div class="map-legend-swatch" style="background:#8b5cf6; border-radius:50%;"></div><div class="map-legend-label">Рецептор</div></div>
-                        <div class="map-legend-item"><div class="map-legend-swatch" style="background:transparent; border:2px dashed #64748b;"></div><div class="map-legend-label">СЗЗ / Граница</div></div>
+                        <div class="map-legend-item"><div class="map-legend-swatch" style="background:#8b5cf6; border-radius:50%;"></div><div class="map-legend-label">\u0420\u0435\u0446\u0435\u043f\u0442\u043e\u0440</div></div>
+                        <div class="map-legend-item"><div class="map-legend-swatch" style="background:transparent; border:2px dashed #64748b;"></div><div class="map-legend-label">\u0421\u0417\u0417 / \u0413\u0440\u0430\u043d\u0438\u0446\u0430</div></div>
                     </div>
                     </div>
                 `;
@@ -304,7 +314,7 @@ const MapModule = (() => {
 
     /**
      * Add any Leaflet layer object to a named layer group.
-     * This is the key helper that was missing — used by GeoMeteoWorkspace for plume rendering.
+     * This is the key helper that was missing - used by GeoMeteoWorkspace for plume rendering.
      */
     function addToLayer(layerName, leafletObj) {
         const target = _layers[layerName] || _layers[LAYER_NAMES.MANUAL];
@@ -320,7 +330,7 @@ const MapModule = (() => {
     function createSourceIcon(source, facilityType) {
         const intensity = getIntensityLevel(source.G || 0);
         const c = INTENSITY_COLORS[intensity];
-        const typeEmoji = FACILITY_TYPE_ICONS[facilityType] || '📍';
+        const typeEmoji = FACILITY_TYPE_ICONS[facilityType] || '\uD83D\uDCCD';
 
         const scaleFactor = Math.min(1.5, Math.max(0.8, 1 + (source.G || 0.1) * 0.5));
         const finalSize = Math.floor(36 * scaleFactor);
@@ -330,7 +340,7 @@ const MapModule = (() => {
             html: `<div class="source-pin" style="background:${c.bg}; border-color:${c.border}; width:${finalSize}px; height:${finalSize}px;">
                      <span class="source-pin-icon" style="font-size:${Math.floor(16*scaleFactor)}px;">${typeEmoji}</span>
                    </div>
-                   <span class="source-pin-number" style="bottom:-10px;">${source.source_number || ''}</span>`,
+                   <span class="source-pin-number" style="bottom:-10px;">${escapeHtml(source.source_number || '')}</span>`,
             iconSize: [finalSize, finalSize + 8],
             iconAnchor: [finalSize / 2, finalSize + 8],
             popupAnchor: [0, -(finalSize + 8)]
@@ -338,34 +348,40 @@ const MapModule = (() => {
     }
 
     function createPopupContent(source, facilityName) {
-        const mDisp = (source.M != null) ? source.M.toFixed(4) : '—';
-        const gDisp = (source.G != null) ? source.G.toFixed(4) : '—';
+        const mNum = Number(source.M);
+        const gNum = Number(source.G);
+        const mDisp = Number.isFinite(mNum) ? mNum.toFixed(4) : '\u2014';
+        const gDisp = Number.isFinite(gNum) ? gNum.toFixed(4) : '\u2014';
         const intensity = getIntensityLevel(source.G || 0);
         const c = INTENSITY_COLORS[intensity];
+        const sourceName = escapeHtml(source.name || '\u2014');
+        const sourceSubtitle = escapeHtml(facilityName || '');
+        const sourceNumber = escapeHtml(source.source_number || '\u2014');
+        const methodicLabel = escapeHtml(source.methodic_name || source.methodic_id || '\u2014');
 
         return `
             <div class="source-popup">
                 <div class="source-popup-header" style="border-left: 4px solid ${c.bg}; padding-left: 10px;">
-                    <div class="source-popup-title">${source.name}</div>
-                    <div class="source-popup-subtitle">${facilityName || ''}</div>
+                    <div class="source-popup-title">${sourceName}</div>
+                    <div class="source-popup-subtitle">${sourceSubtitle}</div>
                 </div>
                 <div class="source-popup-body">
                     <div class="source-popup-row">
-                        <span class="source-popup-label">№ Источника:</span>
-                        <span class="source-popup-value">${source.source_number || '—'}</span>
+                        <span class="source-popup-label">\u2116 \u0438\u0441\u0442\u043e\u0447\u043d\u0438\u043a\u0430:</span>
+                        <span class="source-popup-value">${sourceNumber}</span>
                     </div>
                     <div class="source-popup-row">
-                        <span class="source-popup-label">Методика:</span>
-                        <span class="source-popup-value">${source.methodic_name || source.methodic_id || '—'}</span>
+                        <span class="source-popup-label">\u041c\u0435\u0442\u043e\u0434\u0438\u043a\u0430:</span>
+                        <span class="source-popup-value">${methodicLabel}</span>
                     </div>
                     <div class="source-popup-divider"></div>
                     <div class="source-popup-metrics">
                         <div class="source-popup-metric">
-                            <div class="source-popup-metric-label">M (г/с)</div>
+                            <div class="source-popup-metric-label">M (\u0433/\u0441)</div>
                             <div class="source-popup-metric-value">${mDisp}</div>
                         </div>
                         <div class="source-popup-metric">
-                            <div class="source-popup-metric-label">G (т/год)</div>
+                            <div class="source-popup-metric-label">G (\u0442/\u0433\u043e\u0434)</div>
                             <div class="source-popup-metric-value" style="color:${c.bg}; font-weight:700;">${gDisp}</div>
                         </div>
                     </div>
@@ -552,7 +568,7 @@ const MapModule = (() => {
                 return L.marker(latlng);
             }
         });
-        layer.bindTooltip(geom.name || 'Объект');
+        layer.bindTooltip(geom.name || '\u041e\u0431\u044a\u0435\u043a\u0442');
         if (_layers[targetLayer]) {
             _layers[targetLayer].addLayer(layer);
         } else {

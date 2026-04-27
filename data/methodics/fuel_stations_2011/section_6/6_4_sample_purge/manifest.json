@@ -1,0 +1,15 @@
+{
+    "formula_code": "6.4.1",
+    "section": "6.4.1",
+    "title_ru": "Technological sample purges",
+    "status": "active",
+    "confidence": "HIGH",
+    "source_pages": [
+        25
+    ],
+    "shared_tables_used": [],
+    "runtime_differs_from_source": true,
+    "notes": [
+        "Runtime adds M in g/s and G from period hours; source 6.4.1 gives average kg/h for purge/sample operations."
+    ]
+}

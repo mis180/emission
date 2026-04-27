@@ -1,0 +1,55 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_2_oil_gasoline_r38",
+    "formula_code": "4.2",
+    "cases": [
+        {
+            "case_id": "4_2_oil_gasoline_r38_equation_01",
+            "title": "4.2 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.2",
+                "page": 17,
+                "image_ref": null
+            },
+            "inputs": {
+                "productBoilGroup": "light",
+                "t_liq_max": -30,
+                "t_liq_min": -30,
+                "B_year": 1,
+                "P38_src": 0,
+                "Vch_max": 1,
+                "rho_liq": 1,
+                "t_nk": 30,
+                "n_turnover": 100,
+                "V_nom": 0,
+                "B_oz": 1,
+                "B_vl": 1,
+                "tank_construction": "vert",
+                "tank_mode_recv": "mernik",
+                "ssv_type": "none"
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.0,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

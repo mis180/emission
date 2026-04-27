@@ -1,0 +1,78 @@
+{
+  "source_equations": [
+    {
+      "eq_id": "5.3.5",
+      "formula_name": "Максимальный разовый выброс компонента при окраске",
+      "lhs_symbol": "M_okr_x",
+      "rhs_source": "m_m * f_r * delta'_r * delta_x / (10^6 * 3.6) * (1 - eta)",
+      "latex": "M^x_{okr} = \\frac{m_m \\cdot f_r \\cdot \\delta'_r \\cdot \\delta_x}{10^6 \\cdot 3.6} \\cdot (1 - \\eta)",
+      "output_unit_id": "g_per_s",
+      "page": 9,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    },
+    {
+      "eq_id": "5.3.6",
+      "formula_name": "Максимальный разовый выброс компонента при сушке",
+      "lhs_symbol": "M_sush_x",
+      "rhs_source": "m_m * f_r * delta''_r * delta_x / (10^6 * 3.6) * (1 - eta)",
+      "latex": "M^x_{sush} = \\frac{m_m \\cdot f_r \\cdot \\delta''_r \\cdot \\delta_x}{10^6 \\cdot 3.6} \\cdot (1 - \\eta)",
+      "output_unit_id": "g_per_s",
+      "page": 9,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    },
+    {
+      "eq_id": "5.3.7",
+      "formula_name": "Общий максимальный разовый выброс компонента",
+      "lhs_symbol": "M_obsh_x",
+      "rhs_source": "M_okr_x + M_sush_x",
+      "latex": "M^x_{obsh} = M^x_{okr} + M^x_{sush}",
+      "output_unit_id": "g_per_s",
+      "page": 9,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    }
+  ],
+  "runtime_equations": [
+    {
+      "formula_code": "5.3",
+      "equation_order": 1,
+      "lhs_token": "M_comp_paint_gps",
+      "rhs": "m_m_kgph * fr_pct * delta_r_paint_pct * delta_x_pct / (1000000 * 3.6) * (1 - eta_cleaning / 100)",
+      "latex": "M^x_{paint,max} = \\frac{m_m \\cdot f_r \\cdot \\delta'_r \\cdot \\delta_x}{10^6 \\cdot 3.6} \\cdot (1 - \\eta/100)",
+      "formula_name": "Максимальный выброс компонента при окраске",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.3.5"
+      ]
+    },
+    {
+      "formula_code": "5.3",
+      "equation_order": 2,
+      "lhs_token": "M_comp_dry_gps",
+      "rhs": "m_m_kgph * fr_pct * delta_r_dry_pct * delta_x_pct / (1000000 * 3.6) * (1 - eta_cleaning / 100)",
+      "latex": "M^x_{dry,max} = \\frac{m_m \\cdot f_r \\cdot \\delta''_r \\cdot \\delta_x}{10^6 \\cdot 3.6} \\cdot (1 - \\eta/100)",
+      "formula_name": "Максимальный выброс компонента при сушке",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.3.6"
+      ]
+    },
+    {
+      "formula_code": "5.3",
+      "equation_order": 3,
+      "lhs_token": "M_comp_total_gps",
+      "rhs": "M_comp_paint_gps + M_comp_dry_gps",
+      "latex": "M^x_{total,max} = M^x_{paint,max} + M^x_{dry,max}",
+      "formula_name": "Общий максимальный разовый выброс компонента",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.3.7"
+      ]
+    }
+  ]
+}

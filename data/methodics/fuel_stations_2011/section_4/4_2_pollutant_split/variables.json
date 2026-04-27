@@ -1,0 +1,79 @@
+{
+    "variables": [
+        {
+            "id": "M_total_split",
+            "token": "M_total_split",
+            "label": "Total maximum emission M before pollutant split, g/s",
+            "latex": "M",
+            "datatype": "numeric",
+            "unit_id": "g_per_s",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.2.4"
+            }
+        },
+        {
+            "id": "G_total_split",
+            "token": "G_total_split",
+            "label": "Total annual emission G before pollutant split, t/yr",
+            "latex": "G",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.2.5"
+            }
+        },
+        {
+            "id": "C_i_pct",
+            "token": "C_i_pct",
+            "label": "Pollutant mass concentration Ci, %",
+            "latex": "C_i",
+            "datatype": "numeric",
+            "unit_id": "pct",
+            "min": 0,
+            "max": 100,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.2.4-4.2.5"
+            }
+        },
+        {
+            "id": "M_pollutant",
+            "token": "M_pollutant",
+            "label": "Maximum emission of pollutant i, g/s",
+            "latex": "M_i",
+            "datatype": "numeric",
+            "unit_id": "g_per_s",
+            "category": "calculated",
+            "source_token_aliases": [
+                "M_i"
+            ],
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.2.4"
+            }
+        },
+        {
+            "id": "G_pollutant",
+            "token": "G_pollutant",
+            "label": "Annual emission of pollutant i, t/yr",
+            "latex": "G_i",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_token_aliases": [
+                "G_i"
+            ],
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.2.5"
+            }
+        }
+    ]
+}

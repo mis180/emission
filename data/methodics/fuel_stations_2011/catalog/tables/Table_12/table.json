@@ -1,0 +1,98 @@
+{
+    "table_id":  "Table_12",
+    "title":  "Meteorological coefficients for open objects",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 12",
+                   "image_ref":  "catalog/tables/Table_12/source.png"
+               },
+    "resolution":  "exact",
+    "selectors":  [
+                      {
+                          "name":  "substance",
+                          "datatype":  "string",
+                          "enum_id":  "substance"
+                      },
+                      {
+                          "name":  "climate_zone",
+                          "datatype":  "string",
+                          "enum_id":  "climate_zone"
+                      }
+                  ],
+    "outputs":  [
+                    {
+                        "name":  "C1",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_m3"
+                    },
+                    {
+                        "name":  "Uoz",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_t"
+                    },
+                    {
+                        "name":  "Uvl",
+                        "datatype":  "numeric",
+                        "unit_id":  "g_per_t"
+                    },
+                    {
+                        "name":  "Knp",
+                        "datatype":  "numeric",
+                        "unit_id":  "dimensionless"
+                    }
+                ],
+    "missing_policy":  "error",
+    "rows":  [
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "C1":  972.0,
+                     "Uoz":  780.0,
+                     "Uvl":  1100.0,
+                     "Knp":  1.0
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "C1":  1176.12,
+                     "Uoz":  967.2,
+                     "Uvl":  1331.0,
+                     "Knp":  1.0
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "middle",
+                     "C1":  3.14,
+                     "Uoz":  1.9,
+                     "Uvl":  2.6,
+                     "Knp":  0.0029
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "south",
+                     "C1":  3.92,
+                     "Uoz":  2.36,
+                     "Uvl":  3.15,
+                     "Knp":  0.0029
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "middle",
+                     "C1":  0.324,
+                     "Uoz":  0.2,
+                     "Uvl":  0.2,
+                     "Knp":  0.00027
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "south",
+                     "C1":  0.39,
+                     "Uoz":  0.25,
+                     "Uvl":  0.25,
+                     "Knp":  0.00027
+                 }
+             ],
+    "schema_version":  2
+}

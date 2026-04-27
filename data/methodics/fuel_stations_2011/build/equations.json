@@ -1,0 +1,1260 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "4.1.13",
+            "formula_name_ru": "Formula 4.1.13",
+            "lhs_symbol": "n",
+            "rhs_source": "B / (rho_liq * Vp * Np)",
+            "page": 16,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.2.1",
+            "formula_name_ru": "Формула 4.2.1",
+            "lhs_symbol": "M",
+            "rhs_source": "0.163 * P38_src * m_vapor * Kt_max * Kp_max * Kv * Vch_max / 10000",
+            "page": 17,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.2.2",
+            "formula_name_ru": "Формула 4.2.2 (зима)",
+            "lhs_symbol": "G",
+            "rhs_source": "0.294 * P38_src * m_vapor * Kt_min * Kv * Kp_avg * Kob * B_oz / (10000000 * rho_liq)",
+            "page": 17,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.2.3",
+            "formula_name_ru": "Формула 4.2.3 (лето)",
+            "lhs_symbol": "G",
+            "rhs_source": "0.294 * P38_src * m_vapor * Kt_max * Kp_avg * Kob * B_vl / (10000000 * rho_liq)",
+            "page": 17,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.2.4",
+            "formula_name_ru": "Formula 4.2.4",
+            "lhs_symbol": "M_i",
+            "rhs_source": "M * C_i / 100",
+            "page": 17,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.2.5",
+            "formula_name_ru": "Formula 4.2.5",
+            "lhs_symbol": "G_i",
+            "rhs_source": "G * C_i / 100",
+            "page": 17,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.3.1",
+            "formula_name_ru": "Формула 4.3.1",
+            "lhs_symbol": "M",
+            "rhs_source": "0.445 * Pt_max * m_pure * Kp_max * Kv * Vch_max / (100 * (273 + t_liq_max))",
+            "page": 18,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.3.2",
+            "formula_name_ru": "Формула 4.3.2",
+            "lhs_symbol": "G",
+            "rhs_source": "0.160 * (Pt_min * Kv + Pt_max) * m_pure * Kp_avg * Kob * B_year / (10000 * rho_liq * (546 + t_liq_min + t_liq_max))",
+            "page": 18,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.4.1",
+            "formula_name_ru": "Формула 4.4.1",
+            "lhs_symbol": "M",
+            "rhs_source": "0.445 * Pt_i_max * X_i * Kp_max * Kv * Vch_max / (100 * sum_Xi_mi * (273 + t_liq_max))",
+            "page": 18,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.4.2",
+            "formula_name_ru": "Формула 4.4.2",
+            "lhs_symbol": "G",
+            "rhs_source": "0.16 * (Pt_i_min * Kv + Pt_i_max) * X_i * Kp_avg * Kob * B_year * sum_Xi_rhoi / (10000 * sum_Xi_mi * (546 + t_liq_min + t_liq_max))",
+            "page": 18,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.5.1",
+            "formula_name_ru": "Формула 4.5.1",
+            "lhs_symbol": "M",
+            "rhs_source": "0.08 * Kg_max * X_i * Kp_max * Vch_max / (273 + t_liq_max)",
+            "page": 19,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.5.2",
+            "formula_name_ru": "Формула 4.5.2",
+            "lhs_symbol": "G",
+            "rhs_source": "0.289 * (Kg_min + Kg_max) * X_i * Kp_avg * Vch_max * t_oper_days * t_oper_hours / (1000 * (546 + t_liq_min + t_liq_max))",
+            "page": 19,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.6.1",
+            "formula_name_ru": "Формула 4.6.1 (Максимальный выброс)",
+            "lhs_symbol": "M",
+            "rhs_source": "C20 * Kt_max * Kp_max * Vch_max / 3600",
+            "page": 20,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.6.2",
+            "formula_name_ru": "Формула 4.6.2 (Валовый выброс - весенне-летний период)",
+            "lhs_symbol": "G",
+            "rhs_source": "C20_l * Kt_max * Kp_avg * Kob * B_vl / (1000000 * rho_liq)",
+            "page": 20,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.6.3",
+            "formula_name_ru": "Формула 4.6.3 (Валовый выброс - осенне-зимний период)",
+            "lhs_symbol": "G",
+            "rhs_source": "C20_z * Kt_min * Kp_avg * Kob * B_oz / (1000000 * rho_liq)",
+            "page": 20,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "5.2.1",
+            "formula_name_ru": "Формула 5.2.1",
+            "lhs_symbol": "M",
+            "rhs_source": "C1 * Kp_max * Vch_max / 3600",
+            "page": 21,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "5.2.2",
+            "formula_name_ru": "Формула 5.2.2",
+            "lhs_symbol": "G",
+            "rhs_source": "(Uoz * B_oz + Uvl * B_vl) * Kp_avg * 0.000001 + Ghr * Knp * NP",
+            "page": 21,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.1.1",
+            "formula_name_ru": "Формула 6.1 (Валовый выброс)",
+            "lhs_symbol": "G",
+            "rhs_source": "(Y_oz * B_oz + Y_vl * B_vl) * Kp_avg * 0.000001",
+            "page": 22,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.2.1",
+            "formula_name_ru": "Формула 6.2.1",
+            "lhs_symbol": "M",
+            "rhs_source": "Q_spec * equipCount / 3.6",
+            "page": 23,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.2.2",
+            "formula_name_ru": "Формула 6.2.2",
+            "lhs_symbol": "G",
+            "rhs_source": "Q_spec * equipCount * equipHours * 0.001",
+            "page": 23,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.3.1",
+            "formula_name_ru": "Formula 6.3.1",
+            "lhs_symbol": "M_nyj",
+            "rhs_source": "sum(g_i * n_i * x_i * C_ij)",
+            "page": 24,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.4.1",
+            "formula_name_ru": "Formula 6.4.1",
+            "lhs_symbol": "M_prj",
+            "rhs_source": "sum(V_pr_i * rho_i * n_i * k_i * C_ij / phi_i)",
+            "page": 25,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.5.1",
+            "formula_name_ru": "Формула 6.5.1 (валовый выброс)",
+            "lhs_symbol": "G",
+            "rhs_source": "8.76 * q_sr * F_area * 0.001",
+            "page": 29,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.5.2",
+            "formula_name_ru": "Формула 6.5.2 (максимальный выброс)",
+            "lhs_symbol": "M",
+            "rhs_source": "q_sr * F_area / 3600",
+            "page": 29,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.6.1",
+            "formula_name_ru": "Формула 6.6.1",
+            "lhs_symbol": "M",
+            "rhs_source": "n_surface_norm * F_area / 2592",
+            "page": 30,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.6.2",
+            "formula_name_ru": "Формула 6.6.2",
+            "lhs_symbol": "G",
+            "rhs_source": "6 * F_area * (n1_norm + n2_norm) * 0.001",
+            "page": 30,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.1",
+            "formula_name_ru": "Формула 7.1.1",
+            "lhs_symbol": "M_recv",
+            "rhs_source": "((C_tank_max * V_sl) / t_unload) * (1 - PZV_receive/100)",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.4",
+            "formula_name_ru": "Формула 7.1.4",
+            "lhs_symbol": "G_zak",
+            "rhs_source": "(C_tank_oz * Qoz + C_tank_vl * Qvl) * 0.000001",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.5",
+            "formula_name_ru": "Формула 7.1.5",
+            "lhs_symbol": "G_pr_r",
+            "rhs_source": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.3",
+            "formula_name_ru": "Формула 7.1.3",
+            "lhs_symbol": "G_recv",
+            "rhs_source": "G_zak * (1 - PZV_receive/100) + G_pr_r",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1_storage.1",
+            "formula_name_ru": "Storage subgraph source for 7.1_combined runtime composition",
+            "lhs_symbol": "G_storage",
+            "rhs_source": "GXP * Knp * NP",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.2",
+            "formula_name_ru": "Формула 7.1.2",
+            "lhs_symbol": "M_refuel",
+            "rhs_source": "((NN * VTRK * C_ba_max) / 3600) * (1 - PZV_refuel/100)",
+            "page": 32,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.7",
+            "formula_name_ru": "Формула 7.1.7",
+            "lhs_symbol": "G_ba",
+            "rhs_source": "(C_ba_oz * Qoz + C_ba_vl * Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.8",
+            "formula_name_ru": "Формула 7.1.8",
+            "lhs_symbol": "G_pr_a",
+            "rhs_source": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.6",
+            "formula_name_ru": "Формула 7.1.6",
+            "lhs_symbol": "G_refuel",
+            "rhs_source": "G_ba * (1 - PZV_refuel/100) + G_pr_a",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.9",
+            "formula_name_ru": "Формула 7.1.9",
+            "lhs_symbol": "G",
+            "rhs_source": "G_recv + G_refuel",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1_storage.2",
+            "formula_name_ru": "Формула 7.1_storage",
+            "lhs_symbol": "M",
+            "rhs_source": "G * 1000000 / (8760 * 3600)",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.2.1",
+            "formula_name_ru": "Формула 7.2.1",
+            "lhs_symbol": "M",
+            "rhs_source": "mu_coeff * rho_gas * n_gas * F_gas * pow(2 * 9.81 * H_gas, 0.5) * 1000",
+            "page": 34,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.2.2",
+            "formula_name_ru": "Формула 7.2.2",
+            "lhs_symbol": "G",
+            "rhs_source": "(M * tau_gas / n_gas) * N_gas * 0.000001",
+            "page": 34,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "active_equations": [
+        {
+            "formula_code": "4.1.13",
+            "equation_order": 1,
+            "lhs_token": "n_turnover_calc",
+            "rhs": "B_turnover / (rho_turnover * V_tank_turnover * NP_turnover)",
+            "latex": "n = B / (rho * V_p * N_p)",
+            "formula_name": "Annual tank turnover helper",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.1.13"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false
+        },
+        {
+            "formula_code": "4.2",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0.163 * P38_src * m_vapor * Kt_max * Kp_max * Kv * Vch_max / 10000",
+            "formula_name": "Резервуары: нефть/бензин по P38",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.2",
+            "equation_order": 2,
+            "lhs_token": "G_422",
+            "rhs": "0.294 * P38_src * m_vapor * Kt_min * Kv * Kp_avg * Kob * B_oz / (10000000 * rho_liq)",
+            "formula_name": "Резервуары: нефть/бензин по P38 (зима)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.2",
+            "equation_order": 3,
+            "lhs_token": "G_423",
+            "rhs": "0.294 * P38_src * m_vapor * Kt_max * Kp_avg * Kob * B_vl / (10000000 * rho_liq)",
+            "formula_name": "Резервуары: нефть/бензин по P38 (лето)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.3"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.2",
+            "equation_order": 4,
+            "lhs_token": "G",
+            "rhs": "G_422 + G_423",
+            "formula_name": "Суммарный валовый выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "Runtime adaptation: sum of summer and winter branches."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.2_split",
+            "equation_order": 1,
+            "lhs_token": "M_pollutant",
+            "rhs": "M_total_split * C_i_pct / 100",
+            "latex": "M_i = M * C_i / 100",
+            "formula_name": "Pollutant maximum emission split",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.4"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false,
+            "output_type": "M"
+        },
+        {
+            "formula_code": "4.2_split",
+            "equation_order": 2,
+            "lhs_token": "G_pollutant",
+            "rhs": "G_total_split * C_i_pct / 100",
+            "latex": "G_i = G * C_i / 100",
+            "formula_name": "Pollutant annual emission split",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.5"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false,
+            "output_type": "G"
+        },
+        {
+            "formula_code": "4.3",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0.445 * Pt_max * m_pure * Kp_max * Kv * Vch_max / (100 * (273 + t_liq_max))",
+            "formula_name": "Резервуары: индивидуальное вещество",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.3.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.3",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "0.160 * (Pt_min * Kv + Pt_max) * m_pure * Kp_avg * Kob * B_year / (10000 * rho_liq * (546 + t_liq_min + t_liq_max))",
+            "formula_name": "Резервуары: индивидуальное вещество",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.3.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.4",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0.445 * Pt_i_max * X_i * Kp_max * Kv * Vch_max / (100 * sum_Xi_mi * (273 + t_liq_max))",
+            "formula_name": "Резервуары: многокомпонентная смесь",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.4.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.4",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "0.16 * (Pt_i_min * Kv + Pt_i_max) * X_i * Kp_avg * Kob * B_year * sum_Xi_rhoi / (10000 * sum_Xi_mi * (546 + t_liq_min + t_liq_max))",
+            "formula_name": "Резервуары: многокомпонентная смесь",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.4.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.5",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0.08 * Kg_max * X_i * Kp_max * Vch_max / (273 + t_liq_max)",
+            "formula_name": "Резервуары: газ, растворенный в воде",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.5.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.5",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "0.289 * (Kg_min + Kg_max) * X_i * Kp_avg * Vch_max * t_oper_days * t_oper_hours / (1000 * (546 + t_liq_min + t_liq_max))",
+            "formula_name": "Резервуары: газ, растворенный в воде",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.5.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.6",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "C20 * Kt_max * Kp_max * Vch_max / 3600",
+            "formula_name": "Резервуары: нефтепродукты при t > 20°C",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.6.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.6",
+            "equation_order": 2,
+            "lhs_token": "G_462",
+            "rhs": "C20_l * Kt_max * Kp_avg * Kob * B_vl / (1000000 * rho_liq)",
+            "formula_name": "Резервуары: прочие продукты (весна/лето)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.6.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.6",
+            "equation_order": 3,
+            "lhs_token": "G_463",
+            "rhs": "C20_z * Kt_min * Kp_avg * Kob * B_oz / (1000000 * rho_liq)",
+            "formula_name": "Резервуары: прочие продукты (осень/зима)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.6.3"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.6",
+            "equation_order": 4,
+            "lhs_token": "G",
+            "rhs": "G_462 + G_463",
+            "formula_name": "Итоговый валовый выброс (4.6)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "Runtime adaptation: sum of summer and winter branches decoupled."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "5.2",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "C1 * Kp_max * Vch_max / 3600",
+            "formula_name": "Резервуары и сливные эстакады",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "5.2.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "5.2",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "(Uoz * B_oz + Uvl * B_vl) * Kp_avg * 0.000001 + Ghr * Knp * NP",
+            "formula_name": "Резервуары и сливные эстакады",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "5.2.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.1",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0",
+            "formula_name": "Неплотности и соединения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "Runtime adaptation: M is set to 0 as the source only defines annual emissions for this category."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.1",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "(Uoz * B_oz + Uvl * B_vl) * Kp_avg * 0.000001",
+            "formula_name": "Неплотности и соединения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.1.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.2",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "Q_spec * equipCount / 3.6",
+            "latex": "M = \\frac{Q \\cdot n}{3.6}",
+            "formula_name": "Выбросы от теплообменных аппаратов и средств перекачки",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 6.2.1",
+                "Runtime adaptation: multiplies the per-unit source symbol Q by equipCount to aggregate identical units."
+            ],
+            "source_equation_ids": [
+                "6.2.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.2",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "Q_spec * equipCount * equipHours * 0.001",
+            "latex": "G = Q \\cdot n \\cdot T \\cdot 10^{-3}",
+            "formula_name": "Годовой выброс от теплообменных аппаратов и средств перекачки",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 6.2.2",
+                "Runtime adaptation: multiplies the per-unit source symbol Q by equipCount to aggregate identical units."
+            ],
+            "source_equation_ids": [
+                "6.2.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.3",
+            "equation_order": 1,
+            "lhs_token": "M_seal_kg_h",
+            "rhs": "seal_g_leak * seal_count * seal_x_fail * seal_c_ij_mass",
+            "latex": "M_{nyj} = g_i * n_i * x_i * C_{ij}",
+            "formula_name": "Stationary seal leak, kg/h",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.3.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false
+        },
+        {
+            "formula_code": "6.3",
+            "equation_order": 2,
+            "lhs_token": "M",
+            "rhs": "M_seal_kg_h / 3.6",
+            "formula_name": "Stationary seal leak, g/s",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.3.1"
+            ],
+            "notes": [
+                "Runtime unit conversion from kg/h to g/s."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "M"
+        },
+        {
+            "formula_code": "6.3",
+            "equation_order": 3,
+            "lhs_token": "G",
+            "rhs": "M_seal_kg_h * seal_hours * 0.001",
+            "formula_name": "Annualized stationary seal leak",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.3.1"
+            ],
+            "notes": [
+                "Runtime annualization from kg/h using seal_hours."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "G"
+        },
+        {
+            "formula_code": "6.4.1",
+            "equation_order": 1,
+            "lhs_token": "M_purge_kg_h",
+            "rhs": "V_purge * rho_purge * n_purge * k_purge * c_purge_mass / phi_purge_hours",
+            "latex": "M_{pr,j} = V_{pr,i} * rho_i * n_i * k_i * C_{ij} / phi_i",
+            "formula_name": "Technological sample purge, kg/h",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false
+        },
+        {
+            "formula_code": "6.4.1",
+            "equation_order": 2,
+            "lhs_token": "M",
+            "rhs": "M_purge_kg_h / 3.6",
+            "formula_name": "Technological sample purge, g/s",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.1"
+            ],
+            "notes": [
+                "Runtime unit conversion from kg/h to g/s."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "M"
+        },
+        {
+            "formula_code": "6.4.1",
+            "equation_order": 3,
+            "lhs_token": "G",
+            "rhs": "M_purge_kg_h * phi_purge_hours * 0.001",
+            "formula_name": "Technological sample purge, period mass",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.1"
+            ],
+            "notes": [
+                "Runtime period total in tonnes using phi_purge_hours."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "G"
+        },
+        {
+            "formula_code": "6.5",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "q_sr * F_area * z_coeff / 3600",
+            "formula_name": "Очистные сооружения (макс)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF Table 6.3 gives q_sr in g/(m2*h), so maximum emission divides by 3600; runtime applies z_coeff as the surface-cover correction."
+            ],
+            "source_equation_ids": [
+                "6.5.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.5",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "8.76 * q_sr * F_area * z_coeff * 0.001",
+            "formula_name": "Очистные сооружения (валовый)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.5.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "notes": [
+                "PDF formula 6.5.1 with runtime z_coeff surface-cover correction."
+            ]
+        },
+        {
+            "formula_code": "6.6",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "n_surface_norm * F_area / 2592",
+            "formula_name": "Шламонакопители и очистные сооружения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.6.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.6",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "6 * F_area * (n1_norm + n2_norm) * 0.001",
+            "formula_name": "Шламонакопители и очистные сооружения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.6.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 1,
+            "lhs_token": "M_recv",
+            "rhs": "((C_tank_max * V_sl) / t_unload) * (1 - PZV_receive/100)",
+            "latex": "M_{recv} = \\frac{C_{p,max} \\cdot V_{sl}}{t} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС Комплекс: слив нефтепродукта",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.1"
+            ],
+            "notes": [
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 2,
+            "lhs_token": "G_zak",
+            "rhs": "(C_tank_oz * Qoz + C_tank_vl * Qvl) * 0.000001",
+            "latex": "G_{zak} = (C_{p,oz} \\cdot Q_{oz} + C_{p,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС Комплекс: хранение",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.4"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 3,
+            "lhs_token": "G_pr_r",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,r} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС Комплекс: заправка",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.5"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 4,
+            "lhs_token": "G_recv",
+            "rhs": "G_zak * (1 - PZV_receive/100) + G_pr_r",
+            "latex": "G_{recv} = G_{zak} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,r}",
+            "formula_name": "АЗС Комплекс: суммарный максимальный выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.3",
+                "7.1.4",
+                "7.1.5"
+            ],
+            "notes": [
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 5,
+            "lhs_token": "G_storage",
+            "rhs": "GXP * Knp * NP",
+            "latex": "G_{storage} = G_{xp} \\cdot K_{np} \\cdot N_p",
+            "formula_name": "АЗС Комплекс: суммарный годовой выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1_storage.1"
+            ],
+            "source_lookup_tables": [
+                "Table_Appendix_13",
+                "Table_12"
+            ],
+            "notes": [
+                "Runtime composition branch: adds the standalone storage-loss subgraph into the station-level combined scenario. Prevent double counting if 7_1_storage is also selected separately for the same station."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime composition branch: adds the standalone storage-loss subgraph into the station-level combined scenario. Prevent double counting if 7_1_storage is also selected separately for the same station."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 6,
+            "lhs_token": "M_refuel",
+            "rhs": "((NN * VTRK * C_ba_max) / 3600) * (1 - PZV_refuel/100)",
+            "latex": "M_{refuel} = \\frac{N_n \\cdot V_{trk} \\cdot C_{ba,max}}{3600} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС Комплекс: заправка",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.2"
+            ],
+            "notes": [
+                "Runtime adaptation: replaces the source total TRK flow with NN * VTRK and applies the PZV_refuel vapor-recovery efficiency factor."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 7,
+            "lhs_token": "G_ba",
+            "rhs": "(C_ba_oz * Qoz + C_ba_vl * Qvl) * 0.000001",
+            "latex": "G_{ba} = (C_{ba,oz} \\cdot Q_{oz} + C_{ba,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.7"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 8,
+            "lhs_token": "G_pr_a",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,a} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.8"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 9,
+            "lhs_token": "G_refuel",
+            "rhs": "G_ba * (1 - PZV_refuel/100) + G_pr_a",
+            "latex": "G_{refuel} = G_{ba} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,a}",
+            "formula_name": "",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.6",
+                "7.1.7",
+                "7.1.8"
+            ],
+            "notes": [
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 10,
+            "lhs_token": "M",
+            "rhs": "max(M_recv, M_refuel)",
+            "latex": "M = \\max(M_{recv}, M_{refuel})",
+            "formula_name": "АЗС Комплекс: суммарный максимальный выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.1",
+                "7.1.2"
+            ],
+            "notes": [
+                "Runtime-only combined output that selects the larger of receiving and refueling maximum emissions."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime-only combined output that selects the larger of receiving and refueling maximum emissions."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 11,
+            "lhs_token": "G",
+            "rhs": "G_recv + G_storage + G_refuel",
+            "latex": "G = G_{recv} + G_{storage} + G_{refuel}",
+            "formula_name": "АЗС Комплекс: суммарный годовой выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.9",
+                "7.1_storage.1"
+            ],
+            "notes": [
+                "Runtime composition output: source 7.1.9 combines receiving and refueling; this package also adds the storage-loss subgraph for the station-level combined scenario. Prevent double counting with standalone 7_1_storage."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime composition output: source 7.1.9 combines receiving and refueling; this package also adds the storage-loss subgraph for the station-level combined scenario. Prevent double counting with standalone 7_1_storage."
+            ]
+        },
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "((C_tank_max * V_sl) / t_unload) * (1 - PZV_receive/100)",
+            "latex": "M = \\frac{C_{p,max} \\cdot V_{sl}}{t} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС: слив нефтепродукта в резервуар",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.1 (multiplied by (1 - PZV/100) if GRS active)",
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the source maximum-emission formula."
+            ],
+            "source_equation_ids": [
+                "7.1.1"
+            ],
+            "derived_runtime_only": true,
+            "runtime_scope": "calculator_safe_subset"
+        },
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 2,
+            "lhs_token": "G_zak",
+            "rhs": "(C_tank_oz * Qoz + C_tank_vl * Qvl) * 0.000001",
+            "latex": "G_{zak} = (C_{p,oz} \\cdot Q_{oz} + C_{p,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс при закачке в резервуары",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.4"
+            ],
+            "source_equation_ids": [
+                "7.1.4"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 3,
+            "lhs_token": "G_pr_r",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,r} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс от проливов при сливе",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.5"
+            ],
+            "source_equation_ids": [
+                "7.1.5"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 4,
+            "lhs_token": "G",
+            "rhs": "G_zak * (1 - PZV_receive/100) + G_pr_r",
+            "latex": "G = G_{zak} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,r}",
+            "formula_name": "АЗС: суммарный годовой выброс от резервуаров",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.3 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term before adding spill losses."
+            ],
+            "source_equation_ids": [
+                "7.1.3",
+                "7.1.4",
+                "7.1.5"
+            ],
+            "derived_runtime_only": true,
+            "runtime_scope": "calculator_safe_subset",
+            "adaptation_notes": [
+                "PDF 7.1.3 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term before adding spill losses."
+            ]
+        },
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "((NN * VTRK * C_ba_max) / 3600) * (1 - PZV_refuel/100)",
+            "latex": "M = \\frac{N_n \\cdot V_{trk} \\cdot C_{ba,max}}{3600} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС: заправка автомобилей через ТРК",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.2 (multiplied by (1 - PZV/100) if GRS active)",
+                "Runtime adaptation: replaces the source total TRK flow with NN * VTRK and applies the PZV_refuel vapor-recovery efficiency factor."
+            ],
+            "source_equation_ids": [
+                "7.1.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 2,
+            "lhs_token": "G_ba",
+            "rhs": "(C_ba_oz * Qoz + C_ba_vl * Qvl) * 0.000001",
+            "latex": "G_{ba} = (C_{ba,oz} \\cdot Q_{oz} + C_{ba,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс при заправке автомобилей",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.7"
+            ],
+            "source_equation_ids": [
+                "7.1.7"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 3,
+            "lhs_token": "G_pr_a",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,a} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс от проливов при заправке автомобилей",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.8"
+            ],
+            "source_equation_ids": [
+                "7.1.8"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 4,
+            "lhs_token": "G",
+            "rhs": "G_ba * (1 - PZV_refuel/100) + G_pr_a",
+            "latex": "G = G_{ba} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,a}",
+            "formula_name": "АЗС: суммарный годовой выброс от ТРК",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.6 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term before adding spill losses."
+            ],
+            "source_equation_ids": [
+                "7.1.6",
+                "7.1.7",
+                "7.1.8"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "PDF 7.1.6 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term before adding spill losses."
+            ]
+        },
+        {
+            "formula_code": "7.1_storage",
+            "equation_order": 1,
+            "lhs_token": "G",
+            "rhs": "GXP * Knp * NP",
+            "latex": "G = G_{xp} \\cdot K_{np} \\cdot N_p",
+            "formula_name": "АЗС: годовой выброс от хранения (малые дыхания)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.3 (Appendix 13 component)",
+                "Runtime branch for storage losses is lookup-based and uses Appendix 13 annual loss values multiplied by Knp and NP."
+            ],
+            "source_equation_ids": [
+                "7.1_storage.1"
+            ],
+            "source_lookup_tables": [
+                "Table_Appendix_13",
+                "Table_12"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_storage",
+            "equation_order": 2,
+            "lhs_token": "M",
+            "rhs": "G * 1000000 / (8760 * 3600)",
+            "latex": "M = \\frac{G \\cdot 10^6}{8760 \\cdot 3600}",
+            "formula_name": "АЗС: максимальный выброс от хранения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "Derived from annual emission assuming continuous operation",
+                "Runtime-only derived value from annual storage loss assuming continuous operation across the year."
+            ],
+            "source_equation_ids": [
+                "7.1_storage.2"
+            ],
+            "derived_runtime_only": true,
+            "runtime_scope": "calculator_safe_subset"
+        },
+        {
+            "formula_code": "7.2",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "mu_coeff * rho_gas * n_gas * F_gas * pow(2 * 9.81 * H_gas, 0.5) * 1000",
+            "formula_name": "АГЗС: истечение газовой смеси",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.2.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.2",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "(M * tau_gas / n_gas) * N_gas * 0.000001",
+            "formula_name": "АГЗС: истечение газовой смеси",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.2.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

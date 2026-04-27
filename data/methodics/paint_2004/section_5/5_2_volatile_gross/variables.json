@@ -1,0 +1,164 @@
+{
+  "schema_version": 2,
+  "variables": [
+    {
+      "id": "material_key",
+      "token": "material_key",
+      "label": "Лакокрасочный материал",
+      "datatype": "string",
+      "category": "selector",
+      "unit_id": "dimensionless",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "enum_id": "paint_material"
+    },
+    {
+      "id": "paint_method",
+      "token": "paint_method",
+      "label": "Способ нанесения ЛКМ",
+      "datatype": "string",
+      "category": "selector",
+      "unit_id": "dimensionless",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "enum_id": "paint_method"
+    },
+    {
+      "id": "pollutant_key",
+      "token": "pollutant_key",
+      "label": "Компонент летучей части ЛКМ",
+      "datatype": "string",
+      "category": "selector",
+      "unit_id": "dimensionless",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "enum_id": "paint_pollutant"
+    },
+    {
+      "id": "m_f_tpy",
+      "token": "m_f_tpy",
+      "label": "Фактический годовой расход ЛКМ",
+      "datatype": "numeric",
+      "category": "input",
+      "unit_id": "t_per_yr",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "m_f",
+      "min": 0
+    },
+    {
+      "id": "eta_cleaning",
+      "token": "eta_cleaning",
+      "label": "Степень очистки воздуха",
+      "datatype": "numeric",
+      "category": "input",
+      "unit_id": "pct",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "eta",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "id": "fr_pct",
+      "token": "fr_pct",
+      "label": "Доля летучей части ЛКМ",
+      "datatype": "numeric",
+      "category": "lookup",
+      "unit_id": "pct",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "f_r"
+    },
+    {
+      "id": "delta_r_paint_pct",
+      "token": "delta_r_paint_pct",
+      "label": "Доля растворителя, выделившегося при окраске",
+      "datatype": "numeric",
+      "category": "lookup",
+      "unit_id": "pct",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "delta'_r"
+    },
+    {
+      "id": "delta_r_dry_pct",
+      "token": "delta_r_dry_pct",
+      "label": "Доля растворителя, выделившегося при сушке",
+      "datatype": "numeric",
+      "category": "lookup",
+      "unit_id": "pct",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "delta''_r"
+    },
+    {
+      "id": "delta_x_pct",
+      "token": "delta_x_pct",
+      "label": "Содержание компонента в летучей части ЛКМ",
+      "datatype": "numeric",
+      "category": "lookup",
+      "unit_id": "pct",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "delta_x"
+    },
+    {
+      "id": "M_comp_paint_tpy",
+      "token": "M_comp_paint_tpy",
+      "label": "Валовый выброс компонента при окраске",
+      "datatype": "numeric",
+      "category": "calculated",
+      "unit_id": "t_per_yr",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "M^x_{paint}"
+    },
+    {
+      "id": "M_comp_dry_tpy",
+      "token": "M_comp_dry_tpy",
+      "label": "Валовый выброс компонента при сушке",
+      "datatype": "numeric",
+      "category": "calculated",
+      "unit_id": "t_per_yr",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "M^x_{dry}"
+    },
+    {
+      "id": "M_comp_total_tpy",
+      "token": "M_comp_total_tpy",
+      "label": "Общий валовый выброс компонента",
+      "datatype": "numeric",
+      "category": "calculated",
+      "unit_id": "t_per_yr",
+      "source_ref": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5"
+      },
+      "latex": "M^x_{total}"
+    }
+  ]
+}

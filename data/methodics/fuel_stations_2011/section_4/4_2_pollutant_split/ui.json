@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "variable_id": "M_total_split",
+            "required": true
+        },
+        {
+            "variable_id": "G_total_split",
+            "required": true
+        },
+        {
+            "variable_id": "C_i_pct",
+            "required": true
+        },
+        {
+            "variable_id": "M_pollutant",
+            "hidden": true
+        },
+        {
+            "variable_id": "G_pollutant",
+            "hidden": true
+        }
+    ]
+}

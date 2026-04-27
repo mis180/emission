@@ -1,0 +1,65 @@
+{
+    "questions": [
+        {
+            "variable_id": "V_sl",
+            "required": true
+        },
+        {
+            "variable_id": "t_unload",
+            "required": true
+        },
+        {
+            "variable_id": "Qoz",
+            "required": true
+        },
+        {
+            "variable_id": "Qvl",
+            "required": true
+        },
+        {
+            "variable_id": "C_tank_max",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара.",
+            "hidden": true
+        },
+        {
+            "variable_id": "C_tank_oz",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара.",
+            "hidden": true
+        },
+        {
+            "variable_id": "C_tank_vl",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара.",
+            "hidden": true
+        },
+        {
+            "variable_id": "J",
+            "help_text": "Определяется автоматически по Приложению 12 по виду продукта и климатической зоне.",
+            "hidden": true
+        },
+        {
+            "variable_id": "PZV_receive",
+            "help_text": "Укажите процент улавливания паров. Если система отсутствует, оставьте 0."
+        },
+        {
+            "variable_id": "climate_zone",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        },
+        {
+            "variable_id": "substance",
+            "hidden": true
+        },
+        {
+            "variable_id": "tank_type",
+            "hidden": false,
+            "required": true
+        }
+    ]
+}

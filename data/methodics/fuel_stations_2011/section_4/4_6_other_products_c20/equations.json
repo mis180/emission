@@ -1,0 +1,86 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "4.6.1",
+            "formula_name_ru": "Формула 4.6.1 (Максимальный выброс)",
+            "lhs_symbol": "M",
+            "rhs_source": "C20 * Kt_max * Kp_max * Vch_max / 3600",
+            "page": 20,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.6.2",
+            "formula_name_ru": "Формула 4.6.2 (Валовый выброс - весенне-летний период)",
+            "lhs_symbol": "G",
+            "rhs_source": "C20_l * Kt_max * Kp_avg * Kob * B_vl / (1000000 * rho_liq)",
+            "page": 20,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.6.3",
+            "formula_name_ru": "Формула 4.6.3 (Валовый выброс - осенне-зимний период)",
+            "lhs_symbol": "G",
+            "rhs_source": "C20_z * Kt_min * Kp_avg * Kob * B_oz / (1000000 * rho_liq)",
+            "page": 20,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "4.6",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "C20 * Kt_max * Kp_max * Vch_max / 3600",
+            "formula_name": "Резервуары: нефтепродукты при t > 20°C",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.6.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.6",
+            "equation_order": 2,
+            "lhs_token": "G_462",
+            "rhs": "C20_l * Kt_max * Kp_avg * Kob * B_vl / (1000000 * rho_liq)",
+            "formula_name": "Резервуары: прочие продукты (весна/лето)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.6.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.6",
+            "equation_order": 3,
+            "lhs_token": "G_463",
+            "rhs": "C20_z * Kt_min * Kp_avg * Kob * B_oz / (1000000 * rho_liq)",
+            "formula_name": "Резервуары: прочие продукты (осень/зима)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.6.3"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.6",
+            "equation_order": 4,
+            "lhs_token": "G",
+            "rhs": "G_462 + G_463",
+            "formula_name": "Итоговый валовый выброс (4.6)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "Runtime adaptation: sum of summer and winter branches decoupled."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

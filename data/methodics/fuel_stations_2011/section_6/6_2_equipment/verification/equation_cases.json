@@ -1,0 +1,44 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_2_equipment",
+    "formula_code": "6.2",
+    "cases": [
+        {
+            "case_id": "6_2_equipment_equation_01",
+            "title": "6.2 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "6.2.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.2",
+                "page": 23,
+                "image_ref": null
+            },
+            "inputs": {
+                "equipType": "hx_shell_tube_tube",
+                "productBoilGroup": "light",
+                "equipCount": 1,
+                "equipHours": 1
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.05555555555555556,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

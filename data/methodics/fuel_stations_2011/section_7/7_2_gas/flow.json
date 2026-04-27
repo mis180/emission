@@ -1,0 +1,12 @@
+{
+    "formula_code": "7.2",
+    "variables": [
+        "mu_coeff",
+        "rho_gas",
+        "n_gas",
+        "F_gas",
+        "H_gas",
+        "tau_gas",
+        "N_gas"
+    ]
+}

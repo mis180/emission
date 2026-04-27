@@ -1,0 +1,160 @@
+{
+    "variables": [
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            },
+            "unit_id": "g_per_s"
+        },
+        {
+            "id": "rho_i_valve",
+            "token": "rho_i_valve",
+            "label": "Плотность i-го вещества при T_i, кг/м³",
+            "latex": "\\rho_i",
+            "datatype": "numeric",
+            "unit_id": "kg_per_m3",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "n_i_valve",
+            "token": "n_i_valve",
+            "label": "Число однотипных предохранительных клапанов",
+            "latex": "n_i",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "M_i_mol",
+            "token": "M_i_mol",
+            "label": "Молярная масса i-го вещества, г/моль",
+            "latex": "M_i",
+            "datatype": "numeric",
+            "unit_id": "g_per_mol",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "phi_i_valve",
+            "token": "phi_i_valve",
+            "label": "Коэффициент расхода для газов (паров)",
+            "latex": "\\phi_i",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "f_i_valve",
+            "token": "f_i_valve",
+            "label": "Площадь сечения клапана, мм²",
+            "latex": "f_i",
+            "datatype": "numeric",
+            "unit_id": "mm2",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "c_ij_mass",
+            "token": "c_ij_mass",
+            "label": "Массовая доля j-го вредного в i-ом веществе",
+            "latex": "C_{ij}",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "P_i_valve",
+            "token": "P_i_valve",
+            "label": "Давление перед предохранительным клапаном, МПа",
+            "latex": "P_i",
+            "datatype": "numeric",
+            "unit_id": "mpa",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "k_i_valve",
+            "token": "k_i_valve",
+            "label": "Показатель адиабаты i-го вещества",
+            "latex": "k_i",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "T_i_valve",
+            "token": "T_i_valve",
+            "label": "Абсолютная температура перед клапаном, К",
+            "latex": "T_i",
+            "datatype": "numeric",
+            "unit_id": "kelvin",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "G_i",
+            "token": "G_i",
+            "label": "Пропускная способность клапана, кг/ч",
+            "latex": "G_i",
+            "datatype": "numeric",
+            "unit_id": "kg_per_h",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "Годовой выброс, т/год",
+            "latex": "G",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4"
+            }
+        }
+    ]
+}

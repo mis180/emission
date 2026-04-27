@@ -1,0 +1,78 @@
+{
+  "source_equations": [
+    {
+      "eq_id": "5.2.3",
+      "formula_name": "Валовый выброс компонента при окраске",
+      "lhs_symbol": "M_okr_x",
+      "rhs_source": "m_f * f_r * delta'_r * delta_x / 10^6 * (1 - eta)",
+      "latex": "M^x_{okr} = \\frac{m_f \\cdot f_r \\cdot \\delta'_r \\cdot \\delta_x}{10^6} \\cdot (1 - \\eta)",
+      "output_unit_id": "t_per_yr",
+      "page": 8,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    },
+    {
+      "eq_id": "5.2.4",
+      "formula_name": "Валовый выброс компонента при сушке",
+      "lhs_symbol": "M_sush_x",
+      "rhs_source": "m_f * f_r * delta''_r * delta_x / 10^6 * (1 - eta)",
+      "latex": "M^x_{sush} = \\frac{m_f \\cdot f_r \\cdot \\delta''_r \\cdot \\delta_x}{10^6} \\cdot (1 - \\eta)",
+      "output_unit_id": "t_per_yr",
+      "page": 9,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    },
+    {
+      "eq_id": "5.2.7",
+      "formula_name": "Общий валовый выброс компонента",
+      "lhs_symbol": "M_obsh_x",
+      "rhs_source": "M_okr_x + M_sush_x",
+      "latex": "M^x_{obsh} = M^x_{okr} + M^x_{sush}",
+      "output_unit_id": "t_per_yr",
+      "page": 9,
+      "source_document": "РНД 211.2.02.05-2004",
+      "confidence": "TRUSTED"
+    }
+  ],
+  "runtime_equations": [
+    {
+      "formula_code": "5.2",
+      "equation_order": 1,
+      "lhs_token": "M_comp_paint_tpy",
+      "rhs": "m_f_tpy * fr_pct * delta_r_paint_pct * delta_x_pct / 1000000 * (1 - eta_cleaning / 100)",
+      "latex": "M^x_{paint} = \\frac{m_f \\cdot f_r \\cdot \\delta'_r \\cdot \\delta_x}{10^6} \\cdot (1 - \\eta/100)",
+      "formula_name": "Валовый выброс компонента при окраске",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.2.3"
+      ]
+    },
+    {
+      "formula_code": "5.2",
+      "equation_order": 2,
+      "lhs_token": "M_comp_dry_tpy",
+      "rhs": "m_f_tpy * fr_pct * delta_r_dry_pct * delta_x_pct / 1000000 * (1 - eta_cleaning / 100)",
+      "latex": "M^x_{dry} = \\frac{m_f \\cdot f_r \\cdot \\delta''_r \\cdot \\delta_x}{10^6} \\cdot (1 - \\eta/100)",
+      "formula_name": "Валовый выброс компонента при сушке",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.2.4"
+      ]
+    },
+    {
+      "formula_code": "5.2",
+      "equation_order": 3,
+      "lhs_token": "M_comp_total_tpy",
+      "rhs": "M_comp_paint_tpy + M_comp_dry_tpy",
+      "latex": "M^x_{total} = M^x_{paint} + M^x_{dry}",
+      "formula_name": "Общий валовый выброс компонента",
+      "confidence": "TRUSTED",
+      "status": "active",
+      "source_equation_ids": [
+        "5.2.7"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_4_known_mixture",
+    "formula_code": "4.4",
+    "cases": [
+        {
+            "case_id": "4_4_known_mixture_equation_01",
+            "title": "4.4 equation M",
+            "status": "active",
+            "source_equation_ids": [
+                "4.4.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.4",
+                "page": 18,
+                "image_ref": null
+            },
+            "inputs": {
+                "NP": 1,
+                "n_turnover": 100,
+                "productBoilGroup": "light",
+                "t_liq_max": 20,
+                "t_liq_min": 20,
+                "X_i": 1,
+                "sum_Xi_mi": 1,
+                "sum_Xi_rhoi": 1,
+                "B_year": 1,
+                "Pt_i_max": 10,
+                "Pt_i_min": 10,
+                "Vch_max": 1,
+                "ssv_type": "none",
+                "tank_construction": "vert",
+                "pt_38_mmhg": 0,
+                "tank_mode_recv": "mernik",
+                "V_nom": 0
+            },
+            "target": {
+                "lhs_token": "M",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.00013668941979522184,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "g_per_s"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

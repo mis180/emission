@@ -1,0 +1,52 @@
+{
+  "id": "paint_2004",
+  "name": "Нанесение лакокрасочных материалов",
+  "name_en": "Paint and Coating Application Emissions",
+  "version": "РНД 211.2.02.05-2004",
+  "country": "KZ",
+  "category": "paint_application",
+  "regulatory_basis": "Методика расчета выбросов загрязняющих веществ в атмосферу при нанесении лакокрасочных материалов (по величинам удельных выбросов)",
+  "source_document": "РНД 211.2.02.05-2004",
+  "source_pdf": "reference/paint_2004.pdf",
+  "source_types": [
+    {
+      "value": "paint_aerosol",
+      "label": "Аэрозоль краски при нанесении ЛКМ",
+      "formula_codes": [
+        "5.1"
+      ]
+    },
+    {
+      "value": "paint_volatile_gross",
+      "label": "Валовый выброс летучих компонентов ЛКМ",
+      "formula_codes": [
+        "5.2"
+      ]
+    },
+    {
+      "value": "paint_volatile_max",
+      "label": "Максимальный разовый выброс летучих компонентов ЛКМ",
+      "formula_codes": [
+        "5.3"
+      ]
+    }
+  ],
+  "lookup_storage_mode": "shared_catalog_tables_v2",
+  "verification_storage_mode": "method_local_verification_v1",
+  "authoring_status": "verified",
+  "verification_status": "pass",
+  "visibility_status": "beta_limited",
+  "golden_cases_total": 3,
+  "golden_cases_passed": 3,
+  "last_verified_at": "2026-04-22",
+  "released_to_users": false,
+  "owner": "methodic_authoring",
+  "confidence_note": "Strict build, runtime verification, and PDF-first audit pass. Per-equation crop image_refs are still incomplete.",
+  "scope_note": "Covers RND 211.2.02.05-2004 sections 5.1, 5.2, and 5.3 for paint aerosol and volatile component emissions.",
+  "release_notes": [
+    "Integrated as beta-limited after strict build, runtime, and PDF-first checks on 2026-04-22."
+  ],
+  "known_limitations": [
+    "Equation evidence is traced to source PDF pages; crop-level equation image_ref coverage is pending."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_4_sample_purge",
+    "formula_code": "6.4.1",
+    "cases": [
+        {
+            "case_id": "6_4_sample_purge_golden_01",
+            "title": "6.4.1 baseline runtime scenario",
+            "status": "active",
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.4.1",
+                "page": 25,
+                "image_ref": null
+            },
+            "inputs": {
+                "V_purge": 0.001,
+                "rho_purge": 700,
+                "n_purge": 2,
+                "k_purge": 3,
+                "c_purge_mass": 0.5,
+                "phi_purge_hours": 10
+            },
+            "expected_outputs": {
+                "M": {
+                    "value": 0.058333333333333334,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "g_per_s"
+                },
+                "G": {
+                    "value": 0.0021000000000000003,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "t_per_yr"
+                }
+            },
+            "expected_equations": [
+                {
+                    "lhs_token": "M_purge_kg_h",
+                    "equation_order": 1,
+                    "expected": {
+                        "value": 0.21000000000000002,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "kg_per_h"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "M",
+                    "equation_order": 2,
+                    "expected": {
+                        "value": 0.058333333333333334,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "g_per_s"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G",
+                    "equation_order": 3,
+                    "expected": {
+                        "value": 0.0021000000000000003,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                }
+            ]
+        }
+    ]
+}

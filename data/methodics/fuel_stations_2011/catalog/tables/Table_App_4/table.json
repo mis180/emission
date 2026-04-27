@@ -1,0 +1,273 @@
+{
+    "table_id":  "Table_App_4",
+    "title":  "Coefficient Kg by product type",
+    "authority":  "reference",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 4",
+                   "image_ref":  "catalog/tables/Table_App_4/source.png"
+               },
+    "resolution":  "interpolate",
+    "selectors":  [
+                      {
+                          "name":  "substance",
+                          "datatype":  "string",
+                          "enum_id":  "substance_gas"
+                      }
+                  ],
+    "axis":  {
+                 "name":  "t",
+                 "field":  "t",
+                 "datatype":  "numeric",
+                 "mode":  "point",
+                 "unit_id":  "celsius"
+             },
+    "outputs":  [
+                    {
+                        "name":  "kg",
+                        "datatype":  "numeric",
+                        "unit_id":  "dimensionless"
+                    }
+                ],
+    "missing_policy":  "error",
+    "boundary_policy":  "clamp",
+    "rows":  [
+                 {
+                     "substance":  "chlorine",
+                     "t":  0,
+                     "kg":  2.04E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  5,
+                     "kg":  2.5000000000000004E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  10,
+                     "kg":  2.97E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  15,
+                     "kg":  3.46E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  20,
+                     "kg":  4.02E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  25,
+                     "kg":  4.54E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  30,
+                     "kg":  5.02E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  40,
+                     "kg":  6.0000000000000008E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  60,
+                     "kg":  7.3100000000000007E-07
+                 },
+                 {
+                     "substance":  "chlorine",
+                     "t":  80,
+                     "kg":  7.3E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  0,
+                     "kg":  2.03E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  5,
+                     "kg":  2.39E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  10,
+                     "kg":  2.7800000000000003E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  15,
+                     "kg":  3.2100000000000003E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  20,
+                     "kg":  3.6700000000000004E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  25,
+                     "kg":  4.1400000000000003E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  30,
+                     "kg":  4.63E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  40,
+                     "kg":  5.6600000000000007E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  60,
+                     "kg":  7.8200000000000009E-07
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  80,
+                     "kg":  1.03E-06
+                 },
+                 {
+                     "substance":  "hydrogen_sulfide",
+                     "t":  100,
+                     "kg":  1.12E-06
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  0,
+                     "kg":  1.2500000000000001E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  5,
+                     "kg":  1.52E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  10,
+                     "kg":  1.84E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  15,
+                     "kg":  2.2000000000000002E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  20,
+                     "kg":  2.6600000000000003E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  25,
+                     "kg":  3.1E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  30,
+                     "kg":  3.64E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  40,
+                     "kg":  4.95E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  60,
+                     "kg":  8.3900000000000017E-08
+                 },
+                 {
+                     "substance":  "sulfur_dioxide",
+                     "t":  80,
+                     "kg":  1.28E-07
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  0,
+                     "kg":  1.8500000000000002E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  5,
+                     "kg":  1.9100000000000002E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  10,
+                     "kg":  1.97E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  15,
+                     "kg":  2.03E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  20,
+                     "kg":  2.09E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  25,
+                     "kg":  2.1500000000000002E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  30,
+                     "kg":  2.2000000000000003E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  40,
+                     "kg":  2.2700000000000002E-09
+                 },
+                 {
+                     "substance":  "hydrogen_chloride",
+                     "t":  60,
+                     "kg":  2.2400000000000005E-09
+                 },
+                 {
+                     "substance":  "ammonia",
+                     "t":  0,
+                     "kg":  1.5600000000000002E-09
+                 },
+                 {
+                     "substance":  "ammonia",
+                     "t":  5,
+                     "kg":  1.68E-09
+                 },
+                 {
+                     "substance":  "ammonia",
+                     "t":  10,
+                     "kg":  1.8000000000000002E-09
+                 },
+                 {
+                     "substance":  "ammonia",
+                     "t":  15,
+                     "kg":  1.93E-09
+                 },
+                 {
+                     "substance":  "ammonia",
+                     "t":  20,
+                     "kg":  2.0800000000000003E-09
+                 },
+                 {
+                     "substance":  "ammonia",
+                     "t":  25,
+                     "kg":  2.23E-09
+                 },
+                 {
+                     "substance":  "ammonia",
+                     "t":  30,
+                     "kg":  2.41E-09
+                 }
+             ],
+    "schema_version":  2
+}

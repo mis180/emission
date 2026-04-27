@@ -1,0 +1,11 @@
+{
+    "formula_code": "6.5",
+    "variables": [
+        "vessel_type_unorg",
+        "temp_avg_unorg",
+        "covering_degree",
+        "q_sr",
+        "z_coeff",
+        "F_area"
+    ]
+}

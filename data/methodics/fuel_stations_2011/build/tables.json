@@ -1,0 +1,5585 @@
+{
+    "schema_version": 2,
+    "tables": [
+        {
+            "table_id": "Table_App_10",
+            "title": "Evaporation factor Kvp",
+            "authority": "reference",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 10",
+                "image_ref": "assets/tables/Table_App_10.png"
+            },
+            "resolution": "range",
+            "axis": {
+                "name": "n",
+                "datatype": "numeric",
+                "unit_id": "dimensionless",
+                "mode": "interval",
+                "min_field": "n_min",
+                "max_field": "n_max",
+                "min_inclusive": true,
+                "max_inclusive": false
+            },
+            "outputs": [
+                {
+                    "name": "kob",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "range_id": "100_plus",
+                    "n_min": 100,
+                    "n_max": null,
+                    "kob": 1.35
+                },
+                {
+                    "range_id": "80_99",
+                    "n_min": 80,
+                    "n_max": 100,
+                    "kob": 1.5
+                },
+                {
+                    "range_id": "60_79",
+                    "n_min": 60,
+                    "n_max": 80,
+                    "kob": 1.75
+                },
+                {
+                    "range_id": "40_59",
+                    "n_min": 40,
+                    "n_max": 60,
+                    "kob": 2.0
+                },
+                {
+                    "range_id": "30_39",
+                    "n_min": 30,
+                    "n_max": 40,
+                    "kob": 2.25
+                },
+                {
+                    "range_id": "under_30",
+                    "n_min": null,
+                    "n_max": 30,
+                    "kob": 2.5
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_12",
+            "title": "Meteorological coefficients for open objects",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 12",
+                "image_ref": "assets/tables/Table_12.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "substance",
+                    "datatype": "string",
+                    "enum_id": "substance"
+                },
+                {
+                    "name": "climate_zone",
+                    "datatype": "string",
+                    "enum_id": "climate_zone"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "C1",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m3"
+                },
+                {
+                    "name": "Uoz",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_t"
+                },
+                {
+                    "name": "Uvl",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_t"
+                },
+                {
+                    "name": "Knp",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "C1": 972.0,
+                    "Uoz": 780.0,
+                    "Uvl": 1100.0,
+                    "Knp": 1.0
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "C1": 1176.12,
+                    "Uoz": 967.2,
+                    "Uvl": 1331.0,
+                    "Knp": 1.0
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "middle",
+                    "C1": 3.14,
+                    "Uoz": 1.9,
+                    "Uvl": 2.6,
+                    "Knp": 0.0029
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "south",
+                    "C1": 3.92,
+                    "Uoz": 2.36,
+                    "Uvl": 3.15,
+                    "Knp": 0.0029
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "middle",
+                    "C1": 0.324,
+                    "Uoz": 0.2,
+                    "Uvl": 0.2,
+                    "Knp": 0.00027
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "south",
+                    "C1": 0.39,
+                    "Uoz": 0.25,
+                    "Uvl": 0.25,
+                    "Knp": 0.00027
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_Appendix_13",
+            "title": "Gasoline vapor emissions during storage (Gxp)",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 13",
+                "image_ref": "assets/tables/Table_Appendix_13.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "substance",
+                    "datatype": "string",
+                    "enum_id": "substance"
+                },
+                {
+                    "name": "climate_zone",
+                    "datatype": "string",
+                    "enum_id": "climate_zone"
+                },
+                {
+                    "name": "tank_type",
+                    "datatype": "string",
+                    "enum_id": "tank_type_storage"
+                },
+                {
+                    "name": "tank_volume_cat",
+                    "datatype": "string",
+                    "enum_id": "tank_volume_cat"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "GXP",
+                    "datatype": "numeric",
+                    "unit_id": "t_per_yr"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.22
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.049
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.033
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.077
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.066
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.22
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.38
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.081
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.054
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.133
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.114
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.38
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.55
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.12
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.078
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.193
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.165
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.55
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.69
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.15
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.098
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.242
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.21
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.69
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "700",
+                    "GXP": 1.1
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.23
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.15
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.385
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.33
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "1000",
+                    "GXP": 1.49
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.31
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.21
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.52
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.45
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "2000",
+                    "GXP": 2.67
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "2000",
+                    "GXP": 0.52
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "2000",
+                    "GXP": 0.35
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "2000",
+                    "GXP": 0.93
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "2000",
+                    "GXP": 0.8
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "3000",
+                    "GXP": 3.74
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "3000",
+                    "GXP": 0.73
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "3000",
+                    "GXP": 0.49
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "3000",
+                    "GXP": 1.31
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "3000",
+                    "GXP": 1.12
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "5000",
+                    "GXP": 5.8
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "5000",
+                    "GXP": 1.14
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "5000",
+                    "GXP": 0.77
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "5000",
+                    "GXP": 2.03
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "5000",
+                    "GXP": 1.74
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "10000",
+                    "GXP": 10.1
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "10000",
+                    "GXP": 1.98
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "10000",
+                    "GXP": 1.33
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "10000",
+                    "GXP": 3.53
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "10000",
+                    "GXP": 3.03
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "15000",
+                    "GXP": 14.8
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "15000",
+                    "GXP": 2.91
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "15000",
+                    "GXP": 1.96
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "15000",
+                    "GXP": 5.18
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "15000",
+                    "GXP": 4.44
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.27
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.06
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.041
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.095
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.081
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.27
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.47
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.1
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.066
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.164
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.142
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "200",
+                    "GXP": 0.47
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.68
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.157
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.096
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.237
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.203
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "300",
+                    "GXP": 0.68
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.85
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.18
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.121
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.298
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.26
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "400",
+                    "GXP": 0.85
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "700",
+                    "GXP": 1.35
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.28
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.18
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.474
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "700",
+                    "GXP": 0.41
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "1000",
+                    "GXP": 1.83
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.38
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.26
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.64
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "1000",
+                    "GXP": 0.55
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "2000",
+                    "GXP": 3.28
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "2000",
+                    "GXP": 0.64
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "2000",
+                    "GXP": 0.43
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "2000",
+                    "GXP": 1.14
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "2000",
+                    "GXP": 0.98
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "3000",
+                    "GXP": 4.6
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "3000",
+                    "GXP": 0.9
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "3000",
+                    "GXP": 0.6
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "3000",
+                    "GXP": 1.61
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "3000",
+                    "GXP": 1.38
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "5000",
+                    "GXP": 7.13
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "5000",
+                    "GXP": 1.4
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "5000",
+                    "GXP": 0.95
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "5000",
+                    "GXP": 1.64
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "5000",
+                    "GXP": 2.14
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "10000",
+                    "GXP": 12.42
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "10000",
+                    "GXP": 2.44
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "10000",
+                    "GXP": 1.64
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "10000",
+                    "GXP": 2.5
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "10000",
+                    "GXP": 3.73
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_none",
+                    "tank_volume_cat": "15000",
+                    "GXP": 18.2
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_pontoon",
+                    "tank_volume_cat": "15000",
+                    "GXP": 3.58
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_floating_roof",
+                    "tank_volume_cat": "15000",
+                    "GXP": 2.41
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "vertical_gor",
+                    "tank_volume_cat": "15000",
+                    "GXP": 4.34
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "15000",
+                    "GXP": 5.46
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "middle",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "south",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "middle",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "south",
+                    "tank_type": "horizontal",
+                    "tank_volume_cat": "100",
+                    "GXP": 0.0
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_15_tank",
+            "title": "Vapor concentration when filling tank (max)",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 15",
+                "image_ref": "assets/tables/Table_15_tank.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "substance",
+                    "datatype": "string",
+                    "enum_id": "substance"
+                },
+                {
+                    "name": "climate_zone",
+                    "datatype": "string",
+                    "enum_id": "climate_zone"
+                },
+                {
+                    "name": "tank_type",
+                    "datatype": "string",
+                    "enum_id": "tank_type"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "C_tank_max",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m3"
+                },
+                {
+                    "name": "C_tank_oz",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m3"
+                },
+                {
+                    "name": "C_tank_vl",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m3"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "aboveground",
+                    "C_tank_max": 580.0,
+                    "C_tank_oz": 250.0,
+                    "C_tank_vl": 310.0
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "C_tank_max": 480.0,
+                    "C_tank_oz": 210.2,
+                    "C_tank_vl": 255.0
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "middle",
+                    "tank_type": "aboveground",
+                    "C_tank_max": 1.86,
+                    "C_tank_oz": 0.96,
+                    "C_tank_vl": 1.32
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "C_tank_max": 1.55,
+                    "C_tank_oz": 0.8,
+                    "C_tank_vl": 1.1
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "middle",
+                    "tank_type": "aboveground",
+                    "C_tank_max": 0.2,
+                    "C_tank_oz": 0.12,
+                    "C_tank_vl": 0.12
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "middle",
+                    "tank_type": "underground",
+                    "C_tank_max": 0.16,
+                    "C_tank_oz": 0.1,
+                    "C_tank_vl": 0.1
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "aboveground",
+                    "C_tank_max": 701.8,
+                    "C_tank_oz": 310.0,
+                    "C_tank_vl": 375.1
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "C_tank_max": 580.0,
+                    "C_tank_oz": 260.4,
+                    "C_tank_vl": 308.5
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "south",
+                    "tank_type": "aboveground",
+                    "C_tank_max": 2.25,
+                    "C_tank_oz": 1.19,
+                    "C_tank_vl": 1.6
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "C_tank_max": 1.88,
+                    "C_tank_oz": 0.99,
+                    "C_tank_vl": 1.33
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "south",
+                    "tank_type": "aboveground",
+                    "C_tank_max": 0.24,
+                    "C_tank_oz": 0.15,
+                    "C_tank_vl": 0.15
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "south",
+                    "tank_type": "underground",
+                    "C_tank_max": 0.19,
+                    "C_tank_oz": 0.12,
+                    "C_tank_vl": 0.12
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_15_vehicle",
+            "title": "Vapor concentration when filling vehicle tank",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 15",
+                "image_ref": "assets/tables/Table_15_vehicle.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "substance",
+                    "datatype": "string",
+                    "enum_id": "substance"
+                },
+                {
+                    "name": "climate_zone",
+                    "datatype": "string",
+                    "enum_id": "climate_zone"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "C_ba_oz",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m3"
+                },
+                {
+                    "name": "C_ba_vl",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m3"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "middle",
+                    "C_ba_oz": 420.0,
+                    "C_ba_vl": 515.0
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "middle",
+                    "C_ba_oz": 1.6,
+                    "C_ba_vl": 2.2
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "middle",
+                    "C_ba_oz": 0.2,
+                    "C_ba_vl": 0.2
+                },
+                {
+                    "substance": "gasoline_auto",
+                    "climate_zone": "south",
+                    "C_ba_oz": 520.0,
+                    "C_ba_vl": 623.1
+                },
+                {
+                    "substance": "diesel",
+                    "climate_zone": "south",
+                    "C_ba_oz": 1.98,
+                    "C_ba_vl": 2.66
+                },
+                {
+                    "substance": "oils",
+                    "climate_zone": "south",
+                    "C_ba_oz": 0.25,
+                    "C_ba_vl": 0.24
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_App_16",
+            "title": "Saturated vapor pressure",
+            "authority": "reference",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 16",
+                "image_ref": "assets/tables/Table_App_16.png"
+            },
+            "resolution": "interpolate",
+            "selectors": [
+                {
+                    "name": "substance",
+                    "datatype": "string",
+                    "enum_id": "substance_pure_app16"
+                }
+            ],
+            "axis": {
+                "name": "t",
+                "field": "t",
+                "datatype": "numeric",
+                "mode": "point",
+                "unit_id": "celsius"
+            },
+            "outputs": [
+                {
+                    "name": "pa",
+                    "datatype": "numeric",
+                    "unit_id": "pa"
+                }
+            ],
+            "missing_policy": "error",
+            "boundary_policy": "clamp",
+            "rows": [
+                {
+                    "substance": "butane",
+                    "t": -30,
+                    "pa": 44800
+                },
+                {
+                    "substance": "butane",
+                    "t": -20,
+                    "pa": 45500
+                },
+                {
+                    "substance": "butane",
+                    "t": -10,
+                    "pa": 700000
+                },
+                {
+                    "substance": "pentane",
+                    "t": -30,
+                    "pa": 5098
+                },
+                {
+                    "substance": "pentane",
+                    "t": -20,
+                    "pa": 9021
+                },
+                {
+                    "substance": "pentane",
+                    "t": -10,
+                    "pa": 15260
+                },
+                {
+                    "substance": "pentane",
+                    "t": 0,
+                    "pa": 24400
+                },
+                {
+                    "substance": "pentane",
+                    "t": 10,
+                    "pa": 37750
+                },
+                {
+                    "substance": "pentane",
+                    "t": 20,
+                    "pa": 56410
+                },
+                {
+                    "substance": "pentane",
+                    "t": 25,
+                    "pa": 68160
+                },
+                {
+                    "substance": "pentane",
+                    "t": 30,
+                    "pa": 81770
+                },
+                {
+                    "substance": "hexane",
+                    "t": -30,
+                    "pa": 956
+                },
+                {
+                    "substance": "hexane",
+                    "t": -20,
+                    "pa": 1587
+                },
+                {
+                    "substance": "hexane",
+                    "t": -10,
+                    "pa": 3480
+                },
+                {
+                    "substance": "hexane",
+                    "t": 0,
+                    "pa": 6110
+                },
+                {
+                    "substance": "hexane",
+                    "t": 10,
+                    "pa": 10450
+                },
+                {
+                    "substance": "hexane",
+                    "t": 20,
+                    "pa": 17600
+                },
+                {
+                    "substance": "hexane",
+                    "t": 25,
+                    "pa": 20350
+                },
+                {
+                    "substance": "hexane",
+                    "t": 30,
+                    "pa": 25200
+                },
+                {
+                    "substance": "heptane",
+                    "t": -30,
+                    "pa": 174
+                },
+                {
+                    "substance": "heptane",
+                    "t": -20,
+                    "pa": 386
+                },
+                {
+                    "substance": "heptane",
+                    "t": -10,
+                    "pa": 789
+                },
+                {
+                    "substance": "heptane",
+                    "t": 0,
+                    "pa": 1512
+                },
+                {
+                    "substance": "heptane",
+                    "t": 10,
+                    "pa": 2737
+                },
+                {
+                    "substance": "heptane",
+                    "t": 20,
+                    "pa": 4712
+                },
+                {
+                    "substance": "heptane",
+                    "t": 25,
+                    "pa": 6079
+                },
+                {
+                    "substance": "heptane",
+                    "t": 30,
+                    "pa": 7763
+                },
+                {
+                    "substance": "n_octane",
+                    "t": -30,
+                    "pa": 31.5
+                },
+                {
+                    "substance": "n_octane",
+                    "t": -20,
+                    "pa": 78.9
+                },
+                {
+                    "substance": "n_octane",
+                    "t": -10,
+                    "pa": 179.6
+                },
+                {
+                    "substance": "n_octane",
+                    "t": 0,
+                    "pa": 380.4
+                },
+                {
+                    "substance": "n_octane",
+                    "t": 10,
+                    "pa": 748.8
+                },
+                {
+                    "substance": "n_octane",
+                    "t": 20,
+                    "pa": 1391.0
+                },
+                {
+                    "substance": "n_octane",
+                    "t": 25,
+                    "pa": 1859.0
+                },
+                {
+                    "substance": "n_octane",
+                    "t": 30,
+                    "pa": 2454.0
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": -30,
+                    "pa": 7.5
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": -20,
+                    "pa": 17.9
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": -10,
+                    "pa": 49.8
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": 0,
+                    "pa": 114.0
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": 10,
+                    "pa": 234.5
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": 20,
+                    "pa": 461.0
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": 25,
+                    "pa": 633.0
+                },
+                {
+                    "substance": "n_nonane",
+                    "t": 30,
+                    "pa": 857.0
+                },
+                {
+                    "substance": "n_decane",
+                    "t": -10,
+                    "pa": 8.6
+                },
+                {
+                    "substance": "n_decane",
+                    "t": 0,
+                    "pa": 22.9
+                },
+                {
+                    "substance": "n_decane",
+                    "t": 10,
+                    "pa": 54.4
+                },
+                {
+                    "substance": "n_decane",
+                    "t": 20,
+                    "pa": 119.7
+                },
+                {
+                    "substance": "n_decane",
+                    "t": 25,
+                    "pa": 174.5
+                },
+                {
+                    "substance": "n_decane",
+                    "t": 30,
+                    "pa": 244.7
+                },
+                {
+                    "substance": "butene_2",
+                    "t": -30,
+                    "pa": 22600
+                },
+                {
+                    "substance": "butene_2",
+                    "t": -20,
+                    "pa": 36900
+                },
+                {
+                    "substance": "butene_2",
+                    "t": -10,
+                    "pa": 57800
+                },
+                {
+                    "substance": "butene_2",
+                    "t": 0,
+                    "pa": 87100
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": -30,
+                    "pa": 4860
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": -20,
+                    "pa": 9690
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": -10,
+                    "pa": 14700
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": 0,
+                    "pa": 23800
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": 10,
+                    "pa": 37000
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": 20,
+                    "pa": 55400
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": 25,
+                    "pa": 67300
+                },
+                {
+                    "substance": "pentene_2",
+                    "t": 30,
+                    "pa": 80750
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_App_4",
+            "title": "Coefficient Kg by product type",
+            "authority": "reference",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 4",
+                "image_ref": "assets/tables/Table_App_4.png"
+            },
+            "resolution": "interpolate",
+            "selectors": [
+                {
+                    "name": "substance",
+                    "datatype": "string",
+                    "enum_id": "substance_gas"
+                }
+            ],
+            "axis": {
+                "name": "t",
+                "field": "t",
+                "datatype": "numeric",
+                "mode": "point",
+                "unit_id": "celsius"
+            },
+            "outputs": [
+                {
+                    "name": "kg",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "boundary_policy": "clamp",
+            "rows": [
+                {
+                    "substance": "chlorine",
+                    "t": 0,
+                    "kg": 2.04e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 5,
+                    "kg": 2.5000000000000004e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 10,
+                    "kg": 2.97e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 15,
+                    "kg": 3.46e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 20,
+                    "kg": 4.02e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 25,
+                    "kg": 4.54e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 30,
+                    "kg": 5.02e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 40,
+                    "kg": 6.000000000000001e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 60,
+                    "kg": 7.310000000000001e-07
+                },
+                {
+                    "substance": "chlorine",
+                    "t": 80,
+                    "kg": 7.3e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 0,
+                    "kg": 2.03e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 5,
+                    "kg": 2.39e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 10,
+                    "kg": 2.7800000000000003e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 15,
+                    "kg": 3.2100000000000003e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 20,
+                    "kg": 3.6700000000000004e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 25,
+                    "kg": 4.1400000000000003e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 30,
+                    "kg": 4.63e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 40,
+                    "kg": 5.660000000000001e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 60,
+                    "kg": 7.820000000000001e-07
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 80,
+                    "kg": 1.03e-06
+                },
+                {
+                    "substance": "hydrogen_sulfide",
+                    "t": 100,
+                    "kg": 1.12e-06
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 0,
+                    "kg": 1.2500000000000001e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 5,
+                    "kg": 1.52e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 10,
+                    "kg": 1.84e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 15,
+                    "kg": 2.2000000000000002e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 20,
+                    "kg": 2.6600000000000003e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 25,
+                    "kg": 3.1e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 30,
+                    "kg": 3.64e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 40,
+                    "kg": 4.95e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 60,
+                    "kg": 8.390000000000002e-08
+                },
+                {
+                    "substance": "sulfur_dioxide",
+                    "t": 80,
+                    "kg": 1.28e-07
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 0,
+                    "kg": 1.8500000000000002e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 5,
+                    "kg": 1.9100000000000002e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 10,
+                    "kg": 1.97e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 15,
+                    "kg": 2.03e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 20,
+                    "kg": 2.09e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 25,
+                    "kg": 2.1500000000000002e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 30,
+                    "kg": 2.2000000000000003e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 40,
+                    "kg": 2.2700000000000002e-09
+                },
+                {
+                    "substance": "hydrogen_chloride",
+                    "t": 60,
+                    "kg": 2.2400000000000005e-09
+                },
+                {
+                    "substance": "ammonia",
+                    "t": 0,
+                    "kg": 1.5600000000000002e-09
+                },
+                {
+                    "substance": "ammonia",
+                    "t": 5,
+                    "kg": 1.68e-09
+                },
+                {
+                    "substance": "ammonia",
+                    "t": 10,
+                    "kg": 1.8000000000000002e-09
+                },
+                {
+                    "substance": "ammonia",
+                    "t": 15,
+                    "kg": 1.93e-09
+                },
+                {
+                    "substance": "ammonia",
+                    "t": 20,
+                    "kg": 2.0800000000000003e-09
+                },
+                {
+                    "substance": "ammonia",
+                    "t": 25,
+                    "kg": 2.23e-09
+                },
+                {
+                    "substance": "ammonia",
+                    "t": 30,
+                    "kg": 2.41e-09
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_App_5",
+            "title": "Molar mass of vapor in equilibrium (m)",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 5",
+                "image_ref": "assets/tables/Table_App_5.png"
+            },
+            "resolution": "interpolate",
+            "selectors": [
+                {
+                    "name": "product_type",
+                    "datatype": "string",
+                    "enum_id": "product_type_annex5"
+                }
+            ],
+            "axis": {
+                "name": "t_nk",
+                "field": "t_nk",
+                "datatype": "numeric",
+                "mode": "point",
+                "unit_id": "celsius"
+            },
+            "outputs": [
+                {
+                    "name": "m",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_mol"
+                }
+            ],
+            "missing_policy": "error",
+            "boundary_policy": "clamp",
+            "rows": [
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 10,
+                    "m": 51.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 11,
+                    "m": 51.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 12,
+                    "m": 52.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 13,
+                    "m": 52.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 14,
+                    "m": 53.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 15,
+                    "m": 54.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 16,
+                    "m": 54.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 17,
+                    "m": 55.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 18,
+                    "m": 55.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 19,
+                    "m": 56.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 20,
+                    "m": 57.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 21,
+                    "m": 57.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 22,
+                    "m": 58.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 23,
+                    "m": 58.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 24,
+                    "m": 59.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 25,
+                    "m": 60.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 26,
+                    "m": 60.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 27,
+                    "m": 61.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 28,
+                    "m": 61.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 29,
+                    "m": 62.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 30,
+                    "m": 63.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 31,
+                    "m": 63.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 32,
+                    "m": 64.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 33,
+                    "m": 64.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 34,
+                    "m": 65.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 35,
+                    "m": 66.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 36,
+                    "m": 66.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 37,
+                    "m": 67.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 38,
+                    "m": 67.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 39,
+                    "m": 68.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 40,
+                    "m": 69.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 41,
+                    "m": 69.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 42,
+                    "m": 70.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 43,
+                    "m": 70.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 44,
+                    "m": 71.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 45,
+                    "m": 72.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 46,
+                    "m": 72.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 47,
+                    "m": 73.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 48,
+                    "m": 73.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 49,
+                    "m": 74.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 50,
+                    "m": 75.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 51,
+                    "m": 75.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 52,
+                    "m": 76.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 53,
+                    "m": 76.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 54,
+                    "m": 77.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 55,
+                    "m": 78.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 56,
+                    "m": 78.6
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 57,
+                    "m": 79.2
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 58,
+                    "m": 79.8
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 59,
+                    "m": 80.4
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 60,
+                    "m": 81.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 65,
+                    "m": 84.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 70,
+                    "m": 87.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 75,
+                    "m": 90.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 80,
+                    "m": 93.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 85,
+                    "m": 96.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 90,
+                    "m": 99.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 95,
+                    "m": 102.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 100,
+                    "m": 105.0
+                },
+                {
+                    "product_type": "crude_oil",
+                    "t_nk": 110,
+                    "m": 111.0
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 30,
+                    "m": 60.0
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 31,
+                    "m": 60.3
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 32,
+                    "m": 60.6
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 33,
+                    "m": 60.9
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 34,
+                    "m": 61.2
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 35,
+                    "m": 61.5
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 36,
+                    "m": 61.8
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 37,
+                    "m": 62.1
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 38,
+                    "m": 62.5
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 39,
+                    "m": 62.8
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 40,
+                    "m": 63.1
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 41,
+                    "m": 63.4
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 42,
+                    "m": 63.7
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 43,
+                    "m": 64.1
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 44,
+                    "m": 64.4
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 45,
+                    "m": 64.7
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 46,
+                    "m": 65.1
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 47,
+                    "m": 65.4
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 48,
+                    "m": 65.7
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 49,
+                    "m": 66.1
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 50,
+                    "m": 66.4
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 51,
+                    "m": 66.7
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 52,
+                    "m": 67.1
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 53,
+                    "m": 67.4
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 54,
+                    "m": 67.8
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 55,
+                    "m": 68.1
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 56,
+                    "m": 68.5
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 57,
+                    "m": 68.8
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 58,
+                    "m": 69.2
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 59,
+                    "m": 69.5
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 60,
+                    "m": 70.0
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 62,
+                    "m": 71.0
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 85,
+                    "m": 80.0
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 105,
+                    "m": 88.0
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 120,
+                    "m": 95.0
+                },
+                {
+                    "product_type": "gasoline",
+                    "t_nk": 140,
+                    "m": 105.0
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_App_7",
+            "title": "Evaporation factor Kt",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 7",
+                "image_ref": "assets/tables/Table_App_7.png"
+            },
+            "resolution": "interpolate",
+            "selectors": [
+                {
+                    "name": "product_group",
+                    "datatype": "string",
+                    "enum_id": "product_group"
+                }
+            ],
+            "axis": {
+                "name": "t_zh",
+                "field": "t_zh",
+                "datatype": "numeric",
+                "mode": "point",
+                "unit_id": "celsius"
+            },
+            "outputs": [
+                {
+                    "name": "kt",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "boundary_policy": "clamp",
+            "rows": [
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -30,
+                    "kt": 0.09
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -29,
+                    "kt": 0.093
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -28,
+                    "kt": 0.096
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -27,
+                    "kt": 0.1
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -26,
+                    "kt": 0.105
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -25,
+                    "kt": 0.11
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -24,
+                    "kt": 0.115
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -23,
+                    "kt": 0.12
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -22,
+                    "kt": 0.125
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -21,
+                    "kt": 0.13
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -20,
+                    "kt": 0.135
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -19,
+                    "kt": 0.14
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -18,
+                    "kt": 0.145
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -17,
+                    "kt": 0.153
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -16,
+                    "kt": 0.16
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -15,
+                    "kt": 0.165
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -14,
+                    "kt": 0.173
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -13,
+                    "kt": 0.18
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -12,
+                    "kt": 0.185
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -11,
+                    "kt": 0.193
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -10,
+                    "kt": 0.2
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -9,
+                    "kt": 0.21
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -8,
+                    "kt": 0.215
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -7,
+                    "kt": 0.225
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -6,
+                    "kt": 0.235
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -5,
+                    "kt": 0.24
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -4,
+                    "kt": 0.25
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -3,
+                    "kt": 0.26
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -2,
+                    "kt": 0.27
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": -1,
+                    "kt": 0.28
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 0,
+                    "kt": 0.29
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 1,
+                    "kt": 0.3
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 2,
+                    "kt": 0.31
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 3,
+                    "kt": 0.33
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 4,
+                    "kt": 0.34
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 5,
+                    "kt": 0.35
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 6,
+                    "kt": 0.36
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 7,
+                    "kt": 0.375
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 8,
+                    "kt": 0.39
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 9,
+                    "kt": 0.4
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 10,
+                    "kt": 0.42
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 11,
+                    "kt": 0.43
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 12,
+                    "kt": 0.445
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 13,
+                    "kt": 0.46
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 14,
+                    "kt": 0.47
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 15,
+                    "kt": 0.49
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 16,
+                    "kt": 0.5
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 17,
+                    "kt": 0.52
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 18,
+                    "kt": 0.54
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 19,
+                    "kt": 0.56
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 20,
+                    "kt": 0.57
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 21,
+                    "kt": 0.58
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 22,
+                    "kt": 0.6
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 23,
+                    "kt": 0.62
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 24,
+                    "kt": 0.64
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 25,
+                    "kt": 0.66
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 26,
+                    "kt": 0.68
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 27,
+                    "kt": 0.69
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 28,
+                    "kt": 0.71
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 29,
+                    "kt": 0.73
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 30,
+                    "kt": 0.74
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 31,
+                    "kt": 0.76
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 32,
+                    "kt": 0.78
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 33,
+                    "kt": 0.8
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 34,
+                    "kt": 0.82
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 35,
+                    "kt": 0.83
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 36,
+                    "kt": 0.85
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 37,
+                    "kt": 0.87
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 38,
+                    "kt": 0.88
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 39,
+                    "kt": 0.9
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 40,
+                    "kt": 0.91
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 41,
+                    "kt": 0.93
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 42,
+                    "kt": 0.94
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 43,
+                    "kt": 0.96
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 44,
+                    "kt": 0.98
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 45,
+                    "kt": 1.0
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 46,
+                    "kt": 1.02
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 47,
+                    "kt": 1.04
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 48,
+                    "kt": 1.06
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 49,
+                    "kt": 1.08
+                },
+                {
+                    "product_group": "gasoline",
+                    "t_zh": 50,
+                    "kt": 1.1
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -30,
+                    "kt": 0.135
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -3,
+                    "kt": 0.435
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 24,
+                    "kt": 1.15
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 51,
+                    "kt": 2.58
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 78,
+                    "kt": 4.9
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -29,
+                    "kt": 0.14
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -2,
+                    "kt": 0.45
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 25,
+                    "kt": 1.2
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 52,
+                    "kt": 2.6
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 79,
+                    "kt": 5.0
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -28,
+                    "kt": 0.15
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -1,
+                    "kt": 0.47
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 26,
+                    "kt": 1.23
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 53,
+                    "kt": 2.7
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 80,
+                    "kt": 5.08
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -27,
+                    "kt": 0.153
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 0,
+                    "kt": 0.49
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 27,
+                    "kt": 1.25
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 54,
+                    "kt": 2.78
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 81,
+                    "kt": 5.1
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -26,
+                    "kt": 0.165
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 1,
+                    "kt": 0.52
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 28,
+                    "kt": 1.3
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 55,
+                    "kt": 2.88
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 82,
+                    "kt": 5.15
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -25,
+                    "kt": 0.17
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 2,
+                    "kt": 0.53
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 29,
+                    "kt": 1.35
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 56,
+                    "kt": 2.9
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 83,
+                    "kt": 5.51
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -24,
+                    "kt": 0.175
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 3,
+                    "kt": 0.55
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 30,
+                    "kt": 1.4
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 57,
+                    "kt": 3.0
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 84,
+                    "kt": 5.58
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -23,
+                    "kt": 0.183
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 4,
+                    "kt": 0.57
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 31,
+                    "kt": 1.43
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 58,
+                    "kt": 3.08
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 85,
+                    "kt": 5.6
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -22,
+                    "kt": 0.19
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 5,
+                    "kt": 0.59
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 32,
+                    "kt": 1.48
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 59,
+                    "kt": 3.15
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 86,
+                    "kt": 5.8
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -21,
+                    "kt": 0.2
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 6,
+                    "kt": 0.62
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 33,
+                    "kt": 1.5
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 60,
+                    "kt": 3.2
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 87,
+                    "kt": 5.9
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -20,
+                    "kt": 0.21
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 7,
+                    "kt": 0.64
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 34,
+                    "kt": 1.55
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 61,
+                    "kt": 3.3
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 88,
+                    "kt": 6.0
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -19,
+                    "kt": 0.22
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 8,
+                    "kt": 0.66
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 35,
+                    "kt": 1.6
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 62,
+                    "kt": 3.4
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 89,
+                    "kt": 6.1
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -18,
+                    "kt": 0.23
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 9,
+                    "kt": 0.69
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 36,
+                    "kt": 1.65
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 63,
+                    "kt": 3.5
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 90,
+                    "kt": 6.2
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -17,
+                    "kt": 0.24
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 10,
+                    "kt": 0.72
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 37,
+                    "kt": 1.7
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 64,
+                    "kt": 3.55
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 91,
+                    "kt": 6.3
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -16,
+                    "kt": 0.255
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 11,
+                    "kt": 0.74
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 38,
+                    "kt": 1.75
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 65,
+                    "kt": 3.6
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 92,
+                    "kt": 6.4
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -15,
+                    "kt": 0.26
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 12,
+                    "kt": 0.77
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 39,
+                    "kt": 1.8
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 66,
+                    "kt": 3.7
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 93,
+                    "kt": 6.6
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -14,
+                    "kt": 0.27
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 13,
+                    "kt": 0.8
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 40,
+                    "kt": 1.88
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 67,
+                    "kt": 3.8
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 94,
+                    "kt": 6.7
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -13,
+                    "kt": 0.28
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 14,
+                    "kt": 0.82
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 41,
+                    "kt": 1.93
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 68,
+                    "kt": 3.9
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 95,
+                    "kt": 6.8
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -12,
+                    "kt": 0.29
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 15,
+                    "kt": 0.85
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 42,
+                    "kt": 1.97
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 69,
+                    "kt": 4.0
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 96,
+                    "kt": 7.0
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -11,
+                    "kt": 0.3
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 16,
+                    "kt": 0.87
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 43,
+                    "kt": 2.02
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 70,
+                    "kt": 4.1
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 97,
+                    "kt": 7.1
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -10,
+                    "kt": 0.32
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 17,
+                    "kt": 0.9
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 44,
+                    "kt": 2.09
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 71,
+                    "kt": 4.2
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 98,
+                    "kt": 7.2
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -9,
+                    "kt": 0.335
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 18,
+                    "kt": 0.94
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 45,
+                    "kt": 2.15
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 72,
+                    "kt": 4.3
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 99,
+                    "kt": 7.3
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -8,
+                    "kt": 0.35
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 19,
+                    "kt": 0.97
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 46,
+                    "kt": 2.2
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 73,
+                    "kt": 4.4
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 100,
+                    "kt": 7.4
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -7,
+                    "kt": 0.365
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 20,
+                    "kt": 1.0
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 47,
+                    "kt": 2.25
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 74,
+                    "kt": 4.5
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -6,
+                    "kt": 0.39
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 21,
+                    "kt": 1.03
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 48,
+                    "kt": 2.35
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 75,
+                    "kt": 4.6
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -5,
+                    "kt": 0.4
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 22,
+                    "kt": 1.08
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 49,
+                    "kt": 2.4
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 76,
+                    "kt": 4.7
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": -4,
+                    "kt": 0.42
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 23,
+                    "kt": 1.1
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 50,
+                    "kt": 2.5
+                },
+                {
+                    "product_group": "oil_products",
+                    "t_zh": 77,
+                    "kt": 4.8
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_App_8",
+            "title": "Evaporation factor Kp",
+            "authority": "reference",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 8",
+                "image_ref": "assets/tables/Table_App_8.png"
+            },
+            "resolution": "range",
+            "selectors": [
+                {
+                    "name": "product_group",
+                    "datatype": "string"
+                },
+                {
+                    "name": "tank_construction",
+                    "datatype": "string"
+                },
+                {
+                    "name": "tank_mode",
+                    "datatype": "string",
+                    "enum_id": "tank_mode"
+                },
+                {
+                    "name": "ssv_type",
+                    "datatype": "string"
+                },
+                {
+                    "name": "kp_type",
+                    "datatype": "string"
+                }
+            ],
+            "axis": {
+                "name": "vr",
+                "datatype": "numeric",
+                "unit_id": "m3",
+                "mode": "interval",
+                "min_field": "vol_min",
+                "max_field": "vol_max",
+                "min_inclusive": true,
+                "max_inclusive": false
+            },
+            "outputs": [
+                {
+                    "name": "kp",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.9
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.87
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.83
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.8
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.63
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.61
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.58
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.56
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.8
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.77
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.73
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.56
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.54
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.51
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.5
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 1.0
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.97
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.93
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.9
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.68
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.65
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.63
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.95
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.92
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.88
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.85
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.67
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.64
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.62
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.6
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.85
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.82
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.78
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.75
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.6
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.57
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.55
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.53
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 1.0
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.98
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.96
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.95
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.69
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.67
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.67
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 1.0
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.97
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.93
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.9
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.68
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.65
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.63
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.9
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.87
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.83
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.8
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.63
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.61
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.58
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "underground",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.56
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 1.0
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 1.0
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 1.0
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 1.0
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "horiz",
+                    "tank_mode": "mernik",
+                    "ssv_type": "none",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.7
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.2
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.19
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.17
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.16
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.14
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.12
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.11
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.2
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.19
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.17
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.16
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.14
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.12
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.11
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.2
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.19
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.17
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.16
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.14
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.12
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "pontoon",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.11
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.12
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.11
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.094
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.087
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.08
+                },
+                {
+                    "product_group": "A",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.074
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.12
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.11
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.094
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.087
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.08
+                },
+                {
+                    "product_group": "B",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.074
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "max",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "max",
+                    "kp": 0.13
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "max",
+                    "kp": 0.12
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "max",
+                    "kp": 0.11
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 0,
+                    "vol_max": 100,
+                    "kp_type": "sr",
+                    "kp": 0.094
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 100,
+                    "vol_max": 700,
+                    "kp_type": "sr",
+                    "kp": 0.087
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 700,
+                    "vol_max": 2000,
+                    "kp_type": "sr",
+                    "kp": 0.08
+                },
+                {
+                    "product_group": "V",
+                    "tank_construction": "vert",
+                    "tank_mode": "mernik",
+                    "ssv_type": "float",
+                    "vol_min": 2000,
+                    "vol_max": null,
+                    "kp_type": "sr",
+                    "kp": 0.074
+                },
+                {
+                    "product_group": "any",
+                    "tank_construction": "any",
+                    "tank_mode": "buffer",
+                    "ssv_type": "any",
+                    "vol_min": null,
+                    "vol_max": null,
+                    "kp_type": "kp",
+                    "kp": 0.1
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_App_9",
+            "title": "Evaporation factor Kv",
+            "authority": "reference",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Appendix 9",
+                "image_ref": "assets/tables/Table_App_9.png"
+            },
+            "resolution": "interpolate",
+            "axis": {
+                "name": "pt_mmhg",
+                "field": "pt_mmhg",
+                "datatype": "numeric",
+                "mode": "point",
+                "unit_id": "mmhg"
+            },
+            "outputs": [
+                {
+                    "name": "kv",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "boundary_policy": "clamp",
+            "rows": [
+                {
+                    "pt_mmhg": 0,
+                    "kv": 1.0
+                },
+                {
+                    "pt_mmhg": 540,
+                    "kv": 1.0
+                },
+                {
+                    "pt_mmhg": 550,
+                    "kv": 1.03
+                },
+                {
+                    "pt_mmhg": 560,
+                    "kv": 1.07
+                },
+                {
+                    "pt_mmhg": 570,
+                    "kv": 1.11
+                },
+                {
+                    "pt_mmhg": 580,
+                    "kv": 1.15
+                },
+                {
+                    "pt_mmhg": 590,
+                    "kv": 1.19
+                },
+                {
+                    "pt_mmhg": 600,
+                    "kv": 1.24
+                },
+                {
+                    "pt_mmhg": 610,
+                    "kv": 1.28
+                },
+                {
+                    "pt_mmhg": 620,
+                    "kv": 1.33
+                },
+                {
+                    "pt_mmhg": 630,
+                    "kv": 1.38
+                },
+                {
+                    "pt_mmhg": 640,
+                    "kv": 1.44
+                },
+                {
+                    "pt_mmhg": 650,
+                    "kv": 1.49
+                },
+                {
+                    "pt_mmhg": 660,
+                    "kv": 1.55
+                },
+                {
+                    "pt_mmhg": 670,
+                    "kv": 1.61
+                },
+                {
+                    "pt_mmhg": 680,
+                    "kv": 1.68
+                },
+                {
+                    "pt_mmhg": 690,
+                    "kv": 1.74
+                },
+                {
+                    "pt_mmhg": 700,
+                    "kv": 1.81
+                },
+                {
+                    "pt_mmhg": 710,
+                    "kv": 1.89
+                },
+                {
+                    "pt_mmhg": 720,
+                    "kv": 1.97
+                },
+                {
+                    "pt_mmhg": 730,
+                    "kv": 2.05
+                },
+                {
+                    "pt_mmhg": 740,
+                    "kv": 2.14
+                },
+                {
+                    "pt_mmhg": 750,
+                    "kv": 2.23
+                },
+                {
+                    "pt_mmhg": 759,
+                    "kv": 2.32
+                },
+                {
+                    "pt_mmhg": 1000,
+                    "kv": 2.32
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_6_1",
+            "title": "Specific emissions from equipment",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Section 6.1",
+                "table": "Table 6.1",
+                "page": 23,
+                "image_ref": "assets/tables/Table_6_1.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "equipment",
+                    "datatype": "string",
+                    "enum_id": "equipType"
+                },
+                {
+                    "name": "product_group",
+                    "datatype": "string",
+                    "enum_id": "productBoilGroup"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "Q_spec",
+                    "datatype": "numeric",
+                    "unit_id": "kg_per_h"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "equipment": "hx_shell_tube_tube",
+                    "product_group": "light",
+                    "Q_spec": 0.2
+                },
+                {
+                    "equipment": "hx_shell_tube_tube",
+                    "product_group": "middle",
+                    "Q_spec": 0.1
+                },
+                {
+                    "equipment": "hx_shell_tube_tube",
+                    "product_group": "heavy",
+                    "Q_spec": 0.05
+                },
+                {
+                    "equipment": "hx_shell_tube_shell",
+                    "product_group": "light",
+                    "Q_spec": 0.2
+                },
+                {
+                    "equipment": "hx_shell_tube_shell",
+                    "product_group": "middle",
+                    "Q_spec": 0.1
+                },
+                {
+                    "equipment": "hx_shell_tube_shell",
+                    "product_group": "heavy",
+                    "Q_spec": 0.05
+                },
+                {
+                    "equipment": "hx_cooler",
+                    "product_group": "light",
+                    "Q_spec": 0.2
+                },
+                {
+                    "equipment": "hx_cooler",
+                    "product_group": "middle",
+                    "Q_spec": 0.1
+                },
+                {
+                    "equipment": "hx_cooler",
+                    "product_group": "heavy",
+                    "Q_spec": 0.05
+                },
+                {
+                    "equipment": "hx_reboiler",
+                    "product_group": "light",
+                    "Q_spec": 0.2
+                },
+                {
+                    "equipment": "hx_reboiler",
+                    "product_group": "middle",
+                    "Q_spec": 0.1
+                },
+                {
+                    "equipment": "hx_reboiler",
+                    "product_group": "heavy",
+                    "Q_spec": 0.05
+                },
+                {
+                    "equipment": "immersion_cooler",
+                    "product_group": "light",
+                    "Q_spec": 1.0
+                },
+                {
+                    "equipment": "immersion_cooler",
+                    "product_group": "middle",
+                    "Q_spec": 0.5
+                },
+                {
+                    "equipment": "immersion_cooler",
+                    "product_group": "heavy",
+                    "Q_spec": 0.01
+                },
+                {
+                    "equipment": "air_cooler",
+                    "product_group": "light",
+                    "Q_spec": 0.1
+                },
+                {
+                    "equipment": "air_cooler",
+                    "product_group": "middle",
+                    "Q_spec": 0.07
+                },
+                {
+                    "equipment": "air_cooler",
+                    "product_group": "heavy",
+                    "Q_spec": 0.04
+                },
+                {
+                    "equipment": "pump_single_mech",
+                    "product_group": "light",
+                    "Q_spec": 0.08
+                },
+                {
+                    "equipment": "pump_single_mech",
+                    "product_group": "middle",
+                    "Q_spec": 0.04
+                },
+                {
+                    "equipment": "pump_single_mech",
+                    "product_group": "heavy",
+                    "Q_spec": 0.02
+                },
+                {
+                    "equipment": "pump_single_packed",
+                    "product_group": "light",
+                    "Q_spec": 0.14
+                },
+                {
+                    "equipment": "pump_single_packed",
+                    "product_group": "middle",
+                    "Q_spec": 0.07
+                },
+                {
+                    "equipment": "pump_single_packed",
+                    "product_group": "heavy",
+                    "Q_spec": 0.03
+                },
+                {
+                    "equipment": "pump_double_mech",
+                    "product_group": "light",
+                    "Q_spec": 0.14
+                },
+                {
+                    "equipment": "pump_double_mech",
+                    "product_group": "middle",
+                    "Q_spec": 0.07
+                },
+                {
+                    "equipment": "pump_double_mech",
+                    "product_group": "heavy",
+                    "Q_spec": 0.03
+                },
+                {
+                    "equipment": "pump_double_packed",
+                    "product_group": "light",
+                    "Q_spec": 0.26
+                },
+                {
+                    "equipment": "pump_double_packed",
+                    "product_group": "middle",
+                    "Q_spec": 0.13
+                },
+                {
+                    "equipment": "pump_double_packed",
+                    "product_group": "heavy",
+                    "Q_spec": 0.05
+                },
+                {
+                    "equipment": "pump_double_sealless",
+                    "product_group": "light",
+                    "Q_spec": 0.02
+                },
+                {
+                    "equipment": "pump_double_sealless",
+                    "product_group": "middle",
+                    "Q_spec": 0.01
+                },
+                {
+                    "equipment": "pump_double_sealless",
+                    "product_group": "heavy",
+                    "Q_spec": 0.01
+                },
+                {
+                    "equipment": "compressor_centrifugal",
+                    "product_group": "light",
+                    "Q_spec": 0.12
+                },
+                {
+                    "equipment": "compressor_reciprocating",
+                    "product_group": "light",
+                    "Q_spec": 0.75
+                },
+                {
+                    "equipment": "compressor_centrifugal",
+                    "product_group": "middle",
+                    "Q_spec": 0.0
+                },
+                {
+                    "equipment": "compressor_centrifugal",
+                    "product_group": "heavy",
+                    "Q_spec": 0.0
+                },
+                {
+                    "equipment": "compressor_reciprocating",
+                    "product_group": "middle",
+                    "Q_spec": 0.0
+                },
+                {
+                    "equipment": "compressor_reciprocating",
+                    "product_group": "heavy",
+                    "Q_spec": 0.0
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_6_2",
+            "title": "Coefficient K_t for equipment and pumps",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Section 6.2",
+                "table": "6.2",
+                "pages": [
+                    24,
+                    25
+                ],
+                "image_ref": "assets/tables/Table_6_2.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "equipment_type",
+                    "datatype": "string",
+                    "enum_id": "seal_equipment_type"
+                },
+                {
+                    "name": "stream_type",
+                    "datatype": "string",
+                    "enum_id": "seal_stream_type"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "seal_g_leak",
+                    "datatype": "numeric",
+                    "unit_id": "kg_per_h"
+                },
+                {
+                    "name": "seal_x_fail",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "equipment_type": "control_valve",
+                    "stream_type": "gas_medium",
+                    "seal_g_leak": 0.020988,
+                    "seal_x_fail": 0.293
+                },
+                {
+                    "equipment_type": "control_valve",
+                    "stream_type": "light_hc_two_phase",
+                    "seal_g_leak": 0.012996,
+                    "seal_x_fail": 0.365
+                },
+                {
+                    "equipment_type": "control_valve",
+                    "stream_type": "heavy_hc",
+                    "seal_g_leak": 0.006588,
+                    "seal_x_fail": 0.07
+                },
+                {
+                    "equipment_type": "control_valve",
+                    "stream_type": "hydrogen",
+                    "seal_g_leak": 0.008784,
+                    "seal_x_fail": 0.3
+                },
+                {
+                    "equipment_type": "safety_valve",
+                    "stream_type": "vapor_gas_streams",
+                    "seal_g_leak": 0.136008,
+                    "seal_x_fail": 0.46
+                },
+                {
+                    "equipment_type": "safety_valve",
+                    "stream_type": "light_liquid_hc",
+                    "seal_g_leak": 0.08802,
+                    "seal_x_fail": 0.25
+                },
+                {
+                    "equipment_type": "safety_valve",
+                    "stream_type": "heavy_hc",
+                    "seal_g_leak": 0.111024,
+                    "seal_x_fail": 0.35
+                },
+                {
+                    "equipment_type": "flange_joint",
+                    "stream_type": "vapor_gas_streams",
+                    "seal_g_leak": 0.00072,
+                    "seal_x_fail": 0.03
+                },
+                {
+                    "equipment_type": "flange_joint",
+                    "stream_type": "light_liquid_hc",
+                    "seal_g_leak": 0.000396,
+                    "seal_x_fail": 0.05
+                },
+                {
+                    "equipment_type": "flange_joint",
+                    "stream_type": "heavy_hc",
+                    "seal_g_leak": 0.000288,
+                    "seal_x_fail": 0.02
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_6_3",
+            "title": "Coefficient q_sr for wastewater",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Section 6.3",
+                "table": "6.3",
+                "page": 28,
+                "image_ref": "assets/tables/Table_6_3.png"
+            },
+            "resolution": "interpolate",
+            "selectors": [
+                {
+                    "name": "vessel_type",
+                    "datatype": "string",
+                    "enum_id": "vessel_type_unorg"
+                }
+            ],
+            "axis": {
+                "name": "temp",
+                "field": "temp",
+                "datatype": "numeric",
+                "mode": "point",
+                "unit_id": "celsius"
+            },
+            "outputs": [
+                {
+                    "name": "q_sr",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m2_h"
+                }
+            ],
+            "missing_policy": "error",
+            "boundary_policy": "clamp",
+            "rows": [
+                {
+                    "vessel_type": "oil_trap",
+                    "temp": 0,
+                    "q_sr": 1.294
+                },
+                {
+                    "vessel_type": "oil_trap",
+                    "temp": 10,
+                    "q_sr": 3.158
+                },
+                {
+                    "vessel_type": "oil_trap",
+                    "temp": 20,
+                    "q_sr": 7.267
+                },
+                {
+                    "vessel_type": "oil_trap",
+                    "temp": 30,
+                    "q_sr": 15.603
+                },
+                {
+                    "vessel_type": "oil_trap",
+                    "temp": 40,
+                    "q_sr": 31.79
+                },
+                {
+                    "vessel_type": "settling_tank",
+                    "temp": 0,
+                    "q_sr": 0.053
+                },
+                {
+                    "vessel_type": "settling_tank",
+                    "temp": 10,
+                    "q_sr": 0.236
+                },
+                {
+                    "vessel_type": "settling_tank",
+                    "temp": 20,
+                    "q_sr": 0.84
+                },
+                {
+                    "vessel_type": "settling_tank",
+                    "temp": 30,
+                    "q_sr": 2.519
+                },
+                {
+                    "vessel_type": "settling_tank",
+                    "temp": 40,
+                    "q_sr": 6.576
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_6_4",
+            "title": "Coefficient z for wastewater",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Section 6.4",
+                "page": 29,
+                "image_ref": "assets/tables/Table_6_4.png"
+            },
+            "resolution": "interpolate",
+            "axis": {
+                "name": "covering_degree",
+                "field": "covering_degree",
+                "datatype": "numeric",
+                "mode": "point",
+                "unit_id": "dimensionless"
+            },
+            "outputs": [
+                {
+                    "name": "z_coeff",
+                    "datatype": "numeric",
+                    "unit_id": "dimensionless"
+                }
+            ],
+            "missing_policy": "error",
+            "boundary_policy": "clamp",
+            "rows": [
+                {
+                    "covering_degree": 0,
+                    "z_coeff": 1
+                },
+                {
+                    "covering_degree": 0.1,
+                    "z_coeff": 0.96
+                },
+                {
+                    "covering_degree": 0.15,
+                    "z_coeff": 0.94
+                },
+                {
+                    "covering_degree": 0.2,
+                    "z_coeff": 0.91
+                },
+                {
+                    "covering_degree": 0.25,
+                    "z_coeff": 0.88
+                },
+                {
+                    "covering_degree": 0.3,
+                    "z_coeff": 0.85
+                },
+                {
+                    "covering_degree": 0.35,
+                    "z_coeff": 0.82
+                },
+                {
+                    "covering_degree": 0.4,
+                    "z_coeff": 0.79
+                },
+                {
+                    "covering_degree": 0.45,
+                    "z_coeff": 0.76
+                },
+                {
+                    "covering_degree": 0.5,
+                    "z_coeff": 0.72
+                },
+                {
+                    "covering_degree": 0.55,
+                    "z_coeff": 0.68
+                },
+                {
+                    "covering_degree": 0.6,
+                    "z_coeff": 0.63
+                },
+                {
+                    "covering_degree": 0.65,
+                    "z_coeff": 0.57
+                },
+                {
+                    "covering_degree": 0.7,
+                    "z_coeff": 0.5
+                },
+                {
+                    "covering_degree": 0.75,
+                    "z_coeff": 0.42
+                },
+                {
+                    "covering_degree": 0.8,
+                    "z_coeff": 0.36
+                },
+                {
+                    "covering_degree": 0.85,
+                    "z_coeff": 0.28
+                },
+                {
+                    "covering_degree": 0.9,
+                    "z_coeff": 0.21
+                },
+                {
+                    "covering_degree": 0.95,
+                    "z_coeff": 0.15
+                },
+                {
+                    "covering_degree": 1,
+                    "z_coeff": 0.1
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_6_5",
+            "title": "Emissions from open surfaces (sludge)",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Section 6.5",
+                "page": 30,
+                "image_ref": "assets/tables/Table_6_5.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "season",
+                    "datatype": "string",
+                    "enum_id": "season_mazut"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "n_surface_norm",
+                    "datatype": "numeric",
+                    "unit_id": "kg_per_m2_month"
+                },
+                {
+                    "name": "n1_norm",
+                    "datatype": "numeric",
+                    "unit_id": "kg_per_m2_month"
+                },
+                {
+                    "name": "n2_norm",
+                    "datatype": "numeric",
+                    "unit_id": "kg_per_m2_month"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "season": "spring_summer",
+                    "n_surface_norm": 2.88,
+                    "n1_norm": 2.16,
+                    "n2_norm": 2.88
+                },
+                {
+                    "season": "autumn_winter",
+                    "n_surface_norm": 2.16,
+                    "n1_norm": 2.16,
+                    "n2_norm": 2.88
+                }
+            ],
+            "schema_version": 2
+        },
+        {
+            "table_id": "Table_Spill_J",
+            "title": "Spill factor J values",
+            "authority": "normative",
+            "jurisdiction": "KZ",
+            "source": {
+                "document": "Prikaz OOS RK 2011 No. 196-O",
+                "section": "Section 7.1",
+                "page": 33,
+                "image_ref": "assets/tables/Table_Spill_J.png"
+            },
+            "resolution": "exact",
+            "selectors": [
+                {
+                    "name": "substance",
+                    "datatype": "string",
+                    "enum_id": "substance"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "J",
+                    "datatype": "numeric",
+                    "unit_id": "g_per_m3"
+                }
+            ],
+            "missing_policy": "error",
+            "rows": [
+                {
+                    "substance": "gasoline_auto",
+                    "J": 125.0
+                },
+                {
+                    "substance": "diesel",
+                    "J": 50.0
+                },
+                {
+                    "substance": "oils",
+                    "J": 12.5
+                }
+            ],
+            "schema_version": 2
+        }
+    ]
+}

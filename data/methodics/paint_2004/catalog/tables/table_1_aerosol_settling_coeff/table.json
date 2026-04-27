@@ -1,0 +1,84 @@
+{
+  "table_id": "table_1_aerosol_settling_coeff",
+  "title": "Таблица 1: коэффициент оседания аэрозоля краски",
+  "authority": "normative",
+  "jurisdiction": "KZ",
+  "resolution": "range",
+  "source": {
+    "document": "РНД 211.2.02.05-2004",
+    "section": "5.5, Table 1",
+    "page": 10,
+    "image_ref": "catalog/tables/table_1_aerosol_settling_coeff/source.png"
+  },
+  "selectors": [],
+  "axis": {
+    "name": "duct_length_m",
+    "datatype": "numeric",
+    "unit_id": "m",
+    "mode": "interval",
+    "min_field": "duct_length_m_min",
+    "max_field": "duct_length_m_max",
+    "min_inclusive": true,
+    "max_inclusive": true
+  },
+  "outputs": [
+    {
+      "name": "kos_min",
+      "datatype": "numeric",
+      "unit_id": "dimensionless"
+    },
+    {
+      "name": "kos_max",
+      "datatype": "numeric",
+      "unit_id": "dimensionless"
+    },
+    {
+      "name": "kos_mid",
+      "datatype": "numeric",
+      "unit_id": "dimensionless"
+    }
+  ],
+  "missing_policy": "error",
+  "boundary_policy": "error",
+  "rows": [
+    {
+      "duct_length_m_min": 2.0,
+      "duct_length_m_max": 5.0,
+      "duct_length_label": "2-5",
+      "kos_min": 0.8,
+      "kos_max": 1.0,
+      "kos_mid": 0.9,
+      "source_page": 10
+    },
+    {
+      "duct_length_m_min": 5.0,
+      "duct_length_m_max": 10.0,
+      "duct_length_label": "5-10",
+      "kos_min": 0.5,
+      "kos_max": 0.8,
+      "kos_mid": 0.65,
+      "source_page": 10
+    },
+    {
+      "duct_length_m_min": 10.0,
+      "duct_length_m_max": 15.0,
+      "duct_length_label": "10-15",
+      "kos_min": 0.3,
+      "kos_max": 0.5,
+      "kos_mid": 0.4,
+      "source_page": 10
+    },
+    {
+      "duct_length_m_min": 15.0,
+      "duct_length_m_max": 20.0,
+      "duct_length_label": "15-20",
+      "kos_min": 0.1,
+      "kos_max": 0.3,
+      "kos_mid": 0.2,
+      "source_page": 10
+    }
+  ],
+  "notes": [
+    "The source gives a coefficient range for each duct-length band; kos_mid is retained as an authoring aid and is not wired into the runtime formula."
+  ]
+}

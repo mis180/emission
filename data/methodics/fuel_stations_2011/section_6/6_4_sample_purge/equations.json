@@ -1,0 +1,65 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "6.4.1",
+            "formula_name_ru": "Formula 6.4.1",
+            "lhs_symbol": "M_prj",
+            "rhs_source": "sum(V_pr_i * rho_i * n_i * k_i * C_ij / phi_i)",
+            "page": 25,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "6.4.1",
+            "equation_order": 1,
+            "lhs_token": "M_purge_kg_h",
+            "rhs": "V_purge * rho_purge * n_purge * k_purge * c_purge_mass / phi_purge_hours",
+            "latex": "M_{pr,j} = V_{pr,i} * rho_i * n_i * k_i * C_{ij} / phi_i",
+            "formula_name": "Technological sample purge, kg/h",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false
+        },
+        {
+            "formula_code": "6.4.1",
+            "equation_order": 2,
+            "lhs_token": "M",
+            "rhs": "M_purge_kg_h / 3.6",
+            "formula_name": "Technological sample purge, g/s",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.1"
+            ],
+            "notes": [
+                "Runtime unit conversion from kg/h to g/s."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "M"
+        },
+        {
+            "formula_code": "6.4.1",
+            "equation_order": 3,
+            "lhs_token": "G",
+            "rhs": "M_purge_kg_h * phi_purge_hours * 0.001",
+            "formula_name": "Technological sample purge, period mass",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.1"
+            ],
+            "notes": [
+                "Runtime period total in tonnes using phi_purge_hours."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "G"
+        }
+    ]
+}

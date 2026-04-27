@@ -1,0 +1,128 @@
+{
+    "variables": [
+        {
+            "id": "substance",
+            "token": "substance",
+            "label": "Вид нефтепродукта",
+            "datatype": "string",
+            "default": "gasoline_auto",
+            "enum_id": "substance_petroleum_products",
+            "category": "selector"
+        },
+        {
+            "id": "climate_zone",
+            "token": "climate_zone",
+            "label": "Климатическая зона",
+            "datatype": "string",
+            "default": "middle",
+            "enum_id": "climate_zone",
+            "category": "selector",
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "tank_type_storage",
+            "token": "tank_type_storage",
+            "label": "Конструкция резервуара (хранение)",
+            "datatype": "string",
+            "default": "underground",
+            "enum_id": "tank_type_storage",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage"
+            }
+        },
+        {
+            "id": "NP",
+            "token": "NP",
+            "label": "Количество резервуаров данного типа",
+            "datatype": "numeric",
+            "default": 1,
+            "min": 1,
+            "latex": "N_p",
+            "source_token_aliases": [
+                "N_p"
+            ],
+            "notes": [
+                "Maps the source symbol N_p to the number of tanks in the storage-loss branch."
+            ],
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage"
+            },
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "tank_volume_cat",
+            "token": "tank_volume_cat",
+            "label": "Категория объема резервуара",
+            "datatype": "string",
+            "default": "100",
+            "enum_id": "tank_volume_cat",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage"
+            }
+        },
+        {
+            "id": "Knp",
+            "token": "Knp",
+            "label": "Поправочный коэфф. нефтепродукта",
+            "datatype": "numeric",
+            "latex": "K_{np}",
+            "source_token_aliases": [
+                "K_np"
+            ],
+            "notes": [
+                "Maps the source symbol K_np to the product correction factor used in the storage-loss branch."
+            ],
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage"
+            }
+        },
+        {
+            "id": "GXP",
+            "token": "GXP",
+            "label": "Удельные потери при хранении",
+            "datatype": "numeric",
+            "latex": "G_{xp}",
+            "hint": "ВНИМАНИЕ: Приложение 13 регламентирует потери только для бензина. Для дизельного топлива и масел lookup вернет 0.",
+            "unit_id": "t_per_yr",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage"
+            },
+            "unit_id": "g_per_s"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "questions": [
+        {
+            "variable_id": "rho_i_valve",
+            "hidden": true
+        },
+        {
+            "variable_id": "n_i_valve",
+            "required": true
+        },
+        {
+            "variable_id": "M_i_mol",
+            "required": true
+        },
+        {
+            "variable_id": "phi_i_valve",
+            "required": true
+        },
+        {
+            "variable_id": "f_i_valve",
+            "required": true
+        },
+        {
+            "variable_id": "c_ij_mass",
+            "required": true
+        },
+        {
+            "variable_id": "P_i_valve",
+            "required": true
+        },
+        {
+            "variable_id": "k_i_valve",
+            "hidden": true
+        },
+        {
+            "variable_id": "T_i_valve",
+            "required": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        }
+    ]
+}

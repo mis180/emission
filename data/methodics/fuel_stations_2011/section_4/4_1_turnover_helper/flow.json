@@ -1,0 +1,10 @@
+{
+    "formula_code": "4.1.13",
+    "label": "4.1.13 - Annual tank turnover helper",
+    "variables": [
+        "B_turnover",
+        "rho_turnover",
+        "V_tank_turnover",
+        "NP_turnover"
+    ]
+}

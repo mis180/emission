@@ -1,0 +1,927 @@
+{
+    "table_id":  "Table_Appendix_13",
+    "title":  "Gasoline vapor emissions during storage (Gxp)",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 13",
+                   "image_ref":  "catalog/tables/Table_Appendix_13/source.png"
+               },
+    "resolution":  "exact",
+    "selectors":  [
+                      {
+                          "name":  "substance",
+                          "datatype":  "string",
+                          "enum_id":  "substance"
+                      },
+                      {
+                          "name":  "climate_zone",
+                          "datatype":  "string",
+                          "enum_id":  "climate_zone"
+                      },
+                      {
+                          "name":  "tank_type",
+                          "datatype":  "string",
+                          "enum_id":  "tank_type_storage"
+                      },
+                      {
+                          "name":  "tank_volume_cat",
+                          "datatype":  "string",
+                          "enum_id":  "tank_volume_cat"
+                      }
+                  ],
+    "outputs":  [
+                    {
+                        "name":  "GXP",
+                        "datatype":  "numeric",
+                        "unit_id":  "t_per_yr"
+                    }
+                ],
+    "missing_policy":  "error",
+    "rows":  [
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.22
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.049
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.033
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.077
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.066
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.22
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.38
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.081
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.054
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.133
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.114
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.38
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.55
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.12
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.078
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.193
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.165
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.55
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.69
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.15
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.098
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.242
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.21
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.69
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "700",
+                     "GXP":  1.1
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.23
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.15
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.385
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.33
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  1.49
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.31
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.21
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.52
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.45
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  2.67
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  0.52
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  0.35
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  0.93
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  0.8
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  3.74
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  0.73
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  0.49
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  1.31
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  1.12
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  5.8
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  1.14
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  0.77
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  2.03
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  1.74
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  10.1
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  1.98
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  1.33
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  3.53
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  3.03
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  14.8
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  2.91
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  1.96
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  5.18
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  4.44
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.27
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.06
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.041
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.095
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.081
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.27
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.47
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.1
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.066
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.164
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.142
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "200",
+                     "GXP":  0.47
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.68
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.157
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.096
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.237
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.203
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "300",
+                     "GXP":  0.68
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.85
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.18
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.121
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.298
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.26
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "400",
+                     "GXP":  0.85
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "700",
+                     "GXP":  1.35
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.28
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.18
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.474
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "700",
+                     "GXP":  0.41
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  1.83
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.38
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.26
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.64
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "1000",
+                     "GXP":  0.55
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  3.28
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  0.64
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  0.43
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  1.14
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "2000",
+                     "GXP":  0.98
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  4.6
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  0.9
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  0.6
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  1.61
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "3000",
+                     "GXP":  1.38
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  7.13
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  1.4
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  0.95
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  1.64
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "5000",
+                     "GXP":  2.14
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  12.42
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  2.44
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  1.64
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  2.5
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "10000",
+                     "GXP":  3.73
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_none",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  18.2
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_pontoon",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  3.58
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_floating_roof",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  2.41
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "vertical_gor",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  4.34
+                 },
+                 {
+                     "substance":  "gasoline_auto",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "15000",
+                     "GXP":  5.46
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "middle",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 },
+                 {
+                     "substance":  "diesel",
+                     "climate_zone":  "south",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "middle",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "south",
+                     "tank_type":  "underground",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "middle",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 },
+                 {
+                     "substance":  "oils",
+                     "climate_zone":  "south",
+                     "tank_type":  "horizontal",
+                     "tank_volume_cat":  "100",
+                     "GXP":  0.0
+                 }
+             ],
+    "schema_version":  2
+}

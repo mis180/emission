@@ -1,0 +1,48 @@
+{
+    "calculator_methods": {
+        "5.1": {
+            "formula_code": "5.1",
+            "label": "Аэрозоль краски",
+            "variables": [
+                "material_key",
+                "paint_method",
+                "m_f_tpy",
+                "m_m_kgph",
+                "K_os",
+                "eta_cleaning",
+                "fr_pct",
+                "delta_a_pct"
+            ]
+        },
+        "5.2": {
+            "formula_code": "5.2",
+            "label": "Валовый выброс летучих компонентов",
+            "variables": [
+                "material_key",
+                "paint_method",
+                "pollutant_key",
+                "m_f_tpy",
+                "eta_cleaning",
+                "fr_pct",
+                "delta_r_paint_pct",
+                "delta_r_dry_pct",
+                "delta_x_pct"
+            ]
+        },
+        "5.3": {
+            "formula_code": "5.3",
+            "label": "Максимальный выброс летучих компонентов",
+            "variables": [
+                "material_key",
+                "paint_method",
+                "pollutant_key",
+                "m_m_kgph",
+                "eta_cleaning",
+                "fr_pct",
+                "delta_r_paint_pct",
+                "delta_r_dry_pct",
+                "delta_x_pct"
+            ]
+        }
+    }
+}

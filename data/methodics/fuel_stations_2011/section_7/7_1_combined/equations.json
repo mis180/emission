@@ -1,0 +1,297 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "7.1.1",
+            "formula_name_ru": "Формула 7.1.1",
+            "lhs_symbol": "M_recv",
+            "rhs_source": "((C_tank_max * V_sl) / t_unload) * (1 - PZV_receive/100)",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.4",
+            "formula_name_ru": "Формула 7.1.4",
+            "lhs_symbol": "G_zak",
+            "rhs_source": "(C_tank_oz * Qoz + C_tank_vl * Qvl) * 0.000001",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.5",
+            "formula_name_ru": "Формула 7.1.5",
+            "lhs_symbol": "G_pr_r",
+            "rhs_source": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.3",
+            "formula_name_ru": "Формула 7.1.3",
+            "lhs_symbol": "G_recv",
+            "rhs_source": "G_zak * (1 - PZV_receive/100) + G_pr_r",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1_storage.1",
+            "formula_name_ru": "Storage subgraph source for 7.1_combined runtime composition",
+            "lhs_symbol": "G_storage",
+            "rhs_source": "GXP * Knp * NP",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.2",
+            "formula_name_ru": "Формула 7.1.2",
+            "lhs_symbol": "M_refuel",
+            "rhs_source": "((NN * VTRK * C_ba_max) / 3600) * (1 - PZV_refuel/100)",
+            "page": 32,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.7",
+            "formula_name_ru": "Формула 7.1.7",
+            "lhs_symbol": "G_ba",
+            "rhs_source": "(C_ba_oz * Qoz + C_ba_vl * Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.8",
+            "formula_name_ru": "Формула 7.1.8",
+            "lhs_symbol": "G_pr_a",
+            "rhs_source": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.6",
+            "formula_name_ru": "Формула 7.1.6",
+            "lhs_symbol": "G_refuel",
+            "rhs_source": "G_ba * (1 - PZV_refuel/100) + G_pr_a",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.9",
+            "formula_name_ru": "Формула 7.1.9",
+            "lhs_symbol": "G",
+            "rhs_source": "G_recv + G_refuel",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 1,
+            "lhs_token": "M_recv",
+            "rhs": "((C_tank_max * V_sl) / t_unload) * (1 - PZV_receive/100)",
+            "latex": "M_{recv} = \\frac{C_{p,max} \\cdot V_{sl}}{t} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС Комплекс: слив нефтепродукта",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.1"
+            ],
+            "notes": [
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 2,
+            "lhs_token": "G_zak",
+            "rhs": "(C_tank_oz * Qoz + C_tank_vl * Qvl) * 0.000001",
+            "latex": "G_{zak} = (C_{p,oz} \\cdot Q_{oz} + C_{p,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС Комплекс: хранение",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.4"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 3,
+            "lhs_token": "G_pr_r",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,r} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС Комплекс: заправка",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.5"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 4,
+            "lhs_token": "G_recv",
+            "rhs": "G_zak * (1 - PZV_receive/100) + G_pr_r",
+            "latex": "G_{recv} = G_{zak} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,r}",
+            "formula_name": "АЗС Комплекс: суммарный максимальный выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.3",
+                "7.1.4",
+                "7.1.5"
+            ],
+            "notes": [
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 5,
+            "lhs_token": "G_storage",
+            "rhs": "GXP * Knp * NP",
+            "latex": "G_{storage} = G_{xp} \\cdot K_{np} \\cdot N_p",
+            "formula_name": "АЗС Комплекс: суммарный годовой выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1_storage.1"
+            ],
+            "source_lookup_tables": [
+                "Table_Appendix_13",
+                "Table_12"
+            ],
+            "notes": [
+                "Runtime composition branch: adds the standalone storage-loss subgraph into the station-level combined scenario. Prevent double counting if 7_1_storage is also selected separately for the same station."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime composition branch: adds the standalone storage-loss subgraph into the station-level combined scenario. Prevent double counting if 7_1_storage is also selected separately for the same station."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 6,
+            "lhs_token": "M_refuel",
+            "rhs": "((NN * VTRK * C_ba_max) / 3600) * (1 - PZV_refuel/100)",
+            "latex": "M_{refuel} = \\frac{N_n \\cdot V_{trk} \\cdot C_{ba,max}}{3600} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС Комплекс: заправка",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.2"
+            ],
+            "notes": [
+                "Runtime adaptation: replaces the source total TRK flow with NN * VTRK and applies the PZV_refuel vapor-recovery efficiency factor."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 7,
+            "lhs_token": "G_ba",
+            "rhs": "(C_ba_oz * Qoz + C_ba_vl * Qvl) * 0.000001",
+            "latex": "G_{ba} = (C_{ba,oz} \\cdot Q_{oz} + C_{ba,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.7"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 8,
+            "lhs_token": "G_pr_a",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,a} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.8"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 9,
+            "lhs_token": "G_refuel",
+            "rhs": "G_ba * (1 - PZV_refuel/100) + G_pr_a",
+            "latex": "G_{refuel} = G_{ba} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,a}",
+            "formula_name": "",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.6",
+                "7.1.7",
+                "7.1.8"
+            ],
+            "notes": [
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 10,
+            "lhs_token": "M",
+            "rhs": "max(M_recv, M_refuel)",
+            "latex": "M = \\max(M_{recv}, M_{refuel})",
+            "formula_name": "АЗС Комплекс: суммарный максимальный выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.1",
+                "7.1.2"
+            ],
+            "notes": [
+                "Runtime-only combined output that selects the larger of receiving and refueling maximum emissions."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime-only combined output that selects the larger of receiving and refueling maximum emissions."
+            ]
+        },
+        {
+            "formula_code": "7.1_combined",
+            "equation_order": 11,
+            "lhs_token": "G",
+            "rhs": "G_recv + G_storage + G_refuel",
+            "latex": "G = G_{recv} + G_{storage} + G_{refuel}",
+            "formula_name": "АЗС Комплекс: суммарный годовой выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1.9",
+                "7.1_storage.1"
+            ],
+            "notes": [
+                "Runtime composition output: source 7.1.9 combines receiving and refueling; this package also adds the storage-loss subgraph for the station-level combined scenario. Prevent double counting with standalone 7_1_storage."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "Runtime composition output: source 7.1.9 combines receiving and refueling; this package also adds the storage-loss subgraph for the station-level combined scenario. Prevent double counting with standalone 7_1_storage."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "formula_code": "7.1_storage",
+    "variables": [
+        "climate_zone",
+        "substance",
+        "tank_type_storage",
+        "tank_volume_cat",
+        "NP",
+        "GXP",
+        "Knp"
+    ]
+}

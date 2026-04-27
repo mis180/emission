@@ -1,0 +1,12 @@
+{
+    "formula_code": "6.4.1",
+    "label": "6.4.1 - Technological sample purges",
+    "variables": [
+        "V_purge",
+        "rho_purge",
+        "n_purge",
+        "k_purge",
+        "c_purge_mass",
+        "phi_purge_hours"
+    ]
+}

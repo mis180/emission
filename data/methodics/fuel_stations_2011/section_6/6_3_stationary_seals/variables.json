@@ -1,0 +1,136 @@
+{
+    "variables": [
+        {
+            "id": "seal_equipment_type",
+            "token": "seal_equipment_type",
+            "label": "Stationary seal equipment type",
+            "datatype": "string",
+            "enum_id": "seal_equipment_type",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "seal_stream_type",
+            "token": "seal_stream_type",
+            "label": "Technological stream type",
+            "datatype": "string",
+            "enum_id": "seal_stream_type",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "seal_g_leak",
+            "token": "seal_g_leak",
+            "label": "Leak through one stationary seal, kg/h",
+            "latex": "g_i",
+            "datatype": "numeric",
+            "unit_id": "kg_per_h",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "seal_x_fail",
+            "token": "seal_x_fail",
+            "label": "Fraction of seals that lost tightness",
+            "latex": "x_i",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "seal_count",
+            "token": "seal_count",
+            "label": "Number of stationary seals of this type",
+            "latex": "n_i",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "seal_c_ij_mass",
+            "token": "seal_c_ij_mass",
+            "label": "Mass concentration of pollutant j in stream i, fraction",
+            "latex": "C_{ij}",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 0,
+            "max": 1,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "seal_hours",
+            "token": "seal_hours",
+            "label": "Annual operating time for annualized seal loss, h/yr",
+            "datatype": "numeric",
+            "unit_id": "h_per_yr",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "M_seal_kg_h",
+            "token": "M_seal_kg_h",
+            "label": "Stationary seal loss for pollutant j, kg/h",
+            "latex": "M_{nyj}",
+            "datatype": "numeric",
+            "unit_id": "kg_per_h",
+            "category": "calculated",
+            "source_token_aliases": [
+                "M_nyj"
+            ],
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "Maximum pollutant emission, g/s",
+            "datatype": "numeric",
+            "unit_id": "g_per_s",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "Annual pollutant emission, t/yr",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.3"
+            }
+        }
+    ]
+}

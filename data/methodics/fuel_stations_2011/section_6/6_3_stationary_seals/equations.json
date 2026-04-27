@@ -1,0 +1,65 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "6.3.1",
+            "formula_name_ru": "Formula 6.3.1",
+            "lhs_symbol": "M_nyj",
+            "rhs_source": "sum(g_i * n_i * x_i * C_ij)",
+            "page": 24,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "6.3",
+            "equation_order": 1,
+            "lhs_token": "M_seal_kg_h",
+            "rhs": "seal_g_leak * seal_count * seal_x_fail * seal_c_ij_mass",
+            "latex": "M_{nyj} = g_i * n_i * x_i * C_{ij}",
+            "formula_name": "Stationary seal leak, kg/h",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.3.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false
+        },
+        {
+            "formula_code": "6.3",
+            "equation_order": 2,
+            "lhs_token": "M",
+            "rhs": "M_seal_kg_h / 3.6",
+            "formula_name": "Stationary seal leak, g/s",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.3.1"
+            ],
+            "notes": [
+                "Runtime unit conversion from kg/h to g/s."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "M"
+        },
+        {
+            "formula_code": "6.3",
+            "equation_order": 3,
+            "lhs_token": "G",
+            "rhs": "M_seal_kg_h * seal_hours * 0.001",
+            "formula_name": "Annualized stationary seal leak",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.3.1"
+            ],
+            "notes": [
+                "Runtime annualization from kg/h using seal_hours."
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "output_type": "G"
+        }
+    ]
+}

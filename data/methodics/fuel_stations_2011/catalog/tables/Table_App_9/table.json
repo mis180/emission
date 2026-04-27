@@ -1,0 +1,131 @@
+{
+    "table_id":  "Table_App_9",
+    "title":  "Evaporation factor Kv",
+    "authority":  "reference",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 9",
+                   "image_ref":  "catalog/tables/Table_App_9/source.png"
+               },
+    "resolution":  "interpolate",
+    "axis":  {
+                 "name":  "pt_mmhg",
+                 "field":  "pt_mmhg",
+                 "datatype":  "numeric",
+                 "mode":  "point",
+                 "unit_id":  "mmhg"
+             },
+    "outputs":  [
+                    {
+                        "name":  "kv",
+                        "datatype":  "numeric",
+                        "unit_id":  "dimensionless"
+                    }
+                ],
+    "missing_policy":  "error",
+    "boundary_policy":  "clamp",
+    "rows":  [
+                 {
+                     "pt_mmhg":  0,
+                     "kv":  1.0
+                 },
+                 {
+                     "pt_mmhg":  540,
+                     "kv":  1.0
+                 },
+                 {
+                     "pt_mmhg":  550,
+                     "kv":  1.03
+                 },
+                 {
+                     "pt_mmhg":  560,
+                     "kv":  1.07
+                 },
+                 {
+                     "pt_mmhg":  570,
+                     "kv":  1.11
+                 },
+                 {
+                     "pt_mmhg":  580,
+                     "kv":  1.15
+                 },
+                 {
+                     "pt_mmhg":  590,
+                     "kv":  1.19
+                 },
+                 {
+                     "pt_mmhg":  600,
+                     "kv":  1.24
+                 },
+                 {
+                     "pt_mmhg":  610,
+                     "kv":  1.28
+                 },
+                 {
+                     "pt_mmhg":  620,
+                     "kv":  1.33
+                 },
+                 {
+                     "pt_mmhg":  630,
+                     "kv":  1.38
+                 },
+                 {
+                     "pt_mmhg":  640,
+                     "kv":  1.44
+                 },
+                 {
+                     "pt_mmhg":  650,
+                     "kv":  1.49
+                 },
+                 {
+                     "pt_mmhg":  660,
+                     "kv":  1.55
+                 },
+                 {
+                     "pt_mmhg":  670,
+                     "kv":  1.61
+                 },
+                 {
+                     "pt_mmhg":  680,
+                     "kv":  1.68
+                 },
+                 {
+                     "pt_mmhg":  690,
+                     "kv":  1.74
+                 },
+                 {
+                     "pt_mmhg":  700,
+                     "kv":  1.81
+                 },
+                 {
+                     "pt_mmhg":  710,
+                     "kv":  1.89
+                 },
+                 {
+                     "pt_mmhg":  720,
+                     "kv":  1.97
+                 },
+                 {
+                     "pt_mmhg":  730,
+                     "kv":  2.05
+                 },
+                 {
+                     "pt_mmhg":  740,
+                     "kv":  2.14
+                 },
+                 {
+                     "pt_mmhg":  750,
+                     "kv":  2.23
+                 },
+                 {
+                     "pt_mmhg":  759,
+                     "kv":  2.32
+                 },
+                 {
+                     "pt_mmhg":  1000,
+                     "kv":  2.32
+                 }
+             ],
+    "schema_version":  2
+}

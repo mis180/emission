@@ -1,0 +1,32 @@
+{
+    "questions": [
+        {
+            "variable_id": "F_area",
+            "required": true
+        },
+        {
+            "variable_id": "n1_norm",
+            "hidden": true
+        },
+        {
+            "variable_id": "n_surface_norm",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "n2_norm",
+            "hidden": true
+        },
+        {
+            "variable_id": "season_mazut",
+            "required": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        }
+    ]
+}

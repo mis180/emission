@@ -1,0 +1,76 @@
+{
+  "symbols": [
+    {
+      "id": "fluid_density",
+      "canonical_symbol": "rho_i",
+      "base_unit": "kg_m3",
+      "label": { "ru": "Плотность паровоздушной смеси", "en": "Fluid density" }
+    },
+    {
+      "id": "valve_opening_area",
+      "canonical_symbol": "f_i",
+      "base_unit": "m2",
+      "label": { "ru": "Площадь сечения клапана", "en": "Valve opening area" }
+    },
+    {
+      "id": "purge_duration",
+      "canonical_symbol": "phi_i",
+      "base_unit": "s",
+      "label": { "ru": "Продолжительность продувки", "en": "Purge duration" }
+    },
+    {
+      "id": "tank_pressure",
+      "canonical_symbol": "P_i",
+      "base_unit": "pa",
+      "label": { "ru": "Давление в резервуаре", "en": "Tank pressure" }
+    },
+    {
+      "id": "molar_mass",
+      "canonical_symbol": "M_mol",
+      "base_unit": "g_mol",
+      "label": { "ru": "Молекулярная масса", "en": "Molar mass" }
+    },
+    {
+      "id": "operating_temp",
+      "canonical_symbol": "T_i",
+      "base_unit": "k",
+      "label": { "ru": "Температура ПВС", "en": "Operating temperature" }
+    },
+    {
+      "id": "valve_leak_coeff",
+      "canonical_symbol": "k_i",
+      "base_unit": "dim",
+      "label": { "ru": "Коэффициент негерметичности", "en": "Leakage coefficient" }
+    },
+    {
+      "id": "operation_count",
+      "canonical_symbol": "n_i",
+      "base_unit": "dim",
+      "label": { "ru": "Число срабатываний", "en": "Operation count" }
+    },
+    {
+      "id": "mass_concentration",
+      "canonical_symbol": "c_ij",
+      "base_unit": "pct",
+      "label": { "ru": "Массовая концентрация", "en": "Mass concentration" }
+    },
+    {
+      "id": "material_consumption",
+      "canonical_symbol": "B_i",
+      "base_unit": "kg",
+      "label": { "ru": "Расход материалов", "en": "Material consumption" }
+    },
+    {
+      "id": "welding_factor",
+      "canonical_symbol": "K_x",
+      "base_unit": "dim",
+      "label": { "ru": "Удельный показатель выброса", "en": "Emission factor" }
+    },
+    {
+      "id": "metal_thickness",
+      "canonical_symbol": "delta",
+      "base_unit": "mm",
+      "label": { "ru": "Толщина металла", "en": "Metal thickness" }
+    }
+  ]
+}

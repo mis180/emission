@@ -1,0 +1,19 @@
+{
+    "formula_code": "6.1",
+    "variables": [
+        "Uoz",
+        "B_oz",
+        "Uvl",
+        "B_vl",
+        "Kp_avg",
+        "productBoilGroup",
+        "substance",
+        "tank_construction",
+        "tank_mode_recv",
+        "ssv_type",
+        "climate_zone",
+        "Vch_max",
+        "V_nom"
+    ],
+    "label": "Неорганизованные выбросы: фланцы и арматура"
+}

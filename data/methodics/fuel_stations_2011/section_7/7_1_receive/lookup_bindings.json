@@ -1,0 +1,51 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "C_tank_max",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_max",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_max"
+        },
+        {
+            "target_variable": "C_tank_oz",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_oz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_oz"
+        },
+        {
+            "target_variable": "C_tank_vl",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_vl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_vl"
+        },
+        {
+            "target_variable": "J",
+            "table_id": "Table_Spill_J",
+            "output_key": "J",
+            "selectors": {
+                "substance": "substance"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Spill_J -> J"
+        }
+    ]
+}

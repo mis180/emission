@@ -1,0 +1,64 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "7.1_storage.1",
+            "formula_name_ru": "Формула 7.1_storage",
+            "lhs_symbol": "G",
+            "rhs_source": "GXP * Knp * NP",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1_storage.2",
+            "formula_name_ru": "Формула 7.1_storage",
+            "lhs_symbol": "M",
+            "rhs_source": "G * 1000000 / (8760 * 3600)",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "7.1_storage",
+            "equation_order": 1,
+            "lhs_token": "G",
+            "rhs": "GXP * Knp * NP",
+            "latex": "G = G_{xp} \\cdot K_{np} \\cdot N_p",
+            "formula_name": "АЗС: годовой выброс от хранения (малые дыхания)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.3 (Appendix 13 component)",
+                "Runtime branch for storage losses is lookup-based and uses Appendix 13 annual loss values multiplied by Knp and NP."
+            ],
+            "source_equation_ids": [
+                "7.1_storage.1"
+            ],
+            "source_lookup_tables": [
+                "Table_Appendix_13",
+                "Table_12"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_storage",
+            "equation_order": 2,
+            "lhs_token": "M",
+            "rhs": "G * 1000000 / (8760 * 3600)",
+            "latex": "M = \\frac{G \\cdot 10^6}{8760 \\cdot 3600}",
+            "formula_name": "АЗС: максимальный выброс от хранения",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "Derived from annual emission assuming continuous operation",
+                "Runtime-only derived value from annual storage loss assuming continuous operation across the year."
+            ],
+            "source_equation_ids": [
+                "7.1_storage.2"
+            ],
+            "derived_runtime_only": true,
+            "runtime_scope": "calculator_safe_subset"
+        }
+    ]
+}

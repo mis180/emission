@@ -1,0 +1,17 @@
+{
+    "formula_code": "6.4",
+    "section": "6.4",
+    "title_ru": "Предохранительные клапаны",
+    "status": "draft",
+    "confidence": "LOW",
+    "source_pages": [
+        28
+    ],
+    "shared_tables_used": [],
+    "runtime_differs_from_source": true,
+    "notes": [
+        "Quarantined due to manual inference and medium extraction quality.",
+        "Not included in the active runtime build until source verification is complete."
+    ],
+    "evidence_png": "page_028.png"
+}

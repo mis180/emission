@@ -1,0 +1,118 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "7.1.1",
+            "formula_name_ru": "Формула 7.1.1",
+            "lhs_symbol": "M",
+            "rhs_source": "((C_tank_max * V_sl) / t_unload) * (1 - PZV_receive/100)",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.4",
+            "formula_name_ru": "Формула 7.1.4",
+            "lhs_symbol": "G_zak",
+            "rhs_source": "(C_tank_oz * Qoz + C_tank_vl * Qvl) * 0.000001",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.5",
+            "formula_name_ru": "Формула 7.1.5",
+            "lhs_symbol": "G_pr_r",
+            "rhs_source": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.3",
+            "formula_name_ru": "Формула 7.1.3",
+            "lhs_symbol": "G",
+            "rhs_source": "G_zak * (1 - PZV_receive/100) + G_pr_r",
+            "page": 31,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "((C_tank_max * V_sl) / t_unload) * (1 - PZV_receive/100)",
+            "latex": "M = \\frac{C_{p,max} \\cdot V_{sl}}{t} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС: слив нефтепродукта в резервуар",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.1 (multiplied by (1 - PZV/100) if GRS active)",
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the source maximum-emission formula."
+            ],
+            "source_equation_ids": [
+                "7.1.1"
+            ],
+            "derived_runtime_only": true,
+            "runtime_scope": "calculator_safe_subset"
+        },
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 2,
+            "lhs_token": "G_zak",
+            "rhs": "(C_tank_oz * Qoz + C_tank_vl * Qvl) * 0.000001",
+            "latex": "G_{zak} = (C_{p,oz} \\cdot Q_{oz} + C_{p,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс при закачке в резервуары",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.4"
+            ],
+            "source_equation_ids": [
+                "7.1.4"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 3,
+            "lhs_token": "G_pr_r",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,r} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс от проливов при сливе",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.5"
+            ],
+            "source_equation_ids": [
+                "7.1.5"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_receive",
+            "equation_order": 4,
+            "lhs_token": "G",
+            "rhs": "G_zak * (1 - PZV_receive/100) + G_pr_r",
+            "latex": "G = G_{zak} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,r}",
+            "formula_name": "АЗС: суммарный годовой выброс от резервуаров",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.3 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term before adding spill losses."
+            ],
+            "source_equation_ids": [
+                "7.1.3",
+                "7.1.4",
+                "7.1.5"
+            ],
+            "derived_runtime_only": true,
+            "runtime_scope": "calculator_safe_subset",
+            "adaptation_notes": [
+                "PDF 7.1.3 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_receive vapor-recovery efficiency factor to the annual tank-filling term before adding spill losses."
+            ]
+        }
+    ]
+}

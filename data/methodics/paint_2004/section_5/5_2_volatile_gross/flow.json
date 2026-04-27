@@ -1,0 +1,15 @@
+{
+  "formula_code": "5.2",
+  "label": "Валовый выброс летучих компонентов",
+  "variables": [
+    "material_key",
+    "paint_method",
+    "pollutant_key",
+    "m_f_tpy",
+    "eta_cleaning",
+    "fr_pct",
+    "delta_r_paint_pct",
+    "delta_r_dry_pct",
+    "delta_x_pct"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+    "formula_code": "6.3",
+    "label": "6.3 - Stationary seals and flange-like connections",
+    "variables": [
+        "seal_equipment_type",
+        "seal_stream_type",
+        "seal_g_leak",
+        "seal_x_fail",
+        "seal_count",
+        "seal_c_ij_mass",
+        "seal_hours"
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "formula_code": "5.2",
+    "variables": [
+        "C1",
+        "Kp_max",
+        "Vch_max",
+        "Uoz",
+        "B_oz",
+        "Uvl",
+        "B_vl",
+        "Kp_avg",
+        "Ghr",
+        "Knp",
+        "NP",
+        "substance",
+        "climate_zone",
+        "productBoilGroup",
+        "tank_construction",
+        "tank_mode_recv",
+        "ssv_type",
+        "tank_type_storage",
+        "V_nom"
+    ]
+}

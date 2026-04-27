@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "tables": [
+    {
+      "table_id": "table_1_aerosol_settling_coeff",
+      "path": "catalog/tables/table_1_aerosol_settling_coeff/table.json",
+      "image_path": "catalog/tables/table_1_aerosol_settling_coeff/source.png",
+      "status": "active"
+    },
+    {
+      "table_id": "table_2a_lkm_volatile_fraction",
+      "path": "catalog/tables/table_2a_lkm_volatile_fraction/table.json",
+      "image_path": "catalog/tables/table_2a_lkm_volatile_fraction/source.png",
+      "status": "active"
+    },
+    {
+      "table_id": "table_2b_lkm_component_fraction",
+      "path": "catalog/tables/table_2b_lkm_component_fraction/table.json",
+      "image_path": "catalog/tables/table_2b_lkm_component_fraction/source.png",
+      "status": "active"
+    },
+    {
+      "table_id": "table_3_painting_method_loss_factors",
+      "path": "catalog/tables/table_3_painting_method_loss_factors/table.json",
+      "image_path": "catalog/tables/table_3_painting_method_loss_factors/source.png",
+      "status": "active"
+    },
+    {
+      "table_id": "table_a1_pollutant_catalog",
+      "path": "catalog/tables/table_a1_pollutant_catalog/table.json",
+      "image_path": "catalog/tables/table_a1_pollutant_catalog/source.png",
+      "status": "active"
+    }
+  ]
+}

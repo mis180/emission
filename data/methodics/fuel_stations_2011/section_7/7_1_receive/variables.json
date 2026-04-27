@@ -1,0 +1,263 @@
+{
+    "variables": [
+        {
+            "id": "substance",
+            "token": "substance",
+            "label": "Вид нефтепродукта",
+            "datatype": "string",
+            "default": "gasoline_auto",
+            "enum_id": "substance_petroleum_products",
+            "category": "selector"
+        },
+        {
+            "id": "climate_zone",
+            "token": "climate_zone",
+            "label": "Климатическая зона",
+            "datatype": "string",
+            "default": "middle",
+            "enum_id": "climate_zone",
+            "category": "selector",
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "tank_type",
+            "token": "tank_type",
+            "label": "Тип и размещение резервуара (АЗС)",
+            "datatype": "string",
+            "default": "underground",
+            "enum_id": "tank_type",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "PZV_receive",
+            "token": "PZV_receive",
+            "label": "Эффективность УЛФ (Слив в резервуар)",
+            "datatype": "numeric",
+            "latex": "P_{zv,recv}",
+            "default": 0,
+            "min": 0,
+            "max": 99,
+            "hint": "Укажите 0, если система отсутствует. Для современных систем обычно 90-95%.",
+            "notes": [
+                "Runtime-only efficiency factor for vapor-recovery correction in the receiving branch."
+            ],
+            "unit_id": "pct",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "V_sl",
+            "token": "V_sl",
+            "label": "Объем слитого нефтепродукта",
+            "datatype": "numeric",
+            "latex": "V_{sl}",
+            "min": 0,
+            "source_token_aliases": [
+                "V_sl"
+            ],
+            "unit_id": "m3",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "t_unload",
+            "token": "t_unload",
+            "label": "Время слива из автоцистерны",
+            "datatype": "numeric",
+            "latex": "t",
+            "min": 1,
+            "source_token_aliases": [
+                "t"
+            ],
+            "unit_id": "s",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "Qoz",
+            "token": "Qoz",
+            "label": "Сезонный объем нефтепродукта (осенне-зимний период)",
+            "datatype": "numeric",
+            "latex": "Q_{oz}",
+            "min": 0,
+            "source_token_aliases": [
+                "Q_oz"
+            ],
+            "notes": [
+                "Maps the source symbol Q_oz to the autumn-winter throughput."
+            ],
+            "unit_id": "m3_per_period",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "Qvl",
+            "token": "Qvl",
+            "label": "Сезонный объем нефтепродукта (весенне-летний период)",
+            "datatype": "numeric",
+            "latex": "Q_{vl}",
+            "min": 0,
+            "source_token_aliases": [
+                "Q_vl"
+            ],
+            "notes": [
+                "Maps the source symbol Q_vl to the spring-summer throughput."
+            ],
+            "unit_id": "m3_per_period",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "C_tank_max",
+            "token": "C_tank_max",
+            "label": "Концентрация паров при заполнении резервуара (макс)",
+            "datatype": "numeric",
+            "latex": "C_{p,max}",
+            "source_token_aliases": [
+                "C_p_max"
+            ],
+            "notes": [
+                "Maps the source symbol C_p_max to the lookup-backed tank-filling concentration."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "C_tank_oz",
+            "token": "C_tank_oz",
+            "label": "Концентрация паров при заполнении резервуара (ОЗ)",
+            "datatype": "numeric",
+            "latex": "C_{p,oz}",
+            "source_token_aliases": [
+                "C_p_oz"
+            ],
+            "notes": [
+                "Maps the source symbol C_p_oz to the lookup-backed autumn-winter tank-filling concentration."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "C_tank_vl",
+            "token": "C_tank_vl",
+            "label": "Концентрация паров при заполнении резервуара (ВЛ)",
+            "datatype": "numeric",
+            "latex": "C_{p,vl}",
+            "source_token_aliases": [
+                "C_p_vl"
+            ],
+            "notes": [
+                "Maps the source symbol C_p_vl to the lookup-backed spring-summer tank-filling concentration."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "J",
+            "token": "J",
+            "label": "Удельные выбросы при проливах",
+            "datatype": "numeric",
+            "latex": "J",
+            "source_token_aliases": [
+                "J"
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "G_zak",
+            "token": "G_zak",
+            "label": "Валовый выброс при закачке в резервуары",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_receive"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "G_pr_r",
+            "token": "G_pr_r",
+            "label": "Валовый выброс от проливов при сливе",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_receive"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_receive"
+            },
+            "unit_id": "g_per_s"
+        }
+    ]
+}

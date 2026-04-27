@@ -1,0 +1,56 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "6.5.1",
+            "formula_name_ru": "Формула 6.5.1 (валовый выброс)",
+            "lhs_symbol": "G",
+            "rhs_source": "8.76 * q_sr * F_area * 0.001",
+            "page": 29,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.5.2",
+            "formula_name_ru": "Формула 6.5.2 (максимальный выброс)",
+            "lhs_symbol": "M",
+            "rhs_source": "q_sr * F_area / 3600",
+            "page": 29,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "6.5",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "q_sr * F_area * z_coeff / 3600",
+            "formula_name": "Очистные сооружения (макс)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF Table 6.3 gives q_sr in g/(m2*h), so maximum emission divides by 3600; runtime applies z_coeff as the surface-cover correction."
+            ],
+            "source_equation_ids": [
+                "6.5.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.5",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "8.76 * q_sr * F_area * z_coeff * 0.001",
+            "formula_name": "Очистные сооружения (валовый)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.5.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "notes": [
+                "PDF formula 6.5.1 with runtime z_coeff surface-cover correction."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "questions": [
+        {
+            "variable_id": "equipType",
+            "help_text": "Для компрессоров в таблице 6.1 заданы значения только для легких фракций и газов.",
+            "required": true
+        },
+        {
+            "variable_id": "productBoilGroup",
+            "required": true
+        },
+        {
+            "variable_id": "equipCount",
+            "integer_only": true,
+            "required": true
+        },
+        {
+            "variable_id": "equipHours",
+            "required": true
+        },
+        {
+            "variable_id": "Q_spec",
+            "help_text": "Определяется автоматически по таблице 6.1 по типу оборудования и группе продукта.",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        }
+    ]
+}

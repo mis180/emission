@@ -1,14 +1,13 @@
-const CACHE_NAME = 'ecocalc-v1.0.1';
+const CACHE_NAME = 'ecocalc-v1.0.5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './style.css',
-  './workflow_ui.css',
+  './ui/workflow_ui.css',
   './app.js',
   './engine/project-store.js',
   './engine/wizard.js',
   './engine/evaluator.js',
-  './engine/lookup.js',
   './engine/graph-resolver.js',
   './engine/composition.js',
   './engine/reportGenerator.js',
@@ -21,8 +20,8 @@ const ASSETS_TO_CACHE = [
   './ui/validation-report-ui.js',
   './lib/math.min.js',
   './data/registry.json',
-  './pwa_icon_192.png',
-  './pwa_icon_512.png',
+  './static/img/pwa_icon_192.png',
+  './static/img/pwa_icon_512.png',
   './manifest.json'
 ];
 
@@ -71,7 +70,15 @@ self.addEventListener('fetch', event => {
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, clonedResponse));
           return response;
         })
-        .catch(() => caches.match(event.request))
+        .catch(async () => {
+          const cached = await caches.match(event.request);
+          if (cached) return cached;
+          
+          return new Response(JSON.stringify({ error: 'Offline', status: 503 }), {
+            status: 503,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        })
     );
     return;
   }
@@ -82,16 +89,17 @@ self.addEventListener('fetch', event => {
       const fetchPromise = fetch(event.request).then(networkResponse => {
         const responseToCache = networkResponse.clone();
         caches.open(CACHE_NAME).then(cache => {
-          // Do not cache opaque responses if you want to avoid cache pollution, but standard sw allows it.
-          // Only cache valid responses. For no-cors, status is 0. 
-          if (responseToCache.status === 200 || responseToCache.status === 0) {
+          if (networkResponse.status === 200 || networkResponse.status === 0) {
               cache.put(event.request, responseToCache);
           }
         });
         return networkResponse;
       }).catch(err => {
         console.error('[SW] Fetch failed:', event.request.url, err);
-        throw err;
+        return new Response('Network error. Resource not available offline.', {
+          status: 503,
+          headers: { 'Content-Type': 'text/plain' }
+        });
       });
       return cachedResponse || fetchPromise;
     })

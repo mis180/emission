@@ -1,0 +1,260 @@
+{
+    "variables": [
+        {
+            "id": "t_liq_max",
+            "token": "t_liq_max",
+            "label": "Максимальная температура жидкости, °С",
+            "datatype": "numeric",
+            "unit_id": "celsius",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "t_liq_min",
+            "token": "t_liq_min",
+            "label": "Минимальная температура жидкости, °С",
+            "datatype": "numeric",
+            "unit_id": "celsius",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "X_i",
+            "token": "X_i",
+            "label": "Массовая доля i-го растворенного газа",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "Kg_max",
+            "token": "Kg_max",
+            "label": "Коэффициент растворимости газа (макс)",
+            "latex": "Kg_max",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "substance_gas",
+            "token": "substance_gas",
+            "label": "Вид растворенного газа",
+            "datatype": "string",
+            "category": "selector",
+            "enum_id": "substance_gas",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "Kg_min",
+            "token": "Kg_min",
+            "label": "Коэффициент растворимости газа (мин)",
+            "latex": "Kg_min",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "Kp_avg",
+            "token": "Kp_avg",
+            "label": "Коэффициент конструкции (средний)",
+            "latex": "Kp_avg",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "Kp_max",
+            "token": "Kp_max",
+            "label": "Коэффициент конструкции (макс)",
+            "latex": "Kp_max",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            },
+            "unit_id": "g_per_s"
+        },
+        {
+            "id": "Vch_max",
+            "token": "Vch_max",
+            "label": "Максимальный часовой расход паровоздушной смеси, м3/ч",
+            "latex": "V_{частичн,макс}",
+            "datatype": "numeric",
+            "unit_id": "m3_per_h",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "t_oper_days",
+            "token": "t_oper_days",
+            "label": "Время эксплуатации основного оборудования, сут/год",
+            "latex": "t_{oper,days}",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "t_oper_hours",
+            "token": "t_oper_hours",
+            "label": "Время эксплуатации основного оборудования, ч/сут",
+            "latex": "t_{oper,hours}",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "productBoilGroup",
+            "token": "productBoilGroup",
+            "label": "Группа нефтепродукта по температуре кипения",
+            "datatype": "string",
+            "category": "selector",
+            "enum_id": "productBoilGroup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "ssv_type",
+            "token": "ssv_type",
+            "label": "Тип ССВ",
+            "latex": "ssv\\\\_type",
+            "datatype": "string",
+            "enum_id": "ssv_type",
+            "unit_id": "dimensionless",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "tank_construction",
+            "token": "tank_construction",
+            "label": "Конструкция резервуара",
+            "latex": "tank\\\\_construction",
+            "datatype": "string",
+            "enum_id": "tank_construction",
+            "unit_id": "dimensionless",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "tank_mode_recv",
+            "token": "tank_mode_recv",
+            "label": "Режим работы резервуара",
+            "latex": "tank\\\\_mode",
+            "datatype": "string",
+            "enum_id": "tank_mode",
+            "unit_id": "dimensionless",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "V_nom",
+            "token": "V_nom",
+            "label": "Номинальный объем резервуара, м³",
+            "datatype": "numeric",
+            "unit_id": "m3",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe"
+            }
+        },
+        {
+            "id": "kp_type_max",
+            "token": "kp_type_max",
+            "label": "Тип коэффициента Kp (макс)",
+            "datatype": "string",
+            "category": "constant",
+            "default": "max",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        },
+        {
+            "id": "kp_type_sr",
+            "token": "kp_type_sr",
+            "label": "Тип коэффициента Kp (средний)",
+            "datatype": "string",
+            "category": "constant",
+            "default": "sr",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.5"
+            }
+        }
+    ]
+}

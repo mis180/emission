@@ -1,0 +1,29 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "4.1.13",
+            "formula_name_ru": "Formula 4.1.13",
+            "lhs_symbol": "n",
+            "rhs_source": "B / (rho_liq * Vp * Np)",
+            "page": 16,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "4.1.13",
+            "equation_order": 1,
+            "lhs_token": "n_turnover_calc",
+            "rhs": "B_turnover / (rho_turnover * V_tank_turnover * NP_turnover)",
+            "latex": "n = B / (rho * V_p * N_p)",
+            "formula_name": "Annual tank turnover helper",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.1.13"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false
+        }
+    ]
+}

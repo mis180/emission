@@ -1,0 +1,39 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "4_2_oil_gasoline_r38",
+    "formula_code":  "4.2",
+    "cases":  [
+                  {
+                      "case_id":  "4_2_oil_gasoline_r38_lookup_01",
+                      "title":  "4.2 lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "m_vapor",
+                      "table_id":  "Table_App_5",
+                      "output_key":  "m",
+                      "resolution":  "interpolate",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Appendix 5",
+                                       "page":  null,
+                                       "image_ref":  "assets/tables/Table_App_5.png"
+                                   },
+                      "selectors":  {
+                                        "product_type":  "light"
+                                    },
+                      "expected":  {
+                                       "value":  60.0,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "g_per_mol"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    },
+                      "axis_input":  30
+                  }
+              ]
+}

@@ -1,0 +1,27 @@
+{
+    "formula_code": "4.3",
+    "variables": [
+        "substance_pure",
+        "Pt_max",
+        "Pt_min",
+        "m_pure",
+        "Kp_max",
+        "Kp_avg",
+        "Kv",
+        "Kob",
+        "Vch_max",
+        "B_year",
+        "rho_liq",
+        "t_liq_max",
+        "t_liq_min",
+        "productBoilGroup",
+        "tank_construction",
+        "tank_mode_recv",
+        "ssv_type",
+        "n_turnover",
+        "V_nom",
+        "M",
+        "G"
+    ],
+    "label": "Формула 4.3 - Индивидуальные вещества"
+}

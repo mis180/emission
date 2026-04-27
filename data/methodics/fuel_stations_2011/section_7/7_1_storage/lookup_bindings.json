@@ -1,0 +1,29 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "Knp",
+            "table_id": "Table_12",
+            "output_key": "Knp",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Knp"
+        },
+        {
+            "target_variable": "GXP",
+            "table_id": "Table_Appendix_13",
+            "output_key": "GXP",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type_storage",
+                "tank_volume_cat": "tank_volume_cat"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Appendix_13 -> GXP"
+        }
+    ]
+}

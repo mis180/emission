@@ -1,0 +1,16 @@
+{
+  "unresolved_variables": [],
+  "unresolved_lookups": [],
+  "wrong_variable_roles": [],
+  "symbol_drift_mapped": false,
+  "missing_tests": false,
+  "method_status": "verified",
+  "verification_status": "pass",
+  "pdf_semantic_status": "pass_for_beta_scope",
+  "visibility_status": "beta_limited",
+  "case_counts": {
+    "golden_cases": 1,
+    "equation_cases": 1,
+    "lookup_cases": 1
+  }
+}

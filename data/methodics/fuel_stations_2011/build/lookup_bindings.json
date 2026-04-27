@@ -1,0 +1,349 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "m_vapor",
+            "table_id": "Table_App_5",
+            "output_key": "m",
+            "selectors": {
+                "product_type": "productBoilGroup"
+            },
+            "axis_input": "t_nk",
+            "trace_label": "Table_App_5 -> m"
+        },
+        {
+            "target_variable": "Kt_max",
+            "table_id": "Table_App_7",
+            "output_key": "kt",
+            "selectors": {
+                "product_group": "productBoilGroup"
+            },
+            "axis_input": "t_liq_max",
+            "trace_label": "Table_App_7 -> kt"
+        },
+        {
+            "target_variable": "Kt_min",
+            "table_id": "Table_App_7",
+            "output_key": "kt",
+            "selectors": {
+                "product_group": "productBoilGroup"
+            },
+            "axis_input": "t_liq_min",
+            "trace_label": "Table_App_7 -> kt"
+        },
+        {
+            "target_variable": "Kp_max",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_max"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Kp_avg",
+            "table_id": "Table_App_8",
+            "output_key": "kp",
+            "selectors": {
+                "product_group": "productBoilGroup",
+                "tank_construction": "tank_construction",
+                "tank_mode": "tank_mode_recv",
+                "ssv_type": "ssv_type",
+                "kp_type": "kp_type_sr"
+            },
+            "axis_input": "V_nom",
+            "trace_label": "Table_App_8 -> kp"
+        },
+        {
+            "target_variable": "Kv",
+            "table_id": "Table_App_9",
+            "output_key": "kv",
+            "selectors": {},
+            "axis_input": "P38_src",
+            "trace_label": "Table_App_9 -> kv"
+        },
+        {
+            "target_variable": "Kob",
+            "table_id": "Table_App_10",
+            "output_key": "kob",
+            "selectors": {},
+            "axis_input": "n_turnover",
+            "trace_label": "Table_App_10 -> kob"
+        },
+        {
+            "target_variable": "Pt_max",
+            "table_id": "Table_App_16",
+            "output_key": "pa",
+            "selectors": {
+                "substance": "substance_pure"
+            },
+            "axis_input": "t_liq_max",
+            "trace_label": "Table_App_16 -> pa"
+        },
+        {
+            "target_variable": "Pt_min",
+            "table_id": "Table_App_16",
+            "output_key": "pa",
+            "selectors": {
+                "substance": "substance_pure"
+            },
+            "axis_input": "t_liq_min",
+            "trace_label": "Table_App_16 -> pa"
+        },
+        {
+            "target_variable": "Kg_max",
+            "table_id": "Table_App_4",
+            "output_key": "kg",
+            "selectors": {
+                "substance": "substance_gas"
+            },
+            "axis_input": "t_liq_max",
+            "trace_label": "Table_App_4 -> kg"
+        },
+        {
+            "target_variable": "Kg_min",
+            "table_id": "Table_App_4",
+            "output_key": "kg",
+            "selectors": {
+                "substance": "substance_gas"
+            },
+            "axis_input": "t_liq_min",
+            "trace_label": "Table_App_4 -> kg"
+        },
+        {
+            "target_variable": "Knp",
+            "table_id": "Table_12",
+            "output_key": "Knp",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Knp"
+        },
+        {
+            "target_variable": "C1",
+            "table_id": "Table_12",
+            "output_key": "C1",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> C1"
+        },
+        {
+            "target_variable": "Uoz",
+            "table_id": "Table_12",
+            "output_key": "Uoz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Uoz"
+        },
+        {
+            "target_variable": "Uvl",
+            "table_id": "Table_12",
+            "output_key": "Uvl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Uvl"
+        },
+        {
+            "target_variable": "Ghr",
+            "table_id": "Table_Appendix_13",
+            "output_key": "GXP",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type_storage",
+                "tank_volume_cat": "V_nom"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Appendix_13 -> GXP"
+        },
+        {
+            "target_variable": "Q_spec",
+            "table_id": "Table_6_1",
+            "output_key": "Q_spec",
+            "selectors": {
+                "equipment": "equipType",
+                "product_group": "productBoilGroup"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_1 -> Q_spec"
+        },
+        {
+            "target_variable": "seal_g_leak",
+            "table_id": "Table_6_2",
+            "output_key": "seal_g_leak",
+            "selectors": {
+                "equipment_type": "seal_equipment_type",
+                "stream_type": "seal_stream_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_2 -> seal_g_leak"
+        },
+        {
+            "target_variable": "seal_x_fail",
+            "table_id": "Table_6_2",
+            "output_key": "seal_x_fail",
+            "selectors": {
+                "equipment_type": "seal_equipment_type",
+                "stream_type": "seal_stream_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_2 -> seal_x_fail"
+        },
+        {
+            "target_variable": "q_sr",
+            "table_id": "Table_6_3",
+            "output_key": "q_sr",
+            "selectors": {
+                "vessel_type": "vessel_type_unorg"
+            },
+            "axis_input": "temp_avg_unorg",
+            "trace_label": "Table_6_3 -> q_sr"
+        },
+        {
+            "target_variable": "z_coeff",
+            "table_id": "Table_6_4",
+            "output_key": "z_coeff",
+            "selectors": {},
+            "axis_input": "covering_degree",
+            "trace_label": "Table_6_4 -> z_coeff"
+        },
+        {
+            "target_variable": "n_surface_norm",
+            "table_id": "Table_6_5",
+            "output_key": "n_surface_norm",
+            "selectors": {
+                "season": "season_mazut"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_5 -> n_surface_norm"
+        },
+        {
+            "target_variable": "n1_norm",
+            "table_id": "Table_6_5",
+            "output_key": "n1_norm",
+            "selectors": {
+                "season": "season_mazut"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_5 -> n1_norm"
+        },
+        {
+            "target_variable": "n2_norm",
+            "table_id": "Table_6_5",
+            "output_key": "n2_norm",
+            "selectors": {
+                "season": "season_mazut"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_5 -> n2_norm"
+        },
+        {
+            "target_variable": "C_tank_max",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_max",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_max"
+        },
+        {
+            "target_variable": "C_tank_oz",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_oz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_oz"
+        },
+        {
+            "target_variable": "C_tank_vl",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_vl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_vl"
+        },
+        {
+            "target_variable": "C_ba_max",
+            "table_id": "Table_12",
+            "output_key": "C1",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> C1"
+        },
+        {
+            "target_variable": "C_ba_oz",
+            "table_id": "Table_15_vehicle",
+            "output_key": "C_ba_oz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_vehicle -> C_ba_oz"
+        },
+        {
+            "target_variable": "C_ba_vl",
+            "table_id": "Table_15_vehicle",
+            "output_key": "C_ba_vl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_vehicle -> C_ba_vl"
+        },
+        {
+            "target_variable": "J",
+            "table_id": "Table_Spill_J",
+            "output_key": "J",
+            "selectors": {
+                "substance": "substance"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Spill_J -> J"
+        },
+        {
+            "target_variable": "GXP",
+            "table_id": "Table_Appendix_13",
+            "output_key": "GXP",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type_storage",
+                "tank_volume_cat": "tank_volume_cat"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Appendix_13 -> GXP"
+        }
+    ]
+}

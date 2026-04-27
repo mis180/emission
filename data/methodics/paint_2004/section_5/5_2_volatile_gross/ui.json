@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "variable_id": "material_key",
+      "required": true
+    },
+    {
+      "variable_id": "paint_method",
+      "required": true
+    },
+    {
+      "variable_id": "pollutant_key",
+      "required": true
+    },
+    {
+      "variable_id": "m_f_tpy",
+      "required": true
+    },
+    {
+      "variable_id": "eta_cleaning",
+      "required": true
+    },
+    {
+      "variable_id": "fr_pct",
+      "hidden": true
+    },
+    {
+      "variable_id": "delta_r_paint_pct",
+      "hidden": true
+    },
+    {
+      "variable_id": "delta_r_dry_pct",
+      "hidden": true
+    },
+    {
+      "variable_id": "delta_x_pct",
+      "hidden": true
+    }
+  ]
+}

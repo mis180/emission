@@ -1,0 +1,552 @@
+{
+    "variables": [
+        {
+            "id": "substance",
+            "token": "substance",
+            "label": "Вид нефтепродукта",
+            "datatype": "string",
+            "default": "gasoline_auto",
+            "enum_id": "substance_petroleum_products",
+            "category": "selector"
+        },
+        {
+            "id": "climate_zone",
+            "token": "climate_zone",
+            "label": "Климатическая зона",
+            "datatype": "string",
+            "default": "middle",
+            "enum_id": "climate_zone",
+            "category": "selector",
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "tank_type",
+            "token": "tank_type",
+            "label": "Тип и размещение резервуара (АЗС)",
+            "datatype": "string",
+            "default": "underground",
+            "enum_id": "tank_type",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "tank_type_storage",
+            "token": "tank_type_storage",
+            "label": "Конструкция резервуара (хранение)",
+            "datatype": "string",
+            "default": "underground",
+            "enum_id": "tank_type_storage",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "PZV_receive",
+            "token": "PZV_receive",
+            "label": "Эффективность УЛФ (Слив в резервуар)",
+            "datatype": "numeric",
+            "latex": "P_{zv,recv}",
+            "default": 0,
+            "min": 0,
+            "max": 99,
+            "hint": "Укажите 0, если система отсутствует. Для современных систем обычно 90-95%.",
+            "notes": [
+                "Runtime-only efficiency factor for vapor-recovery correction in the receiving branch."
+            ],
+            "unit_id": "pct",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "PZV_refuel",
+            "token": "PZV_refuel",
+            "label": "Эффективность УЛФ (Заправка из ТРК)",
+            "datatype": "numeric",
+            "latex": "P_{zv,trk}",
+            "default": 0,
+            "min": 0,
+            "max": 99,
+            "hint": "Укажите 0, если система отсутствует. Для современных систем обычно 90-95%.",
+            "notes": [
+                "Runtime-only efficiency factor for vapor-recovery correction in the refueling branch."
+            ],
+            "unit_id": "pct",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "NP",
+            "token": "NP",
+            "label": "Количество резервуаров данного типа",
+            "datatype": "numeric",
+            "default": 1,
+            "min": 1,
+            "latex": "N_p",
+            "source_token_aliases": [
+                "N_p"
+            ],
+            "notes": [
+                "Maps the source symbol N_p to the number of tanks in the storage-loss branch."
+            ],
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            },
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "tank_volume_cat",
+            "token": "tank_volume_cat",
+            "label": "Категория объема резервуара",
+            "datatype": "string",
+            "default": "100",
+            "enum_id": "tank_volume_cat",
+            "category": "selector",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "V_sl",
+            "token": "V_sl",
+            "label": "Объем слитого нефтепродукта",
+            "datatype": "numeric",
+            "latex": "V_{sl}",
+            "min": 0,
+            "source_token_aliases": [
+                "V_sl"
+            ],
+            "unit_id": "m3",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "t_unload",
+            "token": "t_unload",
+            "label": "Время слива из автоцистерны",
+            "datatype": "numeric",
+            "latex": "t",
+            "min": 1,
+            "source_token_aliases": [
+                "t"
+            ],
+            "unit_id": "s",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "VTRK",
+            "token": "VTRK",
+            "label": "Производительность одного рукава ТРК",
+            "datatype": "numeric",
+            "latex": "V_{trk}",
+            "min": 0,
+            "source_token_aliases": [
+                "V_trk"
+            ],
+            "notes": [
+                "Maps the source symbol V_trk to the flow of one hose.",
+                "The runtime refueling branch multiplies VTRK by NN to derive total simultaneous TRK flow."
+            ],
+            "unit_id": "m3_per_h",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "NN",
+            "token": "NN",
+            "label": "Количество одновременно работающих рукавов ТРК",
+            "datatype": "numeric",
+            "default": 1,
+            "min": 1,
+            "latex": "N_n",
+            "notes": [
+                "Runtime-only helper for simultaneous hoses.",
+                "The source formula 7.1.2 uses total TRK flow directly; NN is the package adaptation that scales one-hose flow to that total."
+            ],
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            },
+            "unit_id": "dimensionless"
+        },
+        {
+            "id": "Qoz",
+            "token": "Qoz",
+            "label": "Сезонный объем нефтепродукта (осенне-зимний период)",
+            "datatype": "numeric",
+            "latex": "Q_{oz}",
+            "min": 0,
+            "source_token_aliases": [
+                "Q_oz"
+            ],
+            "notes": [
+                "Maps the source symbol Q_oz to the autumn-winter throughput."
+            ],
+            "unit_id": "m3_per_period",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "Qvl",
+            "token": "Qvl",
+            "label": "Сезонный объем нефтепродукта (весенне-летний период)",
+            "datatype": "numeric",
+            "latex": "Q_{vl}",
+            "min": 0,
+            "source_token_aliases": [
+                "Q_vl"
+            ],
+            "notes": [
+                "Maps the source symbol Q_vl to the spring-summer throughput."
+            ],
+            "unit_id": "m3_per_period",
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "C_tank_max",
+            "token": "C_tank_max",
+            "label": "Концентрация паров при заполнении резервуара (макс)",
+            "datatype": "numeric",
+            "latex": "C_{p,max}",
+            "source_token_aliases": [
+                "C_p_max"
+            ],
+            "notes": [
+                "Maps the source symbol C_p_max to the lookup-backed tank-filling concentration."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "C_tank_oz",
+            "token": "C_tank_oz",
+            "label": "Концентрация паров при заполнении резервуара (ОЗ)",
+            "datatype": "numeric",
+            "latex": "C_{p,oz}",
+            "source_token_aliases": [
+                "C_p_oz"
+            ],
+            "notes": [
+                "Maps the source symbol C_p_oz to the lookup-backed autumn-winter tank-filling concentration."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "C_tank_vl",
+            "token": "C_tank_vl",
+            "label": "Концентрация паров при заполнении резервуара (ВЛ)",
+            "datatype": "numeric",
+            "latex": "C_{p,vl}",
+            "source_token_aliases": [
+                "C_p_vl"
+            ],
+            "notes": [
+                "Maps the source symbol C_p_vl to the lookup-backed spring-summer tank-filling concentration."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "C_ba_max",
+            "token": "C_ba_max",
+            "label": "Концентрация паров при заполнении бака автомобиля (макс)",
+            "datatype": "numeric",
+            "latex": "C_{ba,max}",
+            "source_token_aliases": [
+                "C_ba_am_max"
+            ],
+            "notes": [
+                "Maps the source symbol C_ba_am_max to the lookup-backed maximum concentration during vehicle refueling."
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "C_ba_oz",
+            "token": "C_ba_oz",
+            "label": "Концентрация паров при заполнении бака автомобиля (ОЗ)",
+            "datatype": "numeric",
+            "latex": "C_{ba,oz}",
+            "source_token_aliases": [
+                "C_ba_oz"
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "C_ba_vl",
+            "token": "C_ba_vl",
+            "label": "Концентрация паров при заполнении бака автомобиля (ВЛ)",
+            "datatype": "numeric",
+            "latex": "C_{ba,vl}",
+            "source_token_aliases": [
+                "C_ba_vl"
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "J",
+            "token": "J",
+            "label": "Удельные выбросы при проливах",
+            "datatype": "numeric",
+            "latex": "J",
+            "source_token_aliases": [
+                "J"
+            ],
+            "unit_id": "g_per_m3",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "Knp",
+            "token": "Knp",
+            "label": "Поправочный коэфф. нефтепродукта",
+            "datatype": "numeric",
+            "latex": "K_{np}",
+            "source_token_aliases": [
+                "K_np"
+            ],
+            "notes": [
+                "Maps the source symbol K_np to the product correction factor used in the storage-loss branch."
+            ],
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "GXP",
+            "token": "GXP",
+            "label": "Удельные потери при хранении",
+            "datatype": "numeric",
+            "latex": "G_{xp}",
+            "hint": "ВНИМАНИЕ: Приложение 13 регламентирует потери только для бензина. Для дизельного топлива и масел lookup вернет 0.",
+            "unit_id": "t_per_yr",
+            "category": "lookup",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "G_zak",
+            "token": "G_zak",
+            "label": "Валовый выброс при закачке в резервуары",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_receive"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "G_pr_r",
+            "token": "G_pr_r",
+            "label": "Валовый выброс от проливов при сливе",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_receive"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "G_ba",
+            "token": "G_ba",
+            "label": "Валовый выброс при заправке баков",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_refuel"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "G_pr_a",
+            "token": "G_pr_a",
+            "label": "Валовый выброс от проливов при заправке",
+            "datatype": "numeric",
+            "is_calc": true,
+            "produced_by_formula_codes": [
+                "7.1_combined",
+                "7.1_refuel"
+            ],
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "годовые выбросы загрязняющих веществ в атмосферу, т/год;",
+            "latex": "G",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            },
+            "unit_id": "t_per_yr"
+        },
+        {
+            "id": "G_recv",
+            "token": "G_recv",
+            "label": "Годовой выброс при приеме (АЗС), т/год",
+            "latex": "G_{прием}",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "G_refuel",
+            "token": "G_refuel",
+            "label": "Годовой выброс при заправке (АЗС), т/год",
+            "latex": "G_{запр}",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "G_storage",
+            "token": "G_storage",
+            "label": "Годовой выброс при хранении (АЗС), т/год",
+            "latex": "G_{хран}",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "максимальные выбросы загрязняющих веществ в атмосферу, г/с;",
+            "latex": "M",
+            "datatype": "numeric",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            },
+            "unit_id": "g_per_s"
+        },
+        {
+            "id": "M_recv",
+            "token": "M_recv",
+            "label": "Макс. выброс при приеме (АЗС), г/с",
+            "latex": "M_{прием}",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        },
+        {
+            "id": "M_refuel",
+            "token": "M_refuel",
+            "label": "Макс. выброс при заправке (АЗС), г/с",
+            "latex": "M_{запр}",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "7.1_combined"
+            }
+        }
+    ]
+}

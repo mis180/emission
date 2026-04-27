@@ -1,0 +1,17 @@
+{
+    "formula_code": "7.1_receive",
+    "variables": [
+        "climate_zone",
+        "substance",
+        "tank_type",
+        "PZV_receive",
+        "V_sl",
+        "t_unload",
+        "Qoz",
+        "Qvl",
+        "C_tank_max",
+        "C_tank_oz",
+        "C_tank_vl",
+        "J"
+    ]
+}

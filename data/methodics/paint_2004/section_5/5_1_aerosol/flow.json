@@ -1,0 +1,14 @@
+{
+  "formula_code": "5.1",
+  "label": "Аэрозоль краски",
+  "variables": [
+    "material_key",
+    "paint_method",
+    "m_f_tpy",
+    "m_m_kgph",
+    "K_os",
+    "eta_cleaning",
+    "fr_pct",
+    "delta_a_pct"
+  ]
+}

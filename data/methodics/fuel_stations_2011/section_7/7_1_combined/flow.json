@@ -1,0 +1,28 @@
+{
+    "formula_code": "7.1_combined",
+    "variables": [
+        "climate_zone",
+        "substance",
+        "tank_type",
+        "tank_type_storage",
+        "tank_volume_cat",
+        "NP",
+        "V_sl",
+        "t_unload",
+        "VTRK",
+        "NN",
+        "PZV_receive",
+        "PZV_refuel",
+        "Qoz",
+        "Qvl",
+        "C_tank_max",
+        "C_tank_oz",
+        "C_tank_vl",
+        "C_ba_max",
+        "C_ba_oz",
+        "C_ba_vl",
+        "J",
+        "GXP",
+        "Knp"
+    ]
+}

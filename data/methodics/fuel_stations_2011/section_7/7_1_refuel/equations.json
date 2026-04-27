@@ -1,0 +1,118 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "7.1.2",
+            "formula_name_ru": "Формула 7.1.2",
+            "lhs_symbol": "M",
+            "rhs_source": "((NN * VTRK * C_ba_max) / 3600) * (1 - PZV_refuel/100)",
+            "page": 32,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.7",
+            "formula_name_ru": "Формула 7.1.7",
+            "lhs_symbol": "G_ba",
+            "rhs_source": "(C_ba_oz * Qoz + C_ba_vl * Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.8",
+            "formula_name_ru": "Формула 7.1.8",
+            "lhs_symbol": "G_pr_a",
+            "rhs_source": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "7.1.6",
+            "formula_name_ru": "Формула 7.1.6",
+            "lhs_symbol": "G",
+            "rhs_source": "G_ba * (1 - PZV_refuel/100) + G_pr_a",
+            "page": 33,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "((NN * VTRK * C_ba_max) / 3600) * (1 - PZV_refuel/100)",
+            "latex": "M = \\frac{N_n \\cdot V_{trk} \\cdot C_{ba,max}}{3600} \\cdot (1 - \\frac{P_{zv}}{100})",
+            "formula_name": "АЗС: заправка автомобилей через ТРК",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.2 (multiplied by (1 - PZV/100) if GRS active)",
+                "Runtime adaptation: replaces the source total TRK flow with NN * VTRK and applies the PZV_refuel vapor-recovery efficiency factor."
+            ],
+            "source_equation_ids": [
+                "7.1.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 2,
+            "lhs_token": "G_ba",
+            "rhs": "(C_ba_oz * Qoz + C_ba_vl * Qvl) * 0.000001",
+            "latex": "G_{ba} = (C_{ba,oz} \\cdot Q_{oz} + C_{ba,vl} \\cdot Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс при заправке автомобилей",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.7"
+            ],
+            "source_equation_ids": [
+                "7.1.7"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 3,
+            "lhs_token": "G_pr_a",
+            "rhs": "0.5 * J * (Qoz + Qvl) * 0.000001",
+            "latex": "G_{pr,a} = 0.5 \\cdot J \\cdot (Q_{oz} + Q_{vl}) \\cdot 10^{-6}",
+            "formula_name": "АЗС: годовой выброс от проливов при заправке автомобилей",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.8"
+            ],
+            "source_equation_ids": [
+                "7.1.8"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "7.1_refuel",
+            "equation_order": 4,
+            "lhs_token": "G",
+            "rhs": "G_ba * (1 - PZV_refuel/100) + G_pr_a",
+            "latex": "G = G_{ba} \\cdot (1 - \\frac{P_{zv}}{100}) + G_{pr,a}",
+            "formula_name": "АЗС: суммарный годовой выброс от ТРК",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "notes": [
+                "PDF 7.1.6 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term before adding spill losses."
+            ],
+            "source_equation_ids": [
+                "7.1.6",
+                "7.1.7",
+                "7.1.8"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true,
+            "adaptation_notes": [
+                "PDF 7.1.6 (with GRS correction)",
+                "Runtime adaptation: applies the PZV_refuel vapor-recovery efficiency factor to the annual vehicle-refueling term before adding spill losses."
+            ]
+        }
+    ]
+}

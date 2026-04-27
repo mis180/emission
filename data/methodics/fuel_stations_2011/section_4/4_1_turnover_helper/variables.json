@@ -1,0 +1,77 @@
+{
+    "variables": [
+        {
+            "id": "B_turnover",
+            "token": "B_turnover",
+            "label": "Annual liquid throughput B, t/yr",
+            "latex": "B",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.1.13"
+            }
+        },
+        {
+            "id": "rho_turnover",
+            "token": "rho_turnover",
+            "label": "Liquid density rho, t/m3",
+            "latex": "\\rho",
+            "datatype": "numeric",
+            "unit_id": "t_per_m3",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.1.13"
+            }
+        },
+        {
+            "id": "V_tank_turnover",
+            "token": "V_tank_turnover",
+            "label": "Volume of one tank Vp, m3",
+            "latex": "V_p",
+            "datatype": "numeric",
+            "unit_id": "m3",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.1.13"
+            }
+        },
+        {
+            "id": "NP_turnover",
+            "token": "NP_turnover",
+            "label": "Number of same-purpose tanks Np",
+            "latex": "N_p",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 1,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.1.13"
+            }
+        },
+        {
+            "id": "n_turnover_calc",
+            "token": "n_turnover_calc",
+            "label": "Calculated annual tank turnover n",
+            "latex": "n",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "category": "calculated",
+            "source_token_aliases": [
+                "n",
+                "n_turnover"
+            ],
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "4.1.13"
+            }
+        }
+    ]
+}

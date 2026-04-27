@@ -1,0 +1,62 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "6.4.3",
+            "formula_name_ru": "Формула 6.4.3",
+            "lhs_symbol": "G_i",
+            "rhs_source": "0.061 * f_i_valve * P_i_valve * phi_i_valve * pow(M_i_mol / T_i_valve, 0.5)",
+            "page": 28,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "6.4.2",
+            "formula_name_ru": "Формула 6.4.2",
+            "lhs_symbol": "M",
+            "rhs_source": "0.2778 * G_i * n_i_valve * c_ij_mass / 100",
+            "page": 28,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "6.4",
+            "equation_order": 1,
+            "lhs_token": "G_i",
+            "rhs": "0.061 * f_i_valve * P_i_valve * phi_i_valve * pow(M_i_mol / T_i_valve, 0.5)",
+            "formula_name": "Предохранительные клапана: выброс при срабатывании",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.3"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.4",
+            "equation_order": 2,
+            "lhs_token": "M",
+            "rhs": "0.2778 * G_i * n_i_valve * c_ij_mass / 100",
+            "formula_name": "Предохранительные клапана: максимальный выброс",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "6.4.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "6.4",
+            "equation_order": 3,
+            "lhs_token": "G",
+            "rhs": "0",
+            "formula_name": "Предохранительные клапана: годовой выброс (не нормируется)",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

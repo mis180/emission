@@ -1,8 +1,0 @@
-{
-  "name": "ecocalc",
-  "version": "1.0.0",
-  "description": "EcoCalc Emission Platform",
-  "dependencies": {
-    "mathjs": "^12.4.0"
-  }
-}

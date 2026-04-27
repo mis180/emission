@@ -1,0 +1,106 @@
+{
+    "_seed_version":  1,
+    "_seed_description":  "АЗС-АГЗС комбинированная — шаблон на основе примера расчёта",
+    "facility":  {
+                     "name":  "АЗС (Комбинированная) — замените данные",
+                     "type":  "fuel_station",
+                     "subtype":  "combined",
+                     "phase":  "operation",
+                     "workflowVersion":  "template"
+                 },
+    "equipmentProfile":  {
+                             "has_ai92":  true,
+                             "has_ai95":  true,
+                             "has_diesel":  true,
+                             "has_lpg":  true,
+                             "has_vapor_return":  true,
+                             "has_oil_trap":  true,
+                             "has_dgu":  true,
+                             "tank_type":  "underground",
+                             "tank_volume_ai92_m3":  25,
+                             "tank_volume_ai95_m3":  25,
+                             "tank_volume_diesel_m3":  50,
+                             "tank_volume_lpg_m3":  20,
+                             "dispenser_count":  4,
+                             "lpg_filling_points":  2,
+                             "operating_hours":  "24/7",
+                             "dgu_hours_year":  100
+                         },
+    "sources_template":  [
+                             {
+                                 "source_number":  "6001",
+                                 "name":  "ТРК + Резервуар АИ-92",
+                                 "_is_template":  true,
+                                 "methodic_id":  "fuel_stations_2011",
+                                 "source_type":  "azs_combined",
+                                 "calc_method":  "7.1_combined",
+                                 "formula_code":  "7.1_combined"
+                             },
+                             {
+                                 "source_number":  "6002",
+                                 "name":  "ТРК + Резервуар АИ-95",
+                                 "_is_template":  true,
+                                 "methodic_id":  "fuel_stations_2011",
+                                 "source_type":  "azs_combined",
+                                 "calc_method":  "7.1_combined",
+                                 "formula_code":  "7.1_combined"
+                             },
+                             {
+                                 "source_number":  "6003",
+                                 "name":  "ТРК + Резервуар Дизель",
+                                 "_is_template":  true,
+                                 "methodic_id":  "fuel_stations_2011",
+                                 "source_type":  "azs_combined",
+                                 "calc_method":  "7.1_combined",
+                                 "formula_code":  "7.1_combined"
+                             },
+                             {
+                                 "source_number":  "6004",
+                                 "name":  "Нефтеловушка",
+                                 "_is_template":  true,
+                                 "methodic_id":  "fuel_stations_2011",
+                                 "source_type":  "azs_combined",
+                                 "calc_method":  "7.1_combined",
+                                 "formula_code":  "7.1_combined"
+                             },
+                             {
+                                 "source_number":  "6005",
+                                 "name":  "Заправка СУГ",
+                                 "_is_template":  true,
+                                 "methodic_id":  "fuel_stations_2011",
+                                 "source_type":  null,
+                                 "calc_method":  null,
+                                 "_is_not_implemented":  true,
+                                 "formula_code":  null
+                             },
+                             {
+                                 "source_number":  "6006",
+                                 "name":  "Насосный блок СУГ",
+                                 "_is_template":  true,
+                                 "methodic_id":  "fuel_stations_2011",
+                                 "source_type":  null,
+                                 "calc_method":  null,
+                                 "_is_not_implemented":  true,
+                                 "formula_code":  null
+                             },
+                             {
+                                 "source_number":  "6007",
+                                 "name":  "Слив СУГ (танкер)",
+                                 "_is_template":  true,
+                                 "methodic_id":  "fuel_stations_2011",
+                                 "source_type":  null,
+                                 "calc_method":  null,
+                                 "_is_not_implemented":  true,
+                                 "formula_code":  null
+                             },
+                             {
+                                 "source_number":  "0001",
+                                 "name":  "ДГУ",
+                                 "_is_template":  true,
+                                 "methodic_id":  "M_diesel",
+                                 "source_type":  "diesel_generator",
+                                 "calc_method":  "_default",
+                                 "_is_not_implemented":  true
+                             }
+                         ]
+}

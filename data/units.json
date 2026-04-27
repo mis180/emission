@@ -1,0 +1,31 @@
+{
+  "units": [
+    { "id": "kg_m3", "label": "кг/м³", "aliases": ["кг/м3", "kg/m3"] },
+    { "id": "m2", "label": "м²", "aliases": ["м2", "m2"] },
+    { "id": "s", "label": "с", "aliases": ["sec", "second", "seconds"] },
+    { "id": "pa", "label": "Па", "aliases": ["Pa", "pascal"] },
+    { "id": "kpa", "label": "кПа", "to_base": 1000, "base_unit": "pa" },
+    { "id": "mm_hg", "label": "мм рт.ст.", "to_base": 133.322, "base_unit": "pa" },
+    { "id": "k", "label": "К", "aliases": ["K", "kelvin"] },
+    { "id": "c", "label": "°C", "offset_from_base": 273.15, "base_unit": "k" },
+    { "id": "g_mol", "label": "г/моль", "aliases": ["g/mol"] },
+    { "id": "pct", "label": "%", "aliases": ["percent"] },
+    { "id": "dim", "label": "безразм.", "aliases": ["dimensionless", "frac"] },
+    { "id": "t_year", "label": "т/год", "aliases": ["t/y", "t_per_yr"] },
+    { "id": "g_s", "label": "г/с", "aliases": ["g/sec", "g_per_s"] },
+    { "id": "g_per_kg", "label": "г/кг" },
+    { "id": "g_per_s_per_kw", "label": "г/(с·кВт)" },
+    { "id": "g_per_cm2", "label": "г/см²" },
+    { "id": "g_per_h", "label": "г/ч" },
+    { "id": "g_per_m", "label": "г/м" },
+    { "id": "kg_per_yr", "label": "кг/год" },
+    { "id": "kg_per_h", "label": "кг/ч" },
+    { "id": "kw", "label": "кВт" },
+    { "id": "h_per_yr", "label": "ч/год" },
+    { "id": "cm2_per_yr", "label": "см²/год" },
+    { "id": "cm2_per_h", "label": "см²/ч" },
+    { "id": "m_per_yr", "label": "м/год" },
+    { "id": "m_per_h", "label": "м/ч" },
+    { "id": "mm", "label": "мм" }
+  ]
+}

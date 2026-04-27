@@ -1,0 +1,16 @@
+{
+    "formula_code": "7.1_refuel",
+    "variables": [
+        "climate_zone",
+        "substance",
+        "PZV_refuel",
+        "NN",
+        "VTRK",
+        "Qoz",
+        "Qvl",
+        "C_ba_max",
+        "C_ba_oz",
+        "C_ba_vl",
+        "J"
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "formula_code": "4.4",
+    "variables": [
+        "Pt_i_max",
+        "Pt_i_min",
+        "X_i",
+        "sum_Xi_mi",
+        "sum_Xi_rhoi",
+        "tank_construction",
+        "ssv_type",
+        "tank_mode_recv",
+        "productBoilGroup",
+        "Kp_max",
+        "Kp_avg",
+        "Vch_max",
+        "pt_38_mmhg",
+        "Kv",
+        "n_turnover",
+        "NP",
+        "Kob",
+        "B_year",
+        "t_liq_max",
+        "t_liq_min",
+        "M",
+        "G",
+        "V_nom"
+    ],
+    "label": "Формула 4.4 - Многокомпонентные смеси"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "package_id": "paint_2004",
+  "method_id": "5_3_volatile_max",
+  "formula_code": "5.3",
+  "cases": [
+    {
+      "case_id": "paint_5_3_delta_x_lookup_01",
+      "title": "Table 2 PF-115 xylol component share",
+      "status": "active",
+      "binding_target": "delta_x_pct",
+      "table_id": "table_2b_lkm_component_fraction",
+      "selectors": {
+        "material_key": "эмали_пф_115",
+        "pollutant_key": "0616"
+      },
+      "output_key": "delta_x_pct",
+      "expected": {
+        "value": 50.0,
+        "unit_id": "pct"
+      }
+    }
+  ]
+}

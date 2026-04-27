@@ -1,0 +1,69 @@
+{
+    "table_id":  "Table_App_10",
+    "title":  "Evaporation factor Kvp",
+    "authority":  "reference",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 10",
+                   "image_ref":  "catalog/tables/Table_App_10/source.png"
+               },
+    "resolution":  "range",
+    "axis":  {
+                 "name":  "n",
+                 "datatype":  "numeric",
+                 "unit_id":  "dimensionless",
+                 "mode":  "interval",
+                 "min_field":  "n_min",
+                 "max_field":  "n_max",
+                 "min_inclusive":  true,
+                 "max_inclusive":  false
+             },
+    "outputs":  [
+                    {
+                        "name":  "kob",
+                        "datatype":  "numeric",
+                        "unit_id":  "dimensionless"
+                    }
+                ],
+    "missing_policy":  "error",
+    "rows":  [
+                 {
+                     "range_id":  "100_plus",
+                     "n_min":  100,
+                     "n_max":  null,
+                     "kob":  1.35
+                 },
+                 {
+                     "range_id":  "80_99",
+                     "n_min":  80,
+                     "n_max":  100,
+                     "kob":  1.5
+                 },
+                 {
+                     "range_id":  "60_79",
+                     "n_min":  60,
+                     "n_max":  80,
+                     "kob":  1.75
+                 },
+                 {
+                     "range_id":  "40_59",
+                     "n_min":  40,
+                     "n_max":  60,
+                     "kob":  2.0
+                 },
+                 {
+                     "range_id":  "30_39",
+                     "n_min":  30,
+                     "n_max":  40,
+                     "kob":  2.25
+                 },
+                 {
+                     "range_id":  "under_30",
+                     "n_min":  null,
+                     "n_max":  30,
+                     "kob":  2.5
+                 }
+             ],
+    "schema_version":  2
+}

@@ -1,0 +1,19 @@
+{
+    "formula_code":  "4.6",
+    "section":  "4_6_other_products_c20",
+    "title_ru":  "Выбросы паров нефтепродуктов, кроме бензинов",
+    "status":  "active",
+    "confidence":  "HIGH",
+    "source_pages":  [
+                         20
+                     ],
+    "shared_tables_used":  [
+                               "Table_App_10",
+                               "Table_App_7",
+                               "Table_App_8"
+                           ],
+    "runtime_differs_from_source":  true,
+    "notes":  [
+
+              ]
+}

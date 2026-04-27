@@ -1,0 +1,108 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "C_tank_max",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_max",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_max"
+        },
+        {
+            "target_variable": "C_tank_oz",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_oz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_oz"
+        },
+        {
+            "target_variable": "C_tank_vl",
+            "table_id": "Table_15_tank",
+            "output_key": "C_tank_vl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_tank -> C_tank_vl"
+        },
+        {
+            "target_variable": "C_ba_max",
+            "table_id": "Table_12",
+            "output_key": "C1",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> C1"
+        },
+        {
+            "target_variable": "C_ba_oz",
+            "table_id": "Table_15_vehicle",
+            "output_key": "C_ba_oz",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_vehicle -> C_ba_oz"
+        },
+        {
+            "target_variable": "C_ba_vl",
+            "table_id": "Table_15_vehicle",
+            "output_key": "C_ba_vl",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_15_vehicle -> C_ba_vl"
+        },
+        {
+            "target_variable": "J",
+            "table_id": "Table_Spill_J",
+            "output_key": "J",
+            "selectors": {
+                "substance": "substance"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Spill_J -> J"
+        },
+        {
+            "target_variable": "Knp",
+            "table_id": "Table_12",
+            "output_key": "Knp",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone"
+            },
+            "axis_input": null,
+            "trace_label": "Table_12 -> Knp"
+        },
+        {
+            "target_variable": "GXP",
+            "table_id": "Table_Appendix_13",
+            "output_key": "GXP",
+            "selectors": {
+                "substance": "substance",
+                "climate_zone": "climate_zone",
+                "tank_type": "tank_type_storage",
+                "tank_volume_cat": "tank_volume_cat"
+            },
+            "axis_input": null,
+            "trace_label": "Table_Appendix_13 -> GXP"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "product_type": {
+        "gasoline_auto": "gasoline",
+        "gasoline": "gasoline",
+        "light": "gasoline",
+        "middle": "crude_oil",
+        "heavy": "crude_oil",
+        "oil_products": "crude_oil",
+        "diesel": "crude_oil",
+        "oils": "crude_oil",
+        "A": "gasoline",
+        "B": "crude_oil",
+        "V": "crude_oil"
+    },
+    "product_group": {
+        "gasoline_auto": "gasoline",
+        "gasoline": "gasoline",
+        "diesel": "oil_products",
+        "oils": "oil_products",
+        "oil_products": "oil_products",
+        "light": "gasoline",
+        "middle": "oil_products",
+        "heavy": "oil_products"
+    },
+    "Table_App_7": {
+        "product_group": {
+            "A": "gasoline",
+            "B": "oil_products",
+            "V": "oil_products",
+            "any": "oil_products"
+        }
+    },
+    "Table_App_8": {
+        "product_group": {
+            "light": "A",
+            "middle": "B",
+            "heavy": "V",
+            "gasoline": "A",
+            "oil_products": "B",
+            "gasoline_auto": "A",
+            "diesel": "B",
+            "oils": "V"
+        },
+        "tank_construction": {
+            "aboveground": "vert"
+        },
+        "ssv_type": {
+            "roof": "float"
+        }
+    }
+}

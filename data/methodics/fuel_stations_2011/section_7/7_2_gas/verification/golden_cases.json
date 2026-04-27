@@ -1,0 +1,73 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "7_2_gas",
+    "formula_code": "7.2",
+    "cases": [
+        {
+            "case_id": "7_2_gas_golden_01",
+            "title": "7.2 baseline runtime scenario",
+            "status": "active",
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "7.2",
+                "page": 34,
+                "image_ref": null
+            },
+            "inputs": {
+                "F_gas": 1,
+                "H_gas": 1,
+                "N_gas": 1,
+                "mu_coeff": 1,
+                "n_gas": 1,
+                "rho_gas": 1,
+                "tau_gas": 1
+            },
+            "expected_outputs": {
+                "G": {
+                    "value": 0.00442944691807002,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "t_per_yr"
+                }
+            },
+            "expected_lookups": {},
+            "expected_equations": [
+                {
+                    "lhs_token": "M",
+                    "equation_order": 1,
+                    "expected": {
+                        "value": 4429.446918070021,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "g_per_s"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G",
+                    "equation_order": 2,
+                    "expected": {
+                        "value": 0.00442944691807002,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                }
+            ]
+        }
+    ]
+}

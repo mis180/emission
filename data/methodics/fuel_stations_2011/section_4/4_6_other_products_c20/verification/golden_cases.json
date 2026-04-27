@@ -1,0 +1,163 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "4_6_other_products_c20",
+    "formula_code": "4.6",
+    "cases": [
+        {
+            "case_id": "4_6_other_products_c20_golden_01",
+            "title": "4.6 baseline runtime scenario",
+            "status": "active",
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "4.6",
+                "page": 20,
+                "image_ref": null
+            },
+            "inputs": {
+                "productBoilGroup": "light",
+                "t_liq_max": -30,
+                "t_liq_min": -30,
+                "B_year": 1,
+                "Vch_max": 1,
+                "rho_liq": 1,
+                "n_turnover": 100,
+                "V_nom": 0,
+                "C20_l": 1,
+                "C20_z": 1,
+                "B_oz": 1,
+                "B_vl": 1,
+                "tank_construction": "vert",
+                "tank_mode_recv": "mernik",
+                "ssv_type": "none",
+                "C20": 1
+            },
+            "expected_outputs": {
+                "M": {
+                    "value": 2.25e-05,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "g_per_s"
+                },
+                "G": {
+                    "value": 1.5309e-07,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "t_per_yr"
+                }
+            },
+            "expected_lookups": {
+                "Kt_max": {
+                    "value": 0.09,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "Kt_min": {
+                    "value": 0.09,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "Kp_max": {
+                    "value": 0.9,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "Kp_avg": {
+                    "value": 0.63,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "Kob": {
+                    "value": 1.35,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                }
+            },
+            "expected_equations": [
+                {
+                    "lhs_token": "M",
+                    "equation_order": 1,
+                    "expected": {
+                        "value": 2.25e-05,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "g_per_s"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G_462",
+                    "equation_order": 2,
+                    "expected": {
+                        "value": 7.6545e-08,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G_463",
+                    "equation_order": 3,
+                    "expected": {
+                        "value": 7.6545e-08,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G",
+                    "equation_order": 4,
+                    "expected": {
+                        "value": 1.5309e-07,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                }
+            ]
+        }
+    ]
+}

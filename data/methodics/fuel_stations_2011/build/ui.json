@@ -1,0 +1,486 @@
+{
+    "questions": [
+        {
+            "variable_id": "B_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "rho_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "V_tank_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "NP_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "n_turnover_calc",
+            "hidden": true
+        },
+        {
+            "variable_id": "productBoilGroup",
+            "required": true
+        },
+        {
+            "variable_id": "P38_src",
+            "required": true
+        },
+        {
+            "variable_id": "Kp_max",
+            "help_text": "Определяется автоматически по Приложению 8.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kp_avg",
+            "help_text": "Определяется автоматически по Приложению 8.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kv",
+            "help_text": "Определяется автоматически по Приложению 9.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kob",
+            "help_text": "Определяется автоматически по Приложению 10.",
+            "hidden": true
+        },
+        {
+            "variable_id": "m_vapor",
+            "hidden": true
+        },
+        {
+            "variable_id": "Vch_max",
+            "required": true
+        },
+        {
+            "variable_id": "B_year",
+            "hidden": true
+        },
+        {
+            "variable_id": "rho_liq",
+            "required": true
+        },
+        {
+            "variable_id": "t_liq_max",
+            "required": true
+        },
+        {
+            "variable_id": "t_liq_min",
+            "required": true
+        },
+        {
+            "variable_id": "Kt_max",
+            "help_text": "Определяется автоматически по Приложению 7.",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kt_min",
+            "help_text": "Определяется автоматически по Приложению 7.",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        },
+        {
+            "variable_id": "t_nk",
+            "required": true
+        },
+        {
+            "variable_id": "n_turnover",
+            "required": true
+        },
+        {
+            "variable_id": "V_nom",
+            "required": true
+        },
+        {
+            "variable_id": "B_oz",
+            "required": true
+        },
+        {
+            "variable_id": "B_vl",
+            "required": true
+        },
+        {
+            "variable_id": "tank_construction",
+            "required": true
+        },
+        {
+            "variable_id": "tank_mode_recv",
+            "required": true
+        },
+        {
+            "variable_id": "ssv_type",
+            "required": true
+        },
+        {
+            "variable_id": "M_total_split",
+            "required": true
+        },
+        {
+            "variable_id": "G_total_split",
+            "required": true
+        },
+        {
+            "variable_id": "C_i_pct",
+            "required": true
+        },
+        {
+            "variable_id": "M_pollutant",
+            "hidden": true
+        },
+        {
+            "variable_id": "G_pollutant",
+            "hidden": true
+        },
+        {
+            "variable_id": "substance_pure",
+            "required": true
+        },
+        {
+            "variable_id": "Pt_min",
+            "hidden": true
+        },
+        {
+            "variable_id": "m_pure",
+            "required": true
+        },
+        {
+            "variable_id": "Pt_max",
+            "hidden": true
+        },
+        {
+            "variable_id": "NP",
+            "integer_only": true,
+            "hidden": true
+        },
+        {
+            "variable_id": "sum_Xi_rhoi",
+            "required": true
+        },
+        {
+            "variable_id": "Pt_i_max",
+            "required": true
+        },
+        {
+            "variable_id": "sum_Xi_mi",
+            "required": true
+        },
+        {
+            "variable_id": "pt_38_mmhg",
+            "required": true
+        },
+        {
+            "variable_id": "Pt_i_min",
+            "required": true
+        },
+        {
+            "variable_id": "X_i",
+            "required": true
+        },
+        {
+            "variable_id": "t_oper_hours",
+            "required": true
+        },
+        {
+            "variable_id": "Kg_min",
+            "hidden": true
+        },
+        {
+            "variable_id": "Kg_max",
+            "hidden": true
+        },
+        {
+            "variable_id": "t_oper_days",
+            "required": true
+        },
+        {
+            "variable_id": "substance_gas",
+            "required": true
+        },
+        {
+            "variable_id": "C20",
+            "required": true
+        },
+        {
+            "variable_id": "C20_l",
+            "required": true
+        },
+        {
+            "variable_id": "C20_z",
+            "required": true
+        },
+        {
+            "variable_id": "substance",
+            "required": true
+        },
+        {
+            "variable_id": "climate_zone",
+            "required": true
+        },
+        {
+            "variable_id": "tank_type_storage",
+            "required": true
+        },
+        {
+            "variable_id": "Knp",
+            "help_text": "Определяется автоматически по Приложению 12 по виду продукта и климатической зоне.",
+            "hidden": true
+        },
+        {
+            "variable_id": "C1",
+            "hidden": true
+        },
+        {
+            "variable_id": "Ghr",
+            "hidden": true
+        },
+        {
+            "variable_id": "Uvl",
+            "hidden": true
+        },
+        {
+            "variable_id": "Uoz",
+            "hidden": true
+        },
+        {
+            "variable_id": "equipType",
+            "help_text": "Для компрессоров в таблице 6.1 заданы значения только для легких фракций и газов.",
+            "required": true
+        },
+        {
+            "variable_id": "equipCount",
+            "integer_only": true,
+            "required": true
+        },
+        {
+            "variable_id": "equipHours",
+            "required": true
+        },
+        {
+            "variable_id": "Q_spec",
+            "help_text": "Определяется автоматически по таблице 6.1 по типу оборудования и группе продукта.",
+            "hidden": true
+        },
+        {
+            "variable_id": "seal_equipment_type",
+            "required": true
+        },
+        {
+            "variable_id": "seal_stream_type",
+            "required": true
+        },
+        {
+            "variable_id": "seal_count",
+            "required": true
+        },
+        {
+            "variable_id": "seal_c_ij_mass",
+            "required": true
+        },
+        {
+            "variable_id": "seal_hours",
+            "required": true
+        },
+        {
+            "variable_id": "seal_g_leak",
+            "hidden": true
+        },
+        {
+            "variable_id": "seal_x_fail",
+            "hidden": true
+        },
+        {
+            "variable_id": "M_seal_kg_h",
+            "hidden": true
+        },
+        {
+            "variable_id": "V_purge",
+            "required": true
+        },
+        {
+            "variable_id": "rho_purge",
+            "required": true
+        },
+        {
+            "variable_id": "n_purge",
+            "required": true
+        },
+        {
+            "variable_id": "k_purge",
+            "required": true
+        },
+        {
+            "variable_id": "c_purge_mass",
+            "required": true
+        },
+        {
+            "variable_id": "phi_purge_hours",
+            "required": true
+        },
+        {
+            "variable_id": "M_purge_kg_h",
+            "hidden": true
+        },
+        {
+            "variable_id": "vessel_type_unorg",
+            "required": true
+        },
+        {
+            "variable_id": "temp_avg_unorg",
+            "required": true
+        },
+        {
+            "variable_id": "F_area",
+            "required": true
+        },
+        {
+            "variable_id": "covering_degree",
+            "help_text": "Выберите степень укрытия (%) для применения понижающего коэффициента z.",
+            "required": true
+        },
+        {
+            "variable_id": "q_sr",
+            "hidden": true
+        },
+        {
+            "variable_id": "z_coeff",
+            "hidden": true
+        },
+        {
+            "variable_id": "n1_norm",
+            "hidden": true
+        },
+        {
+            "variable_id": "n_surface_norm",
+            "hidden": true
+        },
+        {
+            "variable_id": "n2_norm",
+            "hidden": true
+        },
+        {
+            "variable_id": "season_mazut",
+            "required": true
+        },
+        {
+            "variable_id": "V_sl",
+            "required": true
+        },
+        {
+            "variable_id": "t_unload",
+            "required": true
+        },
+        {
+            "variable_id": "Qoz",
+            "required": true
+        },
+        {
+            "variable_id": "Qvl",
+            "required": true
+        },
+        {
+            "variable_id": "C_tank_max",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара.",
+            "hidden": true
+        },
+        {
+            "variable_id": "C_tank_oz",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара.",
+            "hidden": true
+        },
+        {
+            "variable_id": "C_tank_vl",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта, климатической зоне и типу резервуара.",
+            "hidden": true
+        },
+        {
+            "variable_id": "J",
+            "help_text": "Определяется автоматически по Приложению 12 по виду продукта и климатической зоне.",
+            "hidden": true
+        },
+        {
+            "variable_id": "VTRK",
+            "required": true
+        },
+        {
+            "variable_id": "NN",
+            "integer_only": true,
+            "required": true
+        },
+        {
+            "variable_id": "C_ba_max",
+            "help_text": "Определяется автоматически по Приложению 12 по виду продукта и климатической зоне.",
+            "hidden": true
+        },
+        {
+            "variable_id": "C_ba_oz",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта и климатической зоне.",
+            "hidden": true
+        },
+        {
+            "variable_id": "C_ba_vl",
+            "help_text": "Определяется автоматически по Приложению 15 по виду продукта и климатической зоне.",
+            "hidden": true
+        },
+        {
+            "variable_id": "PZV_receive",
+            "help_text": "Укажите процент улавливания паров. Если система отсутствует, оставьте 0."
+        },
+        {
+            "variable_id": "PZV_refuel",
+            "help_text": "Укажите процент улавливания паров. Если система отсутствует, оставьте 0."
+        },
+        {
+            "variable_id": "tank_volume_cat",
+            "help_text": "Выберите объем, ближайший к фактическому значению из Приложения 13."
+        },
+        {
+            "variable_id": "GXP",
+            "help_text": "Определяется автоматически по Приложению 13.",
+            "hidden": true
+        },
+        {
+            "variable_id": "tank_type",
+            "hidden": false,
+            "required": true
+        },
+        {
+            "variable_id": "N_gas",
+            "required": true
+        },
+        {
+            "variable_id": "n_gas",
+            "required": true
+        },
+        {
+            "variable_id": "rho_gas",
+            "required": true
+        },
+        {
+            "variable_id": "H_gas",
+            "required": true
+        },
+        {
+            "variable_id": "mu_coeff",
+            "required": true
+        },
+        {
+            "variable_id": "tau_gas",
+            "required": true
+        },
+        {
+            "variable_id": "F_gas",
+            "required": true
+        }
+    ]
+}

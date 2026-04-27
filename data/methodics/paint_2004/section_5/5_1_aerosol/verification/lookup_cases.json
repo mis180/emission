@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "package_id": "paint_2004",
+  "method_id": "5_1_aerosol",
+  "formula_code": "5.1",
+  "cases": [
+    {
+      "case_id": "paint_5_1_delta_a_lookup_01",
+      "title": "Table 3 pneumatic aerosol loss",
+      "status": "active",
+      "binding_target": "delta_a_pct",
+      "table_id": "table_3_painting_method_loss_factors",
+      "selectors": {
+        "paint_method": "Пневматический"
+      },
+      "output_key": "delta_a_pct",
+      "expected": {
+        "value": 30.0,
+        "unit_id": "pct"
+      }
+    }
+  ]
+}

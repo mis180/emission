@@ -1,0 +1,39 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "6_5_wastewater",
+    "formula_code":  "6.5",
+    "cases":  [
+                  {
+                      "case_id":  "6_5_wastewater_lookup_01",
+                      "title":  "6.5 lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "q_sr",
+                      "table_id":  "Table_6_3",
+                      "output_key":  "q_sr",
+                      "resolution":  "interpolate",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Section 6.3",
+                                       "page":  28,
+                                       "image_ref":  "assets/tables/Table_6_3.png"
+                                   },
+                      "selectors":  {
+                                        "vessel_type":  "oil_trap"
+                                    },
+                      "expected":  {
+                                       "value":  1.294,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0
+                                                     },
+                                       "unit_id":  "g_per_m2_h"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0
+                                    },
+                      "axis_input":  0
+                  }
+              ]
+}

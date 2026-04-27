@@ -1,0 +1,56 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "7_1_refuel",
+    "formula_code":  "7.1_refuel",
+    "cases":  [
+                  {
+                      "case_id":  "7_1_refuel_lookup_01",
+                      "title":  "7.1_refuel lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "C_ba_max",
+                      "table_id":  "Table_12",
+                      "output_key":  "C1",
+                      "resolution":  "exact",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Appendix 12",
+                                       "page":  null,
+                                       "image_ref":  "assets/tables/Table_12.png"
+                                   },
+                      "selectors":  {
+                                        "substance":  "gasoline_auto",
+                                        "climate_zone":  "middle"
+                                    },
+                      "expected":  {
+                                       "value":  972.0,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "g_per_m3"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    }
+                  },
+                  {
+                      "case_id":  "7_1_refuel_lookup_02_unsupported_substance",
+                      "title":  "7.1_refuel blocks unsupported vehicle-table substance",
+                      "status":  "active",
+                      "binding_target":  "C_ba_max",
+                      "table_id":  "Table_12",
+                      "output_key":  "C1",
+                      "resolution":  "exact",
+                      "selectors":  {
+                                        "substance":  "benzene",
+                                        "climate_zone":  "middle"
+                                    },
+                      "expect_error":  true,
+                      "expected_error":  {
+                                             "contains":  "No matching exact row"
+                                         }
+                  }
+              ]
+}

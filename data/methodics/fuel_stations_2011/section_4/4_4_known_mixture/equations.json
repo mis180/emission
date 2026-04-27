@@ -1,0 +1,50 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "4.4.1",
+            "formula_name_ru": "Формула 4.4.1",
+            "lhs_symbol": "M",
+            "rhs_source": "0.445 * Pt_i_max * X_i * Kp_max * Kv * Vch_max / (100 * sum_Xi_mi * (273 + t_liq_max))",
+            "page": 18,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.4.2",
+            "formula_name_ru": "Формула 4.4.2",
+            "lhs_symbol": "G",
+            "rhs_source": "0.16 * (Pt_i_min * Kv + Pt_i_max) * X_i * Kp_avg * Kob * B_year * sum_Xi_rhoi / (10000 * sum_Xi_mi * (546 + t_liq_min + t_liq_max))",
+            "page": 18,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "4.4",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0.445 * Pt_i_max * X_i * Kp_max * Kv * Vch_max / (100 * sum_Xi_mi * (273 + t_liq_max))",
+            "formula_name": "Резервуары: многокомпонентная смесь",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.4.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.4",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "0.16 * (Pt_i_min * Kv + Pt_i_max) * X_i * Kp_avg * Kob * B_year * sum_Xi_rhoi / (10000 * sum_Xi_mi * (546 + t_liq_min + t_liq_max))",
+            "formula_name": "Резервуары: многокомпонентная смесь",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.4.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

@@ -1,0 +1,1098 @@
+{
+    "table_id":  "Table_App_7",
+    "title":  "Evaporation factor Kt",
+    "authority":  "normative",
+    "jurisdiction":  "KZ",
+    "source":  {
+                   "document":  "Prikaz OOS RK 2011 No. 196-O",
+                   "section":  "Appendix 7",
+                   "image_ref":  "catalog/tables/Table_App_7/source.png"
+               },
+    "resolution":  "interpolate",
+    "selectors":  [
+                      {
+                          "name":  "product_group",
+                          "datatype":  "string",
+                          "enum_id":  "product_group"
+                      }
+                  ],
+    "axis":  {
+                 "name":  "t_zh",
+                 "field":  "t_zh",
+                 "datatype":  "numeric",
+                 "mode":  "point",
+                 "unit_id":  "celsius"
+             },
+    "outputs":  [
+                    {
+                        "name":  "kt",
+                        "datatype":  "numeric",
+                        "unit_id":  "dimensionless"
+                    }
+                ],
+    "missing_policy":  "error",
+    "boundary_policy":  "clamp",
+    "rows":  [
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -30,
+                     "kt":  0.09
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -29,
+                     "kt":  0.093
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -28,
+                     "kt":  0.096
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -27,
+                     "kt":  0.1
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -26,
+                     "kt":  0.105
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -25,
+                     "kt":  0.11
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -24,
+                     "kt":  0.115
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -23,
+                     "kt":  0.12
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -22,
+                     "kt":  0.125
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -21,
+                     "kt":  0.13
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -20,
+                     "kt":  0.135
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -19,
+                     "kt":  0.14
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -18,
+                     "kt":  0.145
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -17,
+                     "kt":  0.153
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -16,
+                     "kt":  0.16
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -15,
+                     "kt":  0.165
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -14,
+                     "kt":  0.173
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -13,
+                     "kt":  0.18
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -12,
+                     "kt":  0.185
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -11,
+                     "kt":  0.193
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -10,
+                     "kt":  0.2
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -9,
+                     "kt":  0.21
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -8,
+                     "kt":  0.215
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -7,
+                     "kt":  0.225
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -6,
+                     "kt":  0.235
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -5,
+                     "kt":  0.24
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -4,
+                     "kt":  0.25
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -3,
+                     "kt":  0.26
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -2,
+                     "kt":  0.27
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  -1,
+                     "kt":  0.28
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  0,
+                     "kt":  0.29
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  1,
+                     "kt":  0.3
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  2,
+                     "kt":  0.31
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  3,
+                     "kt":  0.33
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  4,
+                     "kt":  0.34
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  5,
+                     "kt":  0.35
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  6,
+                     "kt":  0.36
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  7,
+                     "kt":  0.375
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  8,
+                     "kt":  0.39
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  9,
+                     "kt":  0.4
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  10,
+                     "kt":  0.42
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  11,
+                     "kt":  0.43
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  12,
+                     "kt":  0.445
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  13,
+                     "kt":  0.46
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  14,
+                     "kt":  0.47
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  15,
+                     "kt":  0.49
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  16,
+                     "kt":  0.5
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  17,
+                     "kt":  0.52
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  18,
+                     "kt":  0.54
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  19,
+                     "kt":  0.56
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  20,
+                     "kt":  0.57
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  21,
+                     "kt":  0.58
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  22,
+                     "kt":  0.6
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  23,
+                     "kt":  0.62
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  24,
+                     "kt":  0.64
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  25,
+                     "kt":  0.66
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  26,
+                     "kt":  0.68
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  27,
+                     "kt":  0.69
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  28,
+                     "kt":  0.71
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  29,
+                     "kt":  0.73
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  30,
+                     "kt":  0.74
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  31,
+                     "kt":  0.76
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  32,
+                     "kt":  0.78
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  33,
+                     "kt":  0.8
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  34,
+                     "kt":  0.82
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  35,
+                     "kt":  0.83
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  36,
+                     "kt":  0.85
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  37,
+                     "kt":  0.87
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  38,
+                     "kt":  0.88
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  39,
+                     "kt":  0.9
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  40,
+                     "kt":  0.91
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  41,
+                     "kt":  0.93
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  42,
+                     "kt":  0.94
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  43,
+                     "kt":  0.96
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  44,
+                     "kt":  0.98
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  45,
+                     "kt":  1.0
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  46,
+                     "kt":  1.02
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  47,
+                     "kt":  1.04
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  48,
+                     "kt":  1.06
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  49,
+                     "kt":  1.08
+                 },
+                 {
+                     "product_group":  "gasoline",
+                     "t_zh":  50,
+                     "kt":  1.1
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -30,
+                     "kt":  0.135
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -3,
+                     "kt":  0.435
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  24,
+                     "kt":  1.15
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  51,
+                     "kt":  2.58
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  78,
+                     "kt":  4.9
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -29,
+                     "kt":  0.14
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -2,
+                     "kt":  0.45
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  25,
+                     "kt":  1.2
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  52,
+                     "kt":  2.6
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  79,
+                     "kt":  5.0
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -28,
+                     "kt":  0.15
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -1,
+                     "kt":  0.47
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  26,
+                     "kt":  1.23
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  53,
+                     "kt":  2.7
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  80,
+                     "kt":  5.08
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -27,
+                     "kt":  0.153
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  0,
+                     "kt":  0.49
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  27,
+                     "kt":  1.25
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  54,
+                     "kt":  2.78
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  81,
+                     "kt":  5.1
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -26,
+                     "kt":  0.165
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  1,
+                     "kt":  0.52
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  28,
+                     "kt":  1.3
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  55,
+                     "kt":  2.88
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  82,
+                     "kt":  5.15
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -25,
+                     "kt":  0.17
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  2,
+                     "kt":  0.53
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  29,
+                     "kt":  1.35
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  56,
+                     "kt":  2.9
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  83,
+                     "kt":  5.51
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -24,
+                     "kt":  0.175
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  3,
+                     "kt":  0.55
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  30,
+                     "kt":  1.4
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  57,
+                     "kt":  3.0
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  84,
+                     "kt":  5.58
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -23,
+                     "kt":  0.183
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  4,
+                     "kt":  0.57
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  31,
+                     "kt":  1.43
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  58,
+                     "kt":  3.08
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  85,
+                     "kt":  5.6
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -22,
+                     "kt":  0.19
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  5,
+                     "kt":  0.59
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  32,
+                     "kt":  1.48
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  59,
+                     "kt":  3.15
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  86,
+                     "kt":  5.8
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -21,
+                     "kt":  0.2
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  6,
+                     "kt":  0.62
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  33,
+                     "kt":  1.5
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  60,
+                     "kt":  3.2
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  87,
+                     "kt":  5.9
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -20,
+                     "kt":  0.21
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  7,
+                     "kt":  0.64
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  34,
+                     "kt":  1.55
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  61,
+                     "kt":  3.3
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  88,
+                     "kt":  6.0
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -19,
+                     "kt":  0.22
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  8,
+                     "kt":  0.66
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  35,
+                     "kt":  1.6
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  62,
+                     "kt":  3.4
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  89,
+                     "kt":  6.1
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -18,
+                     "kt":  0.23
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  9,
+                     "kt":  0.69
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  36,
+                     "kt":  1.65
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  63,
+                     "kt":  3.5
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  90,
+                     "kt":  6.2
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -17,
+                     "kt":  0.24
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  10,
+                     "kt":  0.72
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  37,
+                     "kt":  1.7
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  64,
+                     "kt":  3.55
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  91,
+                     "kt":  6.3
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -16,
+                     "kt":  0.255
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  11,
+                     "kt":  0.74
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  38,
+                     "kt":  1.75
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  65,
+                     "kt":  3.6
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  92,
+                     "kt":  6.4
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -15,
+                     "kt":  0.26
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  12,
+                     "kt":  0.77
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  39,
+                     "kt":  1.8
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  66,
+                     "kt":  3.7
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  93,
+                     "kt":  6.6
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -14,
+                     "kt":  0.27
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  13,
+                     "kt":  0.8
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  40,
+                     "kt":  1.88
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  67,
+                     "kt":  3.8
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  94,
+                     "kt":  6.7
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -13,
+                     "kt":  0.28
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  14,
+                     "kt":  0.82
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  41,
+                     "kt":  1.93
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  68,
+                     "kt":  3.9
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  95,
+                     "kt":  6.8
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -12,
+                     "kt":  0.29
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  15,
+                     "kt":  0.85
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  42,
+                     "kt":  1.97
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  69,
+                     "kt":  4.0
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  96,
+                     "kt":  7.0
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -11,
+                     "kt":  0.3
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  16,
+                     "kt":  0.87
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  43,
+                     "kt":  2.02
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  70,
+                     "kt":  4.1
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  97,
+                     "kt":  7.1
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -10,
+                     "kt":  0.32
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  17,
+                     "kt":  0.9
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  44,
+                     "kt":  2.09
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  71,
+                     "kt":  4.2
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  98,
+                     "kt":  7.2
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -9,
+                     "kt":  0.335
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  18,
+                     "kt":  0.94
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  45,
+                     "kt":  2.15
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  72,
+                     "kt":  4.3
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  99,
+                     "kt":  7.3
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -8,
+                     "kt":  0.35
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  19,
+                     "kt":  0.97
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  46,
+                     "kt":  2.2
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  73,
+                     "kt":  4.4
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  100,
+                     "kt":  7.4
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -7,
+                     "kt":  0.365
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  20,
+                     "kt":  1.0
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  47,
+                     "kt":  2.25
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  74,
+                     "kt":  4.5
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -6,
+                     "kt":  0.39
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  21,
+                     "kt":  1.03
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  48,
+                     "kt":  2.35
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  75,
+                     "kt":  4.6
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -5,
+                     "kt":  0.4
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  22,
+                     "kt":  1.08
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  49,
+                     "kt":  2.4
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  76,
+                     "kt":  4.7
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  -4,
+                     "kt":  0.42
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  23,
+                     "kt":  1.1
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  50,
+                     "kt":  2.5
+                 },
+                 {
+                     "product_group":  "oil_products",
+                     "t_zh":  77,
+                     "kt":  4.8
+                 }
+             ],
+    "schema_version":  2
+}

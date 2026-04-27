@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "package_id": "paint_2004",
+  "method_id": "5_2_volatile_gross",
+  "formula_code": "5.2",
+  "cases": [
+    {
+      "case_id": "paint_pf115_pneumatic_xylol_gross",
+      "title": "ПФ-115, ксилол, валовый выброс",
+      "status": "active",
+      "evidence": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5.2",
+        "page": 8,
+        "image_ref": null
+      },
+      "inputs": {
+        "material_key": "эмали_пф_115",
+        "paint_method": "Пневматический",
+        "pollutant_key": "0616",
+        "m_f_tpy": 8,
+        "eta_cleaning": 0
+      },
+      "expected_outputs": {
+        "M_comp_paint_tpy": {
+          "value": 0.45,
+          "unit_id": "t_per_yr"
+        },
+        "M_comp_dry_tpy": {
+          "value": 1.35,
+          "unit_id": "t_per_yr"
+        },
+        "M_comp_total_tpy": {
+          "value": 1.8,
+          "unit_id": "t_per_yr"
+        }
+      },
+      "expected_lookups": {
+        "fr_pct": {
+          "value": 45.0,
+          "unit_id": "pct"
+        },
+        "delta_r_paint_pct": {
+          "value": 25.0,
+          "unit_id": "pct"
+        },
+        "delta_r_dry_pct": {
+          "value": 75.0,
+          "unit_id": "pct"
+        },
+        "delta_x_pct": {
+          "value": 50.0,
+          "unit_id": "pct"
+        }
+      }
+    }
+  ]
+}

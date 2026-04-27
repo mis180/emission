@@ -1,0 +1,39 @@
+{
+    "schema_version":  1,
+    "package_id":  "fuel_stations_2011",
+    "method_id":  "6_2_equipment",
+    "formula_code":  "6.2",
+    "cases":  [
+                  {
+                      "case_id":  "6_2_equipment_lookup_01",
+                      "title":  "6.2 lookup baseline",
+                      "status":  "active",
+                      "binding_target":  "Q_spec",
+                      "table_id":  "Table_6_1",
+                      "output_key":  "Q_spec",
+                      "resolution":  "exact",
+                      "evidence":  {
+                                       "document":  "Prikaz OOS RK 2011 No. 196-O",
+                                       "section":  "Section 6.1",
+                                       "page":  23,
+                                       "image_ref":  "assets/tables/Table_6_1.png"
+                                   },
+                      "selectors":  {
+                                        "equipment":  "hx_shell_tube_tube",
+                                        "product_group":  "light"
+                                    },
+                      "expected":  {
+                                       "value":  0.2,
+                                       "tolerance":  {
+                                                         "abs":  1E-12,
+                                                         "rel":  0.0
+                                                     },
+                                       "unit_id":  "kg_per_h"
+                                   },
+                      "tolerance":  {
+                                        "abs":  1E-12,
+                                        "rel":  0.0
+                                    }
+                  }
+              ]
+}

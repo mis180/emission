@@ -3,22 +3,87 @@
  * Handbook Table Modal Logic
  */
 let _currentHandbookTable = null;
-async function openHandbookModal(tableId) {
+let _currentHandbookImagePath = null;
+
+function normalizeHandbookAssetPath(path) {
+    return String(path || '').replace(/\\/g, '/').replace(/\/+$/, '');
+}
+
+function getHandbookImagePath(table) {
+    if (!table || !state.methodicPath) return null;
+
+    // 0. Shared Catalog Evidence (New Model)
+    if (table.source && table.source.image_ref) {
+        let ref = table.source.image_ref;
+        // If it's a bundled asset, it lives in the build/ directory
+        if (ref.startsWith('assets/')) {
+            ref = 'build/' + ref;
+        }
+        return `${normalizeHandbookAssetPath(state.methodicPath)}/${ref}`;
+    }
+
+    // A: Support data-driven evidence mapping (Legacy/Systematic)
+    if (table.evidence && table.evidence.image) {
+        return `${normalizeHandbookAssetPath(state.methodicPath)}/lookup_tables/${table.evidence.image}`;
+    }
+
+    // B: Support explicit image field (Legacy)
+    if (table.image) {
+        return `${normalizeHandbookAssetPath(state.methodicPath)}/lookup_tables/${table.image}`;
+    }
+
+    const tableId = table.table_id || table.id || '';
+    let appendixNumber = null;
+
+    // C: Robust pattern matching for Appendix-based tables
+    const appendixMatch = tableId.match(/^Table_App_(\d+)/i) || 
+                         tableId.match(/^Table_Appendix_(\d+)/i) ||
+                         tableId.match(/^App_(\d+)/i);
+
+    if (appendixMatch) {
+        appendixNumber = appendixMatch[1];
+    } else if (/^Table_12/i.test(tableId)) {
+        appendixNumber = '12';
+    } else if (/^Table_15/i.test(tableId)) {
+        appendixNumber = '15';
+    }
+
+    if (!appendixNumber) return null;
+    return `${normalizeHandbookAssetPath(state.methodicPath)}/lookup_tables/app_${appendixNumber}.png`;
+}
+
+function handbookImageExists(path) {
+    return new Promise((resolve) => {
+        if (!path) {
+            resolve(false);
+            return;
+        }
+
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = encodeURI(path);
+    });
+}
+
+async function openHandbookModal(tableId, startWithImage = false) {
     if (!tableId || !state.methodicData || !state.methodicData.tables) return;
-    
-    // Find table in unified format: tables.tables[]
+
     const tablesArray = state.methodicData.tables.tables || [];
-    let table = tablesArray.find(t => t.id === tableId);
-    
-    // Try alternate ID formats
+    let table = tablesArray.find(t => t.table_id === tableId || t.id === tableId);
+
     if (!table) {
         table = tablesArray.find(t => t.id === `Table-${tableId}`) ||
-                tablesArray.find(t => t.id === `table_${tableId}`) ||
-                tablesArray.find(t => t.id === tableId.replace('-', '_'));
+            tablesArray.find(t => t.id === `table_${tableId}`) ||
+            tablesArray.find(t => t.id === tableId.replace('-', '_')) ||
+            tablesArray.find(t => t.table_id === tableId);
     }
-    
+
     _currentHandbookTable = table;
-    if (!table || !table.data || table.data.length === 0) {
+    _currentHandbookImagePath = null;
+    let forceImage = startWithImage;
+
+    if (!table || !table.rows) {
         showToast(`Таблица "${tableId}" не найдена или пуста.`, 'danger');
         return;
     }
@@ -27,49 +92,144 @@ async function openHandbookModal(tableId) {
     const container = document.getElementById('handbook-table-container');
     const titleEl = document.getElementById('handbook-title');
 
-    const title = table.title || table.id;
-    const lookupType = table.lookup_type || 'exact';
-    const sourceDoc = table.source ? (typeof table.source === 'string' ? table.source : table.source.document || '') : '';
-    const columns = Object.keys(table.data[0]);
-    const rowCount = table.data.length;
+    const title = table.title || table.id || table.table_id;
+    const lookupType = table.resolution || 'exact';
+    const sourceDoc = table.source
+        ? (typeof table.source === 'string' ? table.source : table.source.document || '')
+        : '';
+    const tableData = table.rows;
+    const columns = tableData && tableData.length > 0 ? Object.keys(tableData[0]) : [];
+    const rowCount = tableData ? tableData.length : 0;
+    const tableKey = table.table_id || table.id || tableId;
 
-    titleEl.innerHTML = `${escapeHTML(title)} <span style="font-size:0.75em; color:#64748b; font-weight:400; margin-left:12px;">${escapeHTML(tableId)} &bull; ${escapeHTML(lookupType)} &bull; ${rowCount} rows${sourceDoc ? ' &bull; ' + escapeHTML(sourceDoc) : ''}</span>`;
-    
-    // State for sorting
     let sortCol = null;
     let sortAsc = true;
     let searchQuery = '';
 
-    function renderTable() {
-        let filteredData = table.data;
+    modal.style.display = 'flex';
+    container.innerHTML = '<div style="padding:24px; color:#64748b;">Загрузка справочника...</div>';
 
-        // Apply search filter
+    const candidateImagePath = getHandbookImagePath(table);
+    const hasImage = candidateImagePath ? await handbookImageExists(candidateImagePath) : false;
+    _currentHandbookImagePath = hasImage ? candidateImagePath : null;
+
+    function renderHeader() {
+        const evidenceSection = (table.source && table.source.section)
+            ? table.source.section
+            : ((table.source && table.source.page) ? `стр. ${table.source.page}` : null);
+        const evidenceDoc = (table.source && table.source.document) ? table.source.document : '';
+        
+        const pdfRef = (state.methodicData && state.methodicData.meta && state.methodicData.meta.source_pdf)
+            ? state.methodicData.meta.source_pdf
+            : 'reference/2011_fuel_stations.pdf';
+        
+        const pdfs = Array.isArray(pdfRef) ? pdfRef : [pdfRef];
+        const pdfLink = `${normalizeHandbookAssetPath(state.methodicPath)}/${pdfs[0]}`;
+
+        const activeTab = (_currentHandbookImagePath && (forceImage || !tableData || tableData.length === 0)) ? 'image' : 'table';
+        const tabs = hasImage ? `
+            <div class="handbook-tabs" style="display:flex; border-bottom:1px solid #e2e8f0; margin: 12px 0;">
+                <div class="handbook-tab ${activeTab === 'table' ? 'active' : ''}" 
+                     onclick="forceImage=false; renderHeader(); renderTableView();" 
+                     style="padding:8px 16px; cursor:pointer; font-weight:600; font-size:0.9rem; border-bottom:2px solid ${activeTab === 'table' ? '#3b82f6' : 'transparent'}; color:${activeTab === 'table' ? '#3b82f6' : '#64748b'};">
+                     📊 Данные
+                </div>
+                <div class="handbook-tab ${activeTab === 'image' ? 'active' : ''}" 
+                     onclick="forceImage=true; renderHeader(); renderImageView();" 
+                     style="padding:8px 16px; cursor:pointer; font-weight:600; font-size:0.9rem; border-bottom:2px solid ${activeTab === 'image' ? '#3b82f6' : 'transparent'}; color:${activeTab === 'image' ? '#3b82f6' : '#64748b'};">
+                     🖼️ Изображение
+                </div>
+            </div>
+        ` : '';
+
+        titleEl.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; width:100%;">
+                <div>
+                    ${escapeHTML(title)}
+                    <span style="font-size:0.75em; color:#64748b; font-weight:400; margin-left:12px;">
+                        ${escapeHTML(tableKey)} &bull; ${escapeHTML(lookupType)} &bull; ${rowCount} rows
+                        ${sourceDoc || evidenceDoc ? ' &bull; ' + escapeHTML(sourceDoc || evidenceDoc) : ''}
+                        ${evidenceSection ? ' &bull; ' + escapeHTML(evidenceSection) : ''}
+                    </span>
+                </div>
+                <div>
+                    <a href="${pdfLink}" target="_blank" class="btn btn-secondary" style="font-size:0.8rem; padding:6px 12px; text-decoration:none; display:flex; align-items:center; gap:8px;">
+                        <span>📄</span> PDF
+                    </a>
+                </div>
+            </div>
+            ${tabs}
+        `;
+    }
+
+    function renderImageView() {
+        if (!_currentHandbookImagePath) {
+            renderHeader();
+            renderTableView();
+            return;
+        }
+
+        const encodedPath = encodeURI(_currentHandbookImagePath);
+
+        container.innerHTML = `
+            <div style="border:1px solid #e2e8f0; border-radius:16px; background:#f8fafc; padding:16px; overflow:auto;">
+                <img
+                    src="${encodedPath}"
+                    alt="${escapeHTML(title)}"
+                    style="display:block; max-width:100%; height:auto; margin:0 auto; border-radius:10px; box-shadow:0 12px 32px rgba(15, 23, 42, 0.12);"
+                >
+            </div>
+        `;
+
+        const imageEl = container.querySelector('img');
+        if (imageEl) {
+            imageEl.addEventListener('error', () => {
+                _currentHandbookImagePath = null;
+                renderHeader();
+                renderTableView();
+            }, { once: true });
+        }
+    }
+
+    function renderTableView() {
+        let filteredData = tableData;
+
         if (searchQuery) {
-            const q = searchQuery.toLowerCase();
-            filteredData = filteredData.filter(row => 
-                columns.some(col => String(row[col] ?? '').toLowerCase().includes(q))
+            const query = searchQuery.toLowerCase();
+            filteredData = filteredData.filter(row =>
+                columns.some(col => String(row[col] ?? '').toLowerCase().includes(query))
             );
         }
 
-        // Apply sort
         if (sortCol) {
             filteredData = [...filteredData].sort((a, b) => {
-                let va = a[sortCol], vb = b[sortCol];
-                if (typeof va === 'number' && typeof vb === 'number') {
-                    return sortAsc ? va - vb : vb - va;
+                const valueA = a[sortCol];
+                const valueB = b[sortCol];
+                if (typeof valueA === 'number' && typeof valueB === 'number') {
+                    return sortAsc ? valueA - valueB : valueB - valueA;
                 }
-                return sortAsc 
-                    ? String(va ?? '').localeCompare(String(vb ?? '')) 
-                    : String(vb ?? '').localeCompare(String(va ?? ''));
+                return sortAsc
+                    ? String(valueA ?? '').localeCompare(String(valueB ?? ''))
+                    : String(valueB ?? '').localeCompare(String(valueA ?? ''));
             });
         }
 
-        // Determine which columns are input_keys vs output_keys
-        const inputKeys = new Set(table.input_keys || []);
-        const outputKeys = new Set(table.output_keys || []);
+        const inputKeys = new Set(
+            (table.selectors || []).map(k => typeof k === 'string' ? k : k.name)
+        );
+        if (table.axis) inputKeys.add(table.axis.name);
+
+        const outputKeys = new Set(
+            (table.outputs || []).map(o => typeof o === 'string' ? o : o.name)
+        );
+
+        const unitsMap = {};
+        if (table.outputs) table.outputs.forEach(output => { unitsMap[output.name] = output.unit_id; });
+        if (table.selectors) table.selectors.forEach(key => { unitsMap[key.name] = key.unit_id; });
+        if (table.axis) unitsMap[table.axis.name] = table.axis.unit_id;
 
         let html = `<div style="display:flex; gap:12px; margin-bottom:16px; align-items:center;">
-            <input type="text" id="handbook-search" placeholder="Поиск по таблице..." value="${searchQuery}" 
+            <input type="text" id="handbook-search" placeholder="Поиск по таблице..." value="${escapeHTML(searchQuery)}"
                 style="flex:1; padding:8px 12px; border:1px solid #e2e8f0; border-radius:8px; font-size:0.9rem;">
             <span style="font-size:0.85rem; color:#64748b;">${filteredData.length} из ${rowCount} строк</span>
         </div>`;
@@ -79,28 +239,33 @@ async function openHandbookModal(tableId) {
         columns.forEach(col => {
             const isInput = inputKeys.has(col);
             const isOutput = outputKeys.has(col);
+            const unit = unitsMap[col];
             const sortIndicator = sortCol === col ? (sortAsc ? ' ▲' : ' ▼') : '';
-            const colStyle = isInput ? 'background:#eff6ff; color:#1d4ed8;' : 
-                            (isOutput ? 'background:#f0fdf4; color:#166534;' : '');
-            html += `<th data-col="${col}" style="cursor:pointer; padding:8px 10px; border-bottom:2px solid #e2e8f0; text-align:left; user-select:none; ${colStyle} font-weight:600; white-space:nowrap;">
-                ${col}${sortIndicator}
+            const colStyle = isInput
+                ? 'background:#eff6ff; color:#1d4ed8;'
+                : (isOutput ? 'background:#f0fdf4; color:#166534;' : '');
+
+            html += `<th data-col="${escapeHTML(col)}" style="cursor:pointer; padding:12px 10px; border-bottom:2px solid #e2e8f0; text-align:left; user-select:none; ${colStyle} font-weight:600; white-space:nowrap;">
+                ${escapeHTML(col)}${sortIndicator}
                 ${isInput ? ' <span style="font-size:0.7em; opacity:0.7;">[key]</span>' : ''}
                 ${isOutput ? ' <span style="font-size:0.7em; opacity:0.7;">[out]</span>' : ''}
+                ${unit ? `<div style="font-size:0.7rem; font-weight:400; opacity:0.6;">${escapeHTML(unit)}</div>` : ''}
             </th>`;
         });
         html += '</tr></thead><tbody>';
 
-        filteredData.forEach((row, rowIdx) => {
-            // Find original row index in table.data for editing
-            const origIdx = table.data.indexOf(row);
-            html += `<tr style="border-bottom:1px solid #f1f5f9;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background=''">`;
+        filteredData.forEach(row => {
+            const originalIndex = tableData.indexOf(row);
+            html += '<tr style="border-bottom:1px solid #f1f5f9;" onmouseover="this.style.background=\'#f8fafc\'" onmouseout="this.style.background=\'\'">';
             columns.forEach(col => {
-                const val = row[col];
-                const displayVal = val == null ? '—' : val;
+                const value = row[col];
+                const displayValue = value == null ? '—' : escapeHTML(value);
                 const isEditable = outputKeys.has(col) || inputKeys.has(col);
-                html += `<td style="padding:6px 10px; ${isEditable ? 'cursor:pointer;' : ''}" 
-                    ${isEditable ? `ondblclick="handbookEditCell(this, ${origIdx}, '${col}')" title="Двойной клик для редактирования"` : ''}>
-                    ${displayVal}
+                const safeColumn = JSON.stringify(col);
+
+                html += `<td style="padding:6px 10px; ${isEditable ? 'cursor:pointer;' : ''}"
+                    ${isEditable ? `ondblclick='handbookEditCell(this, ${originalIndex}, ${safeColumn})' title="Двойной клик для редактирования"` : ''}>
+                    ${displayValue}
                 </td>`;
             });
             html += '</tr>';
@@ -109,20 +274,18 @@ async function openHandbookModal(tableId) {
         html += '</tbody></table>';
 
         container.innerHTML = html;
+        container.scrollTop = 0;
 
-        // Wire search
         const searchInput = document.getElementById('handbook-search');
         if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                searchQuery = e.target.value;
-                renderTable();
+            searchInput.addEventListener('input', event => {
+                searchQuery = event.target.value;
+                renderTableView();
             });
-            // Refocus and restore cursor position
             searchInput.focus();
             searchInput.setSelectionRange(searchQuery.length, searchQuery.length);
         }
 
-        // Wire column header sort
         container.querySelectorAll('th[data-col]').forEach(th => {
             th.addEventListener('click', () => {
                 const col = th.getAttribute('data-col');
@@ -132,13 +295,21 @@ async function openHandbookModal(tableId) {
                     sortCol = col;
                     sortAsc = true;
                 }
-                renderTable();
+                renderTableView();
             });
         });
     }
 
-    renderTable();
-    modal.style.display = 'flex';
+    function renderActiveView() {
+        if (_currentHandbookImagePath && (forceImage || !tableData)) {
+            renderImageView();
+        } else {
+            renderTableView();
+        }
+    }
+
+    renderHeader();
+    renderActiveView();
 }
 
 /**
@@ -147,18 +318,17 @@ async function openHandbookModal(tableId) {
  * Changes update state.methodicData.tables in memory (session only).
  */
 function handbookEditCell(td, rowIndex, colName) {
-    if (!_currentHandbookTable || !_currentHandbookTable.data) return;
-    
-    const targetTable = _currentHandbookTable;
-    if (!targetTable.data[rowIndex]) return;
+    if (!_currentHandbookTable) return;
+    const tableData = _currentHandbookTable.rows;
+    if (!tableData || !tableData[rowIndex]) return;
 
-    const currentVal = targetTable.data[rowIndex][colName];
+    const currentVal = tableData[rowIndex][colName];
     const input = document.createElement('input');
     input.type = typeof currentVal === 'number' ? 'number' : 'text';
     input.step = 'any';
     input.value = currentVal ?? '';
     input.style.cssText = 'width:100%; padding:4px; border:2px solid #3B82F6; border-radius:4px; font-size:0.85rem; background:#eff6ff;';
-    
+
     td.textContent = '';
     td.appendChild(input);
     input.focus();
@@ -167,18 +337,18 @@ function handbookEditCell(td, rowIndex, colName) {
     const commit = () => {
         const newVal = input.type === 'number' ? parseFloat(input.value) : input.value;
         if (!isNaN(newVal) || input.type === 'text') {
-            targetTable.data[rowIndex][colName] = input.type === 'number' ? newVal : input.value;
+            tableData[rowIndex][colName] = input.type === 'number' ? newVal : input.value;
             td.textContent = input.type === 'number' ? newVal : input.value;
-            td.style.background = '#fef3c7';  // Yellow tint to show modified
+            td.style.background = '#fef3c7';
             td.title = `Изменено (было: ${currentVal})`;
-            
-            // Re-run lookups in case this table data affects current calculations
+
             if (state.methodicData && state.inputs) {
                 Wizard.runAutoLookups(state.methodicData, state.inputs);
-                updateLookupValuesUI();
-                renderLookupProvenancePanel();
+                if (typeof runCalculationsAndRenderResults === 'function' && currentStep === 5) {
+                    runCalculationsAndRenderResults();
+                }
             }
-            showToast(`Значение обновлено: ${colName} = ${input.type === 'number' ? newVal : input.value}`, 'info');
+            showToast(`Значение обновлено: ${colName} = ${td.textContent}`, 'info');
         } else {
             td.textContent = currentVal ?? '—';
         }
@@ -190,5 +360,3 @@ function handbookEditCell(td, rowIndex, colName) {
         if (e.key === 'Escape') { td.textContent = currentVal ?? '—'; }
     });
 }
-
-

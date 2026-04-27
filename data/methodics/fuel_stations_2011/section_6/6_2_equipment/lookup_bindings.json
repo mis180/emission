@@ -1,0 +1,16 @@
+{
+    "schema_version": 2,
+    "bindings": [
+        {
+            "target_variable": "Q_spec",
+            "table_id": "Table_6_1",
+            "output_key": "Q_spec",
+            "selectors": {
+                "equipment": "equipType",
+                "product_group": "productBoilGroup"
+            },
+            "axis_input": null,
+            "trace_label": "Table_6_1 -> Q_spec"
+        }
+    ]
+}

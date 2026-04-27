@@ -1,0 +1,17 @@
+{
+    "formula_code":  "6.6",
+    "section":  "6_6_sludge",
+    "title_ru":  "Выбросы от шламонакопителей",
+    "status":  "active",
+    "confidence":  "HIGH",
+    "source_pages":  [
+                         30
+                     ],
+    "shared_tables_used":  [
+                               "Table_6_5"
+                           ],
+    "runtime_differs_from_source":  true,
+    "notes":  [
+
+              ]
+}

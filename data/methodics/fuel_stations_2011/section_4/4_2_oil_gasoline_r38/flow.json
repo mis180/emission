@@ -1,0 +1,28 @@
+{
+    "formula_code": "4.2",
+    "variables": [
+        "P38_src",
+        "t_nk",
+        "B_vl",
+        "Kt_min",
+        "Kp_max",
+        "Kp_avg",
+        "tank_mode_recv",
+        "n_turnover",
+        "V_nom",
+        "Kob",
+        "ssv_type",
+        "rho_liq",
+        "B_oz",
+        "t_liq_min",
+        "m_vapor",
+        "t_liq_max",
+        "Kv",
+        "productBoilGroup",
+        "Kt_max",
+        "tank_construction",
+        "Vch_max",
+        "B_year"
+    ],
+    "label": "Формула 4.2 - Нефть/Бензин"
+}

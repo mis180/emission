@@ -1,0 +1,18 @@
+{
+    "formula_code": "6.3",
+    "section": "6.3",
+    "title_ru": "Stationary seals and flange-like connections",
+    "status": "active",
+    "confidence": "HIGH",
+    "source_pages": [
+        24,
+        25
+    ],
+    "shared_tables_used": [
+        "Table_6_2"
+    ],
+    "runtime_differs_from_source": true,
+    "notes": [
+        "Runtime adds M in g/s and annual G from operating hours; source 6.3.1 is kg/h for one component/stream aggregation."
+    ]
+}

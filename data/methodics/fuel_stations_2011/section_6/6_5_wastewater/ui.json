@@ -1,0 +1,37 @@
+{
+    "questions": [
+        {
+            "variable_id": "vessel_type_unorg",
+            "required": true
+        },
+        {
+            "variable_id": "temp_avg_unorg",
+            "required": true
+        },
+        {
+            "variable_id": "F_area",
+            "required": true
+        },
+        {
+            "variable_id": "covering_degree",
+            "help_text": "Выберите степень укрытия (%) для применения понижающего коэффициента z.",
+            "required": true
+        },
+        {
+            "variable_id": "q_sr",
+            "hidden": true
+        },
+        {
+            "variable_id": "z_coeff",
+            "hidden": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        }
+    ]
+}

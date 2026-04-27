@@ -1,0 +1,50 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "5.2.1",
+            "formula_name_ru": "Формула 5.2.1",
+            "lhs_symbol": "M",
+            "rhs_source": "C1 * Kp_max * Vch_max / 3600",
+            "page": 21,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "5.2.2",
+            "formula_name_ru": "Формула 5.2.2",
+            "lhs_symbol": "G",
+            "rhs_source": "(Uoz * B_oz + Uvl * B_vl) * Kp_avg * 0.000001 + Ghr * Knp * NP",
+            "page": 21,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "5.2",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "C1 * Kp_max * Vch_max / 3600",
+            "formula_name": "Резервуары и сливные эстакады",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "5.2.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "5.2",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "(Uoz * B_oz + Uvl * B_vl) * Kp_avg * 0.000001 + Ghr * Knp * NP",
+            "formula_name": "Резервуары и сливные эстакады",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "5.2.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

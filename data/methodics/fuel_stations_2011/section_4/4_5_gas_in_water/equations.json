@@ -1,0 +1,50 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "4.5.1",
+            "formula_name_ru": "Формула 4.5.1",
+            "lhs_symbol": "M",
+            "rhs_source": "0.08 * Kg_max * X_i * Kp_max * Vch_max / (273 + t_liq_max)",
+            "page": 19,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.5.2",
+            "formula_name_ru": "Формула 4.5.2",
+            "lhs_symbol": "G",
+            "rhs_source": "0.289 * (Kg_min + Kg_max) * X_i * Kp_avg * Vch_max * t_oper_days * t_oper_hours / (1000 * (546 + t_liq_min + t_liq_max))",
+            "page": 19,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "4.5",
+            "equation_order": 1,
+            "lhs_token": "M",
+            "rhs": "0.08 * Kg_max * X_i * Kp_max * Vch_max / (273 + t_liq_max)",
+            "formula_name": "Резервуары: газ, растворенный в воде",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.5.1"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        },
+        {
+            "formula_code": "4.5",
+            "equation_order": 2,
+            "lhs_token": "G",
+            "rhs": "0.289 * (Kg_min + Kg_max) * X_i * Kp_avg * Vch_max * t_oper_days * t_oper_hours / (1000 * (546 + t_liq_min + t_liq_max))",
+            "formula_name": "Резервуары: газ, растворенный в воде",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.5.2"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": true
+        }
+    ]
+}

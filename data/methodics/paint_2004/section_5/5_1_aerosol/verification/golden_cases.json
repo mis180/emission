@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "package_id": "paint_2004",
+  "method_id": "5_1_aerosol",
+  "formula_code": "5.1",
+  "cases": [
+    {
+      "case_id": "paint_pf115_pneumatic_aerosol",
+      "title": "ПФ-115, пневматическая окраска, аэрозоль",
+      "status": "active",
+      "evidence": {
+        "document": "РНД 211.2.02.05-2004",
+        "section": "5.1",
+        "page": 8,
+        "image_ref": null
+      },
+      "inputs": {
+        "material_key": "эмали_пф_115",
+        "paint_method": "Пневматический",
+        "m_f_tpy": 8,
+        "m_m_kgph": 20,
+        "K_os": 0.8,
+        "eta_cleaning": 0
+      },
+      "expected_outputs": {
+        "M_aerosol_gross_tpy": {
+          "value": 1.056,
+          "unit_id": "t_per_yr"
+        },
+        "M_aerosol_max_gps": {
+          "value": 0.7333333333333333,
+          "unit_id": "g_per_s"
+        }
+      },
+      "expected_lookups": {
+        "fr_pct": {
+          "value": 45.0,
+          "unit_id": "pct"
+        },
+        "delta_a_pct": {
+          "value": 30.0,
+          "unit_id": "pct"
+        }
+      }
+    }
+  ]
+}

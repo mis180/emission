@@ -59,12 +59,13 @@ const GraphResolver = (() => {
      * 
      * @param {Array} variablesList - From variables.json
      * @param {Array} equationsList - From equations.json (active_equations)
+     * @param {Array} lookupBindingsList - From lookup_bindings.json
      * @returns {Object} Graph { nodes: { id: { type, id, deps, payload } } }
      */
-    function buildGraph(variablesList, equationsList) {
+    function buildGraph(variablesList, equationsList, lookupBindingsList) {
         const nodes = {};
 
-        // 1. Add lookup nodes
+        // 1. Add lookup nodes (Variables)
         if (variablesList) {
             variablesList.forEach(v => {
                 if (v.auto_lookup) {
@@ -75,6 +76,34 @@ const GraphResolver = (() => {
                         payload: v
                     };
                 }
+            });
+        }
+
+        // 1b. Add lookup nodes (Bindings - takes precedence or adds missing)
+        if (lookupBindingsList) {
+            lookupBindingsList.forEach(b => {
+                const target = b.target_variable;
+                // Bindings allow us to resolve variables that might not have auto_lookup in metadata
+                const deps = new Set();
+                const selectorMap = b.selectors || b.keys;
+                if (selectorMap) {
+                    Object.values(selectorMap).forEach(k => {
+                        if (Array.isArray(k)) k.forEach(v => deps.add(v));
+                        else deps.add(k);
+                    });
+                }
+                if (b.axis_input) {
+                    if (Array.isArray(b.axis_input)) b.axis_input.forEach(v => deps.add(v));
+                    else deps.add(b.axis_input);
+                }
+                
+                nodes[target] = {
+                    id: target,
+                    type: 'LOOKUP',
+                    deps: Array.from(deps),
+                    payload: b,
+                    is_binding: true
+                };
             });
         }
 
@@ -137,6 +166,15 @@ const GraphResolver = (() => {
 
         const sorted = [];
         while (queue.length > 0) {
+            // Sort queue by equation_order to ensure stable/predictable execution order for independent nodes
+            queue.sort((a, b) => {
+                const nodeA = graphNodes[a];
+                const nodeB = graphNodes[b];
+                const orderA = (nodeA.payload && nodeA.payload.equation_order) || 999;
+                const orderB = (nodeB.payload && nodeB.payload.equation_order) || 999;
+                return orderA - orderB;
+            });
+
             const current = queue.shift();
             sorted.push(graphNodes[current]);
 
@@ -160,14 +198,16 @@ const GraphResolver = (() => {
 
     /**
      * Primary entry point. Returns an ordered list of tasks (Lookups & Equations).
+     * @returns {Object} { plan: Array, error: String|null }
      */
-    function getExecutionPlan(variablesList, activeEquations) {
-        const graph = buildGraph(variablesList, activeEquations);
+    function getExecutionPlan(variablesList, activeEquations, lookupBindingsList) {
+        const graph = buildGraph(variablesList, activeEquations, lookupBindingsList);
         try {
-            return resolveOrder(graph);
+            const plan = resolveOrder(graph);
+            return { plan, error: null };
         } catch (e) {
             console.error("[GraphResolver] Topological sort failed:", e);
-            return []; // Fail gracefully, maybe fallback
+            return { plan: [], error: e.message };
         }
     }
 

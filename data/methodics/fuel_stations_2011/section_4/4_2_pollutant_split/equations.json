@@ -1,0 +1,54 @@
+{
+    "source_equations": [
+        {
+            "eq_id": "4.2.4",
+            "formula_name_ru": "Formula 4.2.4",
+            "lhs_symbol": "M_i",
+            "rhs_source": "M * C_i / 100",
+            "page": 17,
+            "source_document": "Order 196-oe"
+        },
+        {
+            "eq_id": "4.2.5",
+            "formula_name_ru": "Formula 4.2.5",
+            "lhs_symbol": "G_i",
+            "rhs_source": "G * C_i / 100",
+            "page": 17,
+            "source_document": "Order 196-oe"
+        }
+    ],
+    "runtime_equations": [
+        {
+            "formula_code": "4.2_split",
+            "equation_order": 1,
+            "lhs_token": "M_pollutant",
+            "rhs": "M_total_split * C_i_pct / 100",
+            "latex": "M_i = M * C_i / 100",
+            "formula_name": "Pollutant maximum emission split",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.4"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false,
+            "output_type": "M"
+        },
+        {
+            "formula_code": "4.2_split",
+            "equation_order": 2,
+            "lhs_token": "G_pollutant",
+            "rhs": "G_total_split * C_i_pct / 100",
+            "latex": "G_i = G * C_i / 100",
+            "formula_name": "Pollutant annual emission split",
+            "confidence": "TRUSTED",
+            "status": "active",
+            "source_equation_ids": [
+                "4.2.5"
+            ],
+            "runtime_scope": "calculator_safe_subset",
+            "derived_runtime_only": false,
+            "output_type": "G"
+        }
+    ]
+}

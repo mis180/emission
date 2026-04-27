@@ -1,0 +1,101 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_6_sludge",
+    "formula_code": "6.6",
+    "cases": [
+        {
+            "case_id": "6_6_sludge_golden_01",
+            "title": "6.6 baseline runtime scenario",
+            "status": "active",
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.6",
+                "page": 30,
+                "image_ref": null
+            },
+            "inputs": {
+                "F_area": 10,
+                "season_mazut": "spring_summer"
+            },
+            "expected_outputs": {
+                "M": {
+                    "value": 0.01111111111111111,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "g_per_s"
+                },
+                "G": {
+                    "value": 0.3024,
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    },
+                    "unit_id": "t_per_yr"
+                }
+            },
+            "expected_lookups": {
+                "n_surface_norm": {
+                    "value": 2.88,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "n1_norm": {
+                    "value": 2.16,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                },
+                "n2_norm": {
+                    "value": 2.88,
+                    "tolerance": {
+                        "abs": 1e-12,
+                        "rel": 0.0
+                    },
+                    "unit_id": "dimensionless"
+                }
+            },
+            "expected_equations": [
+                {
+                    "lhs_token": "M",
+                    "equation_order": 1,
+                    "expected": {
+                        "value": 0.01111111111111111,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "g_per_s"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                },
+                {
+                    "lhs_token": "G",
+                    "equation_order": 2,
+                    "expected": {
+                        "value": 0.3024,
+                        "tolerance": {
+                            "abs": 1e-09,
+                            "rel": 1e-09
+                        },
+                        "unit_id": "t_per_yr"
+                    },
+                    "tolerance": {
+                        "abs": 1e-09,
+                        "rel": 1e-09
+                    }
+                }
+            ]
+        }
+    ]
+}

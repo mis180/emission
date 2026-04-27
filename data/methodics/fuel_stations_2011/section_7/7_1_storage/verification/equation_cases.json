@@ -1,0 +1,45 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "7_1_storage",
+    "formula_code": "7.1_storage",
+    "cases": [
+        {
+            "case_id": "7_1_storage_equation_01",
+            "title": "7.1_storage equation G",
+            "status": "active",
+            "source_equation_ids": [
+                "7.1_storage.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "7.1_storage",
+                "page": 33,
+                "image_ref": null
+            },
+            "inputs": {
+                "substance": "gasoline_auto",
+                "climate_zone": "middle",
+                "tank_type_storage": "underground",
+                "NP": 1,
+                "tank_volume_cat": "100"
+            },
+            "target": {
+                "lhs_token": "G",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.066,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "t_per_yr"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

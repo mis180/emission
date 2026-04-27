@@ -1,0 +1,40 @@
+{
+    "questions": [
+        {
+            "variable_id": "N_gas",
+            "required": true
+        },
+        {
+            "variable_id": "n_gas",
+            "required": true
+        },
+        {
+            "variable_id": "rho_gas",
+            "required": true
+        },
+        {
+            "variable_id": "G",
+            "hidden": true
+        },
+        {
+            "variable_id": "H_gas",
+            "required": true
+        },
+        {
+            "variable_id": "mu_coeff",
+            "required": true
+        },
+        {
+            "variable_id": "tau_gas",
+            "required": true
+        },
+        {
+            "variable_id": "F_gas",
+            "required": true
+        },
+        {
+            "variable_id": "M",
+            "hidden": true
+        }
+    ]
+}

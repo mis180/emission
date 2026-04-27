@@ -1,0 +1,45 @@
+{
+    "schema_version": 1,
+    "package_id": "fuel_stations_2011",
+    "method_id": "6_3_stationary_seals",
+    "formula_code": "6.3",
+    "cases": [
+        {
+            "case_id": "6_3_stationary_seals_equation_01",
+            "title": "6.3.1 equation M_nyj",
+            "status": "active",
+            "source_equation_ids": [
+                "6.3.1"
+            ],
+            "evidence": {
+                "document": "Order 196-oe",
+                "section": "6.3",
+                "page": 24,
+                "image_ref": null
+            },
+            "inputs": {
+                "seal_g_leak": 0.020988,
+                "seal_x_fail": 0.293,
+                "seal_count": 10,
+                "seal_c_ij_mass": 0.5,
+                "seal_hours": 1000
+            },
+            "target": {
+                "lhs_token": "M_seal_kg_h",
+                "equation_order": 1
+            },
+            "expected": {
+                "value": 0.03074742,
+                "tolerance": {
+                    "abs": 1e-09,
+                    "rel": 1e-09
+                },
+                "unit_id": "kg_per_h"
+            },
+            "tolerance": {
+                "abs": 1e-09,
+                "rel": 1e-09
+            }
+        }
+    ]
+}

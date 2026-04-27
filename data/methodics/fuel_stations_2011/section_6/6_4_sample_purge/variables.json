@@ -1,0 +1,129 @@
+{
+    "variables": [
+        {
+            "id": "V_purge",
+            "token": "V_purge",
+            "label": "Sample receiver volume for product i, m3",
+            "latex": "V_{pr,i}",
+            "datatype": "numeric",
+            "unit_id": "m3",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "rho_purge",
+            "token": "rho_purge",
+            "label": "Density of sampled product, kg/m3",
+            "latex": "\\rho_i",
+            "datatype": "numeric",
+            "unit_id": "kg_per_m3",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "n_purge",
+            "token": "n_purge",
+            "label": "Number of product sample withdrawals during analyzed period",
+            "latex": "n_i",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "k_purge",
+            "token": "k_purge",
+            "label": "Purge multiplicity k",
+            "latex": "k_i",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "c_purge_mass",
+            "token": "c_purge_mass",
+            "label": "Mass concentration of pollutant j, fraction",
+            "latex": "C_{ij}",
+            "datatype": "numeric",
+            "unit_id": "dimensionless",
+            "min": 0,
+            "max": 1,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "phi_purge_hours",
+            "token": "phi_purge_hours",
+            "label": "Analyzed operating period phi, h",
+            "latex": "\\phi_i",
+            "datatype": "numeric",
+            "unit_id": "h",
+            "min": 0,
+            "category": "input",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "M_purge_kg_h",
+            "token": "M_purge_kg_h",
+            "label": "Average purge emission for pollutant j, kg/h",
+            "latex": "M_{pr,j}",
+            "datatype": "numeric",
+            "unit_id": "kg_per_h",
+            "category": "calculated",
+            "source_token_aliases": [
+                "M_prj"
+            ],
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "M",
+            "token": "M",
+            "label": "Maximum pollutant emission, g/s",
+            "datatype": "numeric",
+            "unit_id": "g_per_s",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        },
+        {
+            "id": "G",
+            "token": "G",
+            "label": "Emission during analyzed period, t/period",
+            "datatype": "numeric",
+            "unit_id": "t_per_yr",
+            "category": "calculated",
+            "source_ref": {
+                "document": "Order 196-oe",
+                "section": "6.4.1"
+            }
+        }
+    ]
+}
