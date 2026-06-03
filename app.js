@@ -86,70 +86,8 @@ async function init() {
         showToast('Произошла системная ошибка: ' + (event.reason.message || event.reason), 'danger');
     });
 
-    // Check initial auth state
-    supabaseClient.auth.getSession().then(({ data: { session } }) => {
-        if (!session) {
-            // Not logged in, the auth state listener will handle showing the login screen
-            console.log('No active session.');
-        } else {
-            console.log('Active session found.');
-            // auth listener will handle the rest
-        }
-    });
-}
-
-/**
- * AUTHENTICATION HANDLERS
- */
-async function handleLogin() {
-    const email = document.getElementById('auth-email').value;
-    const password = document.getElementById('auth-password').value;
-    const errorEl = document.getElementById('auth-error');
-    errorEl.style.display = 'none';
-
-    if (!email || !password) {
-        errorEl.textContent = 'Введите email и пароль';
-        errorEl.style.display = 'block';
-        return;
-    }
-
-    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-    
-    if (error) {
-        errorEl.textContent = 'Ошибка: ' + error.message;
-        errorEl.style.display = 'block';
-    }
-}
-
-async function handleSignup() {
-    const email = document.getElementById('auth-email').value;
-    const password = document.getElementById('auth-password').value;
-    const errorEl = document.getElementById('auth-error');
-    errorEl.style.display = 'none';
-
-    if (!email || !password) {
-        errorEl.textContent = 'Введите email и пароль';
-        errorEl.style.display = 'block';
-        return;
-    }
-
-    const { data, error } = await supabaseClient.auth.signUp({ email, password });
-    
-    if (error) {
-        errorEl.textContent = 'Ошибка: ' + error.message;
-        errorEl.style.display = 'block';
-    } else {
-        if (data.user && data.user.identities && data.user.identities.length === 0) {
-            errorEl.textContent = 'Этот email уже зарегистрирован. Выполните вход.';
-            errorEl.style.display = 'block';
-        } else {
-             showToast('Аккаунт создан! Теперь вы в системе.', 'info');
-        }
-    }
-}
-
-async function handleLogout() {
-    await supabaseClient.auth.signOut();
+    // Display the landing screen since auth is removed
+    document.getElementById('landing-screen').style.display = 'flex';
 }
 
 /**
